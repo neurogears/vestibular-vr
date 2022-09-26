@@ -1,0 +1,11 @@
+(module OEPS_logo (layer F.Cu) (tedit 5CAA4DCA)
+  (fp_text reference REF** (at 0.5 1) (layer F.SilkS) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value OEPS_logo (at 8.5 1.5) (layer F.Fab) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text user "OEPS-Open Ephys Production Site" (at 11.5 -0.5) (layer F.SilkS)
+    (effects (font (size 1 1) (thickness 0.25)))
+  )
+)

@@ -1,0 +1,3021 @@
+EESchema Schematic File Version 4
+LIBS:FPS-2_v1_revB_II-cache
+EELAYER 30 0
+EELAYER END
+$Descr A3 16535 11693
+encoding utf-8
+Sheet 5 5
+Title "FPS-2: Fiber Photometry System"
+Date "February 2020"
+Rev "v1_revB-I"
+Comp "Neurophotometric"
+Comment1 ""
+Comment2 ""
+Comment3 "FPS-2"
+Comment4 "OpenEhys"
+$EndDescr
+Text Notes 765  1010 0    118  ~ 24
+>>PhotoDiodes input Interface
+$Comp
+L Device:C C?
+U 1 1 5E377B49
+P 3920 1810
+AR Path="/5D861EB3/5DEAE301/5E377B49" Ref="C?"  Part="1" 
+AR Path="/5D861EB3/5E377B49" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E377B49" Ref="C72"  Part="1" 
+F 0 "C72" H 4035 1856 50  0000 L CNN
+F 1 "100n" H 4035 1765 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3958 1660 50  0001 C CNN
+F 3 "~" H 3920 1810 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 3920 1810 50  0001 C CNN "Description"
+F 5 "" H 3920 1810 50  0001 C CNN "Distributor"
+F 6 "" H 3920 1810 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 3920 1810 50  0001 C CNN "Comment"
+F 8 "" H 3920 1810 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 3920 1810 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 3920 1810 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 3920 1810 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 3920 1810 50  0001 C CNN "MnfctCode"
+F 13 "-" H 3920 1810 50  0001 C CNN "Comment2"
+	1    3920 1810
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5E377B50
+P 3990 1530
+AR Path="/5E377B50" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5E377B50" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5DEAE301/5E377B50" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E377B50" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E377B50" Ref="#PWR064"  Part="1" 
+F 0 "#PWR064" H 3990 1380 50  0001 C CNN
+F 1 "+1V8" H 4005 1703 50  0000 C CNN
+F 2 "" H 3990 1530 50  0001 C CNN
+F 3 "" H 3990 1530 50  0001 C CNN
+	1    3990 1530
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2420 1630 2420 1530
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E377B57
+P 2420 1530
+AR Path="/5D861EB3/5DEAE301/5E377B57" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E377B57" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E377B57" Ref="#PWR025"  Part="1" 
+F 0 "#PWR025" H 2420 1380 50  0001 C CNN
+F 1 "+3.3V" H 2435 1703 50  0000 C CNN
+F 2 "" H 2420 1530 50  0001 C CNN
+F 3 "" H 2420 1530 50  0001 C CNN
+	1    2420 1530
+	1    0    0    -1  
+$EndComp
+Connection ~ 2620 1630
+Wire Wire Line
+	2620 1630 2420 1630
+Wire Wire Line
+	2620 1630 2870 1630
+Wire Wire Line
+	2620 1680 2620 1630
+Wire Wire Line
+	2870 1830 2870 1630
+$Comp
+L Device:C C?
+U 1 1 5E377B6E
+P 2620 1830
+AR Path="/5D861EB3/5DEAE301/5E377B6E" Ref="C?"  Part="1" 
+AR Path="/5D861EB3/5E377B6E" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E377B6E" Ref="C58"  Part="1" 
+F 0 "C58" H 2345 1880 50  0000 L CNN
+F 1 "100n" H 2320 1780 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 2658 1680 50  0001 C CNN
+F 3 "~" H 2620 1830 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 2620 1830 50  0001 C CNN "Description"
+F 5 "" H 2620 1830 50  0001 C CNN "Distributor"
+F 6 "" H 2620 1830 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 2620 1830 50  0001 C CNN "Comment"
+F 8 "" H 2620 1830 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 2620 1830 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 2620 1830 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 2620 1830 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 2620 1830 50  0001 C CNN "MnfctCode"
+F 13 "-" H 2620 1830 50  0001 C CNN "Comment2"
+	1    2620 1830
+	1    0    0    -1  
+$EndComp
+Text Notes 1080 1460 0    71   ~ 14
+> 1V8 power stage
+$Comp
+L FPS-2_v1:TCR2LF U33
+U 1 1 5DFD779A
+P 3340 1730
+F 0 "U33" H 3340 2097 50  0000 C CNN
+F 1 "TCR2LF" H 3340 2006 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:TSOT-23-5" H 3380 1480 50  0001 C CIN
+F 3 "" H 3340 1230 50  0001 C CNN
+F 4 "LDO Voltage Regulators CMOS Point Regulator Single Output" H 3340 1730 50  0001 C CNN "Description"
+F 5 "1.8V fixed output; CERTIFICAR DIV RESISTIVO- É NECESSÀRIO??" H 3340 1730 50  0001 C CNN "Comment"
+F 6 "-" H 3340 1730 50  0001 C CNN "Comment2"
+F 7 "TCR2EF18LMCT" H 3340 1730 50  0001 C CNN "MnfctCode"
+F 8 "Mouser" H 3340 1730 50  0001 C CNN "Provider"
+F 9 "757-TCR2EF18LMCT" H 3340 1730 50  0001 C CNN "ProviderCode"
+F 10 "Toshiba" H 3340 1730 50  0001 C CNN "Mnfct"
+	1    3340 1730
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9500 7760 9570 7760
+Connection ~ 9500 7760
+Wire Wire Line
+	9500 7690 9500 7760
+Wire Wire Line
+	9350 7760 9500 7760
+Connection ~ 9350 7760
+Wire Wire Line
+	9020 7760 9350 7760
+Wire Wire Line
+	9350 7820 9350 7760
+Wire Wire Line
+	9020 7810 9020 7760
+Wire Wire Line
+	9020 8150 9020 8110
+Wire Wire Line
+	9570 8360 9570 7760
+Wire Wire Line
+	9850 8360 9570 8360
+Wire Wire Line
+	9850 8390 9850 8360
+Wire Wire Line
+	1520 3910 1800 3910
+Connection ~ 1520 3910
+Wire Wire Line
+	1520 4040 1520 3910
+Wire Wire Line
+	1140 3910 1520 3910
+Wire Wire Line
+	1140 4040 1140 3910
+Wire Wire Line
+	9850 9190 9850 9270
+Wire Wire Line
+	9010 3740 9010 3660
+Connection ~ 9500 3300
+Wire Wire Line
+	9500 3300 9500 3240
+Connection ~ 9280 3300
+Wire Wire Line
+	9280 3300 9500 3300
+Wire Wire Line
+	9280 3360 9280 3300
+Wire Wire Line
+	9500 3880 9780 3880
+Wire Wire Line
+	9500 3880 9500 3300
+Wire Wire Line
+	9280 3710 9280 3660
+Wire Wire Line
+	9780 3930 9780 3880
+Wire Wire Line
+	9800 3690 9800 3630
+Wire Wire Line
+	9930 3280 9930 3230
+Connection ~ 9930 3280
+Wire Wire Line
+	9800 3280 9930 3280
+Wire Wire Line
+	9800 3330 9800 3280
+Wire Wire Line
+	9930 3930 9930 3280
+$Comp
+L Device:C C?
+U 1 1 5E377914
+P 9800 3480
+AR Path="/5D861EB3/5E377914" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E377914" Ref="C73"  Part="1" 
+F 0 "C73" H 9630 3570 50  0000 L CNN
+F 1 "4.7u 16V" H 9625 3380 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 9838 3330 50  0001 C CNN
+F 3 "~" H 9800 3480 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 16V 4.7uF X6S 10% T: 0.8mm" H 9800 3480 50  0001 C CNN "Description"
+F 5 "" H 9800 3480 50  0001 C CNN "Distributor"
+F 6 "" H 9800 3480 50  0001 C CNN "PartNumb"
+F 7 "Multilayer Ceramic SMD 0603 16V 4.7uF X6S" H 9800 3480 50  0001 C CNN "Comment"
+F 8 "C1608X6S1C475K080AC " H 9800 3480 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 9800 3480 50  0001 C CNN "Provider"
+F 10 "810-C1608X6S1C475K" H 9800 3480 50  0001 C CNN "ProviderCode"
+F 11 "-" H 9800 3480 50  0001 C CNN "Comment2"
+F 12 "TDK" H 9800 3480 50  0001 C CNN "Mnfct"
+	1    9800 3480
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10300 3690 10300 3630
+Wire Wire Line
+	10080 3880 10080 3930
+Connection ~ 10080 3880
+Wire Wire Line
+	10080 3880 10970 3880
+Connection ~ 10080 3300
+Wire Wire Line
+	10080 3300 10080 3880
+Wire Wire Line
+	10080 3230 10080 3300
+Wire Wire Line
+	10300 3300 10080 3300
+Wire Wire Line
+	10300 3330 10300 3300
+Wire Wire Line
+	10970 4130 10970 3880
+Wire Wire Line
+	10830 4130 10970 4130
+Wire Wire Line
+	10480 4130 10530 4130
+Wire Wire Line
+	10480 4230 10480 4130
+Wire Wire Line
+	10430 4230 10480 4230
+Wire Wire Line
+	10980 4530 10430 4530
+Wire Wire Line
+	10980 4430 10430 4430
+Wire Wire Line
+	10980 4330 10430 4330
+Wire Wire Line
+	9780 4830 9780 4730
+Wire Wire Line
+	9220 4430 9280 4430
+Wire Wire Line
+	9220 4610 9220 4430
+Wire Wire Line
+	4620 4780 4620 4720
+Wire Wire Line
+	2600 4110 2600 4330
+Wire Wire Line
+	1420 6200 1700 6200
+Connection ~ 1420 6200
+Wire Wire Line
+	1040 6200 1420 6200
+Wire Wire Line
+	1420 6260 1420 6200
+Wire Wire Line
+	1040 6260 1040 6200
+Wire Wire Line
+	2500 6550 2500 6320
+Wire Wire Line
+	4620 7010 4620 6950
+Wire Wire Line
+	4620 6650 4620 6550
+Wire Wire Line
+	10150 6120 11000 6120
+Wire Wire Line
+	10150 5530 10150 6120
+Connection ~ 10150 5530
+Wire Wire Line
+	10380 5530 10150 5530
+Wire Wire Line
+	10380 5560 10380 5530
+Wire Wire Line
+	10150 6120 10150 6150
+Connection ~ 10150 6120
+Wire Wire Line
+	10150 5450 10150 5530
+$Comp
+L Device:C C?
+U 1 1 5DEED5C3
+P 10380 5710
+AR Path="/5D861EB3/5DEED5C3" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5DEED5C3" Ref="C114"  Part="1" 
+F 0 "C114" H 10410 5805 50  0000 L CNN
+F 1 "100n" H 10430 5625 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 10418 5560 50  0001 C CNN
+F 3 "~" H 10380 5710 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 10380 5710 50  0001 C CNN "Description"
+F 5 "" H 10380 5710 50  0001 C CNN "Distributor"
+F 6 "" H 10380 5710 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 10380 5710 50  0001 C CNN "Comment"
+F 8 "" H 10380 5710 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 10380 5710 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 10380 5710 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 10380 5710 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 10380 5710 50  0001 C CNN "MnfctCode"
+F 13 "-" H 10380 5710 50  0001 C CNN "Comment2"
+	1    10380 5710
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10380 5910 10380 5860
+Wire Wire Line
+	11000 6350 11000 6120
+Wire Wire Line
+	10880 6350 11000 6350
+Wire Wire Line
+	9340 5910 9340 5860
+Wire Wire Line
+	9340 5520 9510 5520
+Connection ~ 9340 5520
+Wire Wire Line
+	9340 5560 9340 5520
+Wire Wire Line
+	9510 5520 9510 5450
+Connection ~ 9510 5520
+Wire Wire Line
+	9030 5520 9340 5520
+Wire Wire Line
+	9550 5520 9510 5520
+Wire Wire Line
+	9550 6100 9550 5520
+Wire Wire Line
+	9850 6100 9550 6100
+Wire Wire Line
+	9850 6150 9850 6100
+Wire Wire Line
+	9880 5910 9880 5850
+Wire Wire Line
+	10000 5470 10000 5440
+Connection ~ 10000 5470
+Wire Wire Line
+	9880 5470 10000 5470
+Wire Wire Line
+	9880 5550 9880 5470
+Wire Wire Line
+	10000 6150 10000 5470
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5DEED4FB
+P 10000 5440
+AR Path="/5DEED4FB" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5DEED4FB" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5DEED4FB" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5DEED4FB" Ref="#PWR0249"  Part="1" 
+F 0 "#PWR0249" H 10000 5290 50  0001 C CNN
+F 1 "+1V8" H 9875 5565 50  0000 C CNN
+F 2 "" H 10000 5440 50  0001 C CNN
+F 3 "" H 10000 5440 50  0001 C CNN
+	1    10000 5440
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5DEED5D7
+P 9880 5700
+AR Path="/5D861EB3/5DEED5D7" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5DEED5D7" Ref="C113"  Part="1" 
+F 0 "C113" H 9670 5790 50  0000 L CNN
+F 1 "4.7u 16V" H 9705 5600 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 9918 5550 50  0001 C CNN
+F 3 "~" H 9880 5700 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 16V 4.7uF X6S 10% T: 0.8mm" H 9880 5700 50  0001 C CNN "Description"
+F 5 "" H 9880 5700 50  0001 C CNN "Distributor"
+F 6 "" H 9880 5700 50  0001 C CNN "PartNumb"
+F 7 "Multilayer Ceramic SMD 0603 16V 4.7uF X6S" H 9880 5700 50  0001 C CNN "Comment"
+F 8 "C1608X6S1C475K080AC " H 9880 5700 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 9880 5700 50  0001 C CNN "Provider"
+F 10 "810-C1608X6S1C475K" H 9880 5700 50  0001 C CNN "ProviderCode"
+F 11 "-" H 9880 5700 50  0001 C CNN "Comment2"
+F 12 "TDK" H 9880 5700 50  0001 C CNN "Mnfct"
+	1    9880 5700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10550 6350 10580 6350
+Wire Wire Line
+	10550 6450 10550 6350
+Wire Wire Line
+	10500 6450 10550 6450
+Wire Wire Line
+	10500 6550 11020 6550
+Wire Wire Line
+	9850 7030 9850 6950
+Wire Wire Line
+	9310 6650 9350 6650
+Wire Wire Line
+	9310 6830 9310 6650
+Wire Wire Line
+	8880 6450 9350 6450
+Connection ~ 8880 6450
+Wire Wire Line
+	8880 6580 8880 6450
+Wire Wire Line
+	4960 6090 4960 6350
+Wire Wire Line
+	5150 6350 4960 6350
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E377B10
+P 5490 3410
+AR Path="/5E377B10" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5E377B10" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E377B10" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E377B10" Ref="#PWR060"  Part="1" 
+F 0 "#PWR060" H 5490 3260 50  0001 C CNN
+F 1 "+3.3V" H 5505 3583 50  0000 C CNN
+F 2 "" H 5490 3410 50  0001 C CNN
+F 3 "" H 5490 3410 50  0001 C CNN
+	1    5490 3410
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5E377AF4
+P 6190 3680
+AR Path="/5E377AF4" Ref="C?"  Part="1" 
+AR Path="/5DBB6556/5E377AF4" Ref="C?"  Part="1" 
+AR Path="/5D861EB3/5E377AF4" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E377AF4" Ref="C68"  Part="1" 
+F 0 "C68" H 6305 3726 50  0000 L CNN
+F 1 "10u 16V" H 6030 3590 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6228 3530 50  0001 C CNN
+F 3 "~" H 6190 3680 50  0001 C CNN
+F 4 "MLayer CerCap SMD 0805 16VDC 10uF 20% X5R" H 6190 3680 50  0001 C CNN "Description"
+F 5 "" H 6190 3680 50  0001 C CNN "Distributor"
+F 6 "" H 6190 3680 50  0001 C CNN "PartNumb"
+F 7 "-" H 6190 3680 50  0001 C CNN "Comment"
+F 8 "EMK212ABJ106MG-T" H 6190 3680 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 6190 3680 50  0001 C CNN "Provider"
+F 10 "963-EMK212ABJ106MG-T" H 6190 3680 50  0001 C CNN "ProviderCode"
+F 11 "-" H 6190 3680 50  0001 C CNN "Comment2"
+F 12 "Taiyo Yuden" H 6190 3680 50  0001 C CNN "Mnfct"
+	1    6190 3680
+	1    0    0    -1  
+$EndComp
+Text Label 8720 6450 2    50   ~ 0
+PhotodiodeLP_470nm
+Wire Wire Line
+	1010 8600 1010 8520
+Wire Wire Line
+	1390 8520 1670 8520
+Connection ~ 1390 8520
+Wire Wire Line
+	1390 8600 1390 8520
+Wire Wire Line
+	1010 8520 1390 8520
+Wire Wire Line
+	4620 9250 4620 9190
+Wire Wire Line
+	4620 8890 4620 8790
+Wire Wire Line
+	4620 8790 4620 8670
+Wire Wire Line
+	10000 7750 10000 7690
+Connection ~ 10000 7750
+Wire Wire Line
+	9870 7750 10000 7750
+Wire Wire Line
+	9870 7800 9870 7750
+Wire Wire Line
+	10000 8390 10000 7750
+$Comp
+L Device:C C?
+U 1 1 5DF68A01
+P 9870 7950
+AR Path="/5D861EB3/5DF68A01" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5DF68A01" Ref="C110"  Part="1" 
+F 0 "C110" H 9660 8040 50  0000 L CNN
+F 1 "4.7u 16V" H 9695 7850 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 9908 7800 50  0001 C CNN
+F 3 "~" H 9870 7950 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 16V 4.7uF X6S 10% T: 0.8mm" H 9870 7950 50  0001 C CNN "Description"
+F 5 "" H 9870 7950 50  0001 C CNN "Distributor"
+F 6 "" H 9870 7950 50  0001 C CNN "PartNumb"
+F 7 "Multilayer Ceramic SMD 0603 16V 4.7uF X6S" H 9870 7950 50  0001 C CNN "Comment"
+F 8 "C1608X6S1C475K080AC " H 9870 7950 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 9870 7950 50  0001 C CNN "Provider"
+F 10 "810-C1608X6S1C475K" H 9870 7950 50  0001 C CNN "ProviderCode"
+F 11 "-" H 9870 7950 50  0001 C CNN "Comment2"
+F 12 "TDK" H 9870 7950 50  0001 C CNN "Mnfct"
+	1    9870 7950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9870 8150 9870 8100
+Wire Wire Line
+	10990 8350 10990 8590
+Wire Wire Line
+	10990 8590 10880 8590
+Wire Wire Line
+	10150 8350 10150 8390
+Connection ~ 10150 8350
+Wire Wire Line
+	10150 8350 10990 8350
+Wire Wire Line
+	10150 7760 10150 8350
+Connection ~ 10150 7760
+Wire Wire Line
+	10370 7760 10150 7760
+Wire Wire Line
+	10370 7790 10370 7760
+Wire Wire Line
+	10150 7695 10150 7760
+$Comp
+L Device:C C?
+U 1 1 5DF689ED
+P 10370 7940
+AR Path="/5D861EB3/5DF689ED" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5DF689ED" Ref="C112"  Part="1" 
+F 0 "C112" H 10485 7986 50  0000 L CNN
+F 1 "100n" H 10485 7895 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 10408 7790 50  0001 C CNN
+F 3 "~" H 10370 7940 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 10370 7940 50  0001 C CNN "Description"
+F 5 "" H 10370 7940 50  0001 C CNN "Distributor"
+F 6 "" H 10370 7940 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 10370 7940 50  0001 C CNN "Comment"
+F 8 "" H 10370 7940 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 10370 7940 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 10370 7940 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 10370 7940 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 10370 7940 50  0001 C CNN "MnfctCode"
+F 13 "-" H 10370 7940 50  0001 C CNN "Comment2"
+	1    10370 7940
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10370 8150 10370 8090
+Wire Wire Line
+	10580 8690 10580 8590
+Wire Wire Line
+	10500 8690 10580 8690
+Wire Wire Line
+	10500 8790 11100 8790
+Wire Wire Line
+	8870 8690 9350 8690
+Connection ~ 8870 8690
+Wire Wire Line
+	8870 8820 8870 8690
+Wire Wire Line
+	9300 8890 9300 9070
+Wire Wire Line
+	9350 8890 9300 8890
+$Comp
+L Device:C C?
+U 1 1 5DFA0940
+P 6150 8150
+AR Path="/5DFA0940" Ref="C?"  Part="1" 
+AR Path="/5DBB6556/5DFA0940" Ref="C?"  Part="1" 
+AR Path="/5D861EB3/5DFA0940" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5DFA0940" Ref="C115"  Part="1" 
+F 0 "C115" H 5850 8160 50  0000 L CNN
+F 1 "10u 16V" H 5990 8040 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6188 8000 50  0001 C CNN
+F 3 "~" H 6150 8150 50  0001 C CNN
+F 4 "MLayer CerCap SMD 0805 16VDC 10uF 20% X5R" H 6150 8150 50  0001 C CNN "Description"
+F 5 "" H 6150 8150 50  0001 C CNN "Distributor"
+F 6 "" H 6150 8150 50  0001 C CNN "PartNumb"
+F 7 "-" H 6150 8150 50  0001 C CNN "Comment"
+F 8 "EMK212ABJ106MG-T" H 6150 8150 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 6150 8150 50  0001 C CNN "Provider"
+F 10 "963-EMK212ABJ106MG-T" H 6150 8150 50  0001 C CNN "ProviderCode"
+F 11 "-" H 6150 8150 50  0001 C CNN "Comment2"
+F 12 "Taiyo Yuden" H 6150 8150 50  0001 C CNN "Mnfct"
+	1    6150 8150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5DFA0927
+P 5520 7910
+AR Path="/5DFA0927" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5DFA0927" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5DFA0927" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5DFA0927" Ref="#PWR0252"  Part="1" 
+F 0 "#PWR0252" H 5520 7760 50  0001 C CNN
+F 1 "+3.3V" H 5535 8083 50  0000 C CNN
+F 2 "" H 5520 7910 50  0001 C CNN
+F 3 "" H 5520 7910 50  0001 C CNN
+	1    5520 7910
+	1    0    0    -1  
+$EndComp
+$Comp
+L FPS-2_v1:MCP33151 U37
+U 1 1 5DF68A1C
+P 9950 8790
+F 0 "U37" H 10300 8415 50  0000 C CNN
+F 1 "MCP33151D" H 10425 8340 50  0000 C CNN
+F 2 "Package_SO:MSOP-10_3x3mm_P0.5mm" H 10000 8440 30  0001 C CNN
+F 3 "" H 10750 8690 50  0001 C CNN
+F 4 "ADC 14-bit,1 Msps, single channel, differential SAR ADC" H 9950 8790 50  0001 C CNN "Description"
+F 5 "Analog to Digital Converters - ADC 14-bit,1 Msps, single channel, differential SAR" H 9950 8790 50  0001 C CNN "Comment"
+F 6 "Photodiode Pos-Amp ADC" H 9950 8790 50  0001 C CNN "Comment2"
+F 7 "MCP33151D-10-E/MS" H 9950 8790 50  0001 C CNN "MnfctCode"
+F 8 "Mouser" H 9950 8790 50  0001 C CNN "Provider"
+F 9 "579-CP33151D-10-E/MS" H 9950 8790 50  0001 C CNN "ProviderCode"
+F 10 "Microchip" H 9950 8790 50  0001 C CNN "Mnfct"
+	1    9950 8790
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5DF689CD
+P 2400 8660
+AR Path="/5D861EB3/5DF689CD" Ref="TP?"  Part="1" 
+AR Path="/5E341A57/5DF689CD" Ref="TP4"  Part="1" 
+F 0 "TP4" H 2458 8778 50  0000 L CNN
+F 1 "TestPoint" H 2458 8687 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 2600 8660 50  0001 C CNN
+F 3 "~" H 2600 8660 50  0001 C CNN
+F 4 "TestPoint" H 2400 8660 50  0001 C CNN "Description"
+F 5 "" H 2400 8660 50  0001 C CNN "Distributor"
+F 6 "" H 2400 8660 50  0001 C CNN "PartNumb"
+F 7 "TestPoint" H 2400 8660 50  0001 C CNN "Comment"
+F 8 "-" H 2400 8660 50  0001 C CNN "Comment2"
+F 9 "-" H 2400 8660 50  0001 C CNN "MnfctCode"
+F 10 "-" H 2400 8660 50  0001 C CNN "Provider"
+F 11 "-" H 2400 8660 50  0001 C CNN "ProviderCode"
+F 12 "-" H 2400 8660 50  0001 C CNN "Mnfct"
+	1    2400 8660
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5DF689BB
+P 8870 8820
+AR Path="/5D861EB3/5DF689BB" Ref="TP?"  Part="1" 
+AR Path="/5E341A57/5DF689BB" Ref="TP8"  Part="1" 
+F 0 "TP8" H 8928 8938 50  0000 L CNN
+F 1 "TestPoint" H 8928 8847 50  0001 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 9070 8820 50  0001 C CNN
+F 3 "~" H 9070 8820 50  0001 C CNN
+F 4 "TestPoint" H 8870 8820 50  0001 C CNN "Description"
+F 5 "" H 8870 8820 50  0001 C CNN "Distributor"
+F 6 "" H 8870 8820 50  0001 C CNN "PartNumb"
+F 7 "TestPoint" H 8870 8820 50  0001 C CNN "Comment"
+F 8 "-" H 8870 8820 50  0001 C CNN "Comment2"
+F 9 "-" H 8870 8820 50  0001 C CNN "MnfctCode"
+F 10 "-" H 8870 8820 50  0001 C CNN "Provider"
+F 11 "-" H 8870 8820 50  0001 C CNN "ProviderCode"
+F 12 "-" H 8870 8820 50  0001 C CNN "Mnfct"
+	1    8870 8820
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 5DF6899B
+P 10730 8590
+AR Path="/5DF6899B" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5DF6899B" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5DF6899B" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5DF6899B" Ref="R100"  Part="1" 
+F 0 "R100" V 10630 8465 50  0000 C CNN
+F 1 "0R" V 10655 8640 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 10770 8580 50  0001 C CNN
+F 3 "~" H 10730 8590 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0.0ohm 1%" H 10730 8590 50  0001 C CNN "Description"
+F 5 "" H 10730 8590 50  0001 C CNN "Distributor"
+F 6 "" H 10730 8590 50  0001 C CNN "PartNumb"
+F 7 "-" H 10730 8590 50  0001 C CNN "Comment"
+F 8 "RC0603FR-070RL" H 10730 8590 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 10730 8590 50  0001 C CNN "Provider"
+F 10 "603-RC0603FR-070RL" H 10730 8590 50  0001 C CNN "ProviderCode"
+F 11 "Yageo" H 10730 8590 50  0001 C CNN "Mnfct"
+	1    10730 8590
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5DF6893E
+P 1010 8750
+AR Path="/5DF6893E" Ref="C?"  Part="1" 
+AR Path="/5DBB6556/5DF6893E" Ref="C?"  Part="1" 
+AR Path="/5D861EB3/5DF6893E" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5DF6893E" Ref="C23"  Part="1" 
+F 0 "C23" H 1125 8796 50  0000 L CNN
+F 1 "10u 16V" H 1125 8705 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1048 8600 50  0001 C CNN
+F 3 "~" H 1010 8750 50  0001 C CNN
+F 4 "MLayer CerCap SMD 0805 16VDC 10uF 20% X5R" H 1010 8750 50  0001 C CNN "Description"
+F 5 "" H 1010 8750 50  0001 C CNN "Distributor"
+F 6 "" H 1010 8750 50  0001 C CNN "PartNumb"
+F 7 "-" H 1010 8750 50  0001 C CNN "Comment"
+F 8 "EMK212ABJ106MG-T" H 1010 8750 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 1010 8750 50  0001 C CNN "Provider"
+F 10 "963-EMK212ABJ106MG-T" H 1010 8750 50  0001 C CNN "ProviderCode"
+F 11 "-" H 1010 8750 50  0001 C CNN "Comment2"
+F 12 "Taiyo Yuden" H 1010 8750 50  0001 C CNN "Mnfct"
+	1    1010 8750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5DF68925
+P 10000 7690
+AR Path="/5DF68925" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5DF68925" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5DF68925" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5DF68925" Ref="#PWR0241"  Part="1" 
+F 0 "#PWR0241" H 10000 7540 50  0001 C CNN
+F 1 "+1V8" H 9875 7815 50  0000 C CNN
+F 2 "" H 10000 7690 50  0001 C CNN
+F 3 "" H 10000 7690 50  0001 C CNN
+	1    10000 7690
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5DF6891F
+P 10150 7695
+AR Path="/5DF6891F" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5DF6891F" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5DF6891F" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5DF6891F" Ref="#PWR0244"  Part="1" 
+F 0 "#PWR0244" H 10150 7545 50  0001 C CNN
+F 1 "+3.3V" H 10275 7820 50  0000 C CNN
+F 2 "" H 10150 7695 50  0001 C CNN
+F 3 "" H 10150 7695 50  0001 C CNN
+	1    10150 7695
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5DF68906
+P 9350 7970
+AR Path="/5DF68906" Ref="C?"  Part="1" 
+AR Path="/5DBB6556/5DF68906" Ref="C?"  Part="1" 
+AR Path="/5D861EB3/5DF68906" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5DF68906" Ref="C108"  Part="1" 
+F 0 "C108" H 9380 8060 50  0000 L CNN
+F 1 "10u 16V" H 9360 7880 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9388 7820 50  0001 C CNN
+F 3 "~" H 9350 7970 50  0001 C CNN
+F 4 "MLayer CerCap SMD 0805 16VDC 10uF 20% X5R" H 9350 7970 50  0001 C CNN "Description"
+F 5 "" H 9350 7970 50  0001 C CNN "Distributor"
+F 6 "" H 9350 7970 50  0001 C CNN "PartNumb"
+F 7 "-" H 9350 7970 50  0001 C CNN "Comment"
+F 8 "EMK212ABJ106MG-T" H 9350 7970 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 9350 7970 50  0001 C CNN "Provider"
+F 10 "963-EMK212ABJ106MG-T" H 9350 7970 50  0001 C CNN "ProviderCode"
+F 11 "-" H 9350 7970 50  0001 C CNN "Comment2"
+F 12 "Taiyo Yuden" H 9350 7970 50  0001 C CNN "Mnfct"
+	1    9350 7970
+	-1   0    0    -1  
+$EndComp
+Text Label 9140 8690 2    50   ~ 0
+PhotodiodeLP_560nm
+$Comp
+L Device:R_US R?
+U 1 1 5DF688CA
+P 4620 8520
+AR Path="/5DF688CA" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5DF688CA" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5DF688CA" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5DF688CA" Ref="R56"  Part="1" 
+F 0 "R56" H 4740 8470 50  0000 C CNN
+F 1 "10R" H 4720 8570 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4660 8510 50  0001 C CNN
+F 3 "~" H 4620 8520 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0603 10.0ohms 1% AEC-Q200" H 4620 8520 50  0001 C CNN "Description"
+F 5 "" H 4620 8520 50  0001 C CNN "Distributor"
+F 6 "" H 4620 8520 50  0001 C CNN "PartNumb"
+F 7 "-" H 4620 8520 50  0001 C CNN "Comment"
+F 8 "ERJ-3EKF10R0V" H 4620 8520 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 4620 8520 50  0001 C CNN "Provider"
+F 10 "667-ERJ-3EKF10R0V" H 4620 8520 50  0001 C CNN "ProviderCode"
+F 11 "-" H 4620 8520 50  0001 C CNN "Comment2"
+F 12 "Panasonic" H 4620 8520 50  0001 C CNN "Mnfct"
+	1    4620 8520
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 5DF68893
+P 4620 9040
+AR Path="/5DF68893" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5DF68893" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5DF68893" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5DF68893" Ref="R55"  Part="1" 
+F 0 "R55" H 4720 8990 50  0000 C CNN
+F 1 "DNI" H 4745 9090 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4660 9030 50  0001 C CNN
+F 3 "~" H 4620 9040 50  0001 C CNN
+F 4 "-" H 4620 9040 50  0001 C CNN "Description"
+F 5 "" H 4620 9040 50  0001 C CNN "Distributor"
+F 6 "" H 4620 9040 50  0001 C CNN "PartNumb"
+F 7 "-" H 4620 9040 50  0001 C CNN "Comment"
+F 8 "-" H 4620 9040 50  0001 C CNN "MnfctCode"
+F 9 "-" H 4620 9040 50  0001 C CNN "Provider"
+F 10 "-" H 4620 9040 50  0001 C CNN "ProviderCode"
+F 11 "-" H 4620 9040 50  0001 C CNN "Comment2"
+F 12 "-" H 4620 9040 50  0001 C CNN "Mnfct"
+	1    4620 9040
+	-1   0    0    1   
+$EndComp
+$Comp
+L FPS-2_v1:MCP33151 U38
+U 1 1 5DEED5F2
+P 9950 6550
+F 0 "U38" H 10300 6175 50  0000 C CNN
+F 1 "MCP33151D" H 10425 6100 50  0000 C CNN
+F 2 "Package_SO:MSOP-10_3x3mm_P0.5mm" H 10000 6200 30  0001 C CNN
+F 3 "" H 10750 6450 50  0001 C CNN
+F 4 "ADC 14-bit,1 Msps, single channel, differential SAR ADC" H 9950 6550 50  0001 C CNN "Description"
+F 5 "Analog to Digital Converters - ADC 14-bit,1 Msps, single channel, differential SAR" H 9950 6550 50  0001 C CNN "Comment"
+F 6 "Photodiode Pos-Amp ADC" H 9950 6550 50  0001 C CNN "Comment2"
+F 7 "MCP33151D-10-E/MS" H 9950 6550 50  0001 C CNN "MnfctCode"
+F 8 "Mouser" H 9950 6550 50  0001 C CNN "Provider"
+F 9 "579-CP33151D-10-E/MS" H 9950 6550 50  0001 C CNN "ProviderCode"
+F 10 "Microchip" H 9950 6550 50  0001 C CNN "Mnfct"
+	1    9950 6550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5DEED5A3
+P 2500 6320
+AR Path="/5D861EB3/5DEED5A3" Ref="TP?"  Part="1" 
+AR Path="/5E341A57/5DEED5A3" Ref="TP5"  Part="1" 
+F 0 "TP5" H 2558 6438 50  0000 L CNN
+F 1 "TestPoint" H 2558 6347 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 2700 6320 50  0001 C CNN
+F 3 "~" H 2700 6320 50  0001 C CNN
+F 4 "TestPoint" H 2500 6320 50  0001 C CNN "Description"
+F 5 "" H 2500 6320 50  0001 C CNN "Distributor"
+F 6 "" H 2500 6320 50  0001 C CNN "PartNumb"
+F 7 "TestPoint" H 2500 6320 50  0001 C CNN "Comment"
+F 8 "-" H 2500 6320 50  0001 C CNN "Comment2"
+F 9 "-" H 2500 6320 50  0001 C CNN "MnfctCode"
+F 10 "-" H 2500 6320 50  0001 C CNN "Provider"
+F 11 "-" H 2500 6320 50  0001 C CNN "ProviderCode"
+F 12 "-" H 2500 6320 50  0001 C CNN "Mnfct"
+	1    2500 6320
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5DEED591
+P 8880 6580
+AR Path="/5D861EB3/5DEED591" Ref="TP?"  Part="1" 
+AR Path="/5E341A57/5DEED591" Ref="TP9"  Part="1" 
+F 0 "TP9" H 8938 6698 50  0000 L CNN
+F 1 "TestPoint" H 8938 6607 50  0001 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 9080 6580 50  0001 C CNN
+F 3 "~" H 9080 6580 50  0001 C CNN
+F 4 "TestPoint" H 8880 6580 50  0001 C CNN "Description"
+F 5 "" H 8880 6580 50  0001 C CNN "Distributor"
+F 6 "" H 8880 6580 50  0001 C CNN "PartNumb"
+F 7 "TestPoint" H 8880 6580 50  0001 C CNN "Comment"
+F 8 "-" H 8880 6580 50  0001 C CNN "Comment2"
+F 9 "-" H 8880 6580 50  0001 C CNN "MnfctCode"
+F 10 "-" H 8880 6580 50  0001 C CNN "Provider"
+F 11 "-" H 8880 6580 50  0001 C CNN "ProviderCode"
+F 12 "-" H 8880 6580 50  0001 C CNN "Mnfct"
+	1    8880 6580
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 5DEED571
+P 10730 6350
+AR Path="/5DEED571" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5DEED571" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5DEED571" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5DEED571" Ref="R101"  Part="1" 
+F 0 "R101" V 10630 6225 50  0000 C CNN
+F 1 "0R" V 10655 6400 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 10770 6340 50  0001 C CNN
+F 3 "~" H 10730 6350 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0.0ohm 1%" H 10730 6350 50  0001 C CNN "Description"
+F 5 "" H 10730 6350 50  0001 C CNN "Distributor"
+F 6 "" H 10730 6350 50  0001 C CNN "PartNumb"
+F 7 "-" H 10730 6350 50  0001 C CNN "Comment"
+F 8 "RC0603FR-070RL" H 10730 6350 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 10730 6350 50  0001 C CNN "Provider"
+F 10 "603-RC0603FR-070RL" H 10730 6350 50  0001 C CNN "ProviderCode"
+F 11 "Yageo" H 10730 6350 50  0001 C CNN "Mnfct"
+	1    10730 6350
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5DEED514
+P 1040 6410
+AR Path="/5DEED514" Ref="C?"  Part="1" 
+AR Path="/5DBB6556/5DEED514" Ref="C?"  Part="1" 
+AR Path="/5D861EB3/5DEED514" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5DEED514" Ref="C27"  Part="1" 
+F 0 "C27" H 1155 6456 50  0000 L CNN
+F 1 "10u 16V" H 1155 6365 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1078 6260 50  0001 C CNN
+F 3 "~" H 1040 6410 50  0001 C CNN
+F 4 "MLayer CerCap SMD 0805 16VDC 10uF 20% X5R" H 1040 6410 50  0001 C CNN "Description"
+F 5 "" H 1040 6410 50  0001 C CNN "Distributor"
+F 6 "" H 1040 6410 50  0001 C CNN "PartNumb"
+F 7 "-" H 1040 6410 50  0001 C CNN "Comment"
+F 8 "EMK212ABJ106MG-T" H 1040 6410 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 1040 6410 50  0001 C CNN "Provider"
+F 10 "963-EMK212ABJ106MG-T" H 1040 6410 50  0001 C CNN "ProviderCode"
+F 11 "-" H 1040 6410 50  0001 C CNN "Comment2"
+F 12 "Taiyo Yuden" H 1040 6410 50  0001 C CNN "Mnfct"
+	1    1040 6410
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5DEED4F5
+P 10150 5450
+AR Path="/5DEED4F5" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5DEED4F5" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5DEED4F5" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5DEED4F5" Ref="#PWR0250"  Part="1" 
+F 0 "#PWR0250" H 10150 5300 50  0001 C CNN
+F 1 "+3.3V" H 10275 5575 50  0000 C CNN
+F 2 "" H 10150 5450 50  0001 C CNN
+F 3 "" H 10150 5450 50  0001 C CNN
+	1    10150 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5DEED4DC
+P 9340 5710
+AR Path="/5DEED4DC" Ref="C?"  Part="1" 
+AR Path="/5DBB6556/5DEED4DC" Ref="C?"  Part="1" 
+AR Path="/5D861EB3/5DEED4DC" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5DEED4DC" Ref="C111"  Part="1" 
+F 0 "C111" H 9350 5790 50  0000 L CNN
+F 1 "10u 16V" H 9380 5620 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9378 5560 50  0001 C CNN
+F 3 "~" H 9340 5710 50  0001 C CNN
+F 4 "MLayer CerCap SMD 0805 16VDC 10uF 20% X5R" H 9340 5710 50  0001 C CNN "Description"
+F 5 "" H 9340 5710 50  0001 C CNN "Distributor"
+F 6 "" H 9340 5710 50  0001 C CNN "PartNumb"
+F 7 "-" H 9340 5710 50  0001 C CNN "Comment"
+F 8 "EMK212ABJ106MG-T" H 9340 5710 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 9340 5710 50  0001 C CNN "Provider"
+F 10 "963-EMK212ABJ106MG-T" H 9340 5710 50  0001 C CNN "ProviderCode"
+F 11 "-" H 9340 5710 50  0001 C CNN "Comment2"
+F 12 "Taiyo Yuden" H 9340 5710 50  0001 C CNN "Mnfct"
+	1    9340 5710
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5DEED4CA
+P 9510 5110
+AR Path="/5DEED4CA" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5DEED4CA" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5DEED4CA" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5DEED4CA" Ref="#PWR0245"  Part="1" 
+F 0 "#PWR0245" H 9510 4960 50  0001 C CNN
+F 1 "+3.3V" H 9385 5235 50  0000 C CNN
+F 2 "" H 9510 5110 50  0001 C CNN
+F 3 "" H 9510 5110 50  0001 C CNN
+	1    9510 5110
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 5DEED4A0
+P 4620 6300
+AR Path="/5DEED4A0" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5DEED4A0" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5DEED4A0" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5DEED4A0" Ref="R91"  Part="1" 
+F 0 "R91" H 4480 6390 50  0000 C CNN
+F 1 "10R" H 4510 6300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4660 6290 50  0001 C CNN
+F 3 "~" H 4620 6300 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0603 10.0ohms 1% AEC-Q200" H 4620 6300 50  0001 C CNN "Description"
+F 5 "" H 4620 6300 50  0001 C CNN "Distributor"
+F 6 "" H 4620 6300 50  0001 C CNN "PartNumb"
+F 7 "-" H 4620 6300 50  0001 C CNN "Comment"
+F 8 "ERJ-3EKF10R0V" H 4620 6300 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 4620 6300 50  0001 C CNN "Provider"
+F 10 "667-ERJ-3EKF10R0V" H 4620 6300 50  0001 C CNN "ProviderCode"
+F 11 "-" H 4620 6300 50  0001 C CNN "Comment2"
+F 12 "Panasonic" H 4620 6300 50  0001 C CNN "Mnfct"
+	1    4620 6300
+	1    0    0    -1  
+$EndComp
+Text Label 2620 6550 0    50   ~ 0
+PhotodiodeOutput_470nm
+$Comp
+L Device:R_US R?
+U 1 1 5DEED469
+P 4620 6800
+AR Path="/5DEED469" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5DEED469" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5DEED469" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5DEED469" Ref="R90"  Part="1" 
+F 0 "R90" H 4720 6750 50  0000 C CNN
+F 1 "DNI" H 4745 6850 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4660 6790 50  0001 C CNN
+F 3 "~" H 4620 6800 50  0001 C CNN
+F 4 "-" H 4620 6800 50  0001 C CNN "Description"
+F 5 "" H 4620 6800 50  0001 C CNN "Distributor"
+F 6 "" H 4620 6800 50  0001 C CNN "PartNumb"
+F 7 "-" H 4620 6800 50  0001 C CNN "Comment"
+F 8 "-" H 4620 6800 50  0001 C CNN "MnfctCode"
+F 9 "-" H 4620 6800 50  0001 C CNN "Provider"
+F 10 "-" H 4620 6800 50  0001 C CNN "ProviderCode"
+F 11 "-" H 4620 6800 50  0001 C CNN "Comment2"
+F 12 "-" H 4620 6800 50  0001 C CNN "Mnfct"
+	1    4620 6800
+	-1   0    0    1   
+$EndComp
+$Comp
+L FPS-2_v1:MCP33151 U34
+U 1 1 5DFD1ACE
+P 9880 4330
+F 0 "U34" H 10230 3955 50  0000 C CNN
+F 1 "MCP33151D" H 10355 3880 50  0000 C CNN
+F 2 "Package_SO:MSOP-10_3x3mm_P0.5mm" H 9930 3980 30  0001 C CNN
+F 3 "" H 10680 4230 50  0001 C CNN
+F 4 "ADC 14-bit,1 Msps, single channel, differential SAR ADC" H 9880 4330 50  0001 C CNN "Description"
+F 5 "Analog to Digital Converters - ADC 14-bit,1 Msps, single channel, differential SAR" H 9880 4330 50  0001 C CNN "Comment"
+F 6 "Photodiode Pos-Amp ADC" H 9880 4330 50  0001 C CNN "Comment2"
+F 7 "MCP33151D-10-E/MS" H 9880 4330 50  0001 C CNN "MnfctCode"
+F 8 "Mouser" H 9880 4330 50  0001 C CNN "Provider"
+F 9 "579-CP33151D-10-E/MS" H 9880 4330 50  0001 C CNN "ProviderCode"
+F 10 "Microchip" H 9880 4330 50  0001 C CNN "Mnfct"
+	1    9880 4330
+	1    0    0    -1  
+$EndComp
+Text HLabel 10980 4330 2    47   Input ~ 0
+PhotoD_ADC_ConvStart_410nm
+Text Notes 920  3150 0    70   ~ 14
+>TSL257 -LF Photodiode\n Photodiode Control Stage + OPAMP LTC2051 + ADC MCP33141 to SPI
+$Comp
+L Device:C C?
+U 1 1 5E377928
+P 10300 3480
+AR Path="/5D861EB3/5E377928" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E377928" Ref="C74"  Part="1" 
+F 0 "C74" H 10415 3526 50  0000 L CNN
+F 1 "100n" H 10415 3435 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 10338 3330 50  0001 C CNN
+F 3 "~" H 10300 3480 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 10300 3480 50  0001 C CNN "Description"
+F 5 "" H 10300 3480 50  0001 C CNN "Distributor"
+F 6 "" H 10300 3480 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 10300 3480 50  0001 C CNN "Comment"
+F 8 "" H 10300 3480 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 10300 3480 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 10300 3480 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 10300 3480 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 10300 3480 50  0001 C CNN "MnfctCode"
+F 13 "-" H 10300 3480 50  0001 C CNN "Comment2"
+	1    10300 3480
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5E377948
+P 2600 4110
+AR Path="/5D861EB3/5E377948" Ref="TP?"  Part="1" 
+AR Path="/5E341A57/5E377948" Ref="TP1"  Part="1" 
+F 0 "TP1" H 2658 4228 50  0000 L CNN
+F 1 "TestPoint" H 2658 4137 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 2800 4110 50  0001 C CNN
+F 3 "~" H 2800 4110 50  0001 C CNN
+F 4 "TestPoint" H 2600 4110 50  0001 C CNN "Description"
+F 5 "" H 2600 4110 50  0001 C CNN "Distributor"
+F 6 "" H 2600 4110 50  0001 C CNN "PartNumb"
+F 7 "TestPoint" H 2600 4110 50  0001 C CNN "Comment"
+F 8 "-" H 2600 4110 50  0001 C CNN "Comment2"
+F 9 "-" H 2600 4110 50  0001 C CNN "MnfctCode"
+F 10 "-" H 2600 4110 50  0001 C CNN "Provider"
+F 11 "-" H 2600 4110 50  0001 C CNN "ProviderCode"
+F 12 "-" H 2600 4110 50  0001 C CNN "Mnfct"
+	1    2600 4110
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5E37795A
+P 8800 4370
+AR Path="/5D861EB3/5E37795A" Ref="TP?"  Part="1" 
+AR Path="/5E341A57/5E37795A" Ref="TP3"  Part="1" 
+F 0 "TP3" H 8858 4488 50  0000 L CNN
+F 1 "TestPoint" H 8858 4397 50  0001 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 9000 4370 50  0001 C CNN
+F 3 "~" H 9000 4370 50  0001 C CNN
+F 4 "TestPoint" H 8800 4370 50  0001 C CNN "Description"
+F 5 "" H 8800 4370 50  0001 C CNN "Distributor"
+F 6 "" H 8800 4370 50  0001 C CNN "PartNumb"
+F 7 "TestPoint" H 8800 4370 50  0001 C CNN "Comment"
+F 8 "-" H 8800 4370 50  0001 C CNN "Comment2"
+F 9 "-" H 8800 4370 50  0001 C CNN "MnfctCode"
+F 10 "-" H 8800 4370 50  0001 C CNN "Provider"
+F 11 "-" H 8800 4370 50  0001 C CNN "ProviderCode"
+F 12 "-" H 8800 4370 50  0001 C CNN "Mnfct"
+	1    8800 4370
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 5E3779DA
+P 10680 4130
+AR Path="/5E3779DA" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5E3779DA" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5E3779DA" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5E3779DA" Ref="R68"  Part="1" 
+F 0 "R68" V 10580 4005 50  0000 C CNN
+F 1 "0R" V 10605 4180 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 10720 4120 50  0001 C CNN
+F 3 "~" H 10680 4130 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0.0ohm 1%" H 10680 4130 50  0001 C CNN "Description"
+F 5 "" H 10680 4130 50  0001 C CNN "Distributor"
+F 6 "" H 10680 4130 50  0001 C CNN "PartNumb"
+F 7 "-" H 10680 4130 50  0001 C CNN "Comment"
+F 8 "RC0603FR-070RL" H 10680 4130 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 10680 4130 50  0001 C CNN "Provider"
+F 10 "603-RC0603FR-070RL" H 10680 4130 50  0001 C CNN "ProviderCode"
+F 11 "Yageo" H 10680 4130 50  0001 C CNN "Mnfct"
+	1    10680 4130
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5E377A3A
+P 1140 4190
+AR Path="/5E377A3A" Ref="C?"  Part="1" 
+AR Path="/5DBB6556/5E377A3A" Ref="C?"  Part="1" 
+AR Path="/5D861EB3/5E377A3A" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E377A3A" Ref="C61"  Part="1" 
+F 0 "C61" H 1255 4236 50  0000 L CNN
+F 1 "10u 16V" H 1255 4145 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1178 4040 50  0001 C CNN
+F 3 "~" H 1140 4190 50  0001 C CNN
+F 4 "MLayer CerCap SMD 0805 16VDC 10uF 20% X5R" H 1140 4190 50  0001 C CNN "Description"
+F 5 "" H 1140 4190 50  0001 C CNN "Distributor"
+F 6 "" H 1140 4190 50  0001 C CNN "PartNumb"
+F 7 "-" H 1140 4190 50  0001 C CNN "Comment"
+F 8 "EMK212ABJ106MG-T" H 1140 4190 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 1140 4190 50  0001 C CNN "Provider"
+F 10 "963-EMK212ABJ106MG-T" H 1140 4190 50  0001 C CNN "ProviderCode"
+F 11 "-" H 1140 4190 50  0001 C CNN "Comment2"
+F 12 "Taiyo Yuden" H 1140 4190 50  0001 C CNN "Mnfct"
+	1    1140 4190
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5E377A59
+P 9930 3230
+AR Path="/5E377A59" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5E377A59" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E377A59" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E377A59" Ref="#PWR073"  Part="1" 
+F 0 "#PWR073" H 9930 3080 50  0001 C CNN
+F 1 "+1V8" H 9805 3355 50  0000 C CNN
+F 2 "" H 9930 3230 50  0001 C CNN
+F 3 "" H 9930 3230 50  0001 C CNN
+	1    9930 3230
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E377A5F
+P 10080 3230
+AR Path="/5E377A5F" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5E377A5F" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E377A5F" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E377A5F" Ref="#PWR074"  Part="1" 
+F 0 "#PWR074" H 10080 3080 50  0001 C CNN
+F 1 "+3.3V" H 10205 3355 50  0000 C CNN
+F 2 "" H 10080 3230 50  0001 C CNN
+F 3 "" H 10080 3230 50  0001 C CNN
+	1    10080 3230
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5E377A7B
+P 9280 3510
+AR Path="/5E377A7B" Ref="C?"  Part="1" 
+AR Path="/5DBB6556/5E377A7B" Ref="C?"  Part="1" 
+AR Path="/5D861EB3/5E377A7B" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E377A7B" Ref="C71"  Part="1" 
+F 0 "C71" H 9330 3620 50  0000 L CNN
+F 1 "10u 16V" H 9300 3420 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9318 3360 50  0001 C CNN
+F 3 "~" H 9280 3510 50  0001 C CNN
+F 4 "MLayer CerCap SMD 0805 16VDC 10uF 20% X5R" H 9280 3510 50  0001 C CNN "Description"
+F 5 "" H 9280 3510 50  0001 C CNN "Distributor"
+F 6 "" H 9280 3510 50  0001 C CNN "PartNumb"
+F 7 "-" H 9280 3510 50  0001 C CNN "Comment"
+F 8 "EMK212ABJ106MG-T" H 9280 3510 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 9280 3510 50  0001 C CNN "Provider"
+F 10 "963-EMK212ABJ106MG-T" H 9280 3510 50  0001 C CNN "ProviderCode"
+F 11 "-" H 9280 3510 50  0001 C CNN "Comment2"
+F 12 "Taiyo Yuden" H 9280 3510 50  0001 C CNN "Mnfct"
+	1    9280 3510
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E377A8A
+P 9500 2890
+AR Path="/5E377A8A" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5E377A8A" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E377A8A" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E377A8A" Ref="#PWR070"  Part="1" 
+F 0 "#PWR070" H 9500 2740 50  0001 C CNN
+F 1 "+3.3V" H 9375 3015 50  0000 C CNN
+F 2 "" H 9500 2890 50  0001 C CNN
+F 3 "" H 9500 2890 50  0001 C CNN
+	1    9500 2890
+	1    0    0    -1  
+$EndComp
+Text Label 8820 4230 2    50   ~ 0
+PhotodiodeLP_410nm
+$Comp
+L Device:R_US R?
+U 1 1 5E377AB7
+P 4620 4000
+AR Path="/5E377AB7" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5E377AB7" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5E377AB7" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5E377AB7" Ref="R44"  Part="1" 
+F 0 "R44" H 4760 3950 50  0000 C CNN
+F 1 "10R" H 4730 4030 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4660 3990 50  0001 C CNN
+F 3 "~" H 4620 4000 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0603 10.0ohms 1% AEC-Q200" H 4620 4000 50  0001 C CNN "Description"
+F 5 "" H 4620 4000 50  0001 C CNN "Distributor"
+F 6 "" H 4620 4000 50  0001 C CNN "PartNumb"
+F 7 "-" H 4620 4000 50  0001 C CNN "Comment"
+F 8 "ERJ-3EKF10R0V" H 4620 4000 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 4620 4000 50  0001 C CNN "Provider"
+F 10 "667-ERJ-3EKF10R0V" H 4620 4000 50  0001 C CNN "ProviderCode"
+F 11 "-" H 4620 4000 50  0001 C CNN "Comment2"
+F 12 "Panasonic" H 4620 4000 50  0001 C CNN "Mnfct"
+	1    4620 4000
+	-1   0    0    1   
+$EndComp
+Text Label 2710 4330 0    50   ~ 0
+PhotodiodeOutput_410nm
+$Comp
+L Device:R_US R?
+U 1 1 5E377B20
+P 4620 4570
+AR Path="/5E377B20" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5E377B20" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5E377B20" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5E377B20" Ref="R43"  Part="1" 
+F 0 "R43" H 4720 4520 50  0000 C CNN
+F 1 "DNI" H 4745 4620 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4660 4560 50  0001 C CNN
+F 3 "~" H 4620 4570 50  0001 C CNN
+F 4 "-" H 4620 4570 50  0001 C CNN "Description"
+F 5 "" H 4620 4570 50  0001 C CNN "Distributor"
+F 6 "" H 4620 4570 50  0001 C CNN "PartNumb"
+F 7 "-" H 4620 4570 50  0001 C CNN "Comment"
+F 8 "-" H 4620 4570 50  0001 C CNN "MnfctCode"
+F 9 "-" H 4620 4570 50  0001 C CNN "Provider"
+F 10 "-" H 4620 4570 50  0001 C CNN "ProviderCode"
+F 11 "-" H 4620 4570 50  0001 C CNN "Comment2"
+F 12 "-" H 4620 4570 50  0001 C CNN "Mnfct"
+	1    4620 4570
+	-1   0    0    1   
+$EndComp
+Text HLabel 11020 6550 2    47   Input ~ 0
+PhotoD_ADC_ConvStart_470nm
+Text HLabel 10980 4530 2    47   Output ~ 0
+PhotoD_410nm_SPI_MISO
+Text HLabel 10980 4430 2    47   Input ~ 0
+PhotoD_410nm_SPI_SCLK
+Text HLabel 11100 8790 2    47   Input ~ 0
+PhotoD_ADC_ConvStart_560nm
+Wire Wire Line
+	11020 6750 10500 6750
+Wire Wire Line
+	11020 6650 10500 6650
+Wire Wire Line
+	11100 8990 10500 8990
+Wire Wire Line
+	11100 8890 10500 8890
+Text Notes 990  3630 0    70   ~ 14
+410nm PhotoDiode
+Text Notes 1090 5960 0    70   ~ 14
+470nm PhotoDiode
+Text Notes 880  8270 0    70   ~ 14
+560nm PhotoDiode
+$Comp
+L power:GNDD #PWR?
+U 1 1 604A330C
+P 6150 8340
+AR Path="/604A330C" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/604A330C" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/604A330C" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/604A330C" Ref="#PWR0220"  Part="1" 
+F 0 "#PWR0220" H 6150 8090 50  0001 C CNN
+F 1 "GNDD" H 6200 8200 50  0000 C CNN
+F 2 "" H 6150 8340 50  0001 C CNN
+F 3 "" H 6150 8340 50  0001 C CNN
+	1    6150 8340
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 8340 6150 8300
+$Comp
+L power:GNDD #PWR?
+U 1 1 604EB40F
+P 6530 8330
+AR Path="/604EB40F" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/604EB40F" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/604EB40F" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/604EB40F" Ref="#PWR0221"  Part="1" 
+F 0 "#PWR0221" H 6530 8080 50  0001 C CNN
+F 1 "GNDD" H 6610 8200 50  0000 C CNN
+F 2 "" H 6530 8330 50  0001 C CNN
+F 3 "" H 6530 8330 50  0001 C CNN
+	1    6530 8330
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6530 8330 6530 8290
+Wire Wire Line
+	6530 7950 6530 7990
+Wire Wire Line
+	6150 8000 6150 7950
+Connection ~ 6150 7950
+Wire Wire Line
+	6150 7950 6530 7950
+$Comp
+L power:GNDD #PWR?
+U 1 1 605BFD91
+P 9850 9270
+AR Path="/605BFD91" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/605BFD91" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/605BFD91" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/605BFD91" Ref="#PWR0222"  Part="1" 
+F 0 "#PWR0222" H 9850 9020 50  0001 C CNN
+F 1 "GNDD" H 9790 9130 50  0000 C CNN
+F 2 "" H 9850 9270 50  0001 C CNN
+F 3 "" H 9850 9270 50  0001 C CNN
+	1    9850 9270
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 605D73B8
+P 9300 9070
+AR Path="/605D73B8" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/605D73B8" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/605D73B8" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/605D73B8" Ref="#PWR0223"  Part="1" 
+F 0 "#PWR0223" H 9300 8820 50  0001 C CNN
+F 1 "GNDD" H 9240 8930 50  0000 C CNN
+F 2 "" H 9300 9070 50  0001 C CNN
+F 3 "" H 9300 9070 50  0001 C CNN
+	1    9300 9070
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 605EE924
+P 9020 8150
+AR Path="/605EE924" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/605EE924" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/605EE924" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/605EE924" Ref="#PWR0224"  Part="1" 
+F 0 "#PWR0224" H 9020 7900 50  0001 C CNN
+F 1 "GNDD" H 8960 8010 50  0000 C CNN
+F 2 "" H 9020 8150 50  0001 C CNN
+F 3 "" H 9020 8150 50  0001 C CNN
+	1    9020 8150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 60605DDD
+P 9350 8150
+AR Path="/60605DDD" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/60605DDD" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/60605DDD" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/60605DDD" Ref="#PWR0235"  Part="1" 
+F 0 "#PWR0235" H 9350 7900 50  0001 C CNN
+F 1 "GNDD" H 9290 8010 50  0000 C CNN
+F 2 "" H 9350 8150 50  0001 C CNN
+F 3 "" H 9350 8150 50  0001 C CNN
+	1    9350 8150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 6061D397
+P 9870 8150
+AR Path="/6061D397" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/6061D397" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/6061D397" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/6061D397" Ref="#PWR0236"  Part="1" 
+F 0 "#PWR0236" H 9870 7900 50  0001 C CNN
+F 1 "GNDD" H 9810 8010 50  0000 C CNN
+F 2 "" H 9870 8150 50  0001 C CNN
+F 3 "" H 9870 8150 50  0001 C CNN
+	1    9870 8150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 606348DB
+P 10370 8150
+AR Path="/606348DB" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/606348DB" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/606348DB" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/606348DB" Ref="#PWR0239"  Part="1" 
+F 0 "#PWR0239" H 10370 7900 50  0001 C CNN
+F 1 "GNDD" H 10310 8010 50  0000 C CNN
+F 2 "" H 10370 8150 50  0001 C CNN
+F 3 "" H 10370 8150 50  0001 C CNN
+	1    10370 8150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9350 8150 9350 8120
+$Comp
+L power:GNDD #PWR?
+U 1 1 606AA330
+P 4620 9250
+AR Path="/606AA330" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/606AA330" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/606AA330" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/606AA330" Ref="#PWR0242"  Part="1" 
+F 0 "#PWR0242" H 4620 9000 50  0001 C CNN
+F 1 "GNDD" H 4560 9110 50  0000 C CNN
+F 2 "" H 4620 9250 50  0001 C CNN
+F 3 "" H 4620 9250 50  0001 C CNN
+	1    4620 9250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 60721375
+P 9850 7030
+AR Path="/60721375" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/60721375" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/60721375" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/60721375" Ref="#PWR0251"  Part="1" 
+F 0 "#PWR0251" H 9850 6780 50  0001 C CNN
+F 1 "GNDD" H 9790 6890 50  0000 C CNN
+F 2 "" H 9850 7030 50  0001 C CNN
+F 3 "" H 9850 7030 50  0001 C CNN
+	1    9850 7030
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 60738954
+P 9310 6830
+AR Path="/60738954" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/60738954" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/60738954" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/60738954" Ref="#PWR0253"  Part="1" 
+F 0 "#PWR0253" H 9310 6580 50  0001 C CNN
+F 1 "GNDD" H 9250 6690 50  0000 C CNN
+F 2 "" H 9310 6830 50  0001 C CNN
+F 3 "" H 9310 6830 50  0001 C CNN
+	1    9310 6830
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 607672F7
+P 4620 7010
+AR Path="/607672F7" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/607672F7" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/607672F7" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/607672F7" Ref="#PWR0255"  Part="1" 
+F 0 "#PWR0255" H 4620 6760 50  0001 C CNN
+F 1 "GNDD" H 4560 6870 50  0000 C CNN
+F 2 "" H 4620 7010 50  0001 C CNN
+F 3 "" H 4620 7010 50  0001 C CNN
+	1    4620 7010
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 607F5F7A
+P 9030 5940
+AR Path="/607F5F7A" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/607F5F7A" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/607F5F7A" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/607F5F7A" Ref="#PWR0262"  Part="1" 
+F 0 "#PWR0262" H 9030 5690 50  0001 C CNN
+F 1 "GNDD" H 8970 5800 50  0000 C CNN
+F 2 "" H 9030 5940 50  0001 C CNN
+F 3 "" H 9030 5940 50  0001 C CNN
+	1    9030 5940
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 6080D4D5
+P 9340 5910
+AR Path="/6080D4D5" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/6080D4D5" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/6080D4D5" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/6080D4D5" Ref="#PWR0263"  Part="1" 
+F 0 "#PWR0263" H 9340 5660 50  0001 C CNN
+F 1 "GNDD" H 9280 5770 50  0000 C CNN
+F 2 "" H 9340 5910 50  0001 C CNN
+F 3 "" H 9340 5910 50  0001 C CNN
+	1    9340 5910
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 60824B75
+P 9880 5910
+AR Path="/60824B75" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/60824B75" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/60824B75" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/60824B75" Ref="#PWR0264"  Part="1" 
+F 0 "#PWR0264" H 9880 5660 50  0001 C CNN
+F 1 "GNDD" H 9820 5770 50  0000 C CNN
+F 2 "" H 9880 5910 50  0001 C CNN
+F 3 "" H 9880 5910 50  0001 C CNN
+	1    9880 5910
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 6083C155
+P 10380 5910
+AR Path="/6083C155" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/6083C155" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/6083C155" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/6083C155" Ref="#PWR0265"  Part="1" 
+F 0 "#PWR0265" H 10380 5660 50  0001 C CNN
+F 1 "GNDD" H 10320 5770 50  0000 C CNN
+F 2 "" H 10380 5910 50  0001 C CNN
+F 3 "" H 10380 5910 50  0001 C CNN
+	1    10380 5910
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 6086BDE8
+P 9220 4610
+AR Path="/6086BDE8" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/6086BDE8" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/6086BDE8" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/6086BDE8" Ref="#PWR0266"  Part="1" 
+F 0 "#PWR0266" H 9220 4360 50  0001 C CNN
+F 1 "GNDD" H 9160 4470 50  0000 C CNN
+F 2 "" H 9220 4610 50  0001 C CNN
+F 3 "" H 9220 4610 50  0001 C CNN
+	1    9220 4610
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 608834C7
+P 9780 4830
+AR Path="/608834C7" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/608834C7" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/608834C7" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/608834C7" Ref="#PWR0267"  Part="1" 
+F 0 "#PWR0267" H 9780 4580 50  0001 C CNN
+F 1 "GNDD" H 9720 4690 50  0000 C CNN
+F 2 "" H 9780 4830 50  0001 C CNN
+F 3 "" H 9780 4830 50  0001 C CNN
+	1    9780 4830
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 6089AC01
+P 10300 3690
+AR Path="/6089AC01" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/6089AC01" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/6089AC01" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/6089AC01" Ref="#PWR0268"  Part="1" 
+F 0 "#PWR0268" H 10300 3440 50  0001 C CNN
+F 1 "GNDD" H 10240 3550 50  0000 C CNN
+F 2 "" H 10300 3690 50  0001 C CNN
+F 3 "" H 10300 3690 50  0001 C CNN
+	1    10300 3690
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 608B22BE
+P 9800 3690
+AR Path="/608B22BE" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/608B22BE" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/608B22BE" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/608B22BE" Ref="#PWR0269"  Part="1" 
+F 0 "#PWR0269" H 9800 3440 50  0001 C CNN
+F 1 "GNDD" H 9740 3550 50  0000 C CNN
+F 2 "" H 9800 3690 50  0001 C CNN
+F 3 "" H 9800 3690 50  0001 C CNN
+	1    9800 3690
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 608C98DE
+P 9280 3710
+AR Path="/608C98DE" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/608C98DE" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/608C98DE" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/608C98DE" Ref="#PWR0270"  Part="1" 
+F 0 "#PWR0270" H 9280 3460 50  0001 C CNN
+F 1 "GNDD" H 9220 3570 50  0000 C CNN
+F 2 "" H 9280 3710 50  0001 C CNN
+F 3 "" H 9280 3710 50  0001 C CNN
+	1    9280 3710
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 608E0F4F
+P 9010 3740
+AR Path="/608E0F4F" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/608E0F4F" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/608E0F4F" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/608E0F4F" Ref="#PWR0271"  Part="1" 
+F 0 "#PWR0271" H 9010 3490 50  0001 C CNN
+F 1 "GNDD" H 8950 3600 50  0000 C CNN
+F 2 "" H 9010 3740 50  0001 C CNN
+F 3 "" H 9010 3740 50  0001 C CNN
+	1    9010 3740
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6570 3880 6570 3830
+$Comp
+L power:GNDD #PWR?
+U 1 1 609ADD83
+P 6570 3880
+AR Path="/609ADD83" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/609ADD83" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/609ADD83" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/609ADD83" Ref="#PWR0272"  Part="1" 
+F 0 "#PWR0272" H 6570 3630 50  0001 C CNN
+F 1 "GNDD" H 6510 3740 50  0000 C CNN
+F 2 "" H 6570 3880 50  0001 C CNN
+F 3 "" H 6570 3880 50  0001 C CNN
+	1    6570 3880
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6190 3880 6190 3830
+$Comp
+L power:GNDD #PWR?
+U 1 1 609C3F08
+P 6190 3880
+AR Path="/609C3F08" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/609C3F08" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/609C3F08" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/609C3F08" Ref="#PWR0273"  Part="1" 
+F 0 "#PWR0273" H 6190 3630 50  0001 C CNN
+F 1 "GNDD" H 6130 3740 50  0000 C CNN
+F 2 "" H 6190 3880 50  0001 C CNN
+F 3 "" H 6190 3880 50  0001 C CNN
+	1    6190 3880
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6570 3460 6570 3530
+Wire Wire Line
+	6190 3530 6190 3460
+Connection ~ 6190 3460
+Wire Wire Line
+	6190 3460 6570 3460
+$Comp
+L power:GNDD #PWR?
+U 1 1 60A65396
+P 4620 4780
+AR Path="/60A65396" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/60A65396" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/60A65396" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/60A65396" Ref="#PWR0276"  Part="1" 
+F 0 "#PWR0276" H 4620 4530 50  0001 C CNN
+F 1 "GNDD" H 4560 4640 50  0000 C CNN
+F 2 "" H 4620 4780 50  0001 C CNN
+F 3 "" H 4620 4780 50  0001 C CNN
+	1    4620 4780
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2940 1630 2870 1630
+Connection ~ 2870 1630
+$Comp
+L power:GNDD #PWR?
+U 1 1 60B233D2
+P 2620 2050
+AR Path="/60B233D2" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/60B233D2" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/60B233D2" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/60B233D2" Ref="#PWR0281"  Part="1" 
+F 0 "#PWR0281" H 2620 1800 50  0001 C CNN
+F 1 "GNDD" H 2560 1910 50  0000 C CNN
+F 2 "" H 2620 2050 50  0001 C CNN
+F 3 "" H 2620 2050 50  0001 C CNN
+	1    2620 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2620 2050 2620 1980
+$Comp
+L power:GNDD #PWR?
+U 1 1 60B6C10C
+P 3340 2100
+AR Path="/60B6C10C" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/60B6C10C" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/60B6C10C" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/60B6C10C" Ref="#PWR0282"  Part="1" 
+F 0 "#PWR0282" H 3340 1850 50  0001 C CNN
+F 1 "GNDD" H 3280 1960 50  0000 C CNN
+F 2 "" H 3340 2100 50  0001 C CNN
+F 3 "" H 3340 2100 50  0001 C CNN
+	1    3340 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3340 2100 3340 2030
+Wire Wire Line
+	3740 1630 3920 1630
+Wire Wire Line
+	3990 1630 3990 1530
+Wire Wire Line
+	3920 1660 3920 1630
+Connection ~ 3920 1630
+Wire Wire Line
+	3920 1630 3990 1630
+$Comp
+L power:GNDD #PWR?
+U 1 1 60BFC699
+P 3920 2010
+AR Path="/60BFC699" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/60BFC699" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/60BFC699" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/60BFC699" Ref="#PWR0283"  Part="1" 
+F 0 "#PWR0283" H 3920 1760 50  0001 C CNN
+F 1 "GNDD" H 3860 1870 50  0000 C CNN
+F 2 "" H 3920 2010 50  0001 C CNN
+F 3 "" H 3920 2010 50  0001 C CNN
+	1    3920 2010
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3920 2010 3920 1960
+$Comp
+L Device:C C?
+U 1 1 5E002CDC
+P 9010 3510
+AR Path="/5D861EB3/5E002CDC" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E002CDC" Ref="C107"  Part="1" 
+F 0 "C107" H 8760 3610 50  0000 L CNN
+F 1 "100n" H 8710 3500 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9048 3360 50  0001 C CNN
+F 3 "~" H 9010 3510 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 9010 3510 50  0001 C CNN "Description"
+F 5 "" H 9010 3510 50  0001 C CNN "Distributor"
+F 6 "" H 9010 3510 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 9010 3510 50  0001 C CNN "Comment"
+F 8 "Yageo" H 9010 3510 50  0001 C CNN "Mnfct"
+F 9 "603-CC603KRX7R9BB104" H 9010 3510 50  0001 C CNN "ProviderCode"
+F 10 "Mouser" H 9010 3510 50  0001 C CNN "Provider"
+F 11 "CC603KRX7R9BB104" H 9010 3510 50  0001 C CNN "MnfctCode"
+F 12 "-" H 9010 3510 50  0001 C CNN "Comment2"
+	1    9010 3510
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5E003527
+P 6570 3680
+AR Path="/5D861EB3/5E003527" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E003527" Ref="C43"  Part="1" 
+F 0 "C43" H 6685 3726 50  0000 L CNN
+F 1 "100n" H 6685 3635 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6608 3530 50  0001 C CNN
+F 3 "~" H 6570 3680 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 6570 3680 50  0001 C CNN "Description"
+F 5 "" H 6570 3680 50  0001 C CNN "Distributor"
+F 6 "" H 6570 3680 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 6570 3680 50  0001 C CNN "Comment"
+F 8 "" H 6570 3680 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 6570 3680 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 6570 3680 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 6570 3680 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 6570 3680 50  0001 C CNN "MnfctCode"
+F 13 "-" H 6570 3680 50  0001 C CNN "Comment2"
+	1    6570 3680
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5E004DAF
+P 9030 5710
+AR Path="/5D861EB3/5E004DAF" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E004DAF" Ref="C69"  Part="1" 
+F 0 "C69" H 8800 5810 50  0000 L CNN
+F 1 "100n" H 8770 5630 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9068 5560 50  0001 C CNN
+F 3 "~" H 9030 5710 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 9030 5710 50  0001 C CNN "Description"
+F 5 "" H 9030 5710 50  0001 C CNN "Distributor"
+F 6 "" H 9030 5710 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 9030 5710 50  0001 C CNN "Comment"
+F 8 "" H 9030 5710 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 9030 5710 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 9030 5710 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 9030 5710 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 9030 5710 50  0001 C CNN "MnfctCode"
+F 13 "-" H 9030 5710 50  0001 C CNN "Comment2"
+	1    9030 5710
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9030 5520 9030 5560
+$Comp
+L Device:C C?
+U 1 1 5E006D20
+P 1420 6410
+AR Path="/5D861EB3/5E006D20" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E006D20" Ref="C24"  Part="1" 
+F 0 "C24" H 1535 6456 50  0000 L CNN
+F 1 "100n" H 1535 6365 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1458 6260 50  0001 C CNN
+F 3 "~" H 1420 6410 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 1420 6410 50  0001 C CNN "Description"
+F 5 "" H 1420 6410 50  0001 C CNN "Distributor"
+F 6 "" H 1420 6410 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 1420 6410 50  0001 C CNN "Comment"
+F 8 "" H 1420 6410 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 1420 6410 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 1420 6410 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 1420 6410 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 1420 6410 50  0001 C CNN "MnfctCode"
+F 13 "-" H 1420 6410 50  0001 C CNN "Comment2"
+	1    1420 6410
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5E008B7A
+P 1520 4190
+AR Path="/5D861EB3/5E008B7A" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E008B7A" Ref="C38"  Part="1" 
+F 0 "C38" H 1635 4236 50  0000 L CNN
+F 1 "100n" H 1635 4145 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1558 4040 50  0001 C CNN
+F 3 "~" H 1520 4190 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 1520 4190 50  0001 C CNN "Description"
+F 5 "" H 1520 4190 50  0001 C CNN "Distributor"
+F 6 "" H 1520 4190 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 1520 4190 50  0001 C CNN "Comment"
+F 8 "" H 1520 4190 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 1520 4190 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 1520 4190 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 1520 4190 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 1520 4190 50  0001 C CNN "MnfctCode"
+F 13 "-" H 1520 4190 50  0001 C CNN "Comment2"
+	1    1520 4190
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5E0099B6
+P 1390 8750
+AR Path="/5D861EB3/5E0099B6" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E0099B6" Ref="C29"  Part="1" 
+F 0 "C29" H 1505 8796 50  0000 L CNN
+F 1 "100n" H 1505 8705 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1428 8600 50  0001 C CNN
+F 3 "~" H 1390 8750 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 1390 8750 50  0001 C CNN "Description"
+F 5 "" H 1390 8750 50  0001 C CNN "Distributor"
+F 6 "" H 1390 8750 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 1390 8750 50  0001 C CNN "Comment"
+F 8 "" H 1390 8750 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 1390 8750 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 1390 8750 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 1390 8750 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 1390 8750 50  0001 C CNN "MnfctCode"
+F 13 "-" H 1390 8750 50  0001 C CNN "Comment2"
+	1    1390 8750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5E00AC8D
+P 6530 8140
+AR Path="/5D861EB3/5E00AC8D" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E00AC8D" Ref="C67"  Part="1" 
+F 0 "C67" H 6330 8220 50  0000 L CNN
+F 1 "100n" H 6430 8030 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6568 7990 50  0001 C CNN
+F 3 "~" H 6530 8140 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 6530 8140 50  0001 C CNN "Description"
+F 5 "" H 6530 8140 50  0001 C CNN "Distributor"
+F 6 "" H 6530 8140 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 6530 8140 50  0001 C CNN "Comment"
+F 8 "" H 6530 8140 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 6530 8140 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 6530 8140 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 6530 8140 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 6530 8140 50  0001 C CNN "MnfctCode"
+F 13 "-" H 6530 8140 50  0001 C CNN "Comment2"
+	1    6530 8140
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5E00C2F5
+P 9020 7960
+AR Path="/5D861EB3/5E00C2F5" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E00C2F5" Ref="C70"  Part="1" 
+F 0 "C70" H 9135 8006 50  0000 L CNN
+F 1 "100n" H 9135 7915 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9058 7810 50  0001 C CNN
+F 3 "~" H 9020 7960 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 9020 7960 50  0001 C CNN "Description"
+F 5 "" H 9020 7960 50  0001 C CNN "Distributor"
+F 6 "" H 9020 7960 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 9020 7960 50  0001 C CNN "Comment"
+F 8 "" H 9020 7960 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 9020 7960 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 9020 7960 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 9020 7960 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 9020 7960 50  0001 C CNN "MnfctCode"
+F 13 "-" H 9020 7960 50  0001 C CNN "Comment2"
+	1    9020 7960
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 5E584A7B
+P 9500 3090
+AR Path="/5E584A7B" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5E584A7B" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5E584A7B" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5E584A7B" Ref="R20"  Part="1" 
+F 0 "R20" H 9380 3160 50  0000 C CNN
+F 1 "10R" H 9360 3070 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 9540 3080 50  0001 C CNN
+F 3 "~" H 9500 3090 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0603 10.0ohms 1% AEC-Q200" H 9500 3090 50  0001 C CNN "Description"
+F 5 "" H 9500 3090 50  0001 C CNN "Distributor"
+F 6 "" H 9500 3090 50  0001 C CNN "PartNumb"
+F 7 "-" H 9500 3090 50  0001 C CNN "Comment"
+F 8 "ERJ-3EKF10R0V" H 9500 3090 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 9500 3090 50  0001 C CNN "Provider"
+F 10 "667-ERJ-3EKF10R0V" H 9500 3090 50  0001 C CNN "ProviderCode"
+F 11 "-" H 9500 3090 50  0001 C CNN "Comment2"
+F 12 "Panasonic" H 9500 3090 50  0001 C CNN "Mnfct"
+	1    9500 3090
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9500 2940 9500 2890
+$Comp
+L Device:R_US R?
+U 1 1 5E5D94AA
+P 9510 5300
+AR Path="/5E5D94AA" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5E5D94AA" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5E5D94AA" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5E5D94AA" Ref="R17"  Part="1" 
+F 0 "R17" H 9390 5370 50  0000 C CNN
+F 1 "10R" H 9370 5280 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 9550 5290 50  0001 C CNN
+F 3 "~" H 9510 5300 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0603 10.0ohms 1% AEC-Q200" H 9510 5300 50  0001 C CNN "Description"
+F 5 "" H 9510 5300 50  0001 C CNN "Distributor"
+F 6 "" H 9510 5300 50  0001 C CNN "PartNumb"
+F 7 "-" H 9510 5300 50  0001 C CNN "Comment"
+F 8 "ERJ-3EKF10R0V" H 9510 5300 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 9510 5300 50  0001 C CNN "Provider"
+F 10 "667-ERJ-3EKF10R0V" H 9510 5300 50  0001 C CNN "ProviderCode"
+F 11 "-" H 9510 5300 50  0001 C CNN "Comment2"
+F 12 "Panasonic" H 9510 5300 50  0001 C CNN "Mnfct"
+	1    9510 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9510 5150 9510 5110
+$Comp
+L Device:R_US R?
+U 1 1 5E5F745D
+P 9500 7540
+AR Path="/5E5F745D" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5E5F745D" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5E5F745D" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5E5F745D" Ref="R19"  Part="1" 
+F 0 "R19" H 9380 7610 50  0000 C CNN
+F 1 "10R" H 9360 7520 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 9540 7530 50  0001 C CNN
+F 3 "~" H 9500 7540 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0603 10.0ohms 1% AEC-Q200" H 9500 7540 50  0001 C CNN "Description"
+F 5 "" H 9500 7540 50  0001 C CNN "Distributor"
+F 6 "" H 9500 7540 50  0001 C CNN "PartNumb"
+F 7 "-" H 9500 7540 50  0001 C CNN "Comment"
+F 8 "ERJ-3EKF10R0V" H 9500 7540 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 9500 7540 50  0001 C CNN "Provider"
+F 10 "667-ERJ-3EKF10R0V" H 9500 7540 50  0001 C CNN "ProviderCode"
+F 11 "-" H 9500 7540 50  0001 C CNN "Comment2"
+F 12 "Panasonic" H 9500 7540 50  0001 C CNN "Mnfct"
+	1    9500 7540
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E5F7FB9
+P 9500 7350
+AR Path="/5E5F7FB9" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5E5F7FB9" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E5F7FB9" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E5F7FB9" Ref="#PWR0171"  Part="1" 
+F 0 "#PWR0171" H 9500 7200 50  0001 C CNN
+F 1 "+3.3V" H 9375 7475 50  0000 C CNN
+F 2 "" H 9500 7350 50  0001 C CNN
+F 3 "" H 9500 7350 50  0001 C CNN
+	1    9500 7350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9500 7390 9500 7350
+Wire Wire Line
+	9030 5940 9030 5860
+Text HLabel 11020 6750 2    47   Output ~ 0
+PhotoD_470nm_SPI_MISO
+Text HLabel 11020 6650 2    47   Input ~ 0
+PhotoD_470nm_SPI_SCLK
+Text HLabel 11100 8990 2    47   Output ~ 0
+PhotoD_560nm_SPI_MISO
+Text HLabel 11100 8890 2    47   Input ~ 0
+PhotoD_560nm_SPI_SCLK
+Wire Wire Line
+	2940 1830 2870 1830
+$Comp
+L FPS-2_v1:Molex_90325-3006 J19
+U 1 1 5F58A491
+P 2220 4430
+F 0 "J19" H 2220 4717 50  0000 C CNN
+F 1 "Molex_90325-3006" H 2220 4640 31  0000 C CNN
+F 2 "FPS_pads_lib:Molex_90325-3006" H 2210 4260 31  0001 C CNN
+F 3 "~" H 2220 4430 50  0001 C CNN
+F 4 "PhotoDiode plug" H 2220 4430 50  0001 C CNN "Comment"
+F 5 "Molex" H 2220 4430 50  0001 C CNN "Mnfct"
+F 6 "90325-3006" H 2220 4430 50  0001 C CNN "MnfctCode"
+F 7 "Mouser" H 2220 4430 50  0001 C CNN "Provider"
+F 8 "538-90325-3006" H 2220 4430 50  0001 C CNN "ProviderCode"
+F 9 "Headers & Wire Housings 1.27MM 6P RA HDR LO-PRO W/PCB PEGS" H 2220 4430 50  0001 C CNN "Comment2"
+	1    2220 4430
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1970 4330 1800 4330
+$Comp
+L FPS-2_v1:Molex_90325-3006 J21
+U 1 1 5F5FACB5
+P 2090 8990
+F 0 "J21" H 2090 9277 50  0000 C CNN
+F 1 "Molex_90325-3006" H 2090 9200 31  0000 C CNN
+F 2 "FPS_pads_lib:Molex_90325-3006" H 2080 8820 31  0001 C CNN
+F 3 "~" H 2090 8990 50  0001 C CNN
+F 4 "PhotoDiode plug" H 2090 8990 50  0001 C CNN "Comment"
+F 5 "Molex" H 2090 8990 50  0001 C CNN "Mnfct"
+F 6 "90325-3006" H 2090 8990 50  0001 C CNN "MnfctCode"
+F 7 "Mouser" H 2090 8990 50  0001 C CNN "Provider"
+F 8 "538-90325-3006" H 2090 8990 50  0001 C CNN "ProviderCode"
+F 9 "Headers & Wire Housings 1.27MM 6P RA HDR LO-PRO W/PCB PEGS" H 2090 8990 50  0001 C CNN "Comment2"
+	1    2090 8990
+	1    0    0    -1  
+$EndComp
+Text HLabel 1910 4670 0    47   Output ~ 0
+DigPots_SPI_SDO
+Text HLabel 2550 4430 2    47   Input ~ 0
+DigPot_410nm_~CS
+Wire Wire Line
+	2550 4530 2470 4530
+Wire Wire Line
+	2550 4430 2470 4430
+Wire Wire Line
+	1800 4330 1800 3910
+Wire Wire Line
+	2470 4330 2600 4330
+Text Notes 8330 2730 0    70   ~ 14
+5V !!!!!!!!!! (?)\nref from Photodiode output
+Text HLabel 2550 4530 2    47   Input ~ 0
+DigPots_SPI_SCLK
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5EC34FB0
+P 1800 3880
+AR Path="/5D861EB3/5DEAE301/5EC34FB0" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5EC34FB0" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5EC34FB0" Ref="#PWR039"  Part="1" 
+F 0 "#PWR039" H 1800 3730 50  0001 C CNN
+F 1 "+3.3V" H 1815 4053 50  0000 C CNN
+F 2 "" H 1800 3880 50  0001 C CNN
+F 3 "" H 1800 3880 50  0001 C CNN
+	1    1800 3880
+	1    0    0    -1  
+$EndComp
+$Comp
+L FPS-2_v1:Molex_90325-3006 J20
+U 1 1 5F5DDE96
+P 2120 6650
+F 0 "J20" H 2120 6937 50  0000 C CNN
+F 1 "Molex_90325-3006" H 2120 6860 31  0000 C CNN
+F 2 "FPS_pads_lib:Molex_90325-3006" H 2110 6480 31  0001 C CNN
+F 3 "~" H 2120 6650 50  0001 C CNN
+F 4 "PhotoDiode plug" H 2120 6650 50  0001 C CNN "Comment"
+F 5 "Molex" H 2120 6650 50  0001 C CNN "Mnfct"
+F 6 "90325-3006" H 2120 6650 50  0001 C CNN "MnfctCode"
+F 7 "Mouser" H 2120 6650 50  0001 C CNN "Provider"
+F 8 "538-90325-3006" H 2120 6650 50  0001 C CNN "ProviderCode"
+F 9 "Headers & Wire Housings 1.27MM 6P RA HDR LO-PRO W/PCB PEGS" H 2120 6650 50  0001 C CNN "Comment2"
+	1    2120 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 5ED6A442
+P 1040 6690
+AR Path="/5ED6A442" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5ED6A442" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5ED6A442" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5ED6A442" Ref="#PWR038"  Part="1" 
+F 0 "#PWR038" H 1040 6440 50  0001 C CNN
+F 1 "GNDD" H 880 6610 50  0000 C CNN
+F 2 "" H 1040 6690 50  0001 C CNN
+F 3 "" H 1040 6690 50  0001 C CNN
+	1    1040 6690
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1870 6550 1700 6550
+Text HLabel 1810 6890 0    47   Output ~ 0
+DigPots_SPI_SDO
+Wire Wire Line
+	1700 6550 1700 6200
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5ED6A44D
+P 1700 6170
+AR Path="/5D861EB3/5DEAE301/5ED6A44D" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5ED6A44D" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5ED6A44D" Ref="#PWR037"  Part="1" 
+F 0 "#PWR037" H 1700 6020 50  0001 C CNN
+F 1 "+3.3V" H 1715 6343 50  0000 C CNN
+F 2 "" H 1700 6170 50  0001 C CNN
+F 3 "" H 1700 6170 50  0001 C CNN
+	1    1700 6170
+	1    0    0    -1  
+$EndComp
+Text HLabel 2450 6650 2    47   Input ~ 0
+DigPot_470nm_~CS
+Wire Wire Line
+	2450 6750 2370 6750
+Wire Wire Line
+	2450 6650 2370 6650
+Text HLabel 2450 6750 2    47   Input ~ 0
+DigPots_SPI_SCLK
+Wire Wire Line
+	1840 8890 1670 8890
+Text HLabel 1780 9230 0    47   Output ~ 0
+DigPots_SPI_SDO
+Wire Wire Line
+	1670 8890 1670 8520
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5EE782FF
+P 1670 8470
+AR Path="/5D861EB3/5DEAE301/5EE782FF" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5EE782FF" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5EE782FF" Ref="#PWR035"  Part="1" 
+F 0 "#PWR035" H 1670 8320 50  0001 C CNN
+F 1 "+3.3V" H 1730 8610 50  0000 C CNN
+F 2 "" H 1670 8470 50  0001 C CNN
+F 3 "" H 1670 8470 50  0001 C CNN
+	1    1670 8470
+	1    0    0    -1  
+$EndComp
+Text HLabel 2420 8990 2    47   Input ~ 0
+DigPot_560nm_~CS
+Wire Wire Line
+	2420 9090 2340 9090
+Wire Wire Line
+	2420 8990 2340 8990
+Text HLabel 2420 9090 2    47   Input ~ 0
+DigPots_SPI_SCLK
+Connection ~ 1700 6200
+Wire Wire Line
+	1700 6200 1700 6170
+Wire Wire Line
+	1810 6890 1870 6890
+Wire Wire Line
+	1870 6890 1870 6750
+Wire Wire Line
+	1040 6560 1040 6650
+Wire Wire Line
+	1040 6650 1420 6650
+Connection ~ 1040 6650
+Wire Wire Line
+	1040 6650 1040 6690
+Wire Wire Line
+	1420 6560 1420 6650
+Connection ~ 1420 6650
+Wire Wire Line
+	1420 6650 1870 6650
+$Comp
+L power:GNDD #PWR?
+U 1 1 5F3240FA
+P 1140 4470
+AR Path="/5F3240FA" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5F3240FA" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5F3240FA" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5F3240FA" Ref="#PWR0246"  Part="1" 
+F 0 "#PWR0246" H 1140 4220 50  0001 C CNN
+F 1 "GNDD" H 980 4390 50  0000 C CNN
+F 2 "" H 1140 4470 50  0001 C CNN
+F 3 "" H 1140 4470 50  0001 C CNN
+	1    1140 4470
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1140 4340 1140 4430
+Wire Wire Line
+	1140 4430 1520 4430
+Connection ~ 1140 4430
+Wire Wire Line
+	1140 4430 1140 4470
+Wire Wire Line
+	1520 4340 1520 4430
+Connection ~ 1520 4430
+Wire Wire Line
+	1520 4430 1970 4430
+Wire Wire Line
+	1910 4670 1970 4670
+Wire Wire Line
+	1970 4670 1970 4530
+Wire Wire Line
+	1780 9230 1840 9230
+Wire Wire Line
+	1840 9230 1840 9090
+$Comp
+L power:GNDD #PWR?
+U 1 1 5F3E9FE8
+P 1010 9030
+AR Path="/5F3E9FE8" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5F3E9FE8" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5F3E9FE8" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5F3E9FE8" Ref="#PWR0247"  Part="1" 
+F 0 "#PWR0247" H 1010 8780 50  0001 C CNN
+F 1 "GNDD" H 850 8950 50  0000 C CNN
+F 2 "" H 1010 9030 50  0001 C CNN
+F 3 "" H 1010 9030 50  0001 C CNN
+	1    1010 9030
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1010 8900 1010 8990
+Wire Wire Line
+	1010 8990 1390 8990
+Connection ~ 1010 8990
+Wire Wire Line
+	1010 8990 1010 9030
+Wire Wire Line
+	1390 8900 1390 8990
+Connection ~ 1390 8990
+Wire Wire Line
+	1390 8990 1840 8990
+Connection ~ 1670 8520
+Wire Wire Line
+	1670 8520 1670 8470
+Connection ~ 1800 3910
+Wire Wire Line
+	1800 3910 1800 3880
+$Comp
+L FPS-2_v1:AD8655 U5
+U 1 1 5E5E1686
+P 5450 6450
+F 0 "U5" H 5580 6310 50  0000 L CNN
+F 1 "AD8655" H 5520 6210 50  0000 L CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5550 6150 25  0001 C CNN
+F 3 "" H 5300 6430 50  0001 C CNN
+F 4 "Low Noise, Precision CMOS Amplifier" H 5450 6450 50  0001 C CNN "Comment"
+F 5 "Analog Devices" H 5450 6450 50  0001 C CNN "Mnfct"
+F 6 "AD8655ARZ" H 5450 6450 50  0001 C CNN "MnfctCode"
+F 7 "Mouser" H 5450 6450 50  0001 C CNN "Provider"
+F 8 "584-AD8655ARZ" H 5450 6450 50  0001 C CNN "ProviderCode"
+F 9 "-" H 5450 6450 50  0001 C CNN "Comment2"
+	1    5450 6450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 5E6260C5
+P 5450 6750
+AR Path="/5E6260C5" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5E6260C5" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E6260C5" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E6260C5" Ref="#PWR04"  Part="1" 
+F 0 "#PWR04" H 5450 6500 50  0001 C CNN
+F 1 "GNDD" H 5390 6610 50  0000 C CNN
+F 2 "" H 5450 6750 50  0001 C CNN
+F 3 "" H 5450 6750 50  0001 C CNN
+	1    5450 6750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5450 6750 5450 6700
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5E68833D
+P 5450 5630
+AR Path="/5E68833D" Ref="#PWR?"  Part="1" 
+AR Path="/5DBB6556/5E68833D" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E68833D" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E68833D" Ref="#PWR02"  Part="1" 
+F 0 "#PWR02" H 5450 5480 50  0001 C CNN
+F 1 "+3.3V" H 5465 5803 50  0000 C CNN
+F 2 "" H 5450 5630 50  0001 C CNN
+F 3 "" H 5450 5630 50  0001 C CNN
+	1    5450 5630
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5E68834B
+P 6000 5890
+AR Path="/5E68834B" Ref="C?"  Part="1" 
+AR Path="/5DBB6556/5E68834B" Ref="C?"  Part="1" 
+AR Path="/5D861EB3/5E68834B" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E68834B" Ref="C109"  Part="1" 
+F 0 "C109" H 6115 5936 50  0000 L CNN
+F 1 "10u 16V" H 5950 5790 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6038 5740 50  0001 C CNN
+F 3 "~" H 6000 5890 50  0001 C CNN
+F 4 "MLayer CerCap SMD 0805 16VDC 10uF 20% X5R" H 6000 5890 50  0001 C CNN "Description"
+F 5 "" H 6000 5890 50  0001 C CNN "Distributor"
+F 6 "" H 6000 5890 50  0001 C CNN "PartNumb"
+F 7 "-" H 6000 5890 50  0001 C CNN "Comment"
+F 8 "EMK212ABJ106MG-T" H 6000 5890 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 6000 5890 50  0001 C CNN "Provider"
+F 10 "963-EMK212ABJ106MG-T" H 6000 5890 50  0001 C CNN "ProviderCode"
+F 11 "-" H 6000 5890 50  0001 C CNN "Comment2"
+F 12 "Taiyo Yuden" H 6000 5890 50  0001 C CNN "Mnfct"
+	1    6000 5890
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6380 5670 6380 5740
+Wire Wire Line
+	6000 5740 6000 5670
+Connection ~ 6000 5670
+Wire Wire Line
+	6000 5670 6380 5670
+$Comp
+L Device:C C?
+U 1 1 5E688365
+P 6380 5890
+AR Path="/5D861EB3/5E688365" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5E688365" Ref="C116"  Part="1" 
+F 0 "C116" H 6495 5936 50  0000 L CNN
+F 1 "100n" H 6410 5790 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6418 5740 50  0001 C CNN
+F 3 "~" H 6380 5890 50  0001 C CNN
+F 4 "Multilayer Ceramic Capacitors MLCC - SMD/SMT 100nF 50V X7R 10%" H 6380 5890 50  0001 C CNN "Description"
+F 5 "" H 6380 5890 50  0001 C CNN "Distributor"
+F 6 "" H 6380 5890 50  0001 C CNN "PartNumb"
+F 7 "100n 50V" H 6380 5890 50  0001 C CNN "Comment"
+F 8 "" H 6380 5890 50  0001 C CNN "_footprint"
+F 9 "Yageo" H 6380 5890 50  0001 C CNN "Mnfct"
+F 10 "603-CC603KRX7R9BB104" H 6380 5890 50  0001 C CNN "ProviderCode"
+F 11 "Mouser" H 6380 5890 50  0001 C CNN "Provider"
+F 12 "CC603KRX7R9BB104" H 6380 5890 50  0001 C CNN "MnfctCode"
+F 13 "-" H 6380 5890 50  0001 C CNN "Comment2"
+	1    6380 5890
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 5E6E0C2B
+P 6000 6120
+AR Path="/5E6E0C2B" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5E6E0C2B" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E6E0C2B" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E6E0C2B" Ref="#PWR024"  Part="1" 
+F 0 "#PWR024" H 6000 5870 50  0001 C CNN
+F 1 "GNDD" H 6060 5980 50  0000 C CNN
+F 2 "" H 6000 6120 50  0001 C CNN
+F 3 "" H 6000 6120 50  0001 C CNN
+	1    6000 6120
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 5E6E24E9
+P 6380 6130
+AR Path="/5E6E24E9" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5E6E24E9" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E6E24E9" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E6E24E9" Ref="#PWR026"  Part="1" 
+F 0 "#PWR026" H 6380 5880 50  0001 C CNN
+F 1 "GNDD" H 6450 6000 50  0000 C CNN
+F 2 "" H 6380 6130 50  0001 C CNN
+F 3 "" H 6380 6130 50  0001 C CNN
+	1    6380 6130
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6380 6130 6380 6040
+Wire Wire Line
+	6000 6120 6000 6040
+Wire Wire Line
+	5450 5670 6000 5670
+Wire Wire Line
+	5450 5630 5450 5670
+Connection ~ 5450 5670
+Wire Wire Line
+	5450 5670 5450 6200
+Wire Wire Line
+	5800 6450 5870 6450
+Wire Wire Line
+	5870 6450 5870 6090
+Wire Wire Line
+	4960 6090 5870 6090
+Wire Wire Line
+	5190 4130 5000 4130
+$Comp
+L FPS-2_v1:AD8655 U11
+U 1 1 5E7B10B0
+P 5490 4230
+F 0 "U11" H 5620 4100 50  0000 L CNN
+F 1 "AD8655" H 5580 4010 50  0000 L CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5590 3930 25  0001 C CNN
+F 3 "" H 5340 4210 50  0001 C CNN
+F 4 "Low Noise, Precision CMOS Amplifier" H 5490 4230 50  0001 C CNN "Comment"
+F 5 "Analog Devices" H 5490 4230 50  0001 C CNN "Mnfct"
+F 6 "AD8655ARZ" H 5490 4230 50  0001 C CNN "MnfctCode"
+F 7 "Mouser" H 5490 4230 50  0001 C CNN "Provider"
+F 8 "584-AD8655ARZ" H 5490 4230 50  0001 C CNN "ProviderCode"
+F 9 "-" H 5490 4230 50  0001 C CNN "Comment2"
+	1    5490 4230
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 5E7B10B6
+P 5490 4530
+AR Path="/5E7B10B6" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5E7B10B6" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E7B10B6" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E7B10B6" Ref="#PWR05"  Part="1" 
+F 0 "#PWR05" H 5490 4280 50  0001 C CNN
+F 1 "GNDD" H 5430 4390 50  0000 C CNN
+F 2 "" H 5490 4530 50  0001 C CNN
+F 3 "" H 5490 4530 50  0001 C CNN
+	1    5490 4530
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5490 4530 5490 4480
+Wire Wire Line
+	5000 3870 5910 3870
+Wire Wire Line
+	5000 3870 5000 4130
+Wire Wire Line
+	5910 3870 5910 4230
+Wire Wire Line
+	5490 3410 5490 3460
+Wire Wire Line
+	5490 3460 6190 3460
+Connection ~ 5490 3460
+Wire Wire Line
+	5490 3460 5490 3980
+$Comp
+L FPS-2_v1:AD8655 U13
+U 1 1 5E8C94AF
+P 5520 8690
+F 0 "U13" H 5640 8540 50  0000 L CNN
+F 1 "AD8655" H 5600 8450 50  0000 L CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5620 8390 25  0001 C CNN
+F 3 "" H 5370 8670 50  0001 C CNN
+F 4 "Low Noise, Precision CMOS Amplifier" H 5520 8690 50  0001 C CNN "Comment"
+F 5 "Analog Devices" H 5520 8690 50  0001 C CNN "Mnfct"
+F 6 "AD8655ARZ" H 5520 8690 50  0001 C CNN "MnfctCode"
+F 7 "Mouser" H 5520 8690 50  0001 C CNN "Provider"
+F 8 "584-AD8655ARZ" H 5520 8690 50  0001 C CNN "ProviderCode"
+F 9 "-" H 5520 8690 50  0001 C CNN "Comment2"
+	1    5520 8690
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDD #PWR?
+U 1 1 5E8C94B5
+P 5520 8990
+AR Path="/5E8C94B5" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5E8C94B5" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5E8C94B5" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5E8C94B5" Ref="#PWR023"  Part="1" 
+F 0 "#PWR023" H 5520 8740 50  0001 C CNN
+F 1 "GNDD" H 5460 8850 50  0000 C CNN
+F 2 "" H 5520 8990 50  0001 C CNN
+F 3 "" H 5520 8990 50  0001 C CNN
+	1    5520 8990
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5520 8990 5520 8940
+Wire Wire Line
+	5520 7910 5520 7950
+Wire Wire Line
+	5870 8690 5940 8690
+Wire Wire Line
+	5030 8330 5940 8330
+Wire Wire Line
+	5940 8330 5940 8690
+Connection ~ 5940 8690
+Wire Wire Line
+	5030 8330 5030 8590
+Wire Wire Line
+	5030 8590 5220 8590
+Wire Wire Line
+	5520 7950 6150 7950
+Connection ~ 5520 7950
+Wire Wire Line
+	5520 7950 5520 8440
+Connection ~ 4620 8790
+Wire Wire Line
+	4620 8790 5220 8790
+Text Label 2600 8890 0    50   ~ 0
+PhotodiodeOutput_560nm
+Wire Wire Line
+	2340 8890 2400 8890
+Wire Wire Line
+	2400 8660 2400 8890
+Text Label 4620 8300 2    50   ~ 0
+PhotodiodeOutput_560nm
+Wire Wire Line
+	4620 8370 4620 8300
+Wire Wire Line
+	5940 8690 6590 8690
+$Comp
+L Device:R_US R?
+U 1 1 5EAD89E2
+P 6740 8690
+AR Path="/5EAD89E2" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5EAD89E2" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5EAD89E2" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5EAD89E2" Ref="R49"  Part="1" 
+F 0 "R49" V 6870 8710 50  0000 C CNN
+F 1 "10R" V 6830 8630 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6780 8680 50  0001 C CNN
+F 3 "~" H 6740 8690 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0603 10.0ohms 1% AEC-Q200" H 6740 8690 50  0001 C CNN "Description"
+F 5 "" H 6740 8690 50  0001 C CNN "Distributor"
+F 6 "" H 6740 8690 50  0001 C CNN "PartNumb"
+F 7 "-" H 6740 8690 50  0001 C CNN "Comment"
+F 8 "ERJ-3EKF10R0V" H 6740 8690 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 6740 8690 50  0001 C CNN "Provider"
+F 10 "667-ERJ-3EKF10R0V" H 6740 8690 50  0001 C CNN "ProviderCode"
+F 11 "-" H 6740 8690 50  0001 C CNN "Comment2"
+F 12 "Panasonic" H 6740 8690 50  0001 C CNN "Mnfct"
+	1    6740 8690
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6890 8690 7030 8690
+$Comp
+L Device:C C?
+U 1 1 5EADB868
+P 7030 8980
+AR Path="/5D861EB3/5EADB868" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5EADB868" Ref="C123"  Part="1" 
+F 0 "C123" H 6830 9060 50  0000 L CNN
+F 1 "DNI" H 6930 8870 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 7068 8830 50  0001 C CNN
+F 3 "~" H 7030 8980 50  0001 C CNN
+F 4 "-" H 7030 8980 50  0001 C CNN "Description"
+F 5 "" H 7030 8980 50  0001 C CNN "Distributor"
+F 6 "" H 7030 8980 50  0001 C CNN "PartNumb"
+F 7 "-" H 7030 8980 50  0001 C CNN "Comment"
+F 8 "-" H 7030 8980 50  0001 C CNN "Mnfct"
+F 9 "-" H 7030 8980 50  0001 C CNN "ProviderCode"
+F 10 "-" H 7030 8980 50  0001 C CNN "Provider"
+F 11 "-" H 7030 8980 50  0001 C CNN "MnfctCode"
+F 12 "-" H 7030 8980 50  0001 C CNN "Comment2"
+	1    7030 8980
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7030 9190 7030 9130
+$Comp
+L power:GNDD #PWR?
+U 1 1 5EADC748
+P 7030 9190
+AR Path="/5EADC748" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5EADC748" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5EADC748" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5EADC748" Ref="#PWR043"  Part="1" 
+F 0 "#PWR043" H 7030 8940 50  0001 C CNN
+F 1 "GNDD" H 6970 9050 50  0000 C CNN
+F 2 "" H 7030 9190 50  0001 C CNN
+F 3 "" H 7030 9190 50  0001 C CNN
+	1    7030 9190
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7030 8830 7030 8690
+$Comp
+L Device:R_US R?
+U 1 1 5EB52B59
+P 7300 8690
+AR Path="/5EB52B59" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5EB52B59" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5EB52B59" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5EB52B59" Ref="R53"  Part="1" 
+F 0 "R53" V 7430 8710 50  0000 C CNN
+F 1 "0R" V 7390 8630 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7340 8680 50  0001 C CNN
+F 3 "~" H 7300 8690 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0.0ohm 1%" H 7300 8690 50  0001 C CNN "Description"
+F 5 "" H 7300 8690 50  0001 C CNN "Distributor"
+F 6 "" H 7300 8690 50  0001 C CNN "PartNumb"
+F 7 "-" H 7300 8690 50  0001 C CNN "Comment"
+F 8 "RC0603FR-070RL" H 7300 8690 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 7300 8690 50  0001 C CNN "Provider"
+F 10 "603-RC0603FR-070RL" H 7300 8690 50  0001 C CNN "ProviderCode"
+F 11 "-" H 7300 8690 50  0001 C CNN "Comment2"
+F 12 "Yageo" H 7300 8690 50  0001 C CNN "Mnfct"
+	1    7300 8690
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7450 8690 7590 8690
+$Comp
+L Device:C C?
+U 1 1 5EB52B6A
+P 7590 8980
+AR Path="/5D861EB3/5EB52B6A" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5EB52B6A" Ref="C126"  Part="1" 
+F 0 "C126" H 7390 9060 50  0000 L CNN
+F 1 "DNI" H 7490 8870 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 7628 8830 50  0001 C CNN
+F 3 "~" H 7590 8980 50  0001 C CNN
+F 4 "-" H 7590 8980 50  0001 C CNN "Description"
+F 5 "" H 7590 8980 50  0001 C CNN "Distributor"
+F 6 "" H 7590 8980 50  0001 C CNN "PartNumb"
+F 7 "-" H 7590 8980 50  0001 C CNN "Comment"
+F 8 "-" H 7590 8980 50  0001 C CNN "Mnfct"
+F 9 "-" H 7590 8980 50  0001 C CNN "ProviderCode"
+F 10 "-" H 7590 8980 50  0001 C CNN "Provider"
+F 11 "-" H 7590 8980 50  0001 C CNN "MnfctCode"
+F 12 "-" H 7590 8980 50  0001 C CNN "Comment2"
+	1    7590 8980
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7590 9190 7590 9130
+$Comp
+L power:GNDD #PWR?
+U 1 1 5EB52B71
+P 7590 9190
+AR Path="/5EB52B71" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5EB52B71" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5EB52B71" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5EB52B71" Ref="#PWR046"  Part="1" 
+F 0 "#PWR046" H 7590 8940 50  0001 C CNN
+F 1 "GNDD" H 7530 9050 50  0000 C CNN
+F 2 "" H 7590 9190 50  0001 C CNN
+F 3 "" H 7590 9190 50  0001 C CNN
+	1    7590 9190
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7590 8830 7590 8690
+Connection ~ 7590 8690
+Connection ~ 7030 8690
+Wire Wire Line
+	7030 8690 7150 8690
+Wire Wire Line
+	7590 8690 8870 8690
+$Comp
+L Device:R_US R?
+U 1 1 5EBBA980
+P 6680 6450
+AR Path="/5EBBA980" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5EBBA980" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5EBBA980" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5EBBA980" Ref="R42"  Part="1" 
+F 0 "R42" V 6810 6470 50  0000 C CNN
+F 1 "10R" V 6770 6390 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6720 6440 50  0001 C CNN
+F 3 "~" H 6680 6450 50  0001 C CNN
+F 4 "-" H 6680 6450 50  0001 C CNN "Description"
+F 5 "" H 6680 6450 50  0001 C CNN "Distributor"
+F 6 "" H 6680 6450 50  0001 C CNN "PartNumb"
+F 7 "-" H 6680 6450 50  0001 C CNN "Comment"
+F 8 "ERJ-3EKF10R0V" H 6680 6450 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 6680 6450 50  0001 C CNN "Provider"
+F 10 "ERJ-3EKF10R0V" H 6680 6450 50  0001 C CNN "ProviderCode"
+F 11 "-" H 6680 6450 50  0001 C CNN "Comment2"
+F 12 "-" H 6680 6450 50  0001 C CNN "Mnfct"
+	1    6680 6450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6830 6450 6970 6450
+$Comp
+L Device:C C?
+U 1 1 5EBBA991
+P 6970 6740
+AR Path="/5D861EB3/5EBBA991" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5EBBA991" Ref="C122"  Part="1" 
+F 0 "C122" H 6770 6820 50  0000 L CNN
+F 1 "DNI" H 6870 6630 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 7008 6590 50  0001 C CNN
+F 3 "~" H 6970 6740 50  0001 C CNN
+F 4 "-" H 6970 6740 50  0001 C CNN "Description"
+F 5 "" H 6970 6740 50  0001 C CNN "Distributor"
+F 6 "" H 6970 6740 50  0001 C CNN "PartNumb"
+F 7 "-" H 6970 6740 50  0001 C CNN "Comment"
+F 8 "-" H 6970 6740 50  0001 C CNN "Mnfct"
+F 9 "-" H 6970 6740 50  0001 C CNN "ProviderCode"
+F 10 "-" H 6970 6740 50  0001 C CNN "Provider"
+F 11 "-" H 6970 6740 50  0001 C CNN "MnfctCode"
+F 12 "-" H 6970 6740 50  0001 C CNN "Comment2"
+	1    6970 6740
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6970 6950 6970 6890
+$Comp
+L power:GNDD #PWR?
+U 1 1 5EBBA998
+P 6970 6950
+AR Path="/5EBBA998" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5EBBA998" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5EBBA998" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5EBBA998" Ref="#PWR042"  Part="1" 
+F 0 "#PWR042" H 6970 6700 50  0001 C CNN
+F 1 "GNDD" H 6910 6810 50  0000 C CNN
+F 2 "" H 6970 6950 50  0001 C CNN
+F 3 "" H 6970 6950 50  0001 C CNN
+	1    6970 6950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6970 6590 6970 6450
+$Comp
+L Device:R_US R?
+U 1 1 5EBBA9A8
+P 7240 6450
+AR Path="/5EBBA9A8" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5EBBA9A8" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5EBBA9A8" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5EBBA9A8" Ref="R52"  Part="1" 
+F 0 "R52" V 7370 6470 50  0000 C CNN
+F 1 "0R" V 7330 6390 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7280 6440 50  0001 C CNN
+F 3 "~" H 7240 6450 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0.0ohm 1%" H 7240 6450 50  0001 C CNN "Description"
+F 5 "" H 7240 6450 50  0001 C CNN "Distributor"
+F 6 "" H 7240 6450 50  0001 C CNN "PartNumb"
+F 7 "-" H 7240 6450 50  0001 C CNN "Comment"
+F 8 "RC0603FR-070RL" H 7240 6450 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 7240 6450 50  0001 C CNN "Provider"
+F 10 "603-RC0603FR-070RL" H 7240 6450 50  0001 C CNN "ProviderCode"
+F 11 "-" H 7240 6450 50  0001 C CNN "Comment2"
+F 12 "Yageo" H 7240 6450 50  0001 C CNN "Mnfct"
+	1    7240 6450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7390 6450 7530 6450
+$Comp
+L Device:C C?
+U 1 1 5EBBA9B9
+P 7530 6740
+AR Path="/5D861EB3/5EBBA9B9" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5EBBA9B9" Ref="C125"  Part="1" 
+F 0 "C125" H 7330 6820 50  0000 L CNN
+F 1 "DNI" H 7430 6630 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 7568 6590 50  0001 C CNN
+F 3 "~" H 7530 6740 50  0001 C CNN
+F 4 "-" H 7530 6740 50  0001 C CNN "Description"
+F 5 "" H 7530 6740 50  0001 C CNN "Distributor"
+F 6 "" H 7530 6740 50  0001 C CNN "PartNumb"
+F 7 "-" H 7530 6740 50  0001 C CNN "Comment"
+F 8 "-" H 7530 6740 50  0001 C CNN "Mnfct"
+F 9 "-" H 7530 6740 50  0001 C CNN "ProviderCode"
+F 10 "-" H 7530 6740 50  0001 C CNN "Provider"
+F 11 "-" H 7530 6740 50  0001 C CNN "MnfctCode"
+F 12 "-" H 7530 6740 50  0001 C CNN "Comment2"
+	1    7530 6740
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7530 6950 7530 6890
+$Comp
+L power:GNDD #PWR?
+U 1 1 5EBBA9C0
+P 7530 6950
+AR Path="/5EBBA9C0" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5EBBA9C0" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5EBBA9C0" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5EBBA9C0" Ref="#PWR045"  Part="1" 
+F 0 "#PWR045" H 7530 6700 50  0001 C CNN
+F 1 "GNDD" H 7470 6810 50  0000 C CNN
+F 2 "" H 7530 6950 50  0001 C CNN
+F 3 "" H 7530 6950 50  0001 C CNN
+	1    7530 6950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7530 6590 7530 6450
+Connection ~ 7530 6450
+Connection ~ 6970 6450
+Wire Wire Line
+	6970 6450 7090 6450
+Wire Wire Line
+	5870 6450 6530 6450
+Connection ~ 5870 6450
+Wire Wire Line
+	7530 6450 8880 6450
+$Comp
+L Device:R_US R?
+U 1 1 5EC2CC5B
+P 6650 4230
+AR Path="/5EC2CC5B" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5EC2CC5B" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5EC2CC5B" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5EC2CC5B" Ref="R39"  Part="1" 
+F 0 "R39" V 6780 4250 50  0000 C CNN
+F 1 "10R" V 6740 4170 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6690 4220 50  0001 C CNN
+F 3 "~" H 6650 4230 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0603 10.0ohms 1% AEC-Q200" H 6650 4230 50  0001 C CNN "Description"
+F 5 "" H 6650 4230 50  0001 C CNN "Distributor"
+F 6 "" H 6650 4230 50  0001 C CNN "PartNumb"
+F 7 "-" H 6650 4230 50  0001 C CNN "Comment"
+F 8 "ERJ-3EKF10R0V" H 6650 4230 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 6650 4230 50  0001 C CNN "Provider"
+F 10 "667-ERJ-3EKF10R0V" H 6650 4230 50  0001 C CNN "ProviderCode"
+F 11 "-" H 6650 4230 50  0001 C CNN "Comment2"
+F 12 "Panasonic" H 6650 4230 50  0001 C CNN "Mnfct"
+	1    6650 4230
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6800 4230 6940 4230
+$Comp
+L Device:C C?
+U 1 1 5EC2CC6C
+P 6940 4520
+AR Path="/5D861EB3/5EC2CC6C" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5EC2CC6C" Ref="C119"  Part="1" 
+F 0 "C119" H 6740 4600 50  0000 L CNN
+F 1 "DNI" H 6840 4410 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6978 4370 50  0001 C CNN
+F 3 "~" H 6940 4520 50  0001 C CNN
+F 4 "-" H 6940 4520 50  0001 C CNN "Description"
+F 5 "" H 6940 4520 50  0001 C CNN "Distributor"
+F 6 "" H 6940 4520 50  0001 C CNN "PartNumb"
+F 7 "-" H 6940 4520 50  0001 C CNN "Comment"
+F 8 "-" H 6940 4520 50  0001 C CNN "Mnfct"
+F 9 "-" H 6940 4520 50  0001 C CNN "ProviderCode"
+F 10 "-" H 6940 4520 50  0001 C CNN "Provider"
+F 11 "-" H 6940 4520 50  0001 C CNN "MnfctCode"
+F 12 "-" H 6940 4520 50  0001 C CNN "Comment2"
+	1    6940 4520
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6940 4730 6940 4670
+$Comp
+L power:GNDD #PWR?
+U 1 1 5EC2CC73
+P 6940 4730
+AR Path="/5EC2CC73" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5EC2CC73" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5EC2CC73" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5EC2CC73" Ref="#PWR041"  Part="1" 
+F 0 "#PWR041" H 6940 4480 50  0001 C CNN
+F 1 "GNDD" H 6880 4590 50  0000 C CNN
+F 2 "" H 6940 4730 50  0001 C CNN
+F 3 "" H 6940 4730 50  0001 C CNN
+	1    6940 4730
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6940 4370 6940 4230
+$Comp
+L Device:R_US R?
+U 1 1 5EC2CC83
+P 7210 4230
+AR Path="/5EC2CC83" Ref="R?"  Part="1" 
+AR Path="/5DBB6556/5EC2CC83" Ref="R?"  Part="1" 
+AR Path="/5D861EB3/5EC2CC83" Ref="R?"  Part="1" 
+AR Path="/5E341A57/5EC2CC83" Ref="R50"  Part="1" 
+F 0 "R50" V 7340 4250 50  0000 C CNN
+F 1 "0R" V 7300 4170 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7250 4220 50  0001 C CNN
+F 3 "~" H 7210 4230 50  0001 C CNN
+F 4 "Thick Film Resistors - SMD 0.0ohm 1%" H 7210 4230 50  0001 C CNN "Description"
+F 5 "" H 7210 4230 50  0001 C CNN "Distributor"
+F 6 "" H 7210 4230 50  0001 C CNN "PartNumb"
+F 7 "-" H 7210 4230 50  0001 C CNN "Comment"
+F 8 "RC0603FR-070RL" H 7210 4230 50  0001 C CNN "MnfctCode"
+F 9 "Mouser" H 7210 4230 50  0001 C CNN "Provider"
+F 10 "603-RC0603FR-070RL" H 7210 4230 50  0001 C CNN "ProviderCode"
+F 11 "-" H 7210 4230 50  0001 C CNN "Comment2"
+F 12 "Yageo" H 7210 4230 50  0001 C CNN "Mnfct"
+	1    7210 4230
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7360 4230 7500 4230
+$Comp
+L Device:C C?
+U 1 1 5EC2CC94
+P 7500 4520
+AR Path="/5D861EB3/5EC2CC94" Ref="C?"  Part="1" 
+AR Path="/5E341A57/5EC2CC94" Ref="C124"  Part="1" 
+F 0 "C124" H 7300 4600 50  0000 L CNN
+F 1 "DNI" H 7400 4410 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 7538 4370 50  0001 C CNN
+F 3 "~" H 7500 4520 50  0001 C CNN
+F 4 "-" H 7500 4520 50  0001 C CNN "Description"
+F 5 "" H 7500 4520 50  0001 C CNN "Distributor"
+F 6 "" H 7500 4520 50  0001 C CNN "PartNumb"
+F 7 "-" H 7500 4520 50  0001 C CNN "Comment"
+F 8 "-" H 7500 4520 50  0001 C CNN "Mnfct"
+F 9 "-" H 7500 4520 50  0001 C CNN "ProviderCode"
+F 10 "-" H 7500 4520 50  0001 C CNN "Provider"
+F 11 "-" H 7500 4520 50  0001 C CNN "MnfctCode"
+F 12 "-" H 7500 4520 50  0001 C CNN "Comment2"
+	1    7500 4520
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 4730 7500 4670
+$Comp
+L power:GNDD #PWR?
+U 1 1 5EC2CC9B
+P 7500 4730
+AR Path="/5EC2CC9B" Ref="#PWR?"  Part="1" 
+AR Path="/5CC3408E/5EC2CC9B" Ref="#PWR?"  Part="1" 
+AR Path="/5D861EB3/5EC2CC9B" Ref="#PWR?"  Part="1" 
+AR Path="/5E341A57/5EC2CC9B" Ref="#PWR044"  Part="1" 
+F 0 "#PWR044" H 7500 4480 50  0001 C CNN
+F 1 "GNDD" H 7440 4590 50  0000 C CNN
+F 2 "" H 7500 4730 50  0001 C CNN
+F 3 "" H 7500 4730 50  0001 C CNN
+	1    7500 4730
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 4370 7500 4230
+Connection ~ 7500 4230
+Connection ~ 6940 4230
+Wire Wire Line
+	6940 4230 7060 4230
+Wire Wire Line
+	5840 4230 5910 4230
+Connection ~ 5910 4230
+Wire Wire Line
+	5910 4230 6500 4230
+Wire Wire Line
+	7500 4230 8800 4230
+Wire Wire Line
+	8800 4370 8800 4230
+Connection ~ 8800 4230
+Wire Wire Line
+	8800 4230 9280 4230
+Wire Wire Line
+	2370 6550 2500 6550
+Connection ~ 2400 8890
+Wire Wire Line
+	2400 8890 2600 8890
+Wire Wire Line
+	2500 6550 2620 6550
+Connection ~ 2500 6550
+Wire Wire Line
+	2600 4330 2710 4330
+Connection ~ 2600 4330
+Wire Wire Line
+	4620 6550 5150 6550
+Wire Wire Line
+	4620 6550 4620 6450
+Connection ~ 4620 6550
+Wire Wire Line
+	4620 4420 4620 4330
+Wire Wire Line
+	4620 4330 5190 4330
+Wire Wire Line
+	4620 4330 4620 4150
+Connection ~ 4620 4330
+Wire Wire Line
+	4620 6150 4620 6080
+Wire Wire Line
+	4620 3850 4620 3780
+Text Label 4620 3780 2    50   ~ 0
+PhotodiodeOutput_410nm
+Text Label 4620 6080 2    50   ~ 0
+PhotodiodeOutput_470nm
+Wire Wire Line
+	9010 3360 9010 3300
+Wire Wire Line
+	9010 3300 9280 3300
+$EndSCHEMATC

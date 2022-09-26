@@ -35,7 +35,84 @@ NeuroGEARS:
 ************************************************************************************************
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-*  @19 Setembro 2022	
+*  @Setembro 26th 2022	
+
+>> 1st step PCB design finished:
+	- next steps:
+		. a review with Filipe
+		. decide about IC buffers in SPI lines (??); in & out it makes difficult to have peices for it
+		. decide about IC buffers/level shift in H1-board-IOs plug; believe must be!!
+		. optmizing PSU stages; was dimensioned to high current LEDs & FANs; 
+			1st 12V stage can be optimized!!
+		. tes points in:
+			- power rails
+			- free u pads
+			- others?? decide which ones..
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @Setembro 22th 2022	
+
+
+>> data sent from Andrew:
+	- valve:
+		. PN to be used: LHDB0633280D
+				[1st PN sent LHDA1233115H 3-way LEE valve, and then corrected ]
+
+					PN			actuation V					power			internal 	plunger
+														hold V		@hold V			seal			head
+			LHDB0633280D 	12V 				6V		 590mW	 		FKM 		PPA
+			I_hold=0.6/6=100mA
+			
+			
+		. abstract datasheet: PDS-106-2015-07-Lo-LohmHDISolenoidValve
+		
+		. [our valve common used: LHDA1231115H]
+
+
+		
+
+	- lick sensor:
+		'Lick sensor will most likely be the same as in the mice poke simple v1.2 (from champalimaud hardware)
+			https://github.com/harp-tech/harp_behavior/blob/master/PCB%20modules/Port%20Breakout/harp%20behavior%20poke%20port%20breakout%20v1.1.pdf
+			. lick sensor on PokeSimple_V1.1	852-GP1A57HRJ00F
+			
+			.lick sensor referenced
+				This is the port breakout we are aiming to copy		PhotointerrupterMouser	852-GP1A57HRJ00F
+				https://pt.mouser.com/ProductDetail/Sharp-Microelectronics/GP1A57HRJ00F?qs=bgJ5QXnU1LTpUr5Jbs6P8Q%3D%3D
+
+			. lick sensor is same in both projects >> OK
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @Setembro 19th 2022	
+
+>> investing on choosing to H1 module:	email@September 16th
+	- valves for water delivery
+			- the one beeing used (12V)		https://www.theleeco.com/product/lhd-series-2-3-way-control-solenoid-valves/
+			
+	- lick detection sensors:
+		. Ede says 'option to use either the beam-break or capacitive sensor'
+			- capacitive touch sensor already used (5V)		https://www.adafruit.com/product/1374
+			- beam-break (similar) 									http://brianisett.com/2016/03/26/diy-lickometer/#lick-circuit
+	
+	>> opinion from sensores above - either valves & lick detection:
+			1st:	electronic control is 'simple' way to manage any of it; 12V rail is available in H1 module; any valve & sensor up to this voltage can be easily controled
+			2nd: 	main issue when chossing will be:
+						. how these components are built or which component is preffered to be bought
+						. it's mechanical integration in the whole system - doesn't have to do with us!
+			
+				> on these stage then, chossing these parts should/must be done by Manchester or others
+			
+			
+
+
+
+>> micro to be used:
+	AtxMega 3A2A4U
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @16 Setembro 2022	
 
 >> em H1-harp configuration
 	- IR device
@@ -67,15 +144,10 @@ NeuroGEARS:
 	
 	
 	
-********************************
-* 10 Setembro 2021
-
-> do esquema 
-
 
 
 ********************************
-* 9 Setembro 2021
+* 13 Setembro 2021
 
 PN:
 	- photodiode digital junto ao tubo da água - para detectar a água ou a lingua ??

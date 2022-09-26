@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "harp expander v1.1 READY")(type "KiCad")(uri "$(KIPRJMOD)/harp expander v1.1 READY.pretty")(options "")(descr ""))
+)
