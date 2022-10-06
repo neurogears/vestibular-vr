@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "VestibularVR H1-module v1.0 LIB")(type "KiCad")(uri "${KIPRJMOD}/VestibularVR H1-module v1.0 LIB.kicad_sym")(options "")(descr ""))
+  (lib (name "mcp16301")(type "KiCad")(uri "${KIPRJMOD}/mcp16301.kicad_sym")(options "")(descr ""))
+)
