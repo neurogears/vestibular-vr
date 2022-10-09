@@ -2330,6 +2330,7 @@ P-Channel Logic Level Enhancement Mode Field Effect Transistor
 </devices>
 </deviceset>
 <deviceset name="DMN2005K">
+<description>N-CHANNEL ENHANCEMENT MODE FIELD EFFECT TRANSISTOR</description>
 <gates>
 <gate name="G$1" symbol="N_MOSFET" x="0" y="0"/>
 </gates>
