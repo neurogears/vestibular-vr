@@ -2314,14 +2314,14 @@ Drain Output</description>
 P-Channel Logic Level Enhancement Mode Field Effect Transistor
 -1 A, -20 V</description>
 <gates>
-<gate name="G$1" symbol="P-MOSFET" x="-2.54" y="0"/>
+<gate name="&gt;NAME" symbol="P-MOSFET" x="-2.54" y="0"/>
 </gates>
 <devices>
 <device name="" package="SOT23">
 <connects>
-<connect gate="G$1" pin="D" pad="3"/>
-<connect gate="G$1" pin="G" pad="1"/>
-<connect gate="G$1" pin="S" pad="2"/>
+<connect gate="&gt;NAME" pin="D" pad="3"/>
+<connect gate="&gt;NAME" pin="G" pad="1"/>
+<connect gate="&gt;NAME" pin="S" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>

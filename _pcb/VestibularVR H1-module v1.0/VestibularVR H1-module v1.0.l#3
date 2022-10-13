@@ -2266,7 +2266,11 @@ Drain Output</description>
 <connect gate="G$1" pin="XCK0/OC0B/SCL/PE1" pad="29"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="DIGIKEY_PN" value="ATXMEGA32A4U-AURCT-ND" constant="no"/>
+<attribute name="MOUSER_PN" value="556-ATXMEGA32A4U-AU" constant="no"/>
+<attribute name="MPN" value="ATXMEGA32A4U-AUR"/>
+</technology>
 </technologies>
 </device>
 </devices>
