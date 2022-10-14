@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.3.1">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="mil"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -10969,14 +10969,28 @@ Source: AVX .. aphvc.pdf</description>
 <attribute name="VALUE" x="139.7" y="66.04" size="1.778" layer="96"/>
 <attribute name="DIGKEYPN" x="138.43" y="68.58" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="LICK_PORT" gate="-1" x="148.59" y="73.66" rot="MR180"/>
-<instance part="LICK_PORT" gate="-2" x="148.59" y="76.2" rot="MR180"/>
-<instance part="LICK_PORT" gate="-3" x="148.59" y="78.74" rot="MR180"/>
+<instance part="LICK_PORT" gate="-1" x="148.59" y="73.66" smashed="yes" rot="MR180">
+<attribute name="NAME" x="151.13" y="74.422" size="1.524" layer="95" rot="MR180"/>
+<attribute name="VALUE" x="147.828" y="72.263" size="1.778" layer="96" rot="MR180"/>
+</instance>
+<instance part="LICK_PORT" gate="-2" x="148.59" y="76.2" smashed="yes" rot="MR180">
+<attribute name="NAME" x="151.13" y="76.962" size="1.524" layer="95" rot="MR180"/>
+</instance>
+<instance part="LICK_PORT" gate="-3" x="148.59" y="78.74" smashed="yes" rot="MR180">
+<attribute name="NAME" x="151.13" y="79.502" size="1.524" layer="95" rot="MR180"/>
+</instance>
 <instance part="+3V2" gate="G$1" x="91.44" y="68.58" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="88.9" y="71.12" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="FRAME1" gate="G$1" x="0" y="0"/>
-<instance part="C1" gate="G$1" x="124.46" y="88.9"/>
+<instance part="FRAME1" gate="G$1" x="0" y="0" smashed="yes">
+<attribute name="DRAWING_NAME" x="217.17" y="15.24" size="2.54" layer="94"/>
+<attribute name="LAST_DATE_TIME" x="217.17" y="10.16" size="2.286" layer="94"/>
+<attribute name="SHEET" x="230.505" y="5.08" size="2.54" layer="94"/>
+</instance>
+<instance part="C1" gate="G$1" x="124.46" y="88.9" smashed="yes">
+<attribute name="NAME" x="125.984" y="89.281" size="1.778" layer="95"/>
+<attribute name="VALUE" x="125.984" y="84.201" size="1.778" layer="96"/>
+</instance>
 <instance part="GND1" gate="1" x="124.46" y="80.01" smashed="yes">
 <attribute name="VALUE" x="121.92" y="77.47" size="1.778" layer="96"/>
 </instance>
