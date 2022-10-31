@@ -46,7 +46,7 @@ NeuroGEARS:
 >> 1st step PCB design finished:
 	- next steps:
 		. a review with Filipe
-		. decide about IC buffers in SPI lines (??); in & out it makes difficult to have peices for it
+		. decide about IC buffers in SPI lines (??); in & out it makes difficult to have pieces for it
 		. decide about IC buffers/level shift in H1-board-IOs plug; believe must be!!
 		. optmizing PSU stages; was dimensioned to high current LEDs & FANs; 
 			1st 12V stage can be optimized!!
