@@ -1,8 +1,9 @@
 
 
 >> Vestibular VR Project <<
-	Rotary Stage for 2D navigation in mice for Neurocience and Behaviour experiments
-	project with Neurogears & Univ Marselha
+	- Rotary Stage for 2D navigation 
+	- In mice for Neurocience and Behaviour experiments
+	> project with Neurogears & Univ Marselha
 
 >> GENERAL INFO <<
 	People involved
@@ -13,22 +14,22 @@
 			Is doing the 3D printings, works in the fab lab
 
 NeuroGEARS: 
-	Project leader: Andrew Erskine
-	GitHub to interface with Ede
+	. Project leader: Andrew Erskine
+	. GitHub to interface with Ede
 		https://github.com/neurogears/vestibular-vr/issues
-	Files will be on GitHub as well
+	. Files will be on GitHub as well
 		https://github.com/neurogears/vestibular-vr
-	Also have files on GoogleDrive
+	. Also have files on GoogleDrive
 		G:\My Drive\management\external projects\NGR\2201 VestibularVR Ede Rancz Marseille
-	Info on 
+	. Info on 
 		https://docs.google.com/document/d/12CUnzF7pFWBNZng8NylbyNUOLclV19EQ2G7OUyfC5wM/edit
 
 
 
 >>  main goal: 
-		rebuild hw module to make it simple on wiring & assembling & data aquisition and processing
-			- hw rebuild made with harp hw & fw modules
-			- data aquisition & processing made with Bonsai
+		- rebuild hw module to make it simple on wiring & assembling & data aquisition and processing
+			.  hw rebuild made with harp hw & fw modules
+			. data aquisition & processing made with Bonsai
 
 ************************************************************************************************
 ************************************************************************************************
