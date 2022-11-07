@@ -23274,12 +23274,9 @@ Source: www.kingbright.com</description>
 <part name="GND26" library="supply1" deviceset="GND" device="">
 <attribute name="DIGKEYPN" value=""/>
 </part>
-<part name="TP2" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
-<part name="TP3" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
 <part name="TP4" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
 <part name="TP5" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
 <part name="TP6" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
-<part name="TP7" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
 <part name="TP8" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
 <part name="TP9" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
@@ -23918,12 +23915,6 @@ maior R PDown ~50k</text>
 <attribute name="VALUE" x="62.23" y="121.92" size="1.778" layer="96" rot="MR0"/>
 <attribute name="DIGKEYPN" x="67.31" y="121.92" size="1.778" layer="96" rot="MR0" display="off"/>
 </instance>
-<instance part="TP2" gate="G$1" x="124.46" y="187.96" smashed="yes" rot="R270">
-<attribute name="NAME" x="117.348" y="188.214" size="1.778" layer="95"/>
-</instance>
-<instance part="TP3" gate="G$1" x="124.46" y="185.42" smashed="yes" rot="R270">
-<attribute name="NAME" x="117.348" y="185.674" size="1.778" layer="95"/>
-</instance>
 <instance part="TP4" gate="G$1" x="124.46" y="182.88" smashed="yes" rot="R270">
 <attribute name="NAME" x="117.348" y="183.134" size="1.778" layer="95"/>
 </instance>
@@ -23932,9 +23923,6 @@ maior R PDown ~50k</text>
 </instance>
 <instance part="TP6" gate="G$1" x="124.46" y="162.56" smashed="yes" rot="R270">
 <attribute name="NAME" x="117.348" y="162.814" size="1.778" layer="95"/>
-</instance>
-<instance part="TP7" gate="G$1" x="124.46" y="160.02" smashed="yes" rot="R270">
-<attribute name="NAME" x="117.348" y="160.274" size="1.778" layer="95"/>
 </instance>
 <instance part="TP8" gate="G$1" x="124.46" y="152.4" smashed="yes" rot="R270">
 <attribute name="NAME" x="117.348" y="152.654" size="1.778" layer="95"/>
@@ -25081,20 +25069,6 @@ maior R PDown ~50k</text>
 <pinref part="REWARD_VALVE" gate="-4" pin="S"/>
 </segment>
 </net>
-<net name="N$8" class="0">
-<segment>
-<pinref part="IC8" gate="G$1" pin="PA2/ADC2"/>
-<pinref part="TP2" gate="G$1" pin="TP"/>
-<wire x1="154.94" y1="187.96" x2="127" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$10" class="0">
-<segment>
-<pinref part="TP3" gate="G$1" pin="TP"/>
-<pinref part="IC8" gate="G$1" pin="PA3/ADC3"/>
-<wire x1="127" y1="185.42" x2="154.94" y2="185.42" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="IC8" gate="G$1" pin="PA4/ADC4"/>
@@ -25114,13 +25088,6 @@ maior R PDown ~50k</text>
 <pinref part="TP6" gate="G$1" pin="TP"/>
 <pinref part="IC8" gate="G$1" pin="PB2/ADC10/DAC0"/>
 <wire x1="127" y1="162.56" x2="154.94" y2="162.56" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$15" class="0">
-<segment>
-<pinref part="IC8" gate="G$1" pin="PB3/ADC11/DAC1"/>
-<pinref part="TP7" gate="G$1" pin="TP"/>
-<wire x1="154.94" y1="160.02" x2="127" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$17" class="0">

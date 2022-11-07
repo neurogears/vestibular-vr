@@ -542,27 +542,6 @@ Source: &lt;a href="http://www.farnell.com/datasheets/461166.pdf"&lt; Data sheet
 <rectangle x1="-0.85" y1="-1.1" x2="-0.45" y2="-0.625" layer="51" rot="R180"/>
 <rectangle x1="0.45" y1="-1.1" x2="0.85" y2="-0.625" layer="51" rot="R180"/>
 </package>
-<package name="SOT23" urn="urn:adsk.eagle:footprint:8086315/1">
-<description>&lt;b&gt;SMALL OUTLINE TRANSISTOR&lt;/b&gt;&lt;p&gt;
-reflow soldering</description>
-<wire x1="-1.973" y1="1.983" x2="1.973" y2="1.983" width="0.0508" layer="39"/>
-<wire x1="1.973" y1="-1.983" x2="-1.973" y2="-1.983" width="0.0508" layer="39"/>
-<wire x1="-1.973" y1="-1.983" x2="-1.973" y2="1.983" width="0.0508" layer="39"/>
-<wire x1="1.973" y1="1.983" x2="1.973" y2="-1.983" width="0.0508" layer="39"/>
-<wire x1="1.422" y1="0.66" x2="1.422" y2="-0.66" width="0.1524" layer="51"/>
-<wire x1="1.422" y1="-0.66" x2="-1.422" y2="-0.66" width="0.1524" layer="51"/>
-<wire x1="-1.422" y1="-0.66" x2="-1.422" y2="0.66" width="0.1524" layer="51"/>
-<wire x1="-1.422" y1="0.66" x2="1.422" y2="0.66" width="0.1524" layer="51"/>
-<smd name="3" x="0" y="1.1" dx="1" dy="1.4" layer="1"/>
-<smd name="2" x="0.95" y="-1.1" dx="1" dy="1.4" layer="1"/>
-<smd name="1" x="-0.95" y="-1.1" dx="1" dy="1.4" layer="1"/>
-<text x="-1.905" y="1.905" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.905" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.2286" y1="0.7112" x2="0.2286" y2="1.2954" layer="51"/>
-<rectangle x1="0.7112" y1="-1.2954" x2="1.1684" y2="-0.7112" layer="51"/>
-<rectangle x1="-1.1684" y1="-1.2954" x2="-0.7112" y2="-0.7112" layer="51"/>
-<rectangle x1="-0.5001" y1="-0.3" x2="0.5001" y2="0.3" layer="35"/>
-</package>
 <package name="OSCILLATOR_3.2X2.5">
 <text x="-2.26" y="2.02" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.36" y="-2.98" size="1.27" layer="27">&gt;VALUE</text>
@@ -1106,24 +1085,6 @@ Drain Output</description>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:2405/2"/>
 </package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="DMN2005K">
-<description>N-CHANNEL ENHANCEMENT MODE FIELD EFFECT TRANSISTOR</description>
-<gates>
-<gate name="G$1" symbol="N_MOSFET" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT23">
-<connects>
-<connect gate="G$1" pin="D" pad="3"/>
-<connect gate="G$1" pin="G" pad="1"/>
-<connect gate="G$1" pin="S" pad="2"/>
-</connects>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -23050,8 +23011,6 @@ Source: www.kingbright.com</description>
 <part name="IC4" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2"/>
 <part name="IC5" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2"/>
 <part name="IC6" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2"/>
-<part name="U$5" library="VestibularVR H1-module v1.0" deviceset="DMN2005K" device="" value="DMG1012UW"/>
-<part name="U$6" library="VestibularVR H1-module v1.0" deviceset="DMN2005K" device="" value="DMG1012UW"/>
 <part name="GND65" library="supply1" deviceset="GND" device=""/>
 <part name="R34" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="10k">
 <attribute name="DIGIKEY_PN" value="541-3959-1-ND"/>
@@ -23344,15 +23303,6 @@ Source: www.kingbright.com</description>
 <attribute name="DIGKEYPN" value=""/>
 </part>
 <part name="U$4" library="VestibularVR H1-module v1.0" deviceset="DMG1012UW-7" device="" value="DMG1012UW"/>
-<part name="GND32" library="supply1" deviceset="GND" device="">
-<attribute name="DIGKEYPN" value=""/>
-</part>
-<part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="10k">
-<attribute name="DIGIKEY_PN" value="541-3959-1-ND"/>
-<attribute name="MPN" value="CRCW040210K0FKED"/>
-<attribute name="NOTES" value="-"/>
-<attribute name="TYPE" value="SMD"/>
-</part>
 <part name="U$7" library="VestibularVR H1-module v1.0" deviceset="DMG1012UW-7" device="" value="DMG1012UW"/>
 </parts>
 <sheets>
@@ -23431,14 +23381,6 @@ maior R PDown ~50k</text>
 <instance part="IC6" gate="A" x="71.12" y="149.86" smashed="yes">
 <attribute name="NAME" x="73.66" y="153.035" size="1.778" layer="95"/>
 <attribute name="VALUE" x="73.66" y="144.78" size="1.778" layer="96"/>
-</instance>
-<instance part="U$5" gate="G$1" x="83.82" y="43.18" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="102.87" y="43.18" size="1.778" layer="96" rot="MR0"/>
-<attribute name="NAME" x="91.44" y="45.72" size="1.778" layer="95" rot="MR0"/>
-</instance>
-<instance part="U$6" gate="G$1" x="81.28" y="53.34" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="100.33" y="53.34" size="1.778" layer="96" rot="MR0"/>
-<attribute name="NAME" x="88.9" y="55.88" size="1.778" layer="95" rot="MR0"/>
 </instance>
 <instance part="GND65" gate="1" x="170.18" y="214.63" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="173.482" y="212.598" size="1.4224" layer="96" rot="MR0"/>
@@ -24098,18 +24040,6 @@ maior R PDown ~50k</text>
 <attribute name="VALUE" x="48.26" y="76.2" size="1.778" layer="96" rot="MR0"/>
 <attribute name="NAME" x="48.26" y="78.74" size="1.778" layer="95" rot="MR0"/>
 </instance>
-<instance part="GND32" gate="1" x="104.14" y="60.96" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="110.49" y="62.23" size="1.778" layer="96" rot="MR0"/>
-<attribute name="DIGKEYPN" x="107.95" y="60.96" size="1.778" layer="96" rot="MR0" display="off"/>
-</instance>
-<instance part="R11" gate="G$1" x="104.14" y="91.44" smashed="yes" rot="R90">
-<attribute name="NAME" x="102.87" y="95.0214" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="102.362" y="92.202" size="1.778" layer="96" rot="R180"/>
-<attribute name="MPN" x="104.14" y="91.44" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="TYPE" x="104.14" y="91.44" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="NOTES" x="104.14" y="91.44" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="DIGIKEY_PN" x="104.14" y="91.44" size="1.778" layer="96" rot="R90" display="off"/>
-</instance>
 <instance part="U$7" gate="G$1" x="50.8" y="33.02" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="48.26" y="33.02" size="1.778" layer="96" rot="MR0"/>
 <attribute name="NAME" x="48.26" y="35.56" size="1.778" layer="95" rot="MR0"/>
@@ -24254,7 +24184,6 @@ maior R PDown ~50k</text>
 <pinref part="IC2" gate="A" pin="GND"/>
 </segment>
 <segment>
-<pinref part="U$5" gate="G$1" pin="S"/>
 <pinref part="GND5" gate="1" pin="GND"/>
 <wire x1="50.8" y1="25.4" x2="50.8" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="U$7" gate="G$1" pin="S"/>
@@ -24272,10 +24201,7 @@ maior R PDown ~50k</text>
 </segment>
 <segment>
 <pinref part="GND17" gate="1" pin="GND"/>
-<pinref part="U$6" gate="G$1" pin="S"/>
 <wire x1="50.8" y1="67.31" x2="50.8" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="GND32" gate="1" pin="GND"/>
-<wire x1="104.14" y1="63.5" x2="104.14" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="U$4" gate="G$1" pin="S"/>
 </segment>
 <segment>
@@ -24989,7 +24915,6 @@ maior R PDown ~50k</text>
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="U$5" gate="G$1" pin="D"/>
 <wire x1="50.8" y1="38.1" x2="50.8" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="40.64" x2="50.8" y2="43.18" width="0.1524" layer="91"/>
 <junction x="50.8" y="40.64"/>
@@ -25003,7 +24928,6 @@ maior R PDown ~50k</text>
 </net>
 <net name="U_REWARD_VALVE_1" class="0">
 <segment>
-<pinref part="U$6" gate="G$1" pin="G"/>
 <wire x1="55.88" y1="73.66" x2="60.96" y2="73.66" width="0.1524" layer="91"/>
 <label x="68.58" y="73.66" size="1.778" layer="95"/>
 <pinref part="R4" gate="G$1" pin="2"/>
@@ -25020,11 +24944,9 @@ maior R PDown ~50k</text>
 </net>
 <net name="U_REWARD_VALVE_2" class="0">
 <segment>
-<pinref part="U$5" gate="G$1" pin="G"/>
-<wire x1="55.88" y1="30.48" x2="58.42" y2="30.48" width="0.1524" layer="91"/>
 <label x="68.58" y="30.48" size="1.778" layer="95"/>
 <pinref part="R7" gate="G$1" pin="2"/>
-<wire x1="58.42" y1="30.48" x2="60.96" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="30.48" x2="60.96" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="30.48" x2="68.58" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="27.94" x2="60.96" y2="30.48" width="0.1524" layer="91"/>
 <junction x="60.96" y="30.48"/>
@@ -25225,9 +25147,6 @@ maior R PDown ~50k</text>
 <net name="N$68" class="0">
 <segment>
 <pinref part="U$4" gate="G$1" pin="D"/>
-<pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="104.14" y1="78.74" x2="104.14" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="D"/>
 <wire x1="50.8" y1="81.28" x2="50.8" y2="83.82" width="0.1524" layer="91"/>
 <junction x="50.8" y="83.82"/>
 <pinref part="D1" gate="G$1" pin="A"/>
