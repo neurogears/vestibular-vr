@@ -32,9 +32,9 @@
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
@@ -166,7 +166,6 @@
 <wire x1="15.748" y1="6.096" x2="15.748" y2="14.478" width="0.0762" layer="20"/>
 <wire x1="11.43" y1="20.828" x2="0.508" y2="20.828" width="0.0762" layer="20"/>
 <wire x1="0" y1="20.32" x2="0" y2="0.508" width="0.0762" layer="20"/>
-<wire x1="22.606" y1="9.906" x2="22.606" y2="0.762" width="0.3048" layer="25" curve="-180"/>
 <wire x1="0" y1="0.508" x2="0.508" y2="0" width="0.0762" layer="20" curve="-90"/>
 <wire x1="11.938" y1="5.08" x2="12.446" y2="5.588" width="0.0762" layer="20" curve="-90"/>
 <wire x1="0.508" y1="20.828" x2="0" y2="20.32" width="0.0762" layer="20" curve="-90"/>
@@ -2654,14 +2653,12 @@ design rules under a new name.</description>
 <contactref element="PI3" pad="1"/>
 <contactref element="PI3" pad="3"/>
 <wire x1="3.048" y1="2.814" x2="3.048" y2="6.858" width="0.254" layer="16"/>
-<wire x1="7.366" y1="7.62" x2="7.238" y2="7.62" width="0.254" layer="16"/>
 <wire x1="7.238" y1="7.62" x2="3.81" y2="7.62" width="0.254" layer="16"/>
 <wire x1="3.048" y1="6.858" x2="3.81" y2="7.62" width="0.254" layer="16"/>
 <contactref element="C1" pad="1"/>
 <contactref element="C11" pad="1"/>
 <wire x1="12.446" y1="7.80855" x2="8.746" y2="7.80855" width="0.254" layer="16"/>
 <wire x1="8.746" y1="7.80855" x2="8.746" y2="7.658" width="0.254" layer="16"/>
-<wire x1="7.366" y1="7.658" x2="7.366" y2="7.62" width="0.254" layer="16"/>
 <wire x1="7.238" y1="17.4" x2="7.238" y2="7.6" width="0.254" layer="16"/>
 <wire x1="7.238" y1="17.4" x2="6.604" y2="18.034" width="0.254" layer="16"/>
 <wire x1="6.604" y1="18.034" x2="5.638" y2="18.034" width="0.254" layer="16"/>
@@ -2678,10 +2675,8 @@ design rules under a new name.</description>
 <wire x1="6.858" y1="11.049" x2="6.858" y2="16.129" width="0.254" layer="1"/>
 <wire x1="6.858" y1="16.129" x2="6.423" y2="16.564" width="0.254" layer="1"/>
 <wire x1="4.318" y1="16.564" x2="6.423" y2="16.564" width="0.254" layer="1"/>
-<wire x1="12.7" y1="10.22545" x2="12.446" y2="10.22545" width="0.254" layer="1"/>
 <wire x1="12.446" y1="10.34855" x2="12.3151" y2="10.47945" width="0.254" layer="1"/>
 <wire x1="12.3151" y1="10.47945" x2="7.42755" y2="10.47945" width="0.254" layer="1"/>
-<wire x1="12.446" y1="10.34855" x2="12.446" y2="10.22545" width="0.254" layer="1"/>
 </signal>
 <signal name="N$7">
 <polygon width="0.1524" layer="16" pour="cutout">
@@ -2807,10 +2802,6 @@ design rules under a new name.</description>
 <mfgpreviewcolor name="coppercolor" color="0xFFFFBF00"/>
 <mfgpreviewcolor name="substratecolor" color="0xFF786E46"/>
 </mfgpreviewcolors>
-<errors>
-<approved hash="23,16,939621e822a690d8"/>
-<approved hash="23,1,c08c90f29322c35c"/>
-</errors>
 </board>
 </drawing>
 <compatibility>

@@ -1,7 +1,7 @@
 {
     "Header": {
         "Comment": "All values are metric (mm)",
-        "CreationDate": "2022-11-09T12:08:40Z",
+        "CreationDate": "2022-11-09T16:06:53Z",
         "GenerationSoftware": {
             "Application": "EAGLE",
             "Vendor": "Autodesk",
@@ -18,7 +18,7 @@
         "Owner": "Filipe Carvalho <filipe@oeps.tech>",
         "Size": {
             "X": 43,
-            "Y": 56.5
+            "Y": 57.4
         }
     }
 }

@@ -1,7 +1,7 @@
 {
     "author": {
-        "email": "support.eagle@autodesk.com",
-        "name": "Autodesk EAGLE"
+        "email": "filipe@oeps.tech",
+        "name": "Filipe Carvalho"
     },
     "description": {
         "EN": "EAGLE default 4 layer CAM job."
@@ -38,7 +38,7 @@
                         17,
                         18
                     ],
-                    "milling": true,
+                    "milling": false,
                     "name": "Top Copper",
                     "polarity": "positive",
                     "type": "gerber_layer"
@@ -64,7 +64,7 @@
                         17,
                         18
                     ],
-                    "milling": true,
+                    "milling": false,
                     "name": "Copper Layer 2",
                     "polarity": "positive",
                     "type": "gerber_layer"
@@ -90,7 +90,7 @@
                         17,
                         18
                     ],
-                    "milling": true,
+                    "milling": false,
                     "name": "Copper Layer 15",
                     "polarity": "positive",
                     "type": "gerber_layer"
@@ -116,7 +116,7 @@
                         17,
                         18
                     ],
-                    "milling": true,
+                    "milling": false,
                     "name": "Bottom Copper",
                     "polarity": "positive",
                     "type": "gerber_layer"
@@ -149,7 +149,7 @@
                         "rotate": false,
                         "upside_down": false
                     },
-                    "board_outline": false,
+                    "board_outline": true,
                     "config": {
                         "file_function": "Soldermask",
                         "index": 1,
@@ -171,7 +171,7 @@
                         "rotate": false,
                         "upside_down": false
                     },
-                    "board_outline": false,
+                    "board_outline": true,
                     "config": {
                         "file_function": "Soldermask",
                         "index": 1,
@@ -193,7 +193,7 @@
                         "rotate": false,
                         "upside_down": false
                     },
-                    "board_outline": false,
+                    "board_outline": true,
                     "config": {
                         "file_function": "Paste",
                         "layer_type": "top"
@@ -215,7 +215,7 @@
                         "rotate": false,
                         "upside_down": false
                     },
-                    "board_outline": false,
+                    "board_outline": true,
                     "config": {
                         "file_function": "Paste",
                         "layer_type": "bottom"
@@ -237,7 +237,7 @@
                         "rotate": false,
                         "upside_down": false
                     },
-                    "board_outline": false,
+                    "board_outline": true,
                     "config": {
                         "file_function": "Legend",
                         "index": 1,
@@ -261,7 +261,7 @@
                         "rotate": false,
                         "upside_down": false
                     },
-                    "board_outline": false,
+                    "board_outline": true,
                     "config": {
                         "file_function": "Legend",
                         "index": 1,
@@ -329,7 +329,7 @@
             ]
         }
     ],
-    "timestamp": "2019-07-17T17:49:43",
+    "timestamp": "2022-11-09T14:30:34",
     "type": "EAGLE CAM job",
     "units": "metric",
     "version": "9.2.0"
