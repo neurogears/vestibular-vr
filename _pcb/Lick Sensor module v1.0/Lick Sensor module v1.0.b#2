@@ -2660,7 +2660,6 @@ design rules under a new name.</description>
 <contactref element="C11" pad="1"/>
 <wire x1="12.446" y1="7.80855" x2="8.746" y2="7.80855" width="0.254" layer="16"/>
 <wire x1="8.746" y1="7.80855" x2="8.746" y2="7.658" width="0.254" layer="16"/>
-<wire x1="7.238" y1="7.658" x2="7.238" y2="7.62" width="0.254" layer="16"/>
 <wire x1="7.238" y1="17.4" x2="7.238" y2="7.6" width="0.254" layer="16"/>
 <wire x1="7.238" y1="17.4" x2="6.604" y2="18.034" width="0.254" layer="16"/>
 <wire x1="6.604" y1="18.034" x2="5.638" y2="18.034" width="0.254" layer="16"/>
@@ -2677,9 +2676,8 @@ design rules under a new name.</description>
 <wire x1="6.858" y1="11.049" x2="6.858" y2="16.129" width="0.254" layer="1"/>
 <wire x1="6.858" y1="16.129" x2="6.423" y2="16.564" width="0.254" layer="1"/>
 <wire x1="4.318" y1="16.564" x2="6.423" y2="16.564" width="0.254" layer="1"/>
-<wire x1="12.3151" y1="10.47945" x2="12.192" y2="10.47945" width="0.254" layer="1"/>
 <wire x1="12.446" y1="10.34855" x2="12.3151" y2="10.47945" width="0.254" layer="1"/>
-<wire x1="12.192" y1="10.47945" x2="7.42755" y2="10.47945" width="0.254" layer="1"/>
+<wire x1="12.3151" y1="10.47945" x2="7.42755" y2="10.47945" width="0.254" layer="1"/>
 </signal>
 <signal name="N$7">
 <polygon width="0.1524" layer="16" pour="cutout">
@@ -2805,10 +2803,6 @@ design rules under a new name.</description>
 <mfgpreviewcolor name="coppercolor" color="0xFFFFBF00"/>
 <mfgpreviewcolor name="substratecolor" color="0xFF786E46"/>
 </mfgpreviewcolors>
-<errors>
-<approved hash="23,16,939621e822a690d8"/>
-<approved hash="23,1,c08c90f29322c35c"/>
-</errors>
 </board>
 </drawing>
 <compatibility>
