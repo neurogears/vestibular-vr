@@ -1,3 +1,0 @@
-(fp_lib_table
-  (lib (name FPS_pads_lib)(type KiCad)(uri ${KIPRJMOD}/FPS_pads_lib.pretty)(options "")(descr ""))
-)

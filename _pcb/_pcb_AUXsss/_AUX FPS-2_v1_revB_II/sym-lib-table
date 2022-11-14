@@ -1,4 +1,0 @@
-(sym_lib_table
-  (lib (name FPS-2_v1)(type Legacy)(uri ${KIPRJMOD}/FPS-2_v1.lib)(options "")(descr ""))
-  (lib (name FPS-2_v1_revB_II-rescue)(type Legacy)(uri ${KIPRJMOD}/FPS-2_v1_revB_II-rescue.lib)(options "")(descr ""))
-)

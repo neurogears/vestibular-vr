@@ -23040,7 +23040,7 @@ Grid 3.5 mm&lt;p&gt;
 <part name="IC1" library="VestibularVR H1-module v1.0" deviceset="FT232R" device="L"/>
 <part name="X3" library="VestibularVR H1-module v1.0" deviceset="USB_MINI_B" device=""/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A3L-LOC" device=""/>
-<part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="0R DNI"/>
+<part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="0R"/>
 <part name="SV2" library="Connector" library_urn="urn:adsk.eagle:library:16378166" deviceset="PINHD-2X3" device="" package3d_urn="urn:adsk.eagle:package:22462/2"/>
 <part name="IC2" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2"/>
 <part name="IC4" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2"/>
@@ -23091,19 +23091,27 @@ Grid 3.5 mm&lt;p&gt;
 <part name="IC8" library="VestibularVR H1-module v1.0" deviceset="XMEGA-A4_AT-XMEGA-XXA4-AU" device="TQFP44" value="ATXMEGA32A4U"/>
 <part name="VDD3" library="supply1" deviceset="V+" device="" value="+3V3_u"/>
 <part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402K" package3d_urn="urn:adsk.eagle:package:23679/2" value="100nF">
-<attribute name="MPN" value="MC0402B104K160CT"/>
+<attribute name="DIGIKEY_PN" value="445-5932-1-ND"/>
+<attribute name="MPN" value="C1005X7R1H104K050BB"/>
+<attribute name="TYPE" value="SMD"/>
 </part>
 <part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402K" package3d_urn="urn:adsk.eagle:package:23679/2" value="100nF">
-<attribute name="MPN" value="MC0402B104K160CT"/>
+<attribute name="DIGIKEY_PN" value="445-5932-1-ND"/>
+<attribute name="MPN" value="C1005X7R1H104K050BB"/>
+<attribute name="TYPE" value="SMD"/>
 </part>
 <part name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-EU" device="A/3216-18R" package3d_urn="urn:adsk.eagle:package:23410/2" value="4.7uF">
 <attribute name="MPN" value="TAJA475K010"/>
 </part>
-<part name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nF">
-<attribute name="MPN" value="MC0402B104K160CT"/>
+<part name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402K" package3d_urn="urn:adsk.eagle:package:23679/2" value="100nF">
+<attribute name="DIGIKEY_PN" value="445-5932-1-ND"/>
+<attribute name="MPN" value="C1005X7R1H104K050BB"/>
+<attribute name="TYPE" value="SMD"/>
 </part>
-<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402" package3d_urn="urn:adsk.eagle:package:23626/1" value="100nF">
-<attribute name="MPN" value="MC0402B104K160CT"/>
+<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402K" package3d_urn="urn:adsk.eagle:package:23679/2" value="100nF">
+<attribute name="DIGIKEY_PN" value="445-5932-1-ND"/>
+<attribute name="MPN" value="C1005X7R1H104K050BB"/>
+<attribute name="TYPE" value="SMD"/>
 </part>
 <part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402K" package3d_urn="urn:adsk.eagle:package:23679/2" value="47pF">
 <attribute name="MPN" value="04025A470JAT2A"/>
@@ -23129,16 +23137,19 @@ Grid 3.5 mm&lt;p&gt;
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="R18" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="10k">
+<attribute name="DIGIKEY_PN" value="541-3959-1-ND"/>
 <attribute name="MPN" value="CRCW040210K0FKED"/>
+<attribute name="NOTES" value="-"/>
+<attribute name="TYPE" value="SMD"/>
 </part>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="1M">
 <attribute name="PN" value="CRCW04021M00FKED"/>
 </part>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
-<part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="0R DNI"/>
-<part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="0R DNI"/>
-<part name="R6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="0R DNI"/>
+<part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="DNI"/>
+<part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="0R"/>
+<part name="R6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="DNI"/>
 <part name="OSC1" library="VestibularVR H1-module v1.0" deviceset="OSCILLATOR" device=""/>
 <part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="10k">
 <attribute name="DIGIKEY_PN" value="541-3959-1-ND"/>
@@ -23171,8 +23182,8 @@ Grid 3.5 mm&lt;p&gt;
 </part>
 <part name="GND88" library="supply1" deviceset="GND" device=""/>
 <part name="C12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0402K" package3d_urn="urn:adsk.eagle:package:23679/2" value="100nF">
-<attribute name="MPN" value="MC0402B104K160CT"/>
-<attribute name="NOTES" value="-"/>
+<attribute name="DIGIKEY_PN" value="445-5932-1-ND"/>
+<attribute name="MPN" value="C1005X7R1H104K050BB"/>
 <attribute name="TYPE" value="SMD"/>
 </part>
 <part name="GND89" library="supply1" deviceset="GND" device=""/>
@@ -23308,24 +23319,24 @@ Grid 3.5 mm&lt;p&gt;
 <part name="GND26" library="supply1" deviceset="GND" device="">
 <attribute name="DIGKEYPN" value=""/>
 </part>
-<part name="TP4" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
-<part name="TP5" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
-<part name="TP6" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
+<part name="TP4" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="NO_COMPONENT"/>
+<part name="TP5" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="NO_COMPONENT"/>
+<part name="TP6" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="NO_COMPONENT"/>
 <part name="TP8" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
-<part name="TP9" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
+<part name="TP9" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="NO_COMPONENT"/>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+12V" device=""/>
-<part name="VALVES" library="con-molex" library_urn="urn:adsk.eagle:library:165" deviceset="22-23-2041" device=""/>
+<part name="REWARD_VALVES" library="con-molex" library_urn="urn:adsk.eagle:library:165" deviceset="22-23-2041" device=""/>
 <part name="X2" library="con-samtec" library_urn="urn:adsk.eagle:library:184" deviceset="TSW-105-02-S-D" device=""/>
-<part name="TP13" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1" value="TPB1,27"/>
-<part name="TP1" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1" value="TPB1,27"/>
-<part name="TP10" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1" value="TPB1,27"/>
-<part name="TP11" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1" value="TPB1,27"/>
-<part name="STATE" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="CHIP-LED0603" package3d_urn="urn:adsk.eagle:package:15819/3"/>
-<part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547/3" value="910"/>
+<part name="TP13" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1" value="NO_COMPONENT"/>
+<part name="TP1" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1" value="NO_COMPONENT"/>
+<part name="TP10" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1" value="NO_COMPONENT"/>
+<part name="TP11" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1" value="NO_COMPONENT"/>
+<part name="STATE" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="CHIP-LED0603" package3d_urn="urn:adsk.eagle:package:15819/3" value="GREEN_LED"/>
+<part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547/3" value="330"/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device="">
 <attribute name="DIGKEYPN" value=""/>
@@ -23486,11 +23497,15 @@ maior R PDown ~50k</text>
 <attribute name="NAME" x="329.184" y="116.459" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="335.28" y="115.951" size="1.778" layer="96" rot="MR180"/>
 <attribute name="MPN" x="332.74" y="114.3" size="1.778" layer="96" rot="MR270" display="off"/>
+<attribute name="TYPE" x="332.74" y="114.3" size="1.778" layer="96" rot="MR270" display="off"/>
+<attribute name="DIGIKEY_PN" x="332.74" y="114.3" size="1.778" layer="96" rot="MR270" display="off"/>
 </instance>
 <instance part="C5" gate="G$1" x="349.25" y="134.62" smashed="yes">
 <attribute name="NAME" x="350.774" y="135.001" size="1.778" layer="95"/>
 <attribute name="VALUE" x="350.012" y="130.683" size="1.778" layer="96"/>
 <attribute name="MPN" x="349.25" y="134.62" size="1.778" layer="96" display="off"/>
+<attribute name="TYPE" x="349.25" y="134.62" size="1.778" layer="96" display="off"/>
+<attribute name="DIGIKEY_PN" x="349.25" y="134.62" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="C8" gate="G$1" x="341.63" y="134.62" smashed="yes">
 <attribute name="NAME" x="342.773" y="135.1026" size="1.778" layer="95"/>
@@ -23501,11 +23516,15 @@ maior R PDown ~50k</text>
 <attribute name="NAME" x="334.264" y="135.001" size="1.778" layer="95"/>
 <attribute name="VALUE" x="332.994" y="129.921" size="1.778" layer="96"/>
 <attribute name="MPN" x="332.74" y="134.62" size="1.778" layer="96" display="off"/>
+<attribute name="TYPE" x="332.74" y="134.62" size="1.778" layer="96" display="off"/>
+<attribute name="DIGIKEY_PN" x="332.74" y="134.62" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="C3" gate="G$1" x="361.95" y="134.62" smashed="yes" rot="MR0">
 <attribute name="NAME" x="365.506" y="135.001" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="367.284" y="130.429" size="1.778" layer="96" rot="MR0"/>
 <attribute name="MPN" x="361.95" y="134.62" size="1.778" layer="96" rot="MR0" display="off"/>
+<attribute name="TYPE" x="361.95" y="134.62" size="1.778" layer="96" rot="MR0" display="off"/>
+<attribute name="DIGIKEY_PN" x="361.95" y="134.62" size="1.778" layer="96" rot="MR0" display="off"/>
 </instance>
 <instance part="C4" gate="G$1" x="342.9" y="101.6" smashed="yes" rot="MR0">
 <attribute name="NAME" x="346.456" y="101.981" size="1.778" layer="95" rot="MR0"/>
@@ -23561,6 +23580,9 @@ maior R PDown ~50k</text>
 <attribute name="NAME" x="321.31" y="154.7114" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="322.58" y="151.892" size="1.778" layer="96" rot="MR180"/>
 <attribute name="MPN" x="327.66" y="149.86" size="1.778" layer="96" rot="MR270" display="off"/>
+<attribute name="TYPE" x="327.66" y="149.86" size="1.778" layer="96" rot="MR270" display="off"/>
+<attribute name="NOTES" x="327.66" y="149.86" size="1.778" layer="96" rot="MR270" display="off"/>
+<attribute name="DIGIKEY_PN" x="327.66" y="149.86" size="1.778" layer="96" rot="MR270" display="off"/>
 </instance>
 <instance part="GND4" gate="1" x="298.45" y="182.88" smashed="yes">
 <attribute name="VALUE" x="297.942" y="180.848" size="1.4224" layer="96"/>
@@ -23638,7 +23660,7 @@ maior R PDown ~50k</text>
 <attribute name="VALUE" x="308.864" y="57.531" size="1.778" layer="96" rot="MR0"/>
 <attribute name="MPN" x="309.88" y="61.214" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="TYPE" x="309.88" y="61.214" size="1.778" layer="96" rot="MR0" display="off"/>
-<attribute name="NOTES" x="309.88" y="61.214" size="1.778" layer="96" rot="MR0" display="off"/>
+<attribute name="DIGIKEY_PN" x="309.88" y="61.214" size="1.778" layer="96" rot="MR0" display="off"/>
 </instance>
 <instance part="GND89" gate="1" x="309.88" y="50.8" smashed="yes">
 <attribute name="VALUE" x="307.086" y="49.022" size="1.4224" layer="96"/>
@@ -23959,17 +23981,17 @@ maior R PDown ~50k</text>
 <instance part="P+3" gate="1" x="50.8" y="55.88" smashed="yes">
 <attribute name="VALUE" x="45.72" y="58.42" size="1.778" layer="96"/>
 </instance>
-<instance part="VALVES" gate="-1" x="40.64" y="86.36" smashed="yes" rot="R180">
+<instance part="REWARD_VALVES" gate="-1" x="40.64" y="86.36" smashed="yes" rot="R180">
 <attribute name="NAME" x="38.1" y="87.122" size="1.524" layer="95" rot="R180"/>
 <attribute name="VALUE" x="43.942" y="41.783" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="VALVES" gate="-2" x="40.64" y="88.9" smashed="yes" rot="R180">
+<instance part="REWARD_VALVES" gate="-2" x="40.64" y="88.9" smashed="yes" rot="R180">
 <attribute name="NAME" x="38.1" y="89.662" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="VALVES" gate="-3" x="40.64" y="43.18" smashed="yes" rot="R180">
+<instance part="REWARD_VALVES" gate="-3" x="40.64" y="43.18" smashed="yes" rot="R180">
 <attribute name="NAME" x="38.1" y="43.942" size="1.524" layer="95" rot="R180"/>
 </instance>
-<instance part="VALVES" gate="-4" x="40.64" y="45.72" smashed="yes" rot="R180">
+<instance part="REWARD_VALVES" gate="-4" x="40.64" y="45.72" smashed="yes" rot="R180">
 <attribute name="NAME" x="38.1" y="46.482" size="1.524" layer="95" rot="R180"/>
 </instance>
 <instance part="X2" gate="-1" x="149.86" y="27.94" smashed="yes">
@@ -24906,7 +24928,7 @@ maior R PDown ~50k</text>
 <wire x1="43.18" y1="43.18" x2="46.99" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="46.99" y1="43.18" x2="46.99" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="D4" gate="G$1" pin="A"/>
-<pinref part="VALVES" gate="-3" pin="S"/>
+<pinref part="REWARD_VALVES" gate="-3" pin="S"/>
 <pinref part="T1" gate="G$1" pin="D"/>
 </segment>
 </net>
@@ -25050,7 +25072,7 @@ maior R PDown ~50k</text>
 <junction x="50.8" y="91.44"/>
 <wire x1="48.26" y1="91.44" x2="50.8" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="88.9" x2="48.26" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="VALVES" gate="-2" pin="S"/>
+<pinref part="REWARD_VALVES" gate="-2" pin="S"/>
 <wire x1="43.18" y1="88.9" x2="48.26" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -25062,7 +25084,7 @@ maior R PDown ~50k</text>
 <wire x1="43.18" y1="45.72" x2="46.99" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="D4" gate="G$1" pin="C"/>
 <pinref part="P+3" gate="1" pin="+12V"/>
-<pinref part="VALVES" gate="-4" pin="S"/>
+<pinref part="REWARD_VALVES" gate="-4" pin="S"/>
 </segment>
 </net>
 <net name="N$11" class="0">
@@ -25115,7 +25137,7 @@ maior R PDown ~50k</text>
 <pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="48.26" y1="83.82" x2="50.8" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="86.36" x2="48.26" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="VALVES" gate="-1" pin="S"/>
+<pinref part="REWARD_VALVES" gate="-1" pin="S"/>
 <wire x1="43.18" y1="86.36" x2="48.26" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
