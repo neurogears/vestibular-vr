@@ -36,6 +36,34 @@ NeuroGEARS:
 ************************************************************************************************
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @November 11th 2022	
+>> end BOM
+	. specific PN about headers and plugs
+		pcb header 5way MPN: 20.155MH/5-E	Frnll: 2517861
+		wire plug	5 way	MPN: 20.1550M/5-E	Frnll: 2575218
+
+		
+
+	. PN about buffers 74LVC1G07DBV (74LVC1G07) - not in OEPS
+	
+	. PN & site about camera
+		PAA5100JE		Near Optical Flow SPI Breakout
+		Detect motion of close-up surfaces with this Breakout Garden compatible optical navigation breakout - great for floor tracking for ground dwelling robots!
+			https://shop.pimoroni.com/products/paa5100je-optical-tracking-spi-breakout?variant=39315330170963
+			https://cdn.shopify.com/s/files/1/0174/1800/files/PAA5100JE_PIM573_schematic.pdf?v=1621247278
+		
+
+>> VestibularVR H1-module v1.0
+	. hw built and tested
+	. buffers not available were replaced by equivalent; wire shunts needed to be done
+	. more critical error: USBD+ & USDM- on FTDI pins were switched after FTDI buffer
+		- copper cutted and shunts done with wire
+		- if at high freq, have trouble on comm new board with this correction must be done immediatly
+	
+	. next step: start fw development
+	
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 *  @October 2nd 2022	
 
 >>1st step design restarted to be done in Eagle
