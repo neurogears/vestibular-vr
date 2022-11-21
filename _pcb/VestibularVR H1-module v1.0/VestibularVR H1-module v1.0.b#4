@@ -2597,7 +2597,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="12.5684" y="11.5156" size="0.8128" layer="26" font="vector" ratio="15" rot="MR270"/>
 <attribute name="VALUE" x="14.97" y="7.306" size="1.27" layer="28" rot="MR0"/>
 </element>
-<element name="X15" library="con-weidmueller-sl35" library_urn="urn:adsk.eagle:library:199" package="90G-5" package3d_urn="urn:adsk.eagle:package:11408/1" value="" x="40.64" y="28.016" smashed="yes" rot="R90">
+<element name="X15" library="con-weidmueller-sl35" library_urn="urn:adsk.eagle:library:199" package="90G-5" package3d_urn="urn:adsk.eagle:package:11408/1" value="USB_plug" x="40.64" y="28.016" smashed="yes" rot="R90">
 <attribute name="MF" value="" x="40.64" y="28.016" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="40.64" y="28.016" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="41.798" y="17.968" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>

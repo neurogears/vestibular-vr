@@ -23327,7 +23327,7 @@ Grid 3.5 mm&lt;p&gt;
 <part name="TP4" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="NO_COMPONENT"/>
 <part name="TP5" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="NO_COMPONENT"/>
 <part name="TP6" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="NO_COMPONENT"/>
-<part name="TP8" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254"/>
+<part name="TP8" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="NO_COMPONENT"/>
 <part name="TP9" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TPSQ" device="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="NO_COMPONENT"/>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
@@ -23341,7 +23341,7 @@ Grid 3.5 mm&lt;p&gt;
 <part name="TP10" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1" value="NO_COMPONENT"/>
 <part name="TP11" library="testpad" library_urn="urn:adsk.eagle:library:385" deviceset="TP" device="B1,27" package3d_urn="urn:adsk.eagle:package:27944/1" value="NO_COMPONENT"/>
 <part name="STATE" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="CHIP-LED0603" package3d_urn="urn:adsk.eagle:package:15819/3" value="GREEN_LED"/>
-<part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547/3" value="330"/>
+<part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547/3" value="330R"/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device="">
 <attribute name="DIGKEYPN" value=""/>
@@ -23351,7 +23351,7 @@ Grid 3.5 mm&lt;p&gt;
 </part>
 <part name="T2" library="VestibularVR H1-module v1.0" deviceset="DMG1012UW-7" device="" value="DMG1012UW"/>
 <part name="T1" library="VestibularVR H1-module v1.0" deviceset="DMG1012UW-7" device="" value="DMG1012UW"/>
-<part name="X15" library="con-weidmueller-sl35" library_urn="urn:adsk.eagle:library:199" deviceset="90G-5" device="" package3d_urn="urn:adsk.eagle:package:11408/1"/>
+<part name="X15" library="con-weidmueller-sl35" library_urn="urn:adsk.eagle:library:199" deviceset="90G-5" device="" package3d_urn="urn:adsk.eagle:package:11408/1" value="USB_plug"/>
 </parts>
 <sheets>
 <sheet>

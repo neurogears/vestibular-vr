@@ -2531,7 +2531,7 @@ design rules under a new name.</description>
 <attribute name="TP_SIGNAL_NAME" value="" x="9.2964" y="19.0246" size="1" layer="38" rot="MR0"/>
 <attribute name="VALUE" x="9.8044" y="20.4216" size="0.0254" layer="28" rot="MR0"/>
 </element>
-<element name="TP8" library="testpad" library_urn="urn:adsk.eagle:library:385" package="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="WIREPADSMD1,27-254" x="10.795" y="15.748" smashed="yes">
+<element name="TP8" library="testpad" library_urn="urn:adsk.eagle:library:385" package="TP11R" package3d_urn="urn:adsk.eagle:package:27961/1" value="NO_COMPONENT" x="10.795" y="15.748" smashed="yes">
 <attribute name="NAME" x="11.2103" y="14.2651" size="0.6096" layer="25" font="vector" ratio="15"/>
 <attribute name="TP_SIGNAL_NAME" value="" x="10.795" y="13.843" size="1" layer="37"/>
 <attribute name="VALUE" x="10.287" y="15.24" size="0.0254" layer="27"/>

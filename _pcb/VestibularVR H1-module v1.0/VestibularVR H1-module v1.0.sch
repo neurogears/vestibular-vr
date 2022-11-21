@@ -23154,7 +23154,10 @@ Grid 3.5 mm&lt;p&gt;
 <part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="DNI"/>
 <part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="0R"/>
 <part name="R6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="DNI"/>
-<part name="OSC1" library="VestibularVR H1-module v1.0" deviceset="OSCILLATOR" device=""/>
+<part name="OSC1" library="VestibularVR H1-module v1.0" deviceset="OSCILLATOR" device="">
+<attribute name="MPN" value="DSC1001CI5-032.0000"/>
+<attribute name="OEPS_PN" value="OEPS080018"/>
+</part>
 <part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="10k">
 <attribute name="DIGIKEY_PN" value="541-3959-1-ND"/>
 <attribute name="MPN" value="CRCW040210K0FKED"/>
@@ -23361,7 +23364,6 @@ Grid 3.5 mm&lt;p&gt;
 GP1A57HRJ00F photointerrupter
 - design from FED3
 </text>
-<text x="127.508" y="86.868" size="1.778" layer="91">DigiKey: 1908-1044-1-ND</text>
 <text x="177.8" y="99.06" size="3.81" layer="91" font="vector" ratio="20" distance="2">leave extra IOs available
 </text>
 <text x="142.24" y="60.96" size="1.27" layer="91" font="vector" ratio="14" distance="47">PAA5100JE Optical tracking
@@ -23386,6 +23388,8 @@ https://eu.mouser.com/ProductDetail/Molex/70246-0804?qs=UkDUCjYnTB3Qq7EFSr2OxA%3
 maior R PDown ~50k</text>
 <text x="58.42" y="88.9" size="1.778" layer="91">DMG1012UW</text>
 <text x="55.88" y="38.1" size="1.778" layer="91">DMG1012UW</text>
+<text x="266.7" y="185.42" size="2.54" layer="91" font="vector" ratio="16">-to review
+  USBDP &amp; USBDP pin switched!!!</text>
 </plain>
 <instances>
 <instance part="IC1" gate="1" x="312.42" y="119.38" smashed="yes" rot="MR0">
@@ -23617,6 +23621,8 @@ maior R PDown ~50k</text>
 <instance part="OSC1" gate="G$1" x="144.78" y="104.14" smashed="yes">
 <attribute name="VALUE" x="154.94" y="101.6" size="1.778" layer="96"/>
 <attribute name="NAME" x="154.94" y="104.14" size="1.778" layer="95"/>
+<attribute name="OEPS_PN" x="144.78" y="104.14" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="144.78" y="104.14" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="R4" gate="G$1" x="60.96" y="66.04" smashed="yes" rot="R90">
 <attribute name="NAME" x="59.69" y="69.6214" size="1.778" layer="95" rot="R180"/>
