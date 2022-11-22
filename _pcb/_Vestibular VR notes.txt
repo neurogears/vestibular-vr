@@ -49,6 +49,7 @@ NeuroGEARS:
 	. PN & site about camera
 		PAA5100JE		Near Optical Flow SPI Breakout
 		Detect motion of close-up surfaces with this Breakout Garden compatible optical navigation breakout - great for floor tracking for ground dwelling robots!
+		PAA5100JE		Near Optical Flow SPI Breakout
 			https://shop.pimoroni.com/products/paa5100je-optical-tracking-spi-breakout?variant=39315330170963
 			https://cdn.shopify.com/s/files/1/0174/1800/files/PAA5100JE_PIM573_schematic.pdf?v=1621247278
 		
