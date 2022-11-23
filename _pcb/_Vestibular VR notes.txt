@@ -35,6 +35,92 @@ NeuroGEARS:
 ************************************************************************************************
 ************************************************************************************************
 
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @November 12th 2022	
+
+>> starting design of 		Harp Motor device H2-module v1.0
+	
+	> meeting notes @ 23-05-2022
+		Optical flow acquired at 100Hz seems reasonable to Ede.		<< WHICH OPTICAL FLOW IS THIS????
+	
+	> meeting notes @ 17-06-2022
+		Mouse has the flow control: we can't have a timestamp but the precision and sample rate (>= 1KH) is very good.
+		the major issue is jitter, no latency
+	
+	
+	
+	> NOTES about Requirements:
+		• mouse movement is tracked by optical sensors measuring movement induced by mouse on the treadmill (polystyrene sphere kept afloat with compressed air)	>> OK
+		
+		• "Control of vestibular platform rotation"
+			. rotary platform actuated by a stepper motor using time belt (...) rotaded with variable latencyresolution 0.1º
+				>> where one is the control of this step motors? 	EXTERNAL (Filipe)
+				>> motor control DM542 	
+				>> PDF OK
+					>> final goal: control DM542 motor driver		
+						TBD
+				
+		• "incremental encoder coupled to motor shaft"		
+				>> Wisamic 600p/r   LPD3806-600BM-G5-24C
+				>> Incremental Rotary Encoder Dc5-24v Wide Voltage Power Supply 6mm Shaft
+				>> PDF OK
+					>> final goal:	read IOs about encoder
+						TBD
+				
+		• "Hall effect sensors are used for homing purposes"	
+				>> H2 module OK!!
+				>> WINGONEER 5Pcs Hall Effect KY-003 Magnetic Sensor Module DC 5V For Arduino PIC AVR Smart Cars
+				>> PDF OK
+					>> final goal: read IO about Hall Effect sensor
+						TBD
+						
+		• "emergency stop button which should immediately halt any movement"	
+				>> H2 module !! OK
+					>> final goal: read Interrupt IO from Emergency Buttuon; Level translation: Button@ 12V & micro @3V3		
+						TBD
+		
+		• "weight board the rotary platform is up to 2kg and requires a motor with 'specs'
+				>> NO SPECS ABOUT THE MOTOR!!!!!!!!!!
+				>> no need - only about motor control/driver
+				>> OK
+				
+		• "Closed-loop & Open-loop" modularity
+			. closed-loop - rotation of treadmill is feedback to motor control
+									latency motion->motor feedback is <XXX		
+										>> LATENCY TO BE DEFINED
+									feedback gain able to be adjusted
+		
+			.open-loop		- platform rotation is independent from treadmill movement & is experimented controlled
+			
+				>> these things should be 'easy' push-pull/on-off?
+					or Bonsai is enough to control it?
+					If 'easy´push-pull other mech terminals should be thought to put in
+						TBD
+		
+		• "Modularity" - system 'shuld' be able adding & removing components from rotary platform
+				e.g. headpos holder, camera, eye-tracking..		
+					>> hw removing and/or sw removing??
+			
+			
+		• "VR- setup is surrounded by 4 static screens providing a complete VR surround to assembly"
+				>> power & control on these issues - nothing to do with us, right?		
+					NOTHING WITH ME - OK!!
+		
+		• "..off-platform secondary HARP device will integrate signals from (...) rotary platform [our HARP] and off platform sensors (hall-effect, rotary sensors) and ULTIMATELY DRIVE PLATFORM MOTOR
+				>> drives from BONSAI interface..
+				>> OK
+				
+		• 2 HARP device - OnBoard & OffPlatform [Motor Device] MUST have means of syncronising their sample clocks	
+				>> OK
+			
+		• HARP CLOCK GENERATOR: SHOULD/CAN BE COMPLETED INTEGRATED IN H2 MODULE??
+				>> NO!! Will be out Clock Generator - an external module - with several outputs
+				>> OK
+		
+		
+		
+
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 *  @November 11th 2022	
 >> end BOM
