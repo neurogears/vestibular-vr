@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="1" altunitdist="mil" altunit="mil"/>
+<grid distance="10" unitdist="mil" unit="mm" style="lines" multiple="1" display="yes" altdistance="1" altunitdist="mil" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
@@ -24,7 +24,7 @@
 <layer number="13" name="Route13" color="21" fill="1" visible="no" active="no"/>
 <layer number="14" name="Route14" color="22" fill="1" visible="no" active="no"/>
 <layer number="15" name="Route15" color="13" fill="1" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
@@ -2218,27 +2218,27 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="28.4882" y="36.4132" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
 <element name="IC2" library="VestibularVR H1-module v1.0" package="SOT23-5" package3d_urn="urn:adsk.eagle:package:2406/2" value="74LVC1G07DBV" x="10.675" y="42.436" smashed="yes" rot="MR270">
-<attribute name="MPN" value="SN74LVC1G07DBVR" x="10.675" y="42.436" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="MPN" value="M74VHC1GT126DT1G" x="10.675" y="42.436" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="9.682" y="40.7232" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="OEPS08 xxx1" x="10.675" y="42.436" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="OEPS" value="OEPS080017" x="10.675" y="42.436" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="14.485" y="44.976" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="IC4" library="VestibularVR H1-module v1.0" package="SOT23-5" package3d_urn="urn:adsk.eagle:package:2406/2" value="74LVC1G07DBV" x="10.675" y="51.072" smashed="yes" rot="MR270">
-<attribute name="MPN" value="SN74LVC1G07DBVR" x="10.675" y="51.072" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="MPN" value="M74VHC1GT126DT1G" x="10.675" y="51.072" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="9.6072" y="49.4124" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="OEPS08 xxx1" x="10.675" y="51.072" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="OEPS" value="OEPS080017" x="10.675" y="51.072" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="14.485" y="53.612" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="IC5" library="VestibularVR H1-module v1.0" package="SOT23-5" package3d_urn="urn:adsk.eagle:package:2406/2" value="74LVC1G07DBV" x="12.5566" y="24.3972" smashed="yes" rot="MR90">
-<attribute name="MPN" value="SN74LVC1G07DBVR" x="12.5566" y="24.3972" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MPN" value="M74VHC1GT126DT1G" x="12.5566" y="24.3972" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="11.7034" y="26.996" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="OEPS08 xxx1" x="12.5566" y="24.3972" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="OEPS" value="OEPS080017" x="12.5566" y="24.3972" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="8.7466" y="21.8572" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="IC6" library="VestibularVR H1-module v1.0" package="SOT23-5" package3d_urn="urn:adsk.eagle:package:2406/2" value="74LVC1G07DBV" x="12.5566" y="35.2374" smashed="yes" rot="MR90">
-<attribute name="MPN" value="SN74LVC1G07DBVR" x="12.5566" y="35.2374" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MPN" value="M74VHC1GT126DT1G" x="12.5566" y="35.2374" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="11.4542" y="33.2608" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="OEPS08 xxx1" x="12.5566" y="35.2374" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="OEPS" value="OEPS080017" x="12.5566" y="35.2374" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="8.7466" y="32.6974" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="R34" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0402@1" package3d_urn="urn:adsk.eagle:package:23547@1/3" value="10k" x="24.09315" y="30.5948" smashed="yes" rot="R180">
@@ -2454,7 +2454,7 @@ design rules under a new name.</description>
 <attribute name="TYPE" value="SMD" x="31.1658" y="29.0322" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="30.5308" y="27.1272" size="1.27" layer="27"/>
 </element>
-<element name="LICK_0" library="con-molex" library_urn="urn:adsk.eagle:library:165" package="22-23-2031" value="2x3 case" x="3.556" y="35.306" smashed="yes" rot="R270">
+<element name="LICK_0" library="con-molex" library_urn="urn:adsk.eagle:library:165" package="22-23-2031" value="1x3 case" x="3.556" y="35.306" smashed="yes" rot="R270">
 <attribute name="MF" value="-" x="3.556" y="35.306" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="282834-3 Digikey A98334-ND" x="3.556" y="35.306" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="0.3062" y="39.4632" size="0.8128" layer="25" font="vector" ratio="15"/>
@@ -2463,7 +2463,7 @@ design rules under a new name.</description>
 <attribute name="OEPS" value="OEPS07 xxx2" x="3.556" y="35.306" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="-1.524" y="39.116" size="1.016" layer="27" ratio="10" rot="R270"/>
 </element>
-<element name="LICK_1" library="con-molex" library_urn="urn:adsk.eagle:library:165" package="22-23-2031" value="2x3 case" x="3.556" y="24.384" smashed="yes" rot="R270">
+<element name="LICK_1" library="con-molex" library_urn="urn:adsk.eagle:library:165" package="22-23-2031" value="1x3 case" x="3.556" y="24.384" smashed="yes" rot="R270">
 <attribute name="MF" value="-" x="3.556" y="24.384" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="282834-3 Digikey A98334-ND" x="3.556" y="24.384" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="0.2698" y="28.539" size="0.8128" layer="25" font="vector" ratio="15"/>
@@ -2555,12 +2555,12 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="13.8938" y="18.923" size="1.27" layer="28" rot="MR0"/>
 </element>
 <element name="CAM_TRIGGERS" library="con-molex" library_urn="urn:adsk.eagle:library:165" package="22-23-2041" value="1x4 case" x="3.556" y="47.625" smashed="yes" rot="R270">
-<attribute name="MF" value="MOLEX" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="282834-4 Digikey A98335-ND" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value="-" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="282834-4" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="0.4572" y="53.0606" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OC_FARNELL" value="1462920" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="38C0355" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OEPS" value="OEPS07 xxx1" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OEPS" value="OEPS070036" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="-1.524" y="52.705" size="1.016" layer="27" ratio="10" rot="R270"/>
 </element>
 <element name="X1" library="con-samtec" library_urn="urn:adsk.eagle:library:184" package="TSW-105-02-S-D" value="2x5 header" x="25.908" y="8.382" smashed="yes" rot="R90">
@@ -2597,9 +2597,9 @@ design rules under a new name.</description>
 <attribute name="TP_SIGNAL_NAME" value="" x="22.86" y="11.811" size="1" layer="38" rot="MR0"/>
 <attribute name="VALUE" x="23.368" y="13.208" size="0.0254" layer="28" rot="MR0"/>
 </element>
-<element name="REWARD_VALVES" library="con-molex" library_urn="urn:adsk.eagle:library:165" package="22-23-2041" value="22-23-2041" x="3.556" y="12.192" smashed="yes" rot="R270">
-<attribute name="MF" value="MOLEX" x="14.986" y="23.622" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="22-23-2041" x="14.986" y="23.622" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="REWARD_VALVES" library="con-molex" library_urn="urn:adsk.eagle:library:165" package="22-23-2041" value="1x4 case" x="3.556" y="12.192" smashed="yes" rot="R270">
+<attribute name="MF" value="-" x="14.986" y="23.622" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="282834-4 Digikey A98335-ND" x="14.986" y="23.622" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="0.254" y="17.5768" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OC_FARNELL" value="1462920" x="14.986" y="23.622" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="38C0355" x="14.986" y="23.622" size="1.778" layer="27" rot="R270" display="off"/>
