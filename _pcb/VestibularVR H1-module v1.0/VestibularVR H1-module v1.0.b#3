@@ -2669,7 +2669,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="41.798" y="17.968" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="OC_FARNELL" value="unknown" x="40.64" y="28.016" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="40.64" y="28.016" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="OEPS" value="OEPS07 xxx3" x="40.64" y="28.016" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OEPS" value="OEPS070037" x="40.64" y="28.016" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="38.89" y="21.016" size="1.27" layer="27" rot="R90"/>
 </element>
 </elements>

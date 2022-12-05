@@ -2556,11 +2556,11 @@ design rules under a new name.</description>
 </element>
 <element name="CAM_TRIGGERS" library="con-molex" library_urn="urn:adsk.eagle:library:165" package="22-23-2041" value="1x4 case" x="3.556" y="47.625" smashed="yes" rot="R270">
 <attribute name="MF" value="-" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="282834-4 Digikey A98335-ND" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="282834-4" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="0.4572" y="53.0606" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OC_FARNELL" value="1462920" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="38C0355" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OEPS" value="OEPS07 xxx1" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OEPS" value="OEPS070036" x="3.556" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="-1.524" y="52.705" size="1.016" layer="27" ratio="10" rot="R270"/>
 </element>
 <element name="X1" library="con-samtec" library_urn="urn:adsk.eagle:library:184" package="TSW-105-02-S-D" value="2x5 header" x="25.908" y="8.382" smashed="yes" rot="R90">

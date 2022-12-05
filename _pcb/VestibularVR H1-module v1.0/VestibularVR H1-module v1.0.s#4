@@ -15111,13 +15111,13 @@ Grid 3.5 mm&lt;p&gt;
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="LICK_0" library="con-molex" library_urn="urn:adsk.eagle:library:165" deviceset="22-23-2031" device="" value="1x3 case">
 <attribute name="MF" value="-"/>
-<attribute name="MPN" value="282834-3 Digikey A98334-ND"/>
-<attribute name="OEPS" value="OEPS07 xxx2"/>
+<attribute name="MPN" value="282834-3"/>
+<attribute name="OEPS" value="OEPS070035"/>
 </part>
 <part name="LICK_1" library="con-molex" library_urn="urn:adsk.eagle:library:165" deviceset="22-23-2031" device="" value="1x3 case">
 <attribute name="MF" value="-"/>
-<attribute name="MPN" value="282834-3 Digikey A98334-ND"/>
-<attribute name="OEPS" value="OEPS07 xxx2"/>
+<attribute name="MPN" value="282834-3"/>
+<attribute name="OEPS" value="OEPS070035"/>
 </part>
 <part name="P+6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+12V" device=""/>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
@@ -15253,7 +15253,7 @@ Grid 3.5 mm&lt;p&gt;
 </part>
 <part name="X15" library="con-weidmueller-sl35" library_urn="urn:adsk.eagle:library:199" deviceset="90G-5" device="" package3d_urn="urn:adsk.eagle:package:11408/1" value="Main_plug">
 <attribute name="MPN" value="20.155MH/5-E"/>
-<attribute name="OEPS" value="OEPS07 xxx3"/>
+<attribute name="OEPS" value="OEPS070037"/>
 </part>
 </parts>
 <sheets>

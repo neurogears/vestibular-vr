@@ -15111,13 +15111,13 @@ Grid 3.5 mm&lt;p&gt;
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="LICK_0" library="con-molex" library_urn="urn:adsk.eagle:library:165" deviceset="22-23-2031" device="" value="1x3 case">
 <attribute name="MF" value="-"/>
-<attribute name="MPN" value="282834-3 Digikey A98334-ND"/>
-<attribute name="OEPS" value="OEPS07 xxx2"/>
+<attribute name="MPN" value="282834-3"/>
+<attribute name="OEPS" value="OEPS070035"/>
 </part>
 <part name="LICK_1" library="con-molex" library_urn="urn:adsk.eagle:library:165" deviceset="22-23-2031" device="" value="1x3 case">
 <attribute name="MF" value="-"/>
-<attribute name="MPN" value="282834-3 Digikey A98334-ND"/>
-<attribute name="OEPS" value="OEPS07 xxx2"/>
+<attribute name="MPN" value="282834-3"/>
+<attribute name="OEPS" value="OEPS070035"/>
 </part>
 <part name="P+6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+12V" device=""/>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
@@ -15195,8 +15195,8 @@ Grid 3.5 mm&lt;p&gt;
 </part>
 <part name="CAM_TRIGGERS" library="con-molex" library_urn="urn:adsk.eagle:library:165" deviceset="22-23-2041" device="" value="1x4 case">
 <attribute name="MF" value="-"/>
-<attribute name="MPN" value="282834-4 Digikey A98335-ND"/>
-<attribute name="OEPS" value="OEPS07 xxx1"/>
+<attribute name="MPN" value="282834-4"/>
+<attribute name="OEPS" value="OEPS070036"/>
 </part>
 <part name="X1" library="con-samtec" library_urn="urn:adsk.eagle:library:184" deviceset="TSW-105-02-S-D" device="" value="2x5 header">
 <attribute name="MPN" value="2x5 header"/>

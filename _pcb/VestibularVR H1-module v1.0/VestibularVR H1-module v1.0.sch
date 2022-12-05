@@ -14853,19 +14853,19 @@ Grid 3.5 mm&lt;p&gt;
 <attribute name="MPN" value="609-3210-ND"/>
 <attribute name="OEPS" value="OEPS070015"/>
 </part>
-<part name="IC2" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2">
+<part name="IC2" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2" value="74VHC1GT126DT1G">
 <attribute name="MPN" value="M74VHC1GT126DT1G"/>
 <attribute name="OEPS" value="OEPS080017"/>
 </part>
-<part name="IC4" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2">
+<part name="IC4" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2" value="74VHC1GT126DT1G">
 <attribute name="MPN" value="M74VHC1GT126DT1G"/>
 <attribute name="OEPS" value="OEPS080017"/>
 </part>
-<part name="IC5" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2">
+<part name="IC5" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2" value="74VHC1GT126DT1G">
 <attribute name="MPN" value="M74VHC1GT126DT1G"/>
 <attribute name="OEPS" value="OEPS080017"/>
 </part>
-<part name="IC6" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2">
+<part name="IC6" library="VestibularVR H1-module v1.0" deviceset="74LVC1G07" device="DBV" package3d_urn="urn:adsk.eagle:package:2406/2" value="74VHC1GT126DT1G">
 <attribute name="MPN" value="M74VHC1GT126DT1G"/>
 <attribute name="OEPS" value="OEPS080017"/>
 </part>
@@ -15286,9 +15286,9 @@ https://eu.mouser.com/ProductDetail/Molex/70246-0804?qs=UkDUCjYnTB3Qq7EFSr2OxA%3
 maior R PDown ~50k</text>
 <text x="58.42" y="88.9" size="1.778" layer="91">DMG1012UW</text>
 <text x="55.88" y="38.1" size="1.778" layer="91">DMG1012UW</text>
-<text x="266.7" y="185.42" size="2.54" layer="91" font="vector" ratio="16">-to review
+<text x="266.7" y="185.42" size="3.81" layer="97" font="vector" ratio="16" distance="61">-to review
   USBDP &amp; USBDP pin switched!!!</text>
-<text x="175.26" y="238.76" size="2.54" layer="91" font="vector" ratio="16">-to review
+<text x="175.26" y="238.76" size="3.81" layer="97" font="vector" ratio="16">-to review
   pinout upside-down!!!</text>
 </plain>
 <instances>
@@ -15322,13 +15322,13 @@ maior R PDown ~50k</text>
 </instance>
 <instance part="IC2" gate="A" x="60.96" y="185.42" smashed="yes" rot="MR0">
 <attribute name="NAME" x="58.42" y="188.595" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="80.01" y="177.8" size="1.778" layer="96" rot="MR0"/>
+<attribute name="VALUE" x="90.17" y="180.34" size="1.778" layer="96" rot="MR0"/>
 <attribute name="MPN" x="60.96" y="185.42" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="OEPS" x="60.96" y="185.42" size="1.778" layer="96" rot="MR0" display="off"/>
 </instance>
 <instance part="IC4" gate="A" x="60.96" y="220.98" smashed="yes" rot="MR0">
 <attribute name="NAME" x="58.42" y="224.155" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="81.28" y="213.36" size="1.778" layer="96" rot="MR0"/>
+<attribute name="VALUE" x="88.9" y="215.9" size="1.778" layer="96" rot="MR0"/>
 <attribute name="MPN" x="60.96" y="220.98" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="OEPS" x="60.96" y="220.98" size="1.778" layer="96" rot="MR0" display="off"/>
 </instance>

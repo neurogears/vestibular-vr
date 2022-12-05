@@ -2456,20 +2456,20 @@ design rules under a new name.</description>
 </element>
 <element name="LICK_0" library="con-molex" library_urn="urn:adsk.eagle:library:165" package="22-23-2031" value="1x3 case" x="3.556" y="35.306" smashed="yes" rot="R270">
 <attribute name="MF" value="-" x="3.556" y="35.306" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="282834-3 Digikey A98334-ND" x="3.556" y="35.306" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="282834-3" x="3.556" y="35.306" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="0.3062" y="39.4632" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OC_FARNELL" value="1462950" x="3.556" y="35.306" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="30C0862" x="3.556" y="35.306" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OEPS" value="OEPS07 xxx2" x="3.556" y="35.306" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OEPS" value="OEPS070035" x="3.556" y="35.306" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="-1.524" y="39.116" size="1.016" layer="27" ratio="10" rot="R270"/>
 </element>
 <element name="LICK_1" library="con-molex" library_urn="urn:adsk.eagle:library:165" package="22-23-2031" value="1x3 case" x="3.556" y="24.384" smashed="yes" rot="R270">
 <attribute name="MF" value="-" x="3.556" y="24.384" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="282834-3 Digikey A98334-ND" x="3.556" y="24.384" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="282834-3" x="3.556" y="24.384" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="0.2698" y="28.539" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OC_FARNELL" value="1462950" x="3.556" y="24.384" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="30C0862" x="3.556" y="24.384" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OEPS" value="OEPS07 xxx2" x="3.556" y="24.384" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OEPS" value="OEPS070035" x="3.556" y="24.384" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="-1.524" y="28.194" size="1.016" layer="27" ratio="10" rot="R270"/>
 </element>
 <element name="D4" library="diode" library_urn="urn:adsk.eagle:library:210" package="SOT23" package3d_urn="urn:adsk.eagle:package:43389/2" value="BAT54" x="9.6732" y="9.4438" smashed="yes" rot="MR180">
