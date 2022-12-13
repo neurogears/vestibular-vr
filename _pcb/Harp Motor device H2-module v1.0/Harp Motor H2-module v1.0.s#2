@@ -4920,6 +4920,16 @@ Source: www.kingbright.com</description>
 <attribute name="OEPS" value="OEPS010004"/>
 <attribute name="TYPE" value="SMD"/>
 </part>
+<part name="R10" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="0R">
+<attribute name="DIGIKEY_PN" value="o 0R"/>
+<attribute name="MPN" value="MPN ??"/>
+<attribute name="OEPS" value="OEPS?? q codigo"/>
+</part>
+<part name="R11" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="0R">
+<attribute name="DIGIKEY_PN" value="o 0R"/>
+<attribute name="MPN" value="MPN ??"/>
+<attribute name="OEPS" value="OEPS?? q codigo"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -5131,11 +5141,11 @@ OC0A &amp; OC0B</text>
 <attribute name="MPN" x="358.14" y="101.6" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="OEPS" x="358.14" y="101.6" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
-<instance part="C2" gate="G$1" x="358.14" y="139.7" smashed="yes">
-<attribute name="NAME" x="360.68" y="139.7" size="1.4224" layer="95" font="vector" ratio="12"/>
-<attribute name="VALUE" x="361.188" y="137.541" size="1.4224" layer="96" font="vector" ratio="12"/>
-<attribute name="MPN" x="358.14" y="139.7" size="1.778" layer="96" display="off"/>
-<attribute name="OEPS" x="358.14" y="139.7" size="1.778" layer="96" display="off"/>
+<instance part="C2" gate="G$1" x="356.87" y="139.954" smashed="yes">
+<attribute name="NAME" x="353.06" y="140.208" size="1.4224" layer="95" font="vector" ratio="12"/>
+<attribute name="VALUE" x="350.52" y="135.255" size="1.4224" layer="96" font="vector" ratio="12"/>
+<attribute name="MPN" x="356.87" y="139.954" size="1.778" layer="96" display="off"/>
+<attribute name="OEPS" x="356.87" y="139.954" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="GND33" gate="1" x="345.44" y="71.12" smashed="yes">
 <attribute name="VALUE" x="345.948" y="71.628" size="1.4224" layer="96" font="vector" ratio="12"/>
@@ -5177,12 +5187,12 @@ OC0A &amp; OC0B</text>
 <instance part="GND4" gate="1" x="304.8" y="149.86" smashed="yes">
 <attribute name="VALUE" x="304.292" y="147.828" size="1.4224" layer="96" font="vector" ratio="12"/>
 </instance>
-<instance part="R3" gate="G$1" x="351.79" y="139.7" smashed="yes" rot="R90">
-<attribute name="NAME" x="350.52" y="142.2654" size="1.4224" layer="95" font="vector" ratio="12" rot="R180"/>
-<attribute name="VALUE" x="349.758" y="139.446" size="1.4224" layer="96" font="vector" ratio="12" rot="R180"/>
-<attribute name="MPN" x="351.79" y="139.7" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="OEPS" x="351.79" y="139.7" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="DIGIKEY_PN" x="351.79" y="139.7" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="R3" gate="G$1" x="364.49" y="139.7" smashed="yes" rot="R90">
+<attribute name="NAME" x="363.22" y="142.2654" size="1.4224" layer="95" font="vector" ratio="12" rot="R180"/>
+<attribute name="VALUE" x="362.458" y="139.446" size="1.4224" layer="96" font="vector" ratio="12" rot="R180"/>
+<attribute name="MPN" x="364.49" y="139.7" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="OEPS" x="364.49" y="139.7" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DIGIKEY_PN" x="364.49" y="139.7" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="OSC1" gate="G$1" x="165.1" y="93.98" smashed="yes">
 <attribute name="VALUE" x="175.26" y="91.44" size="1.4224" layer="96" font="vector" ratio="12"/>
@@ -5705,11 +5715,11 @@ OC0A &amp; OC0B</text>
 <instance part="VDD7" gate="G$1" x="340.36" y="238.76" smashed="yes">
 <attribute name="VALUE" x="336.804" y="239.776" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND6" gate="1" x="358.14" y="129.54" smashed="yes">
-<attribute name="VALUE" x="356.108" y="127.508" size="1.4224" layer="96" font="vector" ratio="12"/>
+<instance part="GND6" gate="1" x="356.87" y="130.048" smashed="yes">
+<attribute name="VALUE" x="354.838" y="128.016" size="1.4224" layer="96" font="vector" ratio="12"/>
 </instance>
-<instance part="GND2" gate="1" x="351.79" y="129.54" smashed="yes">
-<attribute name="VALUE" x="349.758" y="127.508" size="1.4224" layer="96" font="vector" ratio="12"/>
+<instance part="GND2" gate="1" x="364.49" y="129.54" smashed="yes">
+<attribute name="VALUE" x="362.458" y="127.508" size="1.4224" layer="96" font="vector" ratio="12"/>
 </instance>
 <instance part="GND9" gate="1" x="345.44" y="223.52" smashed="yes">
 <attribute name="VALUE" x="342.9" y="220.98" size="1.4224" layer="96" font="vector" ratio="12"/>
@@ -5780,6 +5790,20 @@ OC0A &amp; OC0B</text>
 <attribute name="NOTES" x="340.36" y="93.98" size="1.778" layer="96" display="off"/>
 <attribute name="OEPS" x="340.36" y="93.98" size="1.778" layer="96" display="off"/>
 <attribute name="OEPS" x="340.36" y="93.98" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R10" gate="G$1" x="147.32" y="132.08" smashed="yes" rot="R180">
+<attribute name="NAME" x="144.78" y="133.8834" size="1.4224" layer="95" font="vector" ratio="12" rot="R180"/>
+<attribute name="VALUE" x="152.908" y="133.858" size="1.4224" layer="96" font="vector" ratio="12" rot="R180"/>
+<attribute name="MPN" x="147.32" y="132.08" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DIGIKEY_PN" x="147.32" y="132.08" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="OEPS" x="147.32" y="132.08" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="R11" gate="G$1" x="147.32" y="134.62" smashed="yes" rot="R180">
+<attribute name="NAME" x="144.78" y="136.4234" size="1.4224" layer="95" font="vector" ratio="12" rot="R180"/>
+<attribute name="VALUE" x="152.4" y="136.398" size="1.4224" layer="96" font="vector" ratio="12" rot="R180"/>
+<attribute name="MPN" x="147.32" y="134.62" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DIGIKEY_PN" x="147.32" y="134.62" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="OEPS" x="147.32" y="134.62" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 </instances>
 <busses>
@@ -6049,12 +6073,12 @@ OC0A &amp; OC0B</text>
 <segment>
 <pinref part="C2" gate="G$1" pin="2"/>
 <pinref part="GND6" gate="1" pin="GND"/>
-<wire x1="358.14" y1="132.08" x2="358.14" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="356.87" y1="132.588" x2="356.87" y2="134.874" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
 <pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="351.79" y1="132.08" x2="351.79" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="364.49" y1="132.08" x2="364.49" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND9" gate="1" pin="GND"/>
@@ -6353,9 +6377,11 @@ OC0A &amp; OC0B</text>
 <net name="N$1" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
-<pinref part="X1" gate="G$1" pin="P$2"/>
-<wire x1="351.79" y1="144.78" x2="355.6" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="355.6" y1="144.78" x2="355.6" y2="146.05" width="0.1524" layer="91"/>
+<wire x1="359.41" y1="144.78" x2="360.68" y2="144.78" width="0.1524" layer="91"/>
+<pinref part="X1" gate="G$1" pin="P$4"/>
+<wire x1="360.68" y1="144.78" x2="364.49" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="358.14" y1="146.05" x2="358.14" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="358.14" y1="144.78" x2="359.41" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -6547,10 +6573,8 @@ OC0A &amp; OC0B</text>
 <net name="N$15" class="0">
 <segment>
 <pinref part="X1" gate="G$1" pin="P$3"/>
-<wire x1="356.87" y1="146.05" x2="356.87" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="356.87" y1="144.78" x2="358.14" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="356.87" y1="146.05" x2="356.87" y2="142.494" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="1"/>
-<wire x1="358.14" y1="144.78" x2="358.14" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CLOCK_IN" class="0">
@@ -6695,21 +6719,21 @@ OC0A &amp; OC0B</text>
 <pinref part="IC12" gate="A" pin="O"/>
 </segment>
 <segment>
-<label x="142.24" y="139.7" size="1.4224" layer="95" font="vector" ratio="12" rot="MR0"/>
-<pinref part="IC8" gate="G$1" pin="PC3/OC0D/TXD0"/>
-<wire x1="175.26" y1="134.62" x2="142.24" y2="139.7" width="0.1524" layer="91"/>
+<label x="127" y="137.16" size="1.4224" layer="95" font="vector" ratio="12" rot="MR0"/>
+<wire x1="142.24" y1="134.62" x2="127" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="R11" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="U_ENCODER_A_PHASE" class="0">
 <segment>
-<label x="73.66" y="149.86" size="1.4224" layer="95" font="vector" ratio="12"/>
-<wire x1="58.42" y1="149.86" x2="73.66" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="IC11" gate="A" pin="O"/>
+<label x="127" y="134.62" size="1.4224" layer="95" font="vector" ratio="12" rot="MR0"/>
+<wire x1="142.24" y1="132.08" x2="127" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="R10" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<label x="142.24" y="137.16" size="1.4224" layer="95" font="vector" ratio="12" rot="MR0"/>
-<wire x1="175.26" y1="132.08" x2="142.24" y2="137.16" width="0.1524" layer="91"/>
-<pinref part="IC8" gate="G$1" pin="PC4/OC1A/!SS"/>
+<label x="73.66" y="149.86" size="1.4224" layer="95" font="vector" ratio="12"/>
+<pinref part="IC11" gate="A" pin="O"/>
+<wire x1="58.42" y1="149.86" x2="73.66" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="U_STEP_ENABLE" class="0">
@@ -6810,6 +6834,20 @@ OC0A &amp; OC0B</text>
 <pinref part="IC8" gate="G$1" pin="PA0/ADC0/AREF"/>
 <wire x1="175.26" y1="180.34" x2="167.64" y2="180.34" width="0.1524" layer="91"/>
 <label x="167.64" y="180.34" size="1.4224" layer="95" font="vector" ratio="12" rot="MR0"/>
+</segment>
+</net>
+<net name="N$59" class="0">
+<segment>
+<pinref part="R10" gate="G$1" pin="1"/>
+<pinref part="IC8" gate="G$1" pin="PC4/OC1A/!SS"/>
+<wire x1="152.4" y1="132.08" x2="175.26" y2="132.08" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$60" class="0">
+<segment>
+<pinref part="R11" gate="G$1" pin="1"/>
+<pinref part="IC8" gate="G$1" pin="PC3/OC0D/TXD0"/>
+<wire x1="152.4" y1="134.62" x2="175.26" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
