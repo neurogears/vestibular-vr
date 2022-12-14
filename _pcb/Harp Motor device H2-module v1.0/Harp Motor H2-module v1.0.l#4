@@ -469,7 +469,7 @@ Metric Code Size 1608</description>
 <text x="2.54" y="-4.445" size="1.778" layer="95">&gt;NAME</text>
 <text x="2.54" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="VCC" x="0" y="7.62" visible="pad" length="short" direction="pwr" rot="R270"/>
-<pin name="VCC1" x="0" y="-7.62" visible="pad" length="short" direction="pwr" rot="R90"/>
+<pin name="GND" x="0" y="-7.62" visible="pad" length="short" direction="pwr" rot="R90"/>
 <wire x1="0" y1="-5.334" x2="0" y2="-3.81" width="0.254" layer="94"/>
 <wire x1="0" y1="5.588" x2="0" y2="3.81" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="1.27" y2="1.27" width="0.254" layer="94"/>
