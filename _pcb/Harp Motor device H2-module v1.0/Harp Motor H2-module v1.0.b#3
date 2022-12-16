@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="mm" unit="mm" style="dots" multiple="1" display="yes" altdistance="0.05" altunitdist="mm" altunit="mm"/>
+<grid distance="5" unitdist="mil" unit="mil" style="dots" multiple="1" display="yes" altdistance="1" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="yes" active="yes"/>
@@ -180,27 +180,39 @@
 <hole x="53.172" y="36.728" drill="2.15"/>
 <wire x1="0" y1="51" x2="0" y2="1.5" width="0.1524" layer="20"/>
 <wire x1="58" y1="1.5" x2="58" y2="51" width="0.15" layer="20"/>
-<text x="0.568" y="30.666" size="0.8128" layer="25" font="vector" ratio="17" distance="44">Rotary Encoder </text>
-<text x="0.738" y="15.466" size="0.8128" layer="25" font="vector" ratio="17" distance="44">Step Motor</text>
-<text x="0.748" y="48.058" size="0.8128" layer="25" font="vector" ratio="17" distance="44">Emergency 
+<text x="0.568" y="30.793" size="0.8382" layer="25" font="vector" ratio="14" distance="44">Rotary Encoder </text>
+<text x="0.568" y="15.466" size="0.8382" layer="25" font="vector" ratio="14" distance="44">Step Motor</text>
+<text x="0.568" y="48.058" size="0.8382" layer="25" font="vector" ratio="14" distance="44">Emergency 
 Butt</text>
 <hole x="53.172" y="50.776" drill="2.15"/>
-<text x="0.692" y="40.512" size="0.8128" layer="25" font="vector" ratio="17" distance="44">Hall effect sens</text>
+<text x="0.568" y="40.512" size="0.8382" layer="25" font="vector" ratio="14" distance="44">Hall effect</text>
 <wire x1="58" y1="51" x2="56.5" y2="52.5" width="0.1524" layer="20" curve="-90"/>
 <wire x1="1.5" y1="52.5" x2="0" y2="51" width="0.1524" layer="20" curve="-90"/>
 <wire x1="0" y1="1.5" x2="1.5" y2="0" width="0.1524" layer="20" curve="-90"/>
 <wire x1="1.5" y1="0" x2="56.5" y2="0" width="0.1524" layer="20"/>
 <wire x1="56.5" y1="0" x2="58" y2="1.5" width="0.1524" layer="20" curve="-90"/>
-<hole x="11.526" y="29.628" drill="2.15"/>
+<hole x="11.526" y="29.374" drill="2.15"/>
 <dimension x1="0" y1="51" x2="58" y2="51" x3="29" y3="61" textsize="1.27" textratio="5" layer="47" dtype="horizontal" width="0.1" visible="yes"/>
 <dimension x1="1.5" y1="52.5" x2="1.5" y2="0" x3="-10" y3="26.25" textsize="1.27" layer="47" visible="yes"/>
 <text x="17.078" y="30.654" size="0.8128" layer="21" font="vector" ratio="18" distance="42">H2-module
 Harp Motor device
 v.1.0</text>
-<text x="7.734" y="17.968" size="0.7" layer="25" font="vector" ratio="17" distance="44" rot="R90"> V+ nc  PhA PhB GND</text>
-<text x="7.734" y="2.168" size="0.7" layer="25" font="vector" ratio="17" distance="44" rot="R90"> V+ Pulse Dir Enb GND</text>
-<text x="7.734" y="33.068" size="0.7" layer="25" font="vector" ratio="17" distance="44" rot="R90">in  V+  GND</text>
-<text x="7.734" y="42.968" size="0.7" layer="25" font="vector" ratio="17" distance="44" rot="R90">in  GND</text>
+<text x="7.248" y="18.174" size="0.9652" layer="25" font="vector" ratio="17" distance="170">GND 
+PhA 
+PhB 
+nc
+V+ </text>
+<text x="7.248" y="2.68" size="0.8128" layer="25" font="vector" ratio="17" distance="236">GND
+Enb 
+Dir 
+
+V+</text>
+<text x="7.248" y="33.16" size="0.9652" layer="25" font="vector" ratio="17" distance="170">GND
+in
+V+  </text>
+<text x="7.248" y="43.447" size="0.762" layer="25" font="vector" ratio="17" distance="200">GND
+in</text>
+<text x="6.867" y="5.22" size="0.8128" layer="25" font="vector" ratio="17" distance="222">Pulse</text>
 </plain>
 <libraries>
 <library name="VestibularVR H1-module v1.0">
@@ -1463,14 +1475,14 @@ Your Eurocircuits Team
 <element name="R8" library="Harp Motor H2-module v1.0" package="R0402$1" value="10k" x="9.367" y="43.93" smashed="yes" rot="MR180">
 <attribute name="DIGIKEY_PN" value="541-10.0KLDKR-ND" x="9.367" y="43.93" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MPN" value="CRCW040210K0FKED" x="9.367" y="43.93" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="NAME" x="9.039" y="45.6744" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="NAME" x="9.139" y="45.5744" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="OEPS020030" x="9.367" y="43.93" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="8.732" y="45.835" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="C1" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="17.798" y="32.448" smashed="yes" rot="MR270">
 <attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="18.798" y="49.848" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="18.798" y="49.848" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="NAME" x="20.098" y="32.677" size="0.8128" layer="26" font="vector" ratio="15" rot="MR0"/>
+<attribute name="NAME" x="18.398" y="30.477" size="0.8128" layer="26" font="vector" ratio="15" rot="MR0"/>
 <attribute name="NOTES" value="-" x="18.798" y="49.848" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="18.798" y="49.848" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="TYPE" value="SMD" x="18.798" y="49.848" size="1.778" layer="28" rot="MR270" display="off"/>
@@ -1549,11 +1561,11 @@ Your Eurocircuits Team
 <attribute name="OEPS" value="-" x="14.2472" y="12.83" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="12.3422" y="13.465" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="PWR1" library="harp camera controller" package="DC_POWER_INPUT_2.1MM" value="DC_JACK2.1MM" x="53.038" y="6.364" smashed="yes" rot="R180">
+<element name="PWR" library="harp camera controller" package="DC_POWER_INPUT_2.1MM" value="DC_JACK2.1MM" x="53.038" y="6.364" smashed="yes" rot="R180">
 <attribute name="DIGIKEY_PN" value="DIGIKEY N.A." x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MOUSER_PN" value="163-179PH" x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="163-179PH-EX" x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="42.386" y="3.338" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
+<attribute name="NAME" x="42.686" y="3.138" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="NOTES" value="-" x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="TYPE" value="TH" x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="47.038" y="1.614" size="0.6096" layer="27" rot="R180"/>
@@ -1561,14 +1573,14 @@ Your Eurocircuits Team
 <element name="R4" library="Harp Motor H2-module v1.0" package="R0402$1" value="0R DNI" x="24.8772" y="22.2772" smashed="yes" rot="MR90">
 <attribute name="DIGIKEY_PN" value="??" x="24.8772" y="22.2772" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="MPN" value="TBD ?" x="24.8772" y="22.2772" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="26.3478" y="23.1354" size="0.8128" layer="26" font="vector" ratio="15" rot="MR270"/>
+<attribute name="NAME" x="24.4646" y="20.5478" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="TBD" x="24.8772" y="22.2772" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="22.9722" y="21.6422" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="R7" library="Harp Motor H2-module v1.0" package="R0402$1" value="10k DNI" x="23.024" y="22.272" smashed="yes" rot="MR270">
 <attribute name="DIGIKEY_PN" value="541-10.0KLDKR-ND" x="23.024" y="22.272" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="MPN" value="CRCW040210K0FKED" x="23.024" y="22.272" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="NAME" x="22.0966" y="22.9378" size="0.8128" layer="26" font="vector" ratio="15" rot="MR270"/>
+<attribute name="NAME" x="22.0622" y="20.4966" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="OEPS020030" x="23.024" y="22.272" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="24.929" y="22.907" size="1.27" layer="28" rot="MR270"/>
 </element>
@@ -1591,7 +1603,7 @@ Your Eurocircuits Team
 </element>
 <element name="C15" library="Harp Motor H2-module v1.0" package="C0603K" value="4.7uF DNI" x="23.7" y="26.2" smashed="yes" rot="MR90">
 <attribute name="MPN" value="C1608X6S1C475K080AC" x="23.7" y="26.2" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="22.15" y="25.2" size="0.8128" layer="26" font="vector" ratio="15" rot="MR90"/>
+<attribute name="NAME" x="24.4" y="27.95" size="0.8128" layer="26" font="vector" ratio="15" rot="MR0"/>
 <attribute name="NOTES" value="-" x="23.7" y="26.2" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="OEPS" value="OEPS010018" x="23.7" y="26.2" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="TYPE" value="SMD" x="23.7" y="26.2" size="1.778" layer="28" rot="MR90" display="off"/>
@@ -1600,28 +1612,28 @@ Your Eurocircuits Team
 <element name="R9" library="Harp Motor H2-module v1.0" package="R0402$1" value="100R DNI" x="26.6" y="25.3" smashed="yes" rot="MR180">
 <attribute name="DIGIKEY_PN" value="para 100R" x="26.6" y="25.3" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MPN" value="para 100R" x="26.6" y="25.3" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="NAME" x="28.565" y="25.565" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="NAME" x="26.565" y="24.465" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="OEPS para100R" x="26.6" y="25.3" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="25.965" y="27.205" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="R14" library="Harp Motor H2-module v1.0" package="R0402$1" value="DNI" x="8.9" y="11.4" smashed="yes" rot="MR180">
 <attribute name="DIGIKEY_PN" value="-" x="8.9" y="11.4" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MPN" value="DNI" x="8.9" y="11.4" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="NAME" x="7.565" y="10.465" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="NAME" x="10.665" y="11.765" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="DNI" x="8.9" y="11.4" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="8.265" y="13.305" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="R15" library="Harp Motor H2-module v1.0" package="R0402$1" value="DNI" x="8.9" y="8.75" smashed="yes" rot="MR180">
 <attribute name="DIGIKEY_PN" value="-" x="8.9" y="8.75" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MPN" value="DNI" x="8.9" y="8.75" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="NAME" x="7.565" y="7.715" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="NAME" x="10.565" y="9.115" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="DNI" x="8.9" y="8.75" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="8.265" y="10.655" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="R16" library="Harp Motor H2-module v1.0" package="R0402$1" value="DNI" x="8.9" y="6.2" smashed="yes" rot="MR180">
 <attribute name="DIGIKEY_PN" value="-" x="8.9" y="6.2" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MPN" value="DNI" x="8.9" y="6.2" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="NAME" x="7.765" y="5.365" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="NAME" x="10.565" y="6.565" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="DNI" x="8.9" y="6.2" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="8.265" y="8.105" size="1.27" layer="28" rot="MR180"/>
 </element>
@@ -1636,49 +1648,49 @@ Your Eurocircuits Team
 </element>
 <element name="L3" library="Harp Motor H2-module v1.0" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="40R@100MHz" x="31.9" y="15.2" smashed="yes" rot="MR180">
 <attribute name="MPN" value="MI0805K400R-10" x="31.9" y="15.2" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="NAME" x="30.665" y="13.93" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="NAME" x="31.965" y="13.93" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="OEPS040003" x="31.9" y="15.2" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="31.265" y="17.74" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="R17" library="rcl" package="R0402" value="10k 1%" x="18.4" y="35.7" smashed="yes" rot="MR90">
-<attribute name="NAME" x="18.035" y="37.565" size="0.8128" layer="26" font="vector" ratio="15" rot="MR90"/>
+<attribute name="NAME" x="17.635" y="36.035" size="0.8128" layer="26" font="vector" ratio="15" rot="MR0"/>
 <attribute name="VALUE" x="16.495" y="35.065" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="C41" library="rcl" package="C0402" value="15nF 5%" x="20.8" y="35.7" smashed="yes" rot="MR90">
-<attribute name="NAME" x="20.435" y="31.965" size="0.8128" layer="26" font="vector" ratio="15" rot="MR90"/>
+<attribute name="NAME" x="21.835" y="37.535" size="0.8128" layer="26" font="vector" ratio="15" rot="MR0"/>
 <attribute name="VALUE" x="18.895" y="35.065" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="R19" library="rcl" package="R0402" value="10k 1%" x="23" y="35.7" smashed="yes" rot="MR270">
-<attribute name="NAME" x="23.365" y="34.135" size="0.8128" layer="26" font="vector" ratio="15" rot="MR270"/>
+<attribute name="NAME" x="21.865" y="33.865" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="VALUE" x="24.905" y="36.335" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="C42" library="rcl" package="C0402" value="15nF 5%" x="24.9" y="35.7" smashed="yes" rot="MR270">
-<attribute name="NAME" x="25.365" y="33.935" size="0.8128" layer="26" font="vector" ratio="15" rot="MR270"/>
+<attribute name="NAME" x="24.465" y="38.265" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="VALUE" x="26.805" y="36.335" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="R20" library="rcl" package="R0402" value="24k" x="10.8" y="33.1" smashed="yes" rot="MR270">
-<attribute name="NAME" x="7.765" y="34.365" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="NAME" x="7.665" y="32.665" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="VALUE" x="12.705" y="33.735" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="R21" library="rcl" package="R0402" value="15k" x="10.8" y="37" smashed="yes" rot="MR270">
-<attribute name="NAME" x="12.765" y="38.335" size="0.8128" layer="26" font="vector" ratio="15" rot="MR270"/>
+<attribute name="NAME" x="11.365" y="37.665" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="VALUE" x="12.705" y="37.635" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="IC10" library="CNP-ics 2" package="SOT23-5" value="OPA365" x="14.1" y="34" smashed="yes" rot="MR90">
-<attribute name="NAME" x="12.322" y="32.222" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="NAME" x="12.622" y="31.922" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="VALUE" x="12.322" y="37.048" size="1.27" layer="28" ratio="10" rot="MR180"/>
 </element>
 <element name="R10" library="Harp Motor H2-module v1.0" package="R0402$1" value="DNI" x="8" y="36.2" smashed="yes" rot="MR180">
 <attribute name="DIGIKEY_PN" value="-" x="8" y="36.2" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MPN" value="DNI" x="8" y="36.2" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="NAME" x="7.365" y="35.565" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="NAME" x="6.965" y="35.265" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="DNI" x="8" y="36.2" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="7.365" y="38.105" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="R11" library="Harp Motor H2-module v1.0" package="R0402$1" value="0R" x="8.1" y="38.4" smashed="yes" rot="MR180">
 <attribute name="DIGIKEY_PN" value="a de 0R" x="8.1" y="38.4" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="MPN" value="a de 0R" x="8.1" y="38.4" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="NAME" x="7.465" y="37.765" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="NAME" x="7.065" y="39.965" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="a de 0R" x="8.1" y="38.4" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="7.465" y="40.305" size="1.27" layer="28" rot="MR180"/>
 </element>
@@ -1732,8 +1744,8 @@ Your Eurocircuits Team
 <contactref element="T3" pad="2"/>
 <contactref element="C2" pad="2"/>
 <contactref element="R3" pad="1"/>
-<contactref element="PWR1" pad="P2"/>
-<contactref element="PWR1" pad="P3"/>
+<contactref element="PWR" pad="P2"/>
+<contactref element="PWR" pad="P3"/>
 <contactref element="R7" pad="1"/>
 <contactref element="IC11" pad="3"/>
 <contactref element="IC12" pad="3"/>
@@ -2657,7 +2669,7 @@ Your Eurocircuits Team
 </signal>
 <signal name="VDD">
 <contactref element="H2_MAIN_PLUG" pad="1"/>
-<contactref element="PWR1" pad="P1"/>
+<contactref element="PWR" pad="P1"/>
 <wire x1="48.19" y1="17.36" x2="47.89" y2="17.36" width="0.3556" layer="16"/>
 <wire x1="47.89" y1="17.36" x2="45.69" y2="15.16" width="0.3556" layer="16"/>
 <wire x1="45.69" y1="15.16" x2="44.258" y2="15.16" width="0.3556" layer="16"/>

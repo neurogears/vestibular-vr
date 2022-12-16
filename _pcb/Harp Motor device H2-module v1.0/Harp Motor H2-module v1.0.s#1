@@ -7243,7 +7243,7 @@ Source: www.kingbright.com</description>
 <part name="GND9" library="supply1" deviceset="GND" device="">
 <attribute name="DIGKEYPN" value=""/>
 </part>
-<part name="PWR1" library="harp camera controller" deviceset="DC_JACK" device="2.1MM">
+<part name="PWR" library="harp camera controller" deviceset="DC_JACK" device="2.1MM">
 <attribute name="DIGIKEY_PN" value="DIGIKEY N.A."/>
 <attribute name="MOUSER_PN" value="163-179PH"/>
 <attribute name="MPN" value="163-179PH-EX"/>
@@ -8094,7 +8094,7 @@ Rotary Joint = H1 module</text>
 <attribute name="VALUE" x="342.9" y="220.98" size="1.4224" layer="96" font="vector" ratio="12"/>
 <attribute name="DIGKEYPN" x="341.63" y="223.52" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="PWR1" gate="G$1" x="355.6" y="233.68" smashed="yes" rot="MR0">
+<instance part="PWR" gate="G$1" x="355.6" y="233.68" smashed="yes" rot="MR0">
 <attribute name="NAME" x="360.68" y="236.22" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="370.84" y="223.52" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="MPN" x="355.6" y="233.68" size="1.778" layer="96" rot="MR0" display="off"/>
@@ -8564,8 +8564,8 @@ Rotary Joint = H1 module</text>
 <wire x1="345.44" y1="228.6" x2="345.44" y2="226.06" width="0.1524" layer="91"/>
 <wire x1="347.98" y1="228.6" x2="345.44" y2="228.6" width="0.1524" layer="91"/>
 <junction x="345.44" y="228.6"/>
-<pinref part="PWR1" gate="G$1" pin="2"/>
-<pinref part="PWR1" gate="G$1" pin="3"/>
+<pinref part="PWR" gate="G$1" pin="2"/>
+<pinref part="PWR" gate="G$1" pin="3"/>
 </segment>
 <segment>
 <pinref part="GND13" gate="1" pin="GND"/>
@@ -9344,7 +9344,7 @@ Rotary Joint = H1 module</text>
 <wire x1="353.06" y1="203.2" x2="340.36" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="340.36" y1="203.2" x2="340.36" y2="233.68" width="0.1524" layer="91"/>
 <junction x="340.36" y="233.68"/>
-<pinref part="PWR1" gate="G$1" pin="1"/>
+<pinref part="PWR" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="AREF" class="0">

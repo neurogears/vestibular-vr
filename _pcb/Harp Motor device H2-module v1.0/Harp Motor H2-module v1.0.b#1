@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="mm" unit="mm" style="dots" multiple="1" display="yes" altdistance="0.05" altunitdist="mm" altunit="mm"/>
+<grid distance="5" unitdist="mil" unit="mil" style="dots" multiple="1" display="yes" altdistance="1" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="yes" active="yes"/>
@@ -33,7 +33,7 @@
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
@@ -180,27 +180,38 @@
 <hole x="53.172" y="36.728" drill="2.15"/>
 <wire x1="0" y1="51" x2="0" y2="1.5" width="0.1524" layer="20"/>
 <wire x1="58" y1="1.5" x2="58" y2="51" width="0.15" layer="20"/>
-<text x="0.568" y="30.666" size="0.8128" layer="25" font="vector" ratio="17" distance="44">Rotary Encoder </text>
-<text x="0.738" y="15.466" size="0.8128" layer="25" font="vector" ratio="17" distance="44">Step Motor</text>
-<text x="0.748" y="48.058" size="0.8128" layer="25" font="vector" ratio="17" distance="44">Emergency 
-Butt</text>
+<text x="0.568" y="30.666" size="0.9652" layer="25" font="vector" ratio="14" distance="44">Rotary Encoder </text>
+<text x="0.568" y="15.466" size="0.9652" layer="25" font="vector" ratio="14" distance="44">Step Motor</text>
+<text x="0.568" y="48.058" size="0.9652" layer="25" font="vector" ratio="14" distance="44">Emergency</text>
 <hole x="53.172" y="50.776" drill="2.15"/>
-<text x="0.692" y="40.512" size="0.8128" layer="25" font="vector" ratio="17" distance="44">Hall effect sens</text>
+<text x="0.568" y="40.512" size="0.9652" layer="25" font="vector" ratio="14" distance="44">Hall effect</text>
 <wire x1="58" y1="51" x2="56.5" y2="52.5" width="0.1524" layer="20" curve="-90"/>
 <wire x1="1.5" y1="52.5" x2="0" y2="51" width="0.1524" layer="20" curve="-90"/>
 <wire x1="0" y1="1.5" x2="1.5" y2="0" width="0.1524" layer="20" curve="-90"/>
 <wire x1="1.5" y1="0" x2="56.5" y2="0" width="0.1524" layer="20"/>
 <wire x1="56.5" y1="0" x2="58" y2="1.5" width="0.1524" layer="20" curve="-90"/>
-<hole x="11.526" y="29.628" drill="2.15"/>
+<hole x="11.526" y="29.374" drill="2.15"/>
 <dimension x1="0" y1="51" x2="58" y2="51" x3="29" y3="61" textsize="1.27" textratio="5" layer="47" dtype="horizontal" width="0.1" visible="yes"/>
 <dimension x1="1.5" y1="52.5" x2="1.5" y2="0" x3="-10" y3="26.25" textsize="1.27" layer="47" visible="yes"/>
 <text x="17.078" y="30.654" size="0.8128" layer="21" font="vector" ratio="18" distance="42">H2-module
 Harp Motor device
 v.1.0</text>
-<text x="7.734" y="17.968" size="0.7" layer="25" font="vector" ratio="17" distance="44" rot="R90"> V+ nc  PhA PhB GND</text>
-<text x="7.734" y="2.168" size="0.7" layer="25" font="vector" ratio="17" distance="44" rot="R90"> V+ Pulse Dir Enb GND</text>
-<text x="7.734" y="33.068" size="0.7" layer="25" font="vector" ratio="17" distance="44" rot="R90">in  V+  GND</text>
-<text x="7.734" y="42.968" size="0.7" layer="25" font="vector" ratio="17" distance="44" rot="R90">in  GND</text>
+<text x="7.248" y="18.174" size="0.9652" layer="25" font="vector" ratio="17" distance="170">GND 
+PhA 
+PhB 
+nc
+V+ </text>
+<text x="7.248" y="3.188" size="0.9652" layer="25" font="vector" ratio="17" distance="169">GND
+Enb 
+Dir 
+
+V+</text>
+<text x="7.248" y="33.16" size="0.9652" layer="25" font="vector" ratio="17" distance="170">GND
+in
+V+  </text>
+<text x="7.248" y="43.447" size="0.762" layer="25" font="vector" ratio="17" distance="200">GND
+in</text>
+<text x="6.867" y="4.839" size="0.9652" layer="25" font="vector" ratio="17" distance="222">Pulse</text>
 </plain>
 <libraries>
 <library name="VestibularVR H1-module v1.0">
