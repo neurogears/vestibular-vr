@@ -26,7 +26,7 @@
 <layer number="15" name="Route15" color="13" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="24" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
@@ -226,409 +226,9 @@ RX
 TX
 
 V+</text>
+<text x="13.716" y="43.18" size="0.8128" layer="25" font="vector" ratio="15" rot="R90">CLKIN</text>
 </plain>
 <libraries>
-<library name="VestibularVR H1-module v1.0">
-<description>Generated from &lt;b&gt;harp input expander.sch&lt;/b&gt;&lt;p&gt;
-by exp-lbrs.ulp</description>
-<packages>
-<package name="SSOP28">
-<description>&lt;b&gt;Shrink Small Outline Package&lt;/b&gt; SSOP-28&lt;p&gt;
-http://www.ftdichip.com/Documents/DataSheets/DS_FT232R_v104.pdf</description>
-<circle x="-4.2" y="-1.625" radius="0.4422" width="0" layer="21"/>
-<wire x1="-5.1" y1="-2.6" x2="5.1" y2="-2.6" width="0.2032" layer="21"/>
-<wire x1="5.1" y1="-2.6" x2="5.1" y2="2.6" width="0.2032" layer="21"/>
-<wire x1="5.1" y1="2.6" x2="-5.1" y2="2.6" width="0.2032" layer="21"/>
-<wire x1="-5.1" y1="2.6" x2="-5.1" y2="-2.6" width="0.2032" layer="21"/>
-<rectangle x1="-4.4028" y1="-3.937" x2="-4.0472" y2="-2.6416" layer="51"/>
-<rectangle x1="-3.7529" y1="-3.937" x2="-3.3973" y2="-2.6416" layer="51"/>
-<rectangle x1="-3.1029" y1="-3.937" x2="-2.7473" y2="-2.6416" layer="51"/>
-<rectangle x1="-2.4529" y1="-3.937" x2="-2.0973" y2="-2.6416" layer="51"/>
-<rectangle x1="-1.8029" y1="-3.937" x2="-1.4473" y2="-2.6416" layer="51"/>
-<rectangle x1="-1.1529" y1="-3.937" x2="-0.7973" y2="-2.6416" layer="51"/>
-<rectangle x1="-0.5029" y1="-3.937" x2="-0.1473" y2="-2.6416" layer="51"/>
-<rectangle x1="0.1473" y1="-3.937" x2="0.5029" y2="-2.6416" layer="51"/>
-<rectangle x1="0.7973" y1="-3.937" x2="1.1529" y2="-2.6416" layer="51"/>
-<rectangle x1="1.4473" y1="-3.937" x2="1.8029" y2="-2.6416" layer="51"/>
-<rectangle x1="2.0973" y1="-3.937" x2="2.4529" y2="-2.6416" layer="51"/>
-<rectangle x1="2.7473" y1="-3.937" x2="3.1029" y2="-2.6416" layer="51"/>
-<rectangle x1="3.3973" y1="-3.937" x2="3.7529" y2="-2.6416" layer="51"/>
-<rectangle x1="4.0472" y1="-3.937" x2="4.4028" y2="-2.6416" layer="51"/>
-<rectangle x1="4.0472" y1="2.6416" x2="4.4028" y2="3.937" layer="51"/>
-<rectangle x1="3.3973" y1="2.6416" x2="3.7529" y2="3.937" layer="51"/>
-<rectangle x1="2.7473" y1="2.6416" x2="3.1029" y2="3.937" layer="51"/>
-<rectangle x1="2.0973" y1="2.6416" x2="2.4529" y2="3.937" layer="51"/>
-<rectangle x1="1.4473" y1="2.6416" x2="1.8029" y2="3.937" layer="51"/>
-<rectangle x1="0.7973" y1="2.6416" x2="1.1529" y2="3.937" layer="51"/>
-<rectangle x1="0.1473" y1="2.6416" x2="0.5029" y2="3.937" layer="51"/>
-<rectangle x1="-0.5029" y1="2.6416" x2="-0.1473" y2="3.937" layer="51"/>
-<rectangle x1="-1.1529" y1="2.6416" x2="-0.7973" y2="3.937" layer="51"/>
-<rectangle x1="-1.8029" y1="2.6416" x2="-1.4473" y2="3.937" layer="51"/>
-<rectangle x1="-2.4529" y1="2.6416" x2="-2.0973" y2="3.937" layer="51"/>
-<rectangle x1="-3.1029" y1="2.6416" x2="-2.7473" y2="3.937" layer="51"/>
-<rectangle x1="-3.7529" y1="2.6416" x2="-3.3973" y2="3.937" layer="51"/>
-<rectangle x1="-4.4028" y1="2.6416" x2="-4.0472" y2="3.937" layer="51"/>
-<smd name="1" x="-4.225" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="2" x="-3.575" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="3" x="-2.925" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="4" x="-2.275" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="5" x="-1.625" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="6" x="-0.975" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="7" x="-0.325" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="8" x="0.325" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="9" x="0.975" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="10" x="1.625" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="11" x="2.275" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="12" x="2.925" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="13" x="3.575" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="14" x="4.225" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="15" x="4.225" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="16" x="3.575" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="17" x="2.925" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="18" x="2.275" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="19" x="1.625" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="20" x="0.975" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="21" x="0.325" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="22" x="-0.325" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="23" x="-0.975" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="24" x="-1.625" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="25" x="-2.275" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="26" x="-2.925" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="27" x="-3.575" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<smd name="28" x="-4.225" y="3.625" dx="0.4" dy="1.5" layer="1"/>
-<text x="-5.476" y="-2.6299" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="-3.8999" y="-0.68" size="1.27" layer="27">&gt;VALUE</text>
-</package>
-<package name="240-0002-1">
-<hole x="-1.75" y="6.4" drill="1"/>
-<hole x="1.75" y="6.4" drill="1"/>
-<pad name="SHIELD_1" x="-3.65" y="3.1" drill="1.5" rot="R90"/>
-<pad name="SHIELD_2" x="3.65" y="3.1" drill="1.5" rot="R90"/>
-<pad name="SHIELD_4" x="-3.65" y="8.4" drill="1.5"/>
-<pad name="SHIELD_3" x="3.65" y="8.4" drill="1.5"/>
-<wire x1="-4.5" y1="7.3" x2="-4.5" y2="4.2" width="0.127" layer="41"/>
-<wire x1="4.5" y1="7.3" x2="4.5" y2="4.2" width="0.127" layer="41"/>
-<wire x1="-4.5" y1="2" x2="-4.5" y2="0" width="0.127" layer="41"/>
-<wire x1="-4.5" y1="0" x2="4.5" y2="0" width="0.127" layer="41"/>
-<wire x1="4.5" y1="0" x2="4.5" y2="2" width="0.127" layer="41"/>
-<wire x1="-4.5" y1="2" x2="-4.5" y2="0" width="0.127" layer="21"/>
-<wire x1="-4.5" y1="0" x2="4.5" y2="0" width="0.127" layer="21"/>
-<wire x1="4.5" y1="0" x2="4.5" y2="2" width="0.127" layer="21"/>
-<wire x1="-4.5" y1="7.3" x2="-4.5" y2="4.2" width="0.127" layer="21"/>
-<wire x1="4.5" y1="7.3" x2="4.5" y2="4.2" width="0.127" layer="21"/>
-<smd name="P$3" x="0" y="8.65" dx="2" dy="0.5" layer="1" rot="R90"/>
-<smd name="P$2" x="-0.8" y="8.65" dx="2" dy="0.5" layer="1" rot="R90"/>
-<smd name="P$4" x="0.8" y="8.65" dx="2" dy="0.5" layer="1" rot="R90"/>
-<smd name="P$5" x="1.6" y="8.65" dx="2" dy="0.5" layer="1" rot="R90"/>
-<smd name="P$1" x="-1.6" y="8.65" dx="2" dy="0.5" layer="1" rot="R90"/>
-<wire x1="-1.95" y1="9" x2="-2.4" y2="9" width="0.127" layer="41"/>
-<wire x1="1.95" y1="9" x2="2.4" y2="9" width="0.127" layer="41"/>
-<text x="-5.207" y="2.921" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="6.477" y="2.921" size="1.27" layer="25" rot="R90">&gt;VALUE</text>
-<wire x1="1.315" y1="7.476" x2="1.892" y2="7.476" width="0.127" layer="41"/>
-<wire x1="2.049" y1="7.665" x2="2.049" y2="8.75" width="0.127" layer="41"/>
-</package>
-<package name="TQFP44">
-<description>&lt;b&gt;Thin Quad Flat Pack&lt;/b&gt;&lt;p&gt;
-package type TQ</description>
-<wire x1="-4.8" y1="4.4" x2="-4.4" y2="4.8" width="0.2032" layer="21"/>
-<wire x1="-4.4" y1="4.8" x2="4.4" y2="4.8" width="0.2032" layer="21"/>
-<wire x1="4.4" y1="4.8" x2="4.8" y2="4.4" width="0.2032" layer="21"/>
-<wire x1="4.8" y1="4.4" x2="4.8" y2="-4.4" width="0.2032" layer="21"/>
-<wire x1="4.8" y1="-4.4" x2="4.4" y2="-4.8" width="0.2032" layer="21"/>
-<wire x1="4.4" y1="-4.8" x2="-4.4" y2="-4.8" width="0.2032" layer="21"/>
-<wire x1="-4.4" y1="-4.8" x2="-4.8" y2="-4.4" width="0.2032" layer="21"/>
-<wire x1="-4.8" y1="-4.4" x2="-4.8" y2="4.4" width="0.2032" layer="21"/>
-<circle x="-4" y="4" radius="0.2827" width="0.254" layer="21"/>
-<smd name="1" x="-5.8" y="4" dx="1.5" dy="0.5" layer="1"/>
-<smd name="2" x="-5.8" y="3.2" dx="1.5" dy="0.5" layer="1"/>
-<smd name="3" x="-5.8" y="2.4" dx="1.5" dy="0.5" layer="1"/>
-<smd name="4" x="-5.8" y="1.6" dx="1.5" dy="0.5" layer="1"/>
-<smd name="5" x="-5.8" y="0.8" dx="1.5" dy="0.5" layer="1"/>
-<smd name="6" x="-5.8" y="0" dx="1.5" dy="0.5" layer="1"/>
-<smd name="7" x="-5.8" y="-0.8" dx="1.5" dy="0.5" layer="1"/>
-<smd name="8" x="-5.8" y="-1.6" dx="1.5" dy="0.5" layer="1"/>
-<smd name="9" x="-5.8" y="-2.4" dx="1.5" dy="0.5" layer="1"/>
-<smd name="10" x="-5.8" y="-3.2" dx="1.5" dy="0.5" layer="1"/>
-<smd name="11" x="-5.8" y="-4" dx="1.5" dy="0.5" layer="1"/>
-<smd name="12" x="-4" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="13" x="-3.2" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="14" x="-2.4" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="15" x="-1.6" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="16" x="-0.8" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="17" x="0" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="18" x="0.8" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="19" x="1.6" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="20" x="2.4" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="21" x="3.2" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="22" x="4" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="23" x="5.8" y="-4" dx="1.5" dy="0.5" layer="1"/>
-<smd name="24" x="5.8" y="-3.2" dx="1.5" dy="0.5" layer="1"/>
-<smd name="25" x="5.8" y="-2.4" dx="1.5" dy="0.5" layer="1"/>
-<smd name="26" x="5.8" y="-1.6" dx="1.5" dy="0.5" layer="1"/>
-<smd name="27" x="5.8" y="-0.8" dx="1.5" dy="0.5" layer="1"/>
-<smd name="28" x="5.8" y="0" dx="1.5" dy="0.5" layer="1"/>
-<smd name="29" x="5.8" y="0.8" dx="1.5" dy="0.5" layer="1"/>
-<smd name="30" x="5.8" y="1.6" dx="1.5" dy="0.5" layer="1"/>
-<smd name="31" x="5.8" y="2.4" dx="1.5" dy="0.5" layer="1"/>
-<smd name="32" x="5.8" y="3.2" dx="1.5" dy="0.5" layer="1"/>
-<smd name="33" x="5.8" y="4" dx="1.5" dy="0.5" layer="1"/>
-<smd name="34" x="4" y="5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="35" x="3.2" y="5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="36" x="2.4" y="5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="37" x="1.6" y="5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="38" x="0.8" y="5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="39" x="0" y="5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="40" x="-0.8" y="5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="41" x="-1.6" y="5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="42" x="-2.4" y="5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="43" x="-3.2" y="5.8" dx="0.5" dy="1.5" layer="1"/>
-<smd name="44" x="-4" y="5.8" dx="0.5" dy="1.5" layer="1"/>
-<text x="-4.064" y="6.858" size="1.778" layer="25">&gt;NAME</text>
-<text x="-4.064" y="-1.7701" size="1.778" layer="27">&gt;VALUE</text>
-<rectangle x1="-6.1001" y1="3.8001" x2="-4.95" y2="4.1999" layer="51"/>
-<rectangle x1="-6.1001" y1="3" x2="-4.95" y2="3.4" layer="51"/>
-<rectangle x1="-6.1001" y1="2.1999" x2="-4.95" y2="2.5999" layer="51"/>
-<rectangle x1="-6.1001" y1="1.4" x2="-4.95" y2="1.8001" layer="51"/>
-<rectangle x1="-6.1001" y1="0.5999" x2="-4.95" y2="1" layer="51"/>
-<rectangle x1="-6.1001" y1="-0.1999" x2="-4.95" y2="0.1999" layer="51"/>
-<rectangle x1="-6.1001" y1="-1" x2="-4.95" y2="-0.5999" layer="51"/>
-<rectangle x1="-6.1001" y1="-1.8001" x2="-4.95" y2="-1.4" layer="51"/>
-<rectangle x1="-6.1001" y1="-2.5999" x2="-4.95" y2="-2.1999" layer="51"/>
-<rectangle x1="-6.1001" y1="-3.4" x2="-4.95" y2="-3" layer="51"/>
-<rectangle x1="-6.1001" y1="-4.1999" x2="-4.95" y2="-3.8001" layer="51"/>
-<rectangle x1="-4.1999" y1="-6.1001" x2="-3.8001" y2="-4.95" layer="51"/>
-<rectangle x1="-3.4" y1="-6.1001" x2="-3" y2="-4.95" layer="51"/>
-<rectangle x1="-2.5999" y1="-6.1001" x2="-2.1999" y2="-4.95" layer="51"/>
-<rectangle x1="-1.8001" y1="-6.1001" x2="-1.4" y2="-4.95" layer="51"/>
-<rectangle x1="-1" y1="-6.1001" x2="-0.5999" y2="-4.95" layer="51"/>
-<rectangle x1="-0.1999" y1="-6.1001" x2="0.1999" y2="-4.95" layer="51"/>
-<rectangle x1="0.5999" y1="-6.1001" x2="1" y2="-4.95" layer="51"/>
-<rectangle x1="1.4" y1="-6.1001" x2="1.8001" y2="-4.95" layer="51"/>
-<rectangle x1="2.1999" y1="-6.1001" x2="2.5999" y2="-4.95" layer="51"/>
-<rectangle x1="3" y1="-6.1001" x2="3.4" y2="-4.95" layer="51"/>
-<rectangle x1="3.8001" y1="-6.1001" x2="4.1999" y2="-4.95" layer="51"/>
-<rectangle x1="4.95" y1="-4.1999" x2="6.1001" y2="-3.8001" layer="51"/>
-<rectangle x1="4.95" y1="-3.4" x2="6.1001" y2="-3" layer="51"/>
-<rectangle x1="4.95" y1="-2.5999" x2="6.1001" y2="-2.1999" layer="51"/>
-<rectangle x1="4.95" y1="-1.8001" x2="6.1001" y2="-1.4" layer="51"/>
-<rectangle x1="4.95" y1="-1" x2="6.1001" y2="-0.5999" layer="51"/>
-<rectangle x1="4.95" y1="-0.1999" x2="6.1001" y2="0.1999" layer="51"/>
-<rectangle x1="4.95" y1="0.5999" x2="6.1001" y2="1" layer="51"/>
-<rectangle x1="4.95" y1="1.4" x2="6.1001" y2="1.8001" layer="51"/>
-<rectangle x1="4.95" y1="2.1999" x2="6.1001" y2="2.5999" layer="51"/>
-<rectangle x1="4.95" y1="3" x2="6.1001" y2="3.4" layer="51"/>
-<rectangle x1="4.95" y1="3.8001" x2="6.1001" y2="4.1999" layer="51"/>
-<rectangle x1="3.8001" y1="4.95" x2="4.1999" y2="6.1001" layer="51"/>
-<rectangle x1="3" y1="4.95" x2="3.4" y2="6.1001" layer="51"/>
-<rectangle x1="2.1999" y1="4.95" x2="2.5999" y2="6.1001" layer="51"/>
-<rectangle x1="1.4" y1="4.95" x2="1.8001" y2="6.1001" layer="51"/>
-<rectangle x1="0.5999" y1="4.95" x2="1" y2="6.1001" layer="51"/>
-<rectangle x1="-0.1999" y1="4.95" x2="0.1999" y2="6.1001" layer="51"/>
-<rectangle x1="-1" y1="4.95" x2="-0.5999" y2="6.1001" layer="51"/>
-<rectangle x1="-1.8001" y1="4.95" x2="-1.4" y2="6.1001" layer="51"/>
-<rectangle x1="-2.5999" y1="4.95" x2="-2.1999" y2="6.1001" layer="51"/>
-<rectangle x1="-3.4" y1="4.95" x2="-3" y2="6.1001" layer="51"/>
-<rectangle x1="-4.1999" y1="4.95" x2="-3.8001" y2="6.1001" layer="51"/>
-</package>
-<package name="SOT23-6L">
-<wire x1="-1.25" y1="0.55" x2="1.25" y2="0.55" width="0" layer="48"/>
-<wire x1="1.25" y1="-0.55" x2="-1.25" y2="-0.55" width="0" layer="48"/>
-<wire x1="0" y1="-1.75" x2="0" y2="1.75" width="0" layer="48"/>
-<wire x1="0.95" y1="1.75" x2="0.95" y2="-1.75" width="0" layer="48"/>
-<wire x1="-0.95" y1="-1.75" x2="-0.95" y2="1.75" width="0" layer="48"/>
-<wire x1="-1.25" y1="1.75" x2="-0.95" y2="1.75" width="0" layer="48"/>
-<wire x1="-0.95" y1="1.75" x2="0" y2="1.75" width="0" layer="48"/>
-<wire x1="0" y1="1.75" x2="0.95" y2="1.75" width="0" layer="48"/>
-<wire x1="0.95" y1="1.75" x2="1.25" y2="1.75" width="0" layer="48"/>
-<wire x1="-1.25" y1="-1.75" x2="-0.95" y2="-1.75" width="0" layer="48"/>
-<smd name="P$1" x="-0.95" y="-1.55" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="P$2" x="0" y="-1.55" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="P$3" x="0.95" y="-1.55" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="P$4" x="0.95" y="1.55" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="P$5" x="0" y="1.55" dx="2" dy="0.6" layer="1" rot="R90"/>
-<smd name="P$6" x="-0.95" y="1.55" dx="2" dy="0.6" layer="1" rot="R90"/>
-<wire x1="-0.95" y1="-1.75" x2="0" y2="-1.75" width="0" layer="48"/>
-<wire x1="0" y1="-1.75" x2="0.95" y2="-1.75" width="0" layer="48"/>
-<wire x1="0.95" y1="-1.75" x2="1.25" y2="-1.75" width="0" layer="48"/>
-<wire x1="-1.5" y1="-0.85" x2="-1.5" y2="0.85" width="0.127" layer="21"/>
-<wire x1="1.5" y1="-0.85" x2="1.5" y2="0.8" width="0.127" layer="21"/>
-<dimension x1="-1.25" y1="0.55" x2="-1.25" y2="-0.55" x3="-5.8" y3="0" textsize="1.27" layer="48" width="0.1"/>
-<dimension x1="-0.95" y1="1.75" x2="0" y2="1.75" x3="-0.475" y3="6.8" textsize="1.27" layer="48" width="0.1"/>
-<dimension x1="-1.25" y1="1.75" x2="-1.25" y2="-1.75" x3="-3.35" y3="0" textsize="1.27" layer="48" width="0.1"/>
-<text x="-1.5" y="2.8" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.3" y="-4" size="1.27" layer="27">&gt;VALUE</text>
-<circle x="-1.7" y="-1.15" radius="0.22360625" width="0.127" layer="25"/>
-</package>
-<package name="OSCILLATOR_3.2X2.5">
-<text x="-2.26" y="2.02" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2.36" y="-2.98" size="1.27" layer="27">&gt;VALUE</text>
-<wire x1="-1.6" y1="1.25" x2="1.6" y2="1.25" width="0.127" layer="51"/>
-<wire x1="1.6" y1="1.25" x2="1.6" y2="-1.25" width="0.127" layer="51"/>
-<wire x1="1.6" y1="-1.25" x2="-1.6" y2="-1.25" width="0.127" layer="51"/>
-<wire x1="-1.6" y1="-1.25" x2="-1.6" y2="1.25" width="0.127" layer="51"/>
-<wire x1="-0.1" y1="1.25" x2="0.1" y2="1.25" width="0.254" layer="21"/>
-<wire x1="-0.1" y1="-1.25" x2="0.1" y2="-1.25" width="0.254" layer="21"/>
-<smd name="P$1" x="-1.05" y="-1" dx="0.9" dy="1.1" layer="1"/>
-<smd name="P$2" x="1.05" y="-1" dx="0.9" dy="1.1" layer="1"/>
-<smd name="P$3" x="1.05" y="1" dx="0.9" dy="1.1" layer="1"/>
-<smd name="P$4" x="-1.05" y="1" dx="0.9" dy="1.1" layer="1"/>
-<circle x="-2.2" y="-0.8" radius="0.14141875" width="0" layer="21"/>
-</package>
-<package name="TSOT23-5">
-<wire x1="1.422" y1="-0.781" x2="-1.423" y2="-0.781" width="0.1524" layer="51"/>
-<wire x1="-1.423" y1="-0.781" x2="-1.423" y2="0.781" width="0.1524" layer="21"/>
-<wire x1="-1.423" y1="0.781" x2="1.422" y2="0.781" width="0.1524" layer="51"/>
-<wire x1="1.422" y1="0.781" x2="1.422" y2="-0.781" width="0.1524" layer="21"/>
-<smd name="1" x="-0.95" y="-1.404" dx="0.6" dy="1.408" layer="1"/>
-<smd name="2" x="0" y="-1.404" dx="0.6" dy="1.408" layer="1"/>
-<smd name="3" x="0.95" y="-1.404" dx="0.6" dy="1.408" layer="1"/>
-<smd name="4" x="0.95" y="1.404" dx="0.6" dy="1.408" layer="1"/>
-<smd name="5" x="-0.95" y="1.404" dx="0.6" dy="1.408" layer="1"/>
-<text x="-1.397" y="-3.434" size="1.016" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-1.397" y="2.464" size="1.016" layer="25" ratio="10">&gt;NAME</text>
-<rectangle x1="-1.2" y1="-1.4" x2="-0.7" y2="-0.8" layer="51"/>
-<rectangle x1="-0.25" y1="-1.4" x2="0.25" y2="-0.8" layer="51"/>
-<rectangle x1="0.7" y1="-1.4" x2="1.2" y2="-0.8" layer="51"/>
-<rectangle x1="0.7" y1="0.8" x2="1.2" y2="1.4" layer="51"/>
-<rectangle x1="-1.2" y1="0.8" x2="-0.7" y2="1.4" layer="51"/>
-<circle x="-0.889" y="-0.127" radius="0.254" width="0.127" layer="21"/>
-</package>
-<package name="SOT323" urn="urn:adsk.eagle:footprint:4480/1">
-<description>&lt;b&gt;SOT-323 (SC-70 3 Lead)&lt;/b&gt;&lt;p&gt;
-Source: &lt;a href="http://www.farnell.com/datasheets/461166.pdf"&lt; Data sheet &lt;/a&gt;</description>
-<wire x1="1.0474" y1="0.6229" x2="1.0474" y2="-0.6229" width="0.1524" layer="51"/>
-<wire x1="1.0474" y1="-0.6229" x2="-1.0474" y2="-0.6229" width="0.1524" layer="51"/>
-<wire x1="-1.0474" y1="-0.6229" x2="-1.0474" y2="0.6229" width="0.1524" layer="51"/>
-<wire x1="-1.0474" y1="0.6229" x2="1.0474" y2="0.6229" width="0.1524" layer="51"/>
-<wire x1="1.0474" y1="0.6229" x2="1.0474" y2="-0.4729" width="0.1524" layer="21"/>
-<wire x1="0.1646" y1="-0.6229" x2="-0.1646" y2="-0.6229" width="0.1524" layer="21"/>
-<wire x1="-1.0474" y1="-0.4729" x2="-1.0474" y2="0.6229" width="0.1524" layer="21"/>
-<wire x1="-1.0474" y1="0.6229" x2="-0.6229" y2="0.6229" width="0.1524" layer="21"/>
-<wire x1="0.6229" y1="0.6229" x2="1.0474" y2="0.6229" width="0.1524" layer="21"/>
-<smd name="1" x="-0.65" y="-0.925" dx="0.6" dy="0.55" layer="1"/>
-<smd name="2" x="0.65" y="-0.925" dx="0.6" dy="0.55" layer="1"/>
-<smd name="3" x="0" y="0.925" dx="0.6" dy="0.55" layer="1"/>
-<text x="-1" y="1.3" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1" y="-2.6" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.2" y1="0.625" x2="0.2" y2="1.1" layer="51"/>
-<rectangle x1="-0.85" y1="-1.1" x2="-0.45" y2="-0.625" layer="51" rot="R180"/>
-<rectangle x1="0.45" y1="-1.1" x2="0.85" y2="-0.625" layer="51" rot="R180"/>
-</package>
-</packages>
-</library>
-<library name="harp input expander">
-<description>Generated from &lt;b&gt;harp input expander.sch&lt;/b&gt;&lt;p&gt;
-by exp-lbrs.ulp</description>
-<packages>
-<package name="35RASMT2BHNTRX">
-<hole x="0" y="0" drill="1.6"/>
-<hole x="7" y="0" drill="1.6"/>
-<smd name="5" x="-1.1" y="-3.675" dx="2.55" dy="2.4" layer="1" rot="R90"/>
-<smd name="1" x="0.8" y="3.675" dx="2.55" dy="2.4" layer="1" rot="R90"/>
-<smd name="4" x="8.2" y="-3.575" dx="2.75" dy="2.9" layer="1" rot="R90"/>
-<wire x1="-3.5" y1="3" x2="-3.5" y2="-3" width="0.127" layer="21"/>
-<wire x1="-3.5" y1="2.5" x2="-6" y2="2.5" width="0.127" layer="51"/>
-<wire x1="-6" y1="2.5" x2="-6" y2="-2.5" width="0.127" layer="51"/>
-<wire x1="-6" y1="-2.5" x2="-3.5" y2="-2.5" width="0.127" layer="51"/>
-<wire x1="-3.5" y1="3" x2="11" y2="3" width="0.127" layer="21"/>
-<wire x1="11" y1="3" x2="11" y2="-3" width="0.127" layer="21"/>
-<wire x1="11" y1="-3" x2="-3.5" y2="-3" width="0.127" layer="21"/>
-<text x="2.921" y="3.937" size="1.27" layer="25">&gt;NAME</text>
-<text x="2.921" y="1.143" size="1.27" layer="25">&gt;VALUE</text>
-</package>
-<package name="TSOT23-5">
-<wire x1="1.422" y1="-0.781" x2="-1.423" y2="-0.781" width="0.1524" layer="51"/>
-<wire x1="-1.423" y1="-0.781" x2="-1.423" y2="0.781" width="0.1524" layer="21"/>
-<wire x1="-1.423" y1="0.781" x2="1.422" y2="0.781" width="0.1524" layer="51"/>
-<wire x1="1.422" y1="0.781" x2="1.422" y2="-0.781" width="0.1524" layer="21"/>
-<smd name="1" x="-0.95" y="-1.404" dx="0.6" dy="1.408" layer="1"/>
-<smd name="2" x="0" y="-1.404" dx="0.6" dy="1.408" layer="1"/>
-<smd name="3" x="0.95" y="-1.404" dx="0.6" dy="1.408" layer="1"/>
-<smd name="4" x="0.95" y="1.404" dx="0.6" dy="1.408" layer="1"/>
-<smd name="5" x="-0.95" y="1.404" dx="0.6" dy="1.408" layer="1"/>
-<text x="-1.397" y="-3.434" size="1.016" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-1.397" y="2.464" size="1.016" layer="25" ratio="10">&gt;NAME</text>
-<rectangle x1="-1.2" y1="-1.4" x2="-0.7" y2="-0.8" layer="51"/>
-<rectangle x1="-0.25" y1="-1.4" x2="0.25" y2="-0.8" layer="51"/>
-<rectangle x1="0.7" y1="-1.4" x2="1.2" y2="-0.8" layer="51"/>
-<rectangle x1="0.7" y1="0.8" x2="1.2" y2="1.4" layer="51"/>
-<rectangle x1="-1.2" y1="0.8" x2="-0.7" y2="1.4" layer="51"/>
-<circle x="-0.889" y="-0.127" radius="0.254" width="0.127" layer="21"/>
-</package>
-</packages>
-</library>
-<library name="rcl">
-<packages>
-<package name="C0603">
-<description>&lt;b&gt;CAPACITOR&lt;/b&gt;</description>
-<wire x1="-1.473" y1="0.983" x2="1.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.983" x2="1.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.983" x2="-1.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.983" x2="-1.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
-<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
-<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<text x="-0.635" y="0.635" size="1.27" layer="25">&gt;NAME</text>
-<text x="-0.635" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
-<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-</package>
-<package name="R0402">
-<description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
-<wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
-<wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
-<wire x1="-1.473" y1="0.483" x2="1.473" y2="0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.483" x2="1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.483" x2="-1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.483" x2="-1.473" y2="0.483" width="0.0508" layer="39"/>
-<smd name="1" x="-0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<smd name="2" x="0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<text x="-0.635" y="0.635" size="1.27" layer="25">&gt;NAME</text>
-<text x="-0.635" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
-<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
-</package>
-<package name="C0402">
-<description>&lt;b&gt;CAPACITOR&lt;/b&gt;</description>
-<wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
-<wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
-<wire x1="-1.473" y1="0.483" x2="1.473" y2="0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.483" x2="1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.483" x2="-1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.483" x2="-1.473" y2="0.483" width="0.0508" layer="39"/>
-<smd name="1" x="-0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<smd name="2" x="0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<text x="-0.635" y="0.635" size="1.27" layer="25">&gt;NAME</text>
-<text x="-0.635" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
-<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-</package>
-</packages>
-</library>
-<library name="harp camera controller">
-<description>Generated from &lt;b&gt;harp camera controller v.1.0.sch&lt;/b&gt;&lt;p&gt;
-by exp-lbrs.ulp</description>
-<packages>
-<package name="DC_POWER_INPUT_2.1MM">
-<wire x1="-5.2" y1="4.5" x2="9.3" y2="4.5" width="0.127" layer="21"/>
-<wire x1="-5.2" y1="-4.5" x2="-5.2" y2="4.5" width="0.127" layer="21"/>
-<wire x1="9.3" y1="-4.5" x2="8.2" y2="-4.5" width="0.127" layer="21"/>
-<wire x1="-5.2" y1="-4.5" x2="2.9" y2="-4.5" width="0.127" layer="21"/>
-<wire x1="9.3" y1="-4.5" x2="9.3" y2="-2.7" width="0.127" layer="21"/>
-<wire x1="9.3" y1="4.5" x2="9.3" y2="2.7" width="0.127" layer="21"/>
-<pad name="P1" x="8.5" y="0" drill="3.5" rot="R90"/>
-<pad name="P2" x="2.5" y="0" drill="3" rot="R90"/>
-<pad name="P3" x="5.55" y="-4.9" drill="3" rot="R90"/>
-<text x="-5.95" y="4.7" size="0.6096" layer="25">&gt;NAME</text>
-<text x="6" y="4.75" size="0.6096" layer="27">&gt;VALUE</text>
-</package>
-</packages>
-</library>
 <library name="Harp Motor H2-module v1.0">
 <description>Generated from &lt;b&gt;Harp Motor H2-module v1.0.sch&lt;/b&gt;&lt;p&gt;
 by exp-lbrs.ulp</description>
@@ -636,40 +236,32 @@ by exp-lbrs.ulp</description>
 <package name="C0402K">
 <description>&lt;b&gt;Ceramic Chip Capacitor KEMET 0204 reflow solder&lt;/b&gt;&lt;p&gt;
 Metric Code Size 1005</description>
-<wire x1="-0.425" y1="0.2" x2="0.425" y2="0.2" width="0.1016" layer="51"/>
-<wire x1="0.425" y1="-0.2" x2="-0.425" y2="-0.2" width="0.1016" layer="51"/>
 <rectangle x1="-0.5" y1="-0.25" x2="-0.225" y2="0.25" layer="51"/>
 <rectangle x1="0.225" y1="-0.25" x2="0.5" y2="0.25" layer="51"/>
 <smd name="1" x="-0.6" y="0" dx="0.925" dy="0.74" layer="1"/>
 <smd name="2" x="0.6" y="0" dx="0.925" dy="0.74" layer="1"/>
 <text x="-0.5" y="0.425" size="1.016" layer="25">&gt;NAME</text>
 <text x="-0.5" y="-1.45" size="1.016" layer="27">&gt;VALUE</text>
-</package>
-<package name="C0603">
-<description>&lt;b&gt;CAPACITOR&lt;/b&gt;</description>
-<wire x1="-1.473" y1="0.983" x2="1.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.983" x2="1.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.983" x2="-1.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.983" x2="-1.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
-<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
-<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
-<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<text x="-0.635" y="0.635" size="1.27" layer="25">&gt;NAME</text>
-<text x="-0.635" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
+<wire x1="-0.425" y1="0.2" x2="0.425" y2="0.2" width="0.1016" layer="51"/>
+<wire x1="0.425" y1="-0.2" x2="-0.425" y2="-0.2" width="0.1016" layer="51"/>
+<rectangle x1="-0.5" y1="-0.25" x2="-0.225" y2="0.25" layer="51"/>
+<rectangle x1="0.225" y1="-0.25" x2="0.5" y2="0.25" layer="51"/>
+<text x="-0.5" y="0.425" size="1.016" layer="25">&gt;NAME</text>
+<text x="-0.5" y="-1.45" size="1.016" layer="27">&gt;VALUE</text>
 </package>
 <package name="C0603K">
 <description>&lt;b&gt;Ceramic Chip Capacitor KEMET 0603 reflow solder&lt;/b&gt;&lt;p&gt;
 Metric Code Size 1608</description>
-<wire x1="-0.725" y1="0.35" x2="0.725" y2="0.35" width="0.1016" layer="51"/>
-<wire x1="0.725" y1="-0.35" x2="-0.725" y2="-0.35" width="0.1016" layer="51"/>
 <rectangle x1="-0.8" y1="-0.4" x2="-0.45" y2="0.4" layer="51"/>
 <rectangle x1="0.45" y1="-0.4" x2="0.8" y2="0.4" layer="51"/>
 <smd name="1" x="-0.875" y="0" dx="1.05" dy="1.08" layer="1"/>
 <smd name="2" x="0.875" y="0" dx="1.05" dy="1.08" layer="1"/>
+<text x="-0.8" y="0.65" size="1.016" layer="25">&gt;NAME</text>
+<text x="-0.8" y="-1.65" size="1.016" layer="27">&gt;VALUE</text>
+<wire x1="-0.725" y1="0.35" x2="0.725" y2="0.35" width="0.1016" layer="51"/>
+<wire x1="0.725" y1="-0.35" x2="-0.725" y2="-0.35" width="0.1016" layer="51"/>
+<rectangle x1="-0.8" y1="-0.4" x2="-0.45" y2="0.4" layer="51"/>
+<rectangle x1="0.45" y1="-0.4" x2="0.8" y2="0.4" layer="51"/>
 <text x="-0.8" y="0.65" size="1.016" layer="25">&gt;NAME</text>
 <text x="-0.8" y="-1.65" size="1.016" layer="27">&gt;VALUE</text>
 </package>
@@ -692,7 +284,7 @@ Metric Code Size 1608</description>
 <text x="-7" y="7" size="1.27" layer="25">&gt;NAME</text>
 <text x="-7" y="1.75" size="1.27" layer="27">&gt;VALUE</text>
 </package>
-<package name="R0402$1">
+<package name="R0402">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
 <wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
@@ -829,6 +421,22 @@ Source: http://www.osram.convergy.de/ ... Lb_q993.pdf</description>
 <description>&lt;b&gt;Small Outline Transistor&lt;/b&gt;&lt;p&gt;
 SOT753 - Philips Semiconductors&lt;br&gt;
 Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_HCT1G66_3.pdf</description>
+<wire x1="-1.544" y1="0.713" x2="1.544" y2="0.713" width="0.1524" layer="51"/>
+<wire x1="1.544" y1="0.713" x2="1.544" y2="-0.712" width="0.1524" layer="21"/>
+<wire x1="1.544" y1="-0.712" x2="-1.544" y2="-0.712" width="0.1524" layer="51"/>
+<wire x1="-1.544" y1="-0.712" x2="-1.544" y2="0.713" width="0.1524" layer="21"/>
+<rectangle x1="-1.1875" y1="0.7126" x2="-0.7125" y2="1.5439" layer="51"/>
+<rectangle x1="0.7125" y1="0.7126" x2="1.1875" y2="1.5439" layer="51"/>
+<rectangle x1="-1.1875" y1="-1.5437" x2="-0.7125" y2="-0.7124" layer="51"/>
+<rectangle x1="-0.2375" y1="-1.5437" x2="0.2375" y2="-0.7124" layer="51"/>
+<rectangle x1="0.7125" y1="-1.5437" x2="1.1875" y2="-0.7124" layer="51"/>
+<smd name="1" x="-0.95" y="-1.306" dx="0.6" dy="1.2" layer="1"/>
+<smd name="2" x="0" y="-1.306" dx="0.6" dy="1.2" layer="1"/>
+<smd name="3" x="0.95" y="-1.306" dx="0.6" dy="1.2" layer="1"/>
+<smd name="4" x="0.95" y="1.306" dx="0.6" dy="1.2" layer="1"/>
+<smd name="5" x="-0.95" y="1.306" dx="0.6" dy="1.2" layer="1"/>
+<text x="-1.778" y="-1.778" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="3.048" y="-1.778" size="1.27" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
 <wire x1="0" y1="-1.29" x2="0" y2="-1.3" width="0.01" layer="21"/>
 <wire x1="1.42" y1="0.8" x2="1.42" y2="-0.8" width="0.127" layer="21"/>
 <wire x1="1.42" y1="-0.8" x2="-1.42" y2="-0.8" width="0.127" layer="51"/>
@@ -847,15 +455,10 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <rectangle x1="-1.11" y1="-1.42" x2="-0.78" y2="-0.67" layer="51"/>
 <rectangle x1="-0.16" y1="-1.42" x2="0.17" y2="-0.67" layer="51"/>
 <rectangle x1="0.79" y1="-1.42" x2="1.12" y2="-0.67" layer="51"/>
-<smd name="1" x="-0.95" y="-1.29" dx="0.69" dy="0.99" layer="1"/>
-<smd name="2" x="0" y="-1.29" dx="0.69" dy="0.99" layer="1"/>
-<smd name="3" x="0.95" y="-1.29" dx="0.69" dy="0.99" layer="1"/>
-<smd name="4" x="0.95" y="1.3" dx="0.69" dy="0.99" layer="1"/>
-<smd name="5" x="-0.95" y="1.3" dx="0.69" dy="0.99" layer="1"/>
 <text x="-2.54" y="2.54" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.54" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
 </package>
-<package name="R0805" urn="urn:adsk.eagle:footprint:23045/1">
+<package name="R0805">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;</description>
 <wire x1="-0.41" y1="0.635" x2="0.41" y2="0.635" width="0.1524" layer="51"/>
 <wire x1="-0.41" y1="-0.635" x2="0.41" y2="-0.635" width="0.1524" layer="51"/>
@@ -863,44 +466,333 @@ Source: http://www.semiconductors.philips.com/acrobat_download/datasheets/74HC_H
 <wire x1="1.973" y1="0.983" x2="1.973" y2="-0.983" width="0.0508" layer="39"/>
 <wire x1="1.973" y1="-0.983" x2="-1.973" y2="-0.983" width="0.0508" layer="39"/>
 <wire x1="-1.973" y1="-0.983" x2="-1.973" y2="0.983" width="0.0508" layer="39"/>
+<rectangle x1="0.4064" y1="-0.6985" x2="1.0564" y2="0.7015" layer="51"/>
+<rectangle x1="-1.0668" y1="-0.6985" x2="-0.4168" y2="0.7015" layer="51"/>
+<rectangle x1="-0.1999" y1="-0.5001" x2="0.1999" y2="0.5001" layer="35"/>
 <smd name="1" x="-0.95" y="0" dx="1.3" dy="1.5" layer="1"/>
 <smd name="2" x="0.95" y="0" dx="1.3" dy="1.5" layer="1"/>
 <text x="-0.635" y="1.27" size="1.27" layer="25">&gt;NAME</text>
 <text x="-0.635" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="0.4064" y1="-0.6985" x2="1.0564" y2="0.7015" layer="51"/>
-<rectangle x1="-1.0668" y1="-0.6985" x2="-0.4168" y2="0.7015" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.5001" x2="0.1999" y2="0.5001" layer="35"/>
 </package>
-</packages>
-<packages3d>
-<package3d name="R0805" urn="urn:adsk.eagle:package:23553/2" type="model">
-<description>RESISTOR</description>
-<packageinstances>
-<packageinstance name="R0805"/>
-</packageinstances>
-</package3d>
-</packages3d>
-</library>
-<library name="CNP-ics 2">
-<packages>
-<package name="SOT23-5">
-<description>&lt;b&gt;Small Outline Transistor&lt;/b&gt;, 5 lead</description>
-<wire x1="-1.544" y1="0.713" x2="1.544" y2="0.713" width="0.1524" layer="51"/>
-<wire x1="1.544" y1="0.713" x2="1.544" y2="-0.712" width="0.1524" layer="21"/>
-<wire x1="1.544" y1="-0.712" x2="-1.544" y2="-0.712" width="0.1524" layer="51"/>
-<wire x1="-1.544" y1="-0.712" x2="-1.544" y2="0.713" width="0.1524" layer="21"/>
-<smd name="5" x="-0.95" y="1.306" dx="0.6" dy="1.2" layer="1"/>
-<smd name="4" x="0.95" y="1.306" dx="0.6" dy="1.2" layer="1"/>
-<smd name="1" x="-0.95" y="-1.306" dx="0.6" dy="1.2" layer="1"/>
-<smd name="2" x="0" y="-1.306" dx="0.6" dy="1.2" layer="1"/>
-<smd name="3" x="0.95" y="-1.306" dx="0.6" dy="1.2" layer="1"/>
-<text x="-1.778" y="-1.778" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
-<text x="3.048" y="-1.778" size="1.27" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
-<rectangle x1="-1.1875" y1="0.7126" x2="-0.7125" y2="1.5439" layer="51"/>
-<rectangle x1="0.7125" y1="0.7126" x2="1.1875" y2="1.5439" layer="51"/>
-<rectangle x1="-1.1875" y1="-1.5437" x2="-0.7125" y2="-0.7124" layer="51"/>
-<rectangle x1="-0.2375" y1="-1.5437" x2="0.2375" y2="-0.7124" layer="51"/>
-<rectangle x1="0.7125" y1="-1.5437" x2="1.1875" y2="-0.7124" layer="51"/>
+<package name="35RASMT2BHNTRX">
+<wire x1="-3.5" y1="3" x2="-3.5" y2="-3" width="0.127" layer="21"/>
+<wire x1="-3.5" y1="2.5" x2="-6" y2="2.5" width="0.127" layer="51"/>
+<wire x1="-6" y1="2.5" x2="-6" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="-6" y1="-2.5" x2="-3.5" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="-3.5" y1="3" x2="11" y2="3" width="0.127" layer="21"/>
+<wire x1="11" y1="3" x2="11" y2="-3" width="0.127" layer="21"/>
+<wire x1="11" y1="-3" x2="-3.5" y2="-3" width="0.127" layer="21"/>
+<smd name="1" x="0.8" y="3.675" dx="2.55" dy="2.4" layer="1" rot="R90"/>
+<smd name="4" x="8.2" y="-3.575" dx="2.75" dy="2.9" layer="1" rot="R90"/>
+<smd name="5" x="-1.1" y="-3.675" dx="2.55" dy="2.4" layer="1" rot="R90"/>
+<text x="2.921" y="3.937" size="1.27" layer="25">&gt;NAME</text>
+<text x="2.921" y="1.143" size="1.27" layer="25">&gt;VALUE</text>
+<hole x="0" y="0" drill="1.6"/>
+<hole x="7" y="0" drill="1.6"/>
+</package>
+<package name="SSOP28">
+<description>&lt;b&gt;Shrink Small Outline Package&lt;/b&gt; SSOP-28&lt;p&gt;
+http://www.ftdichip.com/Documents/DataSheets/DS_FT232R_v104.pdf</description>
+<circle x="-4.2" y="-1.625" radius="0.4422" width="0" layer="21"/>
+<wire x1="-5.1" y1="-2.6" x2="5.1" y2="-2.6" width="0.2032" layer="21"/>
+<wire x1="5.1" y1="-2.6" x2="5.1" y2="2.6" width="0.2032" layer="21"/>
+<wire x1="5.1" y1="2.6" x2="-5.1" y2="2.6" width="0.2032" layer="21"/>
+<wire x1="-5.1" y1="2.6" x2="-5.1" y2="-2.6" width="0.2032" layer="21"/>
+<rectangle x1="-4.4028" y1="-3.937" x2="-4.0472" y2="-2.6416" layer="51"/>
+<rectangle x1="-3.7529" y1="-3.937" x2="-3.3973" y2="-2.6416" layer="51"/>
+<rectangle x1="-3.1029" y1="-3.937" x2="-2.7473" y2="-2.6416" layer="51"/>
+<rectangle x1="-2.4529" y1="-3.937" x2="-2.0973" y2="-2.6416" layer="51"/>
+<rectangle x1="-1.8029" y1="-3.937" x2="-1.4473" y2="-2.6416" layer="51"/>
+<rectangle x1="-1.1529" y1="-3.937" x2="-0.7973" y2="-2.6416" layer="51"/>
+<rectangle x1="-0.5029" y1="-3.937" x2="-0.1473" y2="-2.6416" layer="51"/>
+<rectangle x1="0.1473" y1="-3.937" x2="0.5029" y2="-2.6416" layer="51"/>
+<rectangle x1="0.7973" y1="-3.937" x2="1.1529" y2="-2.6416" layer="51"/>
+<rectangle x1="1.4473" y1="-3.937" x2="1.8029" y2="-2.6416" layer="51"/>
+<rectangle x1="2.0973" y1="-3.937" x2="2.4529" y2="-2.6416" layer="51"/>
+<rectangle x1="2.7473" y1="-3.937" x2="3.1029" y2="-2.6416" layer="51"/>
+<rectangle x1="3.3973" y1="-3.937" x2="3.7529" y2="-2.6416" layer="51"/>
+<rectangle x1="4.0472" y1="-3.937" x2="4.4028" y2="-2.6416" layer="51"/>
+<rectangle x1="4.0472" y1="2.6416" x2="4.4028" y2="3.937" layer="51"/>
+<rectangle x1="3.3973" y1="2.6416" x2="3.7529" y2="3.937" layer="51"/>
+<rectangle x1="2.7473" y1="2.6416" x2="3.1029" y2="3.937" layer="51"/>
+<rectangle x1="2.0973" y1="2.6416" x2="2.4529" y2="3.937" layer="51"/>
+<rectangle x1="1.4473" y1="2.6416" x2="1.8029" y2="3.937" layer="51"/>
+<rectangle x1="0.7973" y1="2.6416" x2="1.1529" y2="3.937" layer="51"/>
+<rectangle x1="0.1473" y1="2.6416" x2="0.5029" y2="3.937" layer="51"/>
+<rectangle x1="-0.5029" y1="2.6416" x2="-0.1473" y2="3.937" layer="51"/>
+<rectangle x1="-1.1529" y1="2.6416" x2="-0.7973" y2="3.937" layer="51"/>
+<rectangle x1="-1.8029" y1="2.6416" x2="-1.4473" y2="3.937" layer="51"/>
+<rectangle x1="-2.4529" y1="2.6416" x2="-2.0973" y2="3.937" layer="51"/>
+<rectangle x1="-3.1029" y1="2.6416" x2="-2.7473" y2="3.937" layer="51"/>
+<rectangle x1="-3.7529" y1="2.6416" x2="-3.3973" y2="3.937" layer="51"/>
+<rectangle x1="-4.4028" y1="2.6416" x2="-4.0472" y2="3.937" layer="51"/>
+<smd name="1" x="-4.225" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="2" x="-3.575" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="3" x="-2.925" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="4" x="-2.275" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="5" x="-1.625" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="6" x="-0.975" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="7" x="-0.325" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="8" x="0.325" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="9" x="0.975" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="10" x="1.625" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="11" x="2.275" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="12" x="2.925" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="13" x="3.575" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="14" x="4.225" y="-3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="15" x="4.225" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="16" x="3.575" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="17" x="2.925" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="18" x="2.275" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="19" x="1.625" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="20" x="0.975" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="21" x="0.325" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="22" x="-0.325" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="23" x="-0.975" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="24" x="-1.625" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="25" x="-2.275" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="26" x="-2.925" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="27" x="-3.575" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<smd name="28" x="-4.225" y="3.625" dx="0.4" dy="1.5" layer="1"/>
+<text x="-5.476" y="-2.6299" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="-3.8999" y="-0.68" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+<package name="TSOT23-5">
+<circle x="-0.889" y="-0.127" radius="0.254" width="0.127" layer="21"/>
+<rectangle x1="-1.2" y1="-1.4" x2="-0.7" y2="-0.8" layer="51"/>
+<rectangle x1="-0.25" y1="-1.4" x2="0.25" y2="-0.8" layer="51"/>
+<rectangle x1="0.7" y1="-1.4" x2="1.2" y2="-0.8" layer="51"/>
+<rectangle x1="0.7" y1="0.8" x2="1.2" y2="1.4" layer="51"/>
+<rectangle x1="-1.2" y1="0.8" x2="-0.7" y2="1.4" layer="51"/>
+<smd name="1" x="-0.95" y="-1.404" dx="0.6" dy="1.408" layer="1"/>
+<smd name="2" x="0" y="-1.404" dx="0.6" dy="1.408" layer="1"/>
+<smd name="3" x="0.95" y="-1.404" dx="0.6" dy="1.408" layer="1"/>
+<smd name="4" x="0.95" y="1.404" dx="0.6" dy="1.408" layer="1"/>
+<smd name="5" x="-0.95" y="1.404" dx="0.6" dy="1.408" layer="1"/>
+<text x="-1.397" y="-3.434" size="1.016" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-1.397" y="2.464" size="1.016" layer="25" ratio="10">&gt;NAME</text>
+<circle x="-0.889" y="-0.127" radius="0.254" width="0.127" layer="21"/>
+<wire x1="1.422" y1="-0.781" x2="-1.423" y2="-0.781" width="0.1524" layer="51"/>
+<wire x1="-1.423" y1="-0.781" x2="-1.423" y2="0.781" width="0.1524" layer="21"/>
+<wire x1="-1.423" y1="0.781" x2="1.422" y2="0.781" width="0.1524" layer="51"/>
+<wire x1="1.422" y1="0.781" x2="1.422" y2="-0.781" width="0.1524" layer="21"/>
+<rectangle x1="-1.2" y1="-1.4" x2="-0.7" y2="-0.8" layer="51"/>
+<rectangle x1="-0.25" y1="-1.4" x2="0.25" y2="-0.8" layer="51"/>
+<rectangle x1="0.7" y1="-1.4" x2="1.2" y2="-0.8" layer="51"/>
+<rectangle x1="0.7" y1="0.8" x2="1.2" y2="1.4" layer="51"/>
+<rectangle x1="-1.2" y1="0.8" x2="-0.7" y2="1.4" layer="51"/>
+<text x="-1.397" y="-3.434" size="1.016" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-1.397" y="2.464" size="1.016" layer="25" ratio="10">&gt;NAME</text>
+</package>
+<package name="SOT23-6L">
+<circle x="-1.7" y="-1.15" radius="0.22360625" width="0.127" layer="25"/>
+<wire x1="-1.25" y1="0.55" x2="1.25" y2="0.55" width="0" layer="48"/>
+<wire x1="1.25" y1="-0.55" x2="-1.25" y2="-0.55" width="0" layer="48"/>
+<wire x1="0" y1="-1.75" x2="0" y2="1.75" width="0" layer="48"/>
+<wire x1="0.95" y1="1.75" x2="0.95" y2="-1.75" width="0" layer="48"/>
+<wire x1="-0.95" y1="-1.75" x2="-0.95" y2="1.75" width="0" layer="48"/>
+<wire x1="-1.25" y1="1.75" x2="-0.95" y2="1.75" width="0" layer="48"/>
+<wire x1="-0.95" y1="1.75" x2="0" y2="1.75" width="0" layer="48"/>
+<wire x1="0" y1="1.75" x2="0.95" y2="1.75" width="0" layer="48"/>
+<wire x1="0.95" y1="1.75" x2="1.25" y2="1.75" width="0" layer="48"/>
+<wire x1="-1.25" y1="-1.75" x2="-0.95" y2="-1.75" width="0" layer="48"/>
+<wire x1="-0.95" y1="-1.75" x2="0" y2="-1.75" width="0" layer="48"/>
+<wire x1="0" y1="-1.75" x2="0.95" y2="-1.75" width="0" layer="48"/>
+<wire x1="0.95" y1="-1.75" x2="1.25" y2="-1.75" width="0" layer="48"/>
+<wire x1="-1.5" y1="-0.85" x2="-1.5" y2="0.85" width="0.127" layer="21"/>
+<wire x1="1.5" y1="-0.85" x2="1.5" y2="0.8" width="0.127" layer="21"/>
+<smd name="P$1" x="-0.95" y="-1.55" dx="2" dy="0.6" layer="1" rot="R90"/>
+<smd name="P$2" x="0" y="-1.55" dx="2" dy="0.6" layer="1" rot="R90"/>
+<smd name="P$3" x="0.95" y="-1.55" dx="2" dy="0.6" layer="1" rot="R90"/>
+<smd name="P$4" x="0.95" y="1.55" dx="2" dy="0.6" layer="1" rot="R90"/>
+<smd name="P$5" x="0" y="1.55" dx="2" dy="0.6" layer="1" rot="R90"/>
+<smd name="P$6" x="-0.95" y="1.55" dx="2" dy="0.6" layer="1" rot="R90"/>
+<text x="-1.5" y="2.8" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.3" y="-4" size="1.27" layer="27">&gt;VALUE</text>
+<dimension x1="-1.25" y1="0.55" x2="-1.25" y2="-0.55" x3="-5.8" y3="0" textsize="1.27" layer="48" width="0.1"/>
+<dimension x1="-0.95" y1="1.75" x2="0" y2="1.75" x3="-0.475" y3="6.8" textsize="1.27" layer="48" width="0.1"/>
+<dimension x1="-1.25" y1="1.75" x2="-1.25" y2="-1.75" x3="-3.35" y3="0" textsize="1.27" layer="48" width="0.1"/>
+</package>
+<package name="TQFP44">
+<description>&lt;b&gt;Thin Quad Flat Pack&lt;/b&gt;&lt;p&gt;
+package type TQ</description>
+<circle x="-4" y="4" radius="0.2827" width="0.254" layer="21"/>
+<wire x1="-4.8" y1="4.4" x2="-4.4" y2="4.8" width="0.2032" layer="21"/>
+<wire x1="-4.4" y1="4.8" x2="4.4" y2="4.8" width="0.2032" layer="21"/>
+<wire x1="4.4" y1="4.8" x2="4.8" y2="4.4" width="0.2032" layer="21"/>
+<wire x1="4.8" y1="4.4" x2="4.8" y2="-4.4" width="0.2032" layer="21"/>
+<wire x1="4.8" y1="-4.4" x2="4.4" y2="-4.8" width="0.2032" layer="21"/>
+<wire x1="4.4" y1="-4.8" x2="-4.4" y2="-4.8" width="0.2032" layer="21"/>
+<wire x1="-4.4" y1="-4.8" x2="-4.8" y2="-4.4" width="0.2032" layer="21"/>
+<wire x1="-4.8" y1="-4.4" x2="-4.8" y2="4.4" width="0.2032" layer="21"/>
+<rectangle x1="-6.1001" y1="3.8001" x2="-4.95" y2="4.1999" layer="51"/>
+<rectangle x1="-6.1001" y1="3" x2="-4.95" y2="3.4" layer="51"/>
+<rectangle x1="-6.1001" y1="2.1999" x2="-4.95" y2="2.5999" layer="51"/>
+<rectangle x1="-6.1001" y1="1.4" x2="-4.95" y2="1.8001" layer="51"/>
+<rectangle x1="-6.1001" y1="0.5999" x2="-4.95" y2="1" layer="51"/>
+<rectangle x1="-6.1001" y1="-0.1999" x2="-4.95" y2="0.1999" layer="51"/>
+<rectangle x1="-6.1001" y1="-1" x2="-4.95" y2="-0.5999" layer="51"/>
+<rectangle x1="-6.1001" y1="-1.8001" x2="-4.95" y2="-1.4" layer="51"/>
+<rectangle x1="-6.1001" y1="-2.5999" x2="-4.95" y2="-2.1999" layer="51"/>
+<rectangle x1="-6.1001" y1="-3.4" x2="-4.95" y2="-3" layer="51"/>
+<rectangle x1="-6.1001" y1="-4.1999" x2="-4.95" y2="-3.8001" layer="51"/>
+<rectangle x1="-4.1999" y1="-6.1001" x2="-3.8001" y2="-4.95" layer="51"/>
+<rectangle x1="-3.4" y1="-6.1001" x2="-3" y2="-4.95" layer="51"/>
+<rectangle x1="-2.5999" y1="-6.1001" x2="-2.1999" y2="-4.95" layer="51"/>
+<rectangle x1="-1.8001" y1="-6.1001" x2="-1.4" y2="-4.95" layer="51"/>
+<rectangle x1="-1" y1="-6.1001" x2="-0.5999" y2="-4.95" layer="51"/>
+<rectangle x1="-0.1999" y1="-6.1001" x2="0.1999" y2="-4.95" layer="51"/>
+<rectangle x1="0.5999" y1="-6.1001" x2="1" y2="-4.95" layer="51"/>
+<rectangle x1="1.4" y1="-6.1001" x2="1.8001" y2="-4.95" layer="51"/>
+<rectangle x1="2.1999" y1="-6.1001" x2="2.5999" y2="-4.95" layer="51"/>
+<rectangle x1="3" y1="-6.1001" x2="3.4" y2="-4.95" layer="51"/>
+<rectangle x1="3.8001" y1="-6.1001" x2="4.1999" y2="-4.95" layer="51"/>
+<rectangle x1="4.95" y1="-4.1999" x2="6.1001" y2="-3.8001" layer="51"/>
+<rectangle x1="4.95" y1="-3.4" x2="6.1001" y2="-3" layer="51"/>
+<rectangle x1="4.95" y1="-2.5999" x2="6.1001" y2="-2.1999" layer="51"/>
+<rectangle x1="4.95" y1="-1.8001" x2="6.1001" y2="-1.4" layer="51"/>
+<rectangle x1="4.95" y1="-1" x2="6.1001" y2="-0.5999" layer="51"/>
+<rectangle x1="4.95" y1="-0.1999" x2="6.1001" y2="0.1999" layer="51"/>
+<rectangle x1="4.95" y1="0.5999" x2="6.1001" y2="1" layer="51"/>
+<rectangle x1="4.95" y1="1.4" x2="6.1001" y2="1.8001" layer="51"/>
+<rectangle x1="4.95" y1="2.1999" x2="6.1001" y2="2.5999" layer="51"/>
+<rectangle x1="4.95" y1="3" x2="6.1001" y2="3.4" layer="51"/>
+<rectangle x1="4.95" y1="3.8001" x2="6.1001" y2="4.1999" layer="51"/>
+<rectangle x1="3.8001" y1="4.95" x2="4.1999" y2="6.1001" layer="51"/>
+<rectangle x1="3" y1="4.95" x2="3.4" y2="6.1001" layer="51"/>
+<rectangle x1="2.1999" y1="4.95" x2="2.5999" y2="6.1001" layer="51"/>
+<rectangle x1="1.4" y1="4.95" x2="1.8001" y2="6.1001" layer="51"/>
+<rectangle x1="0.5999" y1="4.95" x2="1" y2="6.1001" layer="51"/>
+<rectangle x1="-0.1999" y1="4.95" x2="0.1999" y2="6.1001" layer="51"/>
+<rectangle x1="-1" y1="4.95" x2="-0.5999" y2="6.1001" layer="51"/>
+<rectangle x1="-1.8001" y1="4.95" x2="-1.4" y2="6.1001" layer="51"/>
+<rectangle x1="-2.5999" y1="4.95" x2="-2.1999" y2="6.1001" layer="51"/>
+<rectangle x1="-3.4" y1="4.95" x2="-3" y2="6.1001" layer="51"/>
+<rectangle x1="-4.1999" y1="4.95" x2="-3.8001" y2="6.1001" layer="51"/>
+<smd name="1" x="-5.8" y="4" dx="1.5" dy="0.5" layer="1"/>
+<smd name="2" x="-5.8" y="3.2" dx="1.5" dy="0.5" layer="1"/>
+<smd name="3" x="-5.8" y="2.4" dx="1.5" dy="0.5" layer="1"/>
+<smd name="4" x="-5.8" y="1.6" dx="1.5" dy="0.5" layer="1"/>
+<smd name="5" x="-5.8" y="0.8" dx="1.5" dy="0.5" layer="1"/>
+<smd name="6" x="-5.8" y="0" dx="1.5" dy="0.5" layer="1"/>
+<smd name="7" x="-5.8" y="-0.8" dx="1.5" dy="0.5" layer="1"/>
+<smd name="8" x="-5.8" y="-1.6" dx="1.5" dy="0.5" layer="1"/>
+<smd name="9" x="-5.8" y="-2.4" dx="1.5" dy="0.5" layer="1"/>
+<smd name="10" x="-5.8" y="-3.2" dx="1.5" dy="0.5" layer="1"/>
+<smd name="11" x="-5.8" y="-4" dx="1.5" dy="0.5" layer="1"/>
+<smd name="12" x="-4" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="13" x="-3.2" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="14" x="-2.4" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="15" x="-1.6" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="16" x="-0.8" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="17" x="0" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="18" x="0.8" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="19" x="1.6" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="20" x="2.4" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="21" x="3.2" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="22" x="4" y="-5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="23" x="5.8" y="-4" dx="1.5" dy="0.5" layer="1"/>
+<smd name="24" x="5.8" y="-3.2" dx="1.5" dy="0.5" layer="1"/>
+<smd name="25" x="5.8" y="-2.4" dx="1.5" dy="0.5" layer="1"/>
+<smd name="26" x="5.8" y="-1.6" dx="1.5" dy="0.5" layer="1"/>
+<smd name="27" x="5.8" y="-0.8" dx="1.5" dy="0.5" layer="1"/>
+<smd name="28" x="5.8" y="0" dx="1.5" dy="0.5" layer="1"/>
+<smd name="29" x="5.8" y="0.8" dx="1.5" dy="0.5" layer="1"/>
+<smd name="30" x="5.8" y="1.6" dx="1.5" dy="0.5" layer="1"/>
+<smd name="31" x="5.8" y="2.4" dx="1.5" dy="0.5" layer="1"/>
+<smd name="32" x="5.8" y="3.2" dx="1.5" dy="0.5" layer="1"/>
+<smd name="33" x="5.8" y="4" dx="1.5" dy="0.5" layer="1"/>
+<smd name="34" x="4" y="5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="35" x="3.2" y="5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="36" x="2.4" y="5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="37" x="1.6" y="5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="38" x="0.8" y="5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="39" x="0" y="5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="40" x="-0.8" y="5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="41" x="-1.6" y="5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="42" x="-2.4" y="5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="43" x="-3.2" y="5.8" dx="0.5" dy="1.5" layer="1"/>
+<smd name="44" x="-4" y="5.8" dx="0.5" dy="1.5" layer="1"/>
+<text x="-4.064" y="6.858" size="1.778" layer="25">&gt;NAME</text>
+<text x="-4.064" y="-1.7701" size="1.778" layer="27">&gt;VALUE</text>
+</package>
+<package name="OSCILLATOR_3.2X2.5">
+<circle x="-2.2" y="-0.8" radius="0.14141875" width="0" layer="21"/>
+<wire x1="-1.6" y1="1.25" x2="1.6" y2="1.25" width="0.127" layer="51"/>
+<wire x1="1.6" y1="1.25" x2="1.6" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="1.6" y1="-1.25" x2="-1.6" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="-1.25" x2="-1.6" y2="1.25" width="0.127" layer="51"/>
+<wire x1="-0.1" y1="1.25" x2="0.1" y2="1.25" width="0.254" layer="21"/>
+<wire x1="-0.1" y1="-1.25" x2="0.1" y2="-1.25" width="0.254" layer="21"/>
+<smd name="P$1" x="-1.05" y="-1" dx="0.9" dy="1.1" layer="1"/>
+<smd name="P$2" x="1.05" y="-1" dx="0.9" dy="1.1" layer="1"/>
+<smd name="P$3" x="1.05" y="1" dx="0.9" dy="1.1" layer="1"/>
+<smd name="P$4" x="-1.05" y="1" dx="0.9" dy="1.1" layer="1"/>
+<text x="-2.26" y="2.02" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.36" y="-2.98" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+<package name="SOT323">
+<description>&lt;b&gt;SOT-323 (SC-70 3 Lead)&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="http://www.farnell.com/datasheets/461166.pdf"&lt; Data sheet &lt;/a&gt;</description>
+<wire x1="1.0474" y1="0.6229" x2="1.0474" y2="-0.6229" width="0.1524" layer="51"/>
+<wire x1="1.0474" y1="-0.6229" x2="-1.0474" y2="-0.6229" width="0.1524" layer="51"/>
+<wire x1="-1.0474" y1="-0.6229" x2="-1.0474" y2="0.6229" width="0.1524" layer="51"/>
+<wire x1="-1.0474" y1="0.6229" x2="1.0474" y2="0.6229" width="0.1524" layer="51"/>
+<wire x1="1.0474" y1="0.6229" x2="1.0474" y2="-0.4729" width="0.1524" layer="21"/>
+<wire x1="0.1646" y1="-0.6229" x2="-0.1646" y2="-0.6229" width="0.1524" layer="21"/>
+<wire x1="-1.0474" y1="-0.4729" x2="-1.0474" y2="0.6229" width="0.1524" layer="21"/>
+<wire x1="-1.0474" y1="0.6229" x2="-0.6229" y2="0.6229" width="0.1524" layer="21"/>
+<wire x1="0.6229" y1="0.6229" x2="1.0474" y2="0.6229" width="0.1524" layer="21"/>
+<rectangle x1="-0.2" y1="0.625" x2="0.2" y2="1.1" layer="51"/>
+<rectangle x1="-0.85" y1="-1.1" x2="-0.45" y2="-0.625" layer="51" rot="R180"/>
+<rectangle x1="0.45" y1="-1.1" x2="0.85" y2="-0.625" layer="51" rot="R180"/>
+<smd name="1" x="-0.65" y="-0.925" dx="0.6" dy="0.55" layer="1"/>
+<smd name="2" x="0.65" y="-0.925" dx="0.6" dy="0.55" layer="1"/>
+<smd name="3" x="0" y="0.925" dx="0.6" dy="0.55" layer="1"/>
+<text x="-1" y="1.3" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1" y="-2.6" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+<package name="240-0002-1">
+<wire x1="-4.5" y1="7.3" x2="-4.5" y2="4.2" width="0.127" layer="41"/>
+<wire x1="4.5" y1="7.3" x2="4.5" y2="4.2" width="0.127" layer="41"/>
+<wire x1="-4.5" y1="2" x2="-4.5" y2="0" width="0.127" layer="41"/>
+<wire x1="-4.5" y1="0" x2="4.5" y2="0" width="0.127" layer="41"/>
+<wire x1="4.5" y1="0" x2="4.5" y2="2" width="0.127" layer="41"/>
+<wire x1="-4.5" y1="2" x2="-4.5" y2="0" width="0.127" layer="21"/>
+<wire x1="-4.5" y1="0" x2="4.5" y2="0" width="0.127" layer="21"/>
+<wire x1="4.5" y1="0" x2="4.5" y2="2" width="0.127" layer="21"/>
+<wire x1="-4.5" y1="7.3" x2="-4.5" y2="4.2" width="0.127" layer="21"/>
+<wire x1="4.5" y1="7.3" x2="4.5" y2="4.2" width="0.127" layer="21"/>
+<wire x1="-1.95" y1="9" x2="-2.4" y2="9" width="0.127" layer="41"/>
+<wire x1="1.95" y1="9" x2="2.4" y2="9" width="0.127" layer="41"/>
+<wire x1="1.315" y1="7.476" x2="1.892" y2="7.476" width="0.127" layer="41"/>
+<wire x1="2.049" y1="7.665" x2="2.049" y2="8.75" width="0.127" layer="41"/>
+<smd name="P$1" x="-1.6" y="8.65" dx="2" dy="0.5" layer="1" rot="R90"/>
+<smd name="P$2" x="-0.8" y="8.65" dx="2" dy="0.5" layer="1" rot="R90"/>
+<smd name="P$3" x="0" y="8.65" dx="2" dy="0.5" layer="1" rot="R90"/>
+<smd name="P$4" x="0.8" y="8.65" dx="2" dy="0.5" layer="1" rot="R90"/>
+<smd name="P$5" x="1.6" y="8.65" dx="2" dy="0.5" layer="1" rot="R90"/>
+<pad name="SHIELD_1" x="-3.65" y="3.1" drill="1.5" rot="R90"/>
+<pad name="SHIELD_2" x="3.65" y="3.1" drill="1.5" rot="R90"/>
+<pad name="SHIELD_3" x="3.65" y="8.4" drill="1.5"/>
+<pad name="SHIELD_4" x="-3.65" y="8.4" drill="1.5"/>
+<text x="-5.207" y="2.921" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="6.477" y="2.921" size="1.27" layer="25" rot="R90">&gt;VALUE</text>
+<hole x="-1.75" y="6.4" drill="1"/>
+<hole x="1.75" y="6.4" drill="1"/>
+</package>
+<package name="DC_POWER_INPUT_2.1MM">
+<wire x1="-5.2" y1="4.5" x2="9.3" y2="4.5" width="0.127" layer="21"/>
+<wire x1="-5.2" y1="-4.5" x2="-5.2" y2="4.5" width="0.127" layer="21"/>
+<wire x1="9.3" y1="-4.5" x2="8.2" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="-5.2" y1="-4.5" x2="2.9" y2="-4.5" width="0.127" layer="21"/>
+<wire x1="9.3" y1="-4.5" x2="9.3" y2="-2.7" width="0.127" layer="21"/>
+<wire x1="9.3" y1="4.5" x2="9.3" y2="2.7" width="0.127" layer="21"/>
+<pad name="P1" x="8.5" y="0" drill="3.5" rot="R90"/>
+<pad name="P2" x="2.5" y="0" drill="3" rot="R90"/>
+<pad name="P3" x="5.55" y="-4.9" drill="3" rot="R90"/>
+<text x="-5.95" y="4.7" size="0.6096" layer="25">&gt;NAME</text>
+<text x="6" y="4.75" size="0.6096" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 </library>
@@ -1142,125 +1034,88 @@ Your Eurocircuits Team
 </pass>
 </autorouter>
 <elements>
-<element name="IC1" library="VestibularVR H1-module v1.0" package="SSOP28" value="FT232RL" x="32.402" y="42.007" smashed="yes">
+<element name="IC1" library="Harp Motor H2-module v1.0" package="SSOP28" value="FT232RL" x="32.402" y="42.007" smashed="yes">
 <attribute name="MPN" value="FT232RL" x="32.402" y="42.007" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="27.2219" y="39.013" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="OEPS" value="OEPS080013" x="32.402" y="42.007" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="28.5021" y="41.327" size="1.27" layer="27"/>
 </element>
-<element name="X6" library="VestibularVR H1-module v1.0" package="240-0002-1" value="USB_MINI_B" x="58.5" y="44.405" smashed="yes" rot="R90">
+<element name="X6" library="Harp Motor H2-module v1.0" package="240-0002-1" value="USB_MINI_B" x="58.5" y="44.405" smashed="yes" rot="R90">
 <attribute name="MPN" value="UX60-MB-5S8" x="58.5" y="44.405" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="52.277" y="39.221" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="OEPS" value="OEPS070021" x="58.5" y="44.405" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="51.4132" y="50.7194" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 </element>
 <element name="SV2" library="Harp Motor H2-module v1.0" package="2X03" value="PINHD-2X3" x="36.8872" y="24.6992" smashed="yes" rot="R90">
-<attribute name="CATEGORY" value="CONNECTOR" x="36.8872" y="24.6992" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="DESCRIPTION" value="" x="36.8872" y="24.6992" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER" value="" x="36.8872" y="24.6992" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="609-3210-ND" x="36.8872" y="24.6992" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="37.0612" y="19.5886" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OEPS" value="OEPS070015" x="36.8872" y="24.6992" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="OPERATING_TEMP" value="" x="36.8872" y="24.6992" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="PART_STATUS" value="" x="36.8872" y="24.6992" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="ROHS_COMPLIANT" value="" x="36.8872" y="24.6992" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SERIES" value="" x="36.8872" y="24.6992" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="SUB-CATEGORY" value="PIN-HEADER" x="36.8872" y="24.6992" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="THERMALLOSS" value="" x="36.8872" y="24.6992" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TYPE" value="" x="36.8872" y="24.6992" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="41.0782" y="23.4292" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
-<element name="R34" library="Harp Motor H2-module v1.0" package="R0402$1" value="10k" x="34.90515" y="29.8028" smashed="yes" rot="R180">
-<attribute name="DIGIKEY_PN" value="541-10.0KLDKR-ND" x="41.40515" y="29.8028" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="R34" library="Harp Motor H2-module v1.0" package="R0402" value="10k" x="34.90515" y="29.8028" smashed="yes" rot="R180">
 <attribute name="MPN" value="CRCW040210K0FKED" x="41.40515" y="29.8028" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="35.74875" y="31.3776" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="OEPS" value="OEPS020030" x="34.90515" y="29.8028" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="35.54015" y="31.7078" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="C26" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="38.0406" y="14.7298" smashed="yes" rot="R270">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="50.5406" y="21.2298" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="50.5406" y="21.2298" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="41.0736" y="14.5604" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="50.5406" y="21.2298" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="38.0406" y="14.7298" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="TYPE" value="SMD" x="50.5406" y="21.2298" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="36.1356" y="15.3648" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C27" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="28.8924" y="22.7648" smashed="yes" rot="R90">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="21.3924" y="9.7648" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="21.3924" y="9.7648" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="29.3478" y="24.9864" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="21.3924" y="9.7648" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="28.8924" y="22.7648" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TYPE" value="SMD" x="21.3924" y="9.7648" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="30.7974" y="22.1298" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="C28" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="29.9646" y="4.0552" smashed="yes" rot="R180">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="29.9646" y="-3.4448" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="29.9646" y="-3.4448" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="28.9514" y="2.5992" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="NOTES" value="-" x="29.9646" y="-3.4448" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="29.9646" y="4.0552" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TYPE" value="SMD" x="29.9646" y="-3.4448" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="30.5996" y="5.9602" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="C25" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="32.1974" y="21.985" smashed="yes" rot="R180">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="32.1974" y="31.985" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="32.1974" y="31.985" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="33.2158" y="23.5364" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="32.1974" y="31.985" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="32.1974" y="21.985" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TYPE" value="SMD" x="32.1974" y="31.985" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="32.8324" y="23.89" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="C29" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="19.4882" y="11.1196" smashed="yes" rot="R90">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="39.4882" y="4.6196" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="39.4882" y="4.6196" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="18.8052" y="8.7428" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="NOTES" value="-" x="39.4882" y="4.6196" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="19.4882" y="11.1196" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TYPE" value="SMD" x="39.4882" y="4.6196" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="21.3932" y="10.4846" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="IC8" library="VestibularVR H1-module v1.0" package="TQFP44" value="ATXMEGA32A4U" x="28.973" y="12.924" smashed="yes">
-<attribute name="DIGIKEY_PN" value="ATXMEGA32A4U-AURCT-ND" x="28.973" y="12.924" size="1.778" layer="27" display="off"/>
-<attribute name="MOUSER_PN" value="556-ATXMEGA32A4U-AU" x="28.973" y="12.924" size="1.778" layer="27" display="off"/>
+<element name="IC8" library="Harp Motor H2-module v1.0" package="TQFP44" value="ATXMEGA32A4U" x="28.973" y="12.924" smashed="yes">
 <attribute name="MPN" value="ATXMEGA32A4U-AUR" x="28.973" y="12.924" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="33.9312" y="17.8756" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OEPS" value="OEPS080012" x="28.973" y="12.924" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="24.909" y="11.1539" size="1.778" layer="27"/>
 </element>
 <element name="C7" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="36.751" y="49.008" smashed="yes" rot="R90">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="36.751" y="49.008" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="2.751" y="42.508" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="39.106" y="48.7412" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="36.751" y="49.008" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="36.751" y="49.008" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TYPE" value="SMD" x="36.751" y="49.008" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="38.656" y="48.373" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="C5" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="29.8168" y="49.643" smashed="yes" rot="R90">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="29.8168" y="49.643" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="0.8168" y="49.643" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="30.993" y="51.8686" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="29.8168" y="49.643" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="29.8168" y="49.643" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TYPE" value="SMD" x="29.8168" y="49.643" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="31.7218" y="49.008" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="C8" library="Harp Motor H2-module v1.0" package="C0603" value="4.7uF" x="41.6284" y="36.1742" smashed="yes">
+<element name="C8" library="Harp Motor H2-module v1.0" package="C0603K" value="4.7uF" x="41.6284" y="36.1742" smashed="yes">
 <attribute name="MPN" value="C1608X6S1C475K080AC" x="27.6284" y="53.1742" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="41.319" y="38.1458" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="OEPS" value="OEPS010018" x="41.6284" y="36.1742" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="39.6784" y="33.8492" size="1.27" layer="27"/>
 </element>
 <element name="C3" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="45.162" y="38.833" smashed="yes" rot="R270">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="45.162" y="38.833" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="51.162" y="58.833" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="44.4576" y="36.495" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="NOTES" value="-" x="45.162" y="38.833" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="45.162" y="38.833" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="TYPE" value="SMD" x="45.162" y="38.833" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="43.257" y="39.468" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C4" library="Harp Motor H2-module v1.0" package="C0402K" value="47pF" x="39.38" y="42.499" smashed="yes" rot="R270">
@@ -1275,7 +1130,7 @@ Your Eurocircuits Team
 <attribute name="OEPS" value="OEPS080013" x="39.38" y="45.706" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="41.285" y="45.071" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="L1" library="Harp Motor H2-module v1.0" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="40R@100MHz" x="41.754" y="39.535" smashed="yes">
+<element name="L1" library="Harp Motor H2-module v1.0" package="R0805" value="40R@100MHz" x="41.754" y="39.535" smashed="yes">
 <attribute name="MPN" value="MI0805K400R-10" x="41.754" y="30.535" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="43.796" y="41.7714" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="OEPS" value="OEPS040003" x="41.754" y="39.535" size="1.778" layer="27" display="off"/>
@@ -1287,21 +1142,19 @@ Your Eurocircuits Team
 <attribute name="OEPS" value="OEPS010001" x="45.934" y="48.0651" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="46.569" y="49.9701" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R18" library="Harp Motor H2-module v1.0" package="R0402$1" value="10k" x="34.8744" y="49.2714" smashed="yes" rot="R270">
-<attribute name="DIGIKEY_PN" value="541-10.0KLDKR-ND" x="34.8744" y="49.2714" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="R18" library="Harp Motor H2-module v1.0" package="R0402" value="10k" x="34.8744" y="49.2714" smashed="yes" rot="R270">
 <attribute name="MPN" value="CRCW040210K0FKED" x="9.3744" y="74.7714" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="34.704" y="50.9056" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OEPS" value="OEPS020030" x="34.8744" y="49.2714" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="32.9694" y="49.9064" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="R3" library="Harp Motor H2-module v1.0" package="R0402$1" value="1M" x="48.369" y="37.7849" smashed="yes">
-<attribute name="DIGIKEY_PN" value="541-1.00MLCT-ND" x="48.369" y="37.7849" size="1.778" layer="27" display="off"/>
+<element name="R3" library="Harp Motor H2-module v1.0" package="R0402" value="1M" x="48.369" y="37.7849" smashed="yes">
 <attribute name="MPN" value="CRCW04021M00FKED" x="48.369" y="37.7849" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="48.4208" y="39.4095" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="OEPS" value="OEPS020026" x="48.369" y="37.7849" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="47.734" y="35.8799" size="1.27" layer="27"/>
 </element>
-<element name="OSC1" library="VestibularVR H1-module v1.0" package="OSCILLATOR_3.2X2.5" value="OSCILLATOR" x="31.49" y="25.9178" smashed="yes" rot="R180">
+<element name="OSC1" library="Harp Motor H2-module v1.0" package="OSCILLATOR_3.2X2.5" value="OSCILLATOR" x="31.49" y="25.9178" smashed="yes" rot="R180">
 <attribute name="MPN" value="DSC1001CI5-032.0000" x="31.49" y="25.9178" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="33.1466" y="28.93" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="OEPS" value="OEPS080018" x="31.49" y="25.9178" size="1.778" layer="27" rot="R180" display="off"/>
@@ -1310,52 +1163,40 @@ Your Eurocircuits Team
 <element name="C11" library="Harp Motor H2-module v1.0" package="C0603K" value="4.7uF" x="41.7358" y="23.846" smashed="yes" rot="R180">
 <attribute name="MPN" value="C1608X6S1C475K080AC" x="41.7358" y="10.892" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="41.2532" y="24.6588" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="NOTES" value="-" x="41.7358" y="10.892" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OEPS" value="OEPS010018" x="41.7358" y="23.846" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TYPE" value="SMD" x="41.7358" y="10.892" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="42.3708" y="25.751" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="IC3" library="VestibularVR H1-module v1.0" package="TSOT23-5" value="LP5907MFX-3.3" x="41.685" y="28.291" smashed="yes" rot="R180">
+<element name="IC3" library="Harp Motor H2-module v1.0" package="TSOT23-5" value="LP5907MFX-3.3" x="41.685" y="28.291" smashed="yes" rot="R180">
 <attribute name="MPN" value="LP5907MFX-3.3/NOPB" x="48.289" y="25.243" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="43.6178" y="31.6278" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="48.289" y="25.243" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OEPS" value="OEPS080016" x="41.685" y="28.291" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TYPE" value="SMD" x="48.289" y="25.243" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="43.082" y="31.725" size="1.016" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="C10" library="Harp Motor H2-module v1.0" package="C0603K" value="4.7uF" x="41.6088" y="32.9646" smashed="yes">
 <attribute name="MPN" value="C1608X6S1C475K080AC" x="28.4008" y="35.7586" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="43.59" y="34.641" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="28.4008" y="35.7586" size="1.778" layer="27" display="off"/>
 <attribute name="OEPS" value="OEPS010018" x="41.6088" y="32.9646" size="1.778" layer="27" display="off"/>
-<attribute name="TYPE" value="SMD" x="28.4008" y="35.7586" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="40.9738" y="31.0596" size="1.27" layer="27"/>
 </element>
 <element name="C12" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="41.7272" y="21.2418" smashed="yes" rot="R180">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="41.7272" y="21.2418" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="48.3312" y="23.5278" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="40.0442" y="21.8388" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="NOTES" value="-" x="41.7272" y="21.2418" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="41.7272" y="21.2418" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TYPE" value="SMD" x="41.7272" y="21.2418" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="42.3622" y="23.1468" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="X4" library="Harp Motor H2-module v1.0" package="22-23-2031" value="Hall_Effect" x="3.356" y="36.272" locked="yes" smashed="yes" rot="R270">
-<attribute name="MF" value="-" x="3.356" y="36.272" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="282834-3" x="3.356" y="36.272" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="X4" library="Harp Motor H2-module v1.0" package="22-23-2031" value="1x3 case" x="3.356" y="36.272" locked="yes" smashed="yes" rot="R270">
+<attribute name="MPN" value="282834-3" x="3.356" y="36.272" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="5.0222" y="37.1292" locked="yes" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="OC_FARNELL" value="1462950" x="3.356" y="36.272" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OC_NEWARK" value="30C0862" x="3.356" y="36.272" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OEPS" value="OEPS070035" x="3.356" y="36.272" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="-1.724" y="40.082" locked="yes" size="1.016" layer="27" ratio="10" rot="R270"/>
 </element>
-<element name="IC7" library="VestibularVR H1-module v1.0" package="SOT23-6L" value="USBLC6-2SC6" x="43.59" y="44.039" smashed="yes" rot="R270">
+<element name="IC7" library="Harp Motor H2-module v1.0" package="SOT23-6L" value="USBLC6-2SC6" x="43.59" y="44.039" smashed="yes" rot="R270">
 <attribute name="MPN" value="USBLC6-2SC6" x="43.59" y="44.039" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="43.3346" y="46.0008" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OEPS" value="OEPS030010" x="43.59" y="44.039" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="39.59" y="45.339" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="L2" library="Harp Motor H2-module v1.0" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="40R@100MHz" x="41.4112" y="17.9786" smashed="yes">
+<element name="L2" library="Harp Motor H2-module v1.0" package="R0805" value="40R@100MHz" x="41.4112" y="17.9786" smashed="yes">
 <attribute name="MPN" value="MI0805K400R-10" x="41.4112" y="17.9786" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="39.3078" y="15.9104" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OEPS" value="OEPS040003" x="41.4112" y="17.9786" size="1.778" layer="27" display="off"/>
@@ -1393,332 +1234,297 @@ Your Eurocircuits Team
 </element>
 <element name="TP13" library="Harp Motor H2-module v1.0" package="B1,27" value="NO_COMPONENT" x="38.8132" y="33.062" smashed="yes">
 <attribute name="NAME" x="37.5432" y="34.713" size="1.27" layer="25" ratio="10" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="38.8132" y="33.062" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="37.5432" y="31.665" size="0.0254" layer="27"/>
 </element>
 <element name="TP1" library="Harp Motor H2-module v1.0" package="B1,27" value="NO_COMPONENT" x="41.8294" y="16.079" smashed="yes">
 <attribute name="NAME" x="41.1944" y="17.095" size="1.27" layer="25" ratio="10" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="41.1944" y="14.174" size="1" layer="37"/>
 <attribute name="VALUE" x="41.1944" y="15.317" size="0.0254" layer="27"/>
 </element>
 <element name="TP10" library="Harp Motor H2-module v1.0" package="B1,27" value="NO_COMPONENT" x="14.672" y="29.152" smashed="yes">
 <attribute name="AUX" value="GND" x="15.688" y="28.898" size="0.6096" layer="27"/>
 <attribute name="NAME" x="14.037" y="30.168" size="1.27" layer="25" ratio="10" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="14.037" y="27.247" size="1" layer="37"/>
 <attribute name="VALUE" x="14.037" y="28.39" size="0.0254" layer="27"/>
 </element>
 <element name="TP11" library="Harp Motor H2-module v1.0" package="B1,27" value="NO_COMPONENT" x="36.974" y="7.336" smashed="yes" rot="MR0">
 <attribute name="NAME" x="37.609" y="8.352" size="1.27" layer="26" ratio="10" rot="MR0" display="off"/>
-<attribute name="TP_SIGNAL_NAME" value="" x="37.609" y="5.431" size="1" layer="38" rot="MR0"/>
 <attribute name="VALUE" x="37.609" y="6.574" size="0.0254" layer="28" rot="MR0"/>
 </element>
 <element name="STATE" library="Harp Motor H2-module v1.0" package="CHIP-LED0603" value="GREEN_LED" x="22.208" y="26.652" smashed="yes">
 <attribute name="MPN" value="LTST-C191KGKT" x="22.208" y="26.652" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="24.9036" y="29.1598" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="OEPS" value="OEPS030005" x="22.208" y="26.652" size="1.778" layer="27" display="off"/>
-<attribute name="POPULARITY" value="0" x="17.128" y="33.51" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="24.113" y="26.017" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="X1" library="Harp Motor H2-module v1.0" package="90G-5" value="be sure about plug type" x="53.44" y="24.36" locked="yes" smashed="yes" rot="R90">
-<attribute name="MF" value="" x="53.44" y="24.36" locked="yes" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MPN" value="20.155MH/5-E" x="53.44" y="24.36" locked="yes" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="X1" library="Harp Motor H2-module v1.0" package="90G-5" value="1x5 MAIN PLUG" x="53.44" y="24.36" locked="yes" smashed="yes" rot="R90">
+<attribute name="MPN" value="20.155MH/5-E" x="53.44" y="24.36" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="48.932" y="34.986" locked="yes" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="OC_FARNELL" value="unknown" x="53.44" y="24.36" locked="yes" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="53.44" y="24.36" locked="yes" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OEPS" value="OEPS070037" x="53.44" y="24.36" locked="yes" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="51.69" y="17.36" locked="yes" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="R1" library="Harp Motor H2-module v1.0" package="R0402$1" value="330R" x="20.21" y="26.6908" smashed="yes" rot="R90">
-<attribute name="DIGIKEY_PN" value="541-10.0KLDKR-ND" x="20.21" y="26.6908" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="R1" library="Harp Motor H2-module v1.0" package="R0402" value="330R" x="20.21" y="26.6908" smashed="yes" rot="R90">
 <attribute name="MPN" value="RC0402FR-07330RL" x="20.21" y="26.6908" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="20.8942" y="24.925" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="OEPS" value="OEPS020037" x="20.21" y="26.6908" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="22.115" y="26.0558" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="CLKIN" library="harp input expander" package="35RASMT2BHNTRX" value="CLCK_JACK" x="17.142" y="48.788" smashed="yes" rot="R270">
+<element name="X8" library="Harp Motor H2-module v1.0" package="35RASMT2BHNTRX" value="CLCK_JACK" x="17.142" y="48.788" smashed="yes" rot="R270">
 <attribute name="MPN" value="35RASMT2BHNTRX" x="17.142" y="48.788" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="13.414" y="44.154" size="0.8128" layer="25" font="vector" ratio="15" rot="R90"/>
-<attribute name="NOTES" value="-" x="17.142" y="48.788" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="TYPE" value="SMD" x="17.142" y="48.788" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="16.044" y="37.417" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
+<attribute name="OEPS" value="OEPS070025" x="17.142" y="48.788" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="18.793" y="41.803" size="0.8128" layer="25" font="vector" ratio="15" rot="R270" display="off"/>
 </element>
-<element name="C24" library="rcl" package="C0603" value="4.7uF" x="23.898" y="44.14" smashed="yes" rot="R180">
+<element name="C24" library="Harp Motor H2-module v1.0" package="C0603K" value="4.7uF" x="23.898" y="44.14" smashed="yes" rot="R180">
 <attribute name="MPN" value="C1608X6S1C475K080AC" x="23.898" y="46.172" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="23.219" y="45.601" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="NOTES" value="-" x="23.898" y="46.172" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TYPE" value="SMD" x="23.898" y="46.172" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="OEPS" value="OEPS010018" x="23.898" y="44.14" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="24.533" y="46.045" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="IC9" library="harp input expander" package="TSOT23-5" value="TLV70033DDCR" x="25.876" y="49.738" smashed="yes" rot="R90">
-<attribute name="MPN" value="TLV70033DDCR" x="32.734" y="43.134" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="27.38" y="48.044" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="32.734" y="43.134" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TYPE" value="SMD" x="32.734" y="43.134" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="VALUE" x="29.31" y="48.341" size="1.016" layer="27" ratio="10" rot="R90"/>
-</element>
-<element name="C23" library="rcl" package="C0603" value="4.7uF" x="32.346" y="49.957" smashed="yes" rot="R90">
+<element name="C23" library="Harp Motor H2-module v1.0" package="C0603K" value="4.7uF" x="32.346" y="49.957" smashed="yes" rot="R90">
 <attribute name="MPN" value="C1608X6S1C475K080AC" x="47.586" y="31.669" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="32.889" y="48.196" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="47.586" y="31.669" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TYPE" value="SMD" x="47.586" y="31.669" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OEPS" value="OEPS010018" x="32.346" y="49.957" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="34.251" y="49.322" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="R2" library="Harp Motor H2-module v1.0" package="R0402$1" value="10k" x="22.584" y="36.584" smashed="yes">
-<attribute name="DIGIKEY_PN" value="541-10.0KLDKR-ND" x="22.584" y="36.584" size="1.778" layer="27" display="off"/>
+<element name="R2" library="Harp Motor H2-module v1.0" package="R0402" value="10k" x="22.584" y="36.584" smashed="yes">
 <attribute name="MPN" value="CRCW040210K0FKED" x="22.584" y="36.584" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="23.778" y="38.181" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="OEPS" value="OEPS020030" x="22.584" y="36.584" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="21.949" y="34.679" size="1.27" layer="27"/>
 </element>
-<element name="R5" library="Harp Motor H2-module v1.0" package="R0402$1" value="10R" x="23.898" y="40.33" smashed="yes" rot="R180">
-<attribute name="DIGIKEY_PN" value="qwee" x="23.898" y="40.33" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MPN" value="as" x="23.898" y="40.33" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="R5" library="Harp Motor H2-module v1.0" package="R0402" value="10R" x="23.898" y="40.33" smashed="yes" rot="R180">
+<attribute name="MPN" value="ERJ-PA2J100X
+" x="23.898" y="40.33" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="24.025" y="41.981" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="OEPS" value="xx" x="23.898" y="40.33" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="OEPS" value="OEPS020041
+" x="23.898" y="40.33" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="24.533" y="42.235" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="X3" library="Harp Motor H2-module v1.0" package="22-23-2021" value="EMRG_BUTT_IN_NO" x="3.2" y="45.074" locked="yes" smashed="yes" rot="R270">
-<attribute name="MF" value="MOLEX" x="3.2" y="45.074" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="22-23-2021" x="3.2" y="45.074" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="X3" library="Harp Motor H2-module v1.0" package="22-23-2021" value="1x2 case" x="3.2" y="45.074" locked="yes" smashed="yes" rot="R270">
+<attribute name="MPN" value="282834-2" x="3.2" y="45.074" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="4.7308" y="44.6808" locked="yes" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="OC_FARNELL" value="1462926" x="3.2" y="45.074" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OC_NEWARK" value="25C3832" x="3.2" y="45.074" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OEPS" value="TBD" x="3.2" y="45.074" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="-1.88" y="47.614" locked="yes" size="1.016" layer="27" ratio="10" rot="R270"/>
 </element>
-<element name="R8" library="Harp Motor H2-module v1.0" package="R0402$1" value="10k" x="9.367" y="43.93" smashed="yes" rot="MR180">
-<attribute name="DIGIKEY_PN" value="541-10.0KLDKR-ND" x="9.367" y="43.93" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="R8" library="Harp Motor H2-module v1.0" package="R0402" value="10k" x="9.367" y="43.93" smashed="yes" rot="MR180">
 <attribute name="MPN" value="CRCW040210K0FKED" x="9.367" y="43.93" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="NAME" x="9.139" y="45.5744" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="OEPS020030" x="9.367" y="43.93" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="8.732" y="45.835" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="C1" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="17.798" y="32.448" smashed="yes" rot="MR270">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="18.798" y="49.848" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="18.798" y="49.848" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="18.398" y="30.477" size="0.8128" layer="26" font="vector" ratio="15" rot="MR0"/>
-<attribute name="NOTES" value="-" x="18.798" y="49.848" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="18.798" y="49.848" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="TYPE" value="SMD" x="18.798" y="49.848" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="19.248" y="32.948" size="1.016" layer="28" rot="MR270"/>
 </element>
-<element name="X2" library="Harp Motor H2-module v1.0" package="22-23-2051" value="Rot_Encoder" x="3.4" y="23.874" locked="yes" smashed="yes" rot="R270">
-<attribute name="MF" value="MOLEX" x="3.4" y="23.874" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="22-23-2051" x="3.4" y="23.874" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="X2" library="Harp Motor H2-module v1.0" package="22-23-2051" value="1x5 case" x="3.4" y="23.874" locked="yes" smashed="yes" rot="R270">
+<attribute name="MPN" value="282834-5" x="3.4" y="23.874" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="4.998" y="27.304" locked="yes" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="OC_FARNELL" value="1462952" x="3.4" y="23.874" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OC_NEWARK" value="38C9178" x="3.4" y="23.874" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OEPS" value="TBD" x="3.4" y="23.874" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="-1.68" y="30.224" locked="yes" size="1.016" layer="27" ratio="10" rot="R270"/>
 </element>
 <element name="C14" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="17.248" y="26.2656" smashed="yes" rot="R90">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="8.448" y="18.2656" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="8.448" y="18.2656" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="18.1924" y="28.755" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="8.448" y="18.2656" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="8.448" y="18.2656" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TYPE" value="SMD" x="8.448" y="18.2656" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="18.698" y="25.7656" size="1.016" layer="27" rot="R90"/>
 </element>
 <element name="C17" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="17.248" y="21.0332" smashed="yes" rot="R90">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="8.448" y="13.0332" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="8.448" y="13.0332" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="20.3248" y="21.755" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="8.448" y="13.0332" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="8.448" y="13.0332" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="TYPE" value="SMD" x="8.448" y="13.0332" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="18.698" y="20.5332" size="1.016" layer="27" rot="R90"/>
 </element>
-<element name="T2" library="VestibularVR H1-module v1.0" package="SOT323" value="DMG1012UW??" x="10.986" y="6.436" smashed="yes" rot="R90">
+<element name="T2" library="Harp Motor H2-module v1.0" package="SOT323" value="DMG1012UW" x="10.986" y="6.436" smashed="yes" rot="R90">
 <attribute name="MPN" value="DMG1012UW-7" x="10.986" y="6.436" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="13.154" y="5.074" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="OEPS" value="?? escolhido muito power??" x="10.986" y="6.436" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="VALUE" x="13.586" y="5.436" size="1.27" layer="27" rot="R90"/>
+<attribute name="OEPS" value="OEPS060010" x="10.986" y="6.436" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="X5" library="Harp Motor H2-module v1.0" package="22-23-2051" value="STEP_MOTOR" x="3.4" y="8.766" locked="yes" smashed="yes" rot="R270">
-<attribute name="MF" value="MOLEX" x="3.4" y="8.766" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="22-23-2051" x="3.4" y="8.766" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="X5" library="Harp Motor H2-module v1.0" package="22-23-2051" value="1x5 case" x="3.4" y="8.766" locked="yes" smashed="yes" rot="R270">
+<attribute name="MPN" value="282834-5" x="3.4" y="8.766" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="4.9684" y="12.114" locked="yes" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="OC_FARNELL" value="1462952" x="3.4" y="8.766" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OC_NEWARK" value="38C9178" x="3.4" y="8.766" locked="yes" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OEPS" value="TBD" x="3.4" y="8.766" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="-1.68" y="15.116" locked="yes" size="1.016" layer="27" ratio="10" rot="R270"/>
 </element>
-<element name="R6" library="Harp Motor H2-module v1.0" package="R0402$1" value="10k" x="14.2472" y="6.1228" smashed="yes" rot="R270">
-<attribute name="DIGIKEY_PN" value="541-10.0KLDKR-ND" x="14.2472" y="6.1228" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="R6" library="Harp Motor H2-module v1.0" package="R0402" value="10k" x="14.2472" y="6.1228" smashed="yes" rot="R270">
 <attribute name="MPN" value="CRCW040210K0FKED" x="14.2472" y="6.1228" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="15.4072" y="4.8522" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OEPS" value="OEPS020030" x="14.2472" y="6.1228" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="12.3422" y="6.7578" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="T1" library="VestibularVR H1-module v1.0" package="SOT323" value="DMG1012UW??" x="10.998" y="9.223" smashed="yes" rot="R90">
+<element name="T1" library="Harp Motor H2-module v1.0" package="SOT323" value="DMG1012UW" x="10.998" y="9.223" smashed="yes" rot="R90">
 <attribute name="MPN" value="DMG1012UW-7" x="10.998" y="9.223" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="13.543" y="11.382" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="OEPS" value="?? escolhido muito power??" x="10.998" y="9.223" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="VALUE" x="13.598" y="8.223" size="1.27" layer="27" rot="R90"/>
+<attribute name="OEPS" value="OEPS060010" x="10.998" y="9.223" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R12" library="Harp Motor H2-module v1.0" package="R0402$1" value="10k" x="14.2472" y="9.401" smashed="yes" rot="R270">
-<attribute name="DIGIKEY_PN" value="541-10.0KLDKR-ND" x="14.2472" y="9.401" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="R12" library="Harp Motor H2-module v1.0" package="R0402" value="10k" x="14.2472" y="9.401" smashed="yes" rot="R270">
 <attribute name="MPN" value="CRCW040210K0FKED" x="14.2472" y="9.401" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="15.232" y="8.1842" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OEPS" value="OEPS020030" x="14.2472" y="9.401" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="12.3422" y="10.036" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="T3" library="VestibularVR H1-module v1.0" package="SOT323" value="DMG1012UW??" x="11.022" y="12.752" smashed="yes" rot="R90">
+<element name="T3" library="Harp Motor H2-module v1.0" package="SOT323" value="DMG1012UW" x="11.022" y="12.752" smashed="yes" rot="R90">
 <attribute name="MPN" value="DMG1012UW-7" x="11.022" y="12.752" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="11.838" y="15.17" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="OEPS" value="?? escolhido muito power??" x="11.022" y="12.752" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="VALUE" x="13.622" y="11.752" size="1.27" layer="27" rot="R90"/>
+<attribute name="OEPS" value="OEPS060010" x="11.022" y="12.752" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R13" library="Harp Motor H2-module v1.0" package="R0402$1" value="DNI" x="14.2472" y="12.83" smashed="yes" rot="R270">
-<attribute name="DIGIKEY_PN" value="-" x="14.2472" y="12.83" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MPN" value="-" x="14.2472" y="12.83" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="R13" library="Harp Motor H2-module v1.0" package="R0402" value="10k" x="14.2472" y="12.83" smashed="yes" rot="R270">
+<attribute name="MPN" value="CRCW040210K0FKED" x="14.2472" y="12.83" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="13.156" y="14.6902" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="OEPS" value="-" x="14.2472" y="12.83" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OEPS" value="OEPS020030" x="14.2472" y="12.83" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="12.3422" y="13.465" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="X7" library="harp camera controller" package="DC_POWER_INPUT_2.1MM" value="DC_JACK2.1MM" x="53.038" y="6.364" smashed="yes" rot="R180">
-<attribute name="DIGIKEY_PN" value="DIGIKEY N.A." x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MOUSER_PN" value="163-179PH" x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="X7" library="Harp Motor H2-module v1.0" package="DC_POWER_INPUT_2.1MM" value="DC_JACK2.1MM" x="53.038" y="6.364" smashed="yes" rot="R180">
 <attribute name="MPN" value="163-179PH-EX" x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="41.924" y="4.281" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TYPE" value="TH" x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="OEPS" value="OEPS070026" x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="47.038" y="1.614" size="0.6096" layer="27" rot="R180"/>
 </element>
-<element name="R4" library="Harp Motor H2-module v1.0" package="R0402$1" value="0R DNI" x="24.8772" y="22.2772" smashed="yes" rot="MR90">
-<attribute name="DIGIKEY_PN" value="??" x="24.8772" y="22.2772" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MPN" value="TBD ?" x="24.8772" y="22.2772" size="1.778" layer="28" rot="MR90" display="off"/>
+<element name="R4" library="Harp Motor H2-module v1.0" package="R0402" value="div tensao ADC" x="24.8772" y="22.2772" smashed="yes" rot="MR90">
+<attribute name="MPN" value="n.a" x="24.8772" y="22.2772" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="24.4646" y="20.5478" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="TBD" x="24.8772" y="22.2772" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="22.9722" y="21.6422" size="1.27" layer="28" rot="MR90"/>
 </element>
-<element name="R7" library="Harp Motor H2-module v1.0" package="R0402$1" value="10k DNI" x="23.024" y="22.272" smashed="yes" rot="MR270">
-<attribute name="DIGIKEY_PN" value="541-10.0KLDKR-ND" x="23.024" y="22.272" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="MPN" value="CRCW040210K0FKED" x="23.024" y="22.272" size="1.778" layer="28" rot="MR270" display="off"/>
+<element name="R7" library="Harp Motor H2-module v1.0" package="R0402" value="div tensao ADC" x="23.024" y="22.272" smashed="yes" rot="MR270">
+<attribute name="MPN" value="n.a." x="23.024" y="22.272" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="22.0622" y="20.4966" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="OEPS020030" x="23.024" y="22.272" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="OEPS" value="TBD" x="23.024" y="22.272" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="24.929" y="22.907" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="IC11" library="Harp Motor H2-module v1.0" package="SOT23-5" value="74LVC1G125DBV" x="13.178" y="24.7" smashed="yes" rot="R270">
+<attribute name="MPN" value="SN74LVC1G125DBVT" x="13.178" y="24.7" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="11.344" y="26.87" size="0.8128" layer="25" font="vector" ratio="15"/>
+<attribute name="OEPS" value="OEPS080029" x="13.178" y="24.7" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="9.368" y="27.24" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="IC12" library="Harp Motor H2-module v1.0" package="SOT23-5" value="74LVC1G125DBV" x="13.178" y="19.492" smashed="yes" rot="R270">
+<attribute name="MPN" value="SN74LVC1G125DBVT" x="13.178" y="19.492" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="11.218" y="16.456" size="0.8128" layer="25" font="vector" ratio="15"/>
+<attribute name="OEPS" value="OEPS080029" x="13.178" y="19.492" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="9.368" y="22.032" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C9" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="29.476" y="35.162" smashed="yes" rot="R180">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="29.476" y="35.162" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="29.476" y="35.162" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="31.314" y="34.329" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="NOTES" value="-" x="29.476" y="35.162" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="29.476" y="35.162" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="TYPE" value="SMD" x="29.476" y="35.162" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="29.976" y="36.612" size="1.016" layer="27" rot="R180"/>
 </element>
-<element name="C15" library="Harp Motor H2-module v1.0" package="C0603K" value="4.7uF DNI" x="23.7" y="26.2" smashed="yes" rot="MR90">
+<element name="C15" library="Harp Motor H2-module v1.0" package="C0603K" value="4.7uF" x="23.7" y="26.2" smashed="yes" rot="MR90">
 <attribute name="MPN" value="C1608X6S1C475K080AC" x="23.7" y="26.2" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="24.4" y="27.95" size="0.8128" layer="26" font="vector" ratio="15" rot="MR0"/>
-<attribute name="NOTES" value="-" x="23.7" y="26.2" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="OEPS" value="OEPS010018" x="23.7" y="26.2" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="TYPE" value="SMD" x="23.7" y="26.2" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="22.05" y="25.4" size="1.016" layer="28" rot="MR90"/>
 </element>
-<element name="R9" library="Harp Motor H2-module v1.0" package="R0402$1" value="100R DNI" x="26.6" y="25.3" smashed="yes" rot="MR180">
-<attribute name="DIGIKEY_PN" value="para 100R" x="26.6" y="25.3" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="MPN" value="para 100R" x="26.6" y="25.3" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="R9" library="Harp Motor H2-module v1.0" package="R0402" value="DNI 100R" x="26.6" y="25.3" smashed="yes" rot="MR180">
+<attribute name="MPN" value="ERJ-2RKF1000X
+" x="26.6" y="25.3" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="NAME" x="26.565" y="24.465" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="OEPS para100R" x="26.6" y="25.3" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="OEPS" value="OEPS020004" x="26.6" y="25.3" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="25.965" y="27.205" size="1.27" layer="28" rot="MR180"/>
 </element>
-<element name="R14" library="Harp Motor H2-module v1.0" package="R0402$1" value="DNI" x="8.9" y="11.4" smashed="yes" rot="MR180">
-<attribute name="DIGIKEY_PN" value="-" x="8.9" y="11.4" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="R14" library="Harp Motor H2-module v1.0" package="R0402" value="DNI" x="8.9" y="11.4" smashed="yes" rot="MR180">
 <attribute name="MPN" value="DNI" x="8.9" y="11.4" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="NAME" x="10.665" y="11.765" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="DNI" x="8.9" y="11.4" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="8.265" y="13.305" size="1.27" layer="28" rot="MR180"/>
 </element>
-<element name="R15" library="Harp Motor H2-module v1.0" package="R0402$1" value="DNI" x="8.9" y="8.75" smashed="yes" rot="MR180">
-<attribute name="DIGIKEY_PN" value="-" x="8.9" y="8.75" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="R15" library="Harp Motor H2-module v1.0" package="R0402" value="DNI" x="8.9" y="8.75" smashed="yes" rot="MR180">
 <attribute name="MPN" value="DNI" x="8.9" y="8.75" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="NAME" x="10.565" y="9.115" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="DNI" x="8.9" y="8.75" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="8.265" y="10.655" size="1.27" layer="28" rot="MR180"/>
 </element>
-<element name="R16" library="Harp Motor H2-module v1.0" package="R0402$1" value="DNI" x="8.9" y="6.2" smashed="yes" rot="MR180">
-<attribute name="DIGIKEY_PN" value="-" x="8.9" y="6.2" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="R16" library="Harp Motor H2-module v1.0" package="R0402" value="DNI" x="8.9" y="6.2" smashed="yes" rot="MR180">
 <attribute name="MPN" value="DNI" x="8.9" y="6.2" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="NAME" x="10.565" y="6.565" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="DNI" x="8.9" y="6.2" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="8.265" y="8.105" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="C16" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="29" y="14.3" smashed="yes" rot="MR270">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="29" y="14.3" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="29" y="14.3" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="26.2" y="13.975" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="NOTES" value="-" x="29" y="14.3" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="29" y="14.3" size="1.778" layer="28" rot="MR270" display="off"/>
-<attribute name="TYPE" value="SMD" x="29" y="14.3" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="30.45" y="14.8" size="1.016" layer="28" rot="MR270"/>
 </element>
-<element name="L3" library="Harp Motor H2-module v1.0" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="40R@100MHz" x="31.9" y="15.2" smashed="yes" rot="MR180">
+<element name="L3" library="Harp Motor H2-module v1.0" package="R0805" value="40R@100MHz" x="31.9" y="15.2" smashed="yes" rot="MR180">
 <attribute name="MPN" value="MI0805K400R-10" x="31.9" y="15.2" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="NAME" x="31.965" y="13.93" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="OEPS040003" x="31.9" y="15.2" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="31.265" y="17.74" size="1.27" layer="28" rot="MR180"/>
 </element>
-<element name="R17" library="rcl" package="R0402" value="10k 1%" x="18.4" y="35.7" smashed="yes" rot="MR90">
+<element name="R17" library="Harp Motor H2-module v1.0" package="R0402" value="10k" x="18.4" y="35.7" smashed="yes" rot="MR90">
+<attribute name="MPN" value="CRCW040210K0FKED" x="18.4" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="17.635" y="36.035" size="0.8128" layer="26" font="vector" ratio="15" rot="MR0"/>
+<attribute name="OEPS" value="OEPS020030" x="18.4" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="16.495" y="35.065" size="1.27" layer="28" rot="MR90"/>
 </element>
-<element name="C41" library="rcl" package="C0402" value="15nF 5%" x="20.8" y="35.7" smashed="yes" rot="MR90">
+<element name="C41" library="Harp Motor H2-module v1.0" package="C0402K" value="15nF 5%" x="20.8" y="35.7" smashed="yes" rot="MR90">
+<attribute name="MPN" value="TBD" x="20.8" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="21.835" y="37.535" size="0.8128" layer="26" font="vector" ratio="15" rot="MR0"/>
+<attribute name="OEPS" value="TBD" x="20.8" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="18.895" y="35.065" size="1.27" layer="28" rot="MR90"/>
 </element>
-<element name="R19" library="rcl" package="R0402" value="10k 1%" x="23" y="35.7" smashed="yes" rot="MR270">
+<element name="R19" library="Harp Motor H2-module v1.0" package="R0402" value="10k" x="23" y="35.7" smashed="yes" rot="MR270">
+<attribute name="MPN" value="CRCW040210K0FKED" x="23" y="35.7" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="21.865" y="33.865" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="OEPS" value="OEPS020030" x="23" y="35.7" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="24.905" y="36.335" size="1.27" layer="28" rot="MR270"/>
 </element>
-<element name="C42" library="rcl" package="C0402" value="15nF 5%" x="24.9" y="35.7" smashed="yes" rot="MR270">
+<element name="C42" library="Harp Motor H2-module v1.0" package="C0402K" value="15nF 5%" x="24.9" y="35.7" smashed="yes" rot="MR270">
+<attribute name="MPN" value="TBD" x="24.9" y="35.7" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="24.465" y="38.265" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="OEPS" value="TBD" x="24.9" y="35.7" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="26.805" y="36.335" size="1.27" layer="28" rot="MR270"/>
 </element>
-<element name="R20" library="rcl" package="R0402" value="24k" x="10.8" y="33.1" smashed="yes" rot="MR270">
+<element name="R20" library="Harp Motor H2-module v1.0" package="R0402" value="24k" x="10.8" y="33.1" smashed="yes" rot="MR270">
+<attribute name="MPN" value="TBD" x="10.8" y="33.1" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="7.665" y="32.665" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="OEPS" value="TBD" x="10.8" y="33.1" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="12.705" y="33.735" size="1.27" layer="28" rot="MR270"/>
 </element>
-<element name="R21" library="rcl" package="R0402" value="15k" x="10.8" y="37" smashed="yes" rot="MR270">
+<element name="R21" library="Harp Motor H2-module v1.0" package="R0402" value="15k" x="10.8" y="37" smashed="yes" rot="MR270">
+<attribute name="MPN" value="ERJ-2RKF1502X" x="10.8" y="37" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="11.365" y="37.665" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="OEPS" value="OEPS020015" x="10.8" y="37" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="12.705" y="37.635" size="1.27" layer="28" rot="MR270"/>
 </element>
-<element name="IC10" library="CNP-ics 2" package="SOT23-5" value="OPA365" x="14.1" y="34" smashed="yes" rot="MR90">
+<element name="IC10" library="Harp Motor H2-module v1.0" package="SOT23-5" value="OPA365" x="14.1" y="34" smashed="yes" rot="MR90">
+<attribute name="MPN" value="OEPS080019=TLV272CDGKR" x="14.1" y="34" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="12.622" y="31.922" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="OEPS" value="TBD" x="14.1" y="34" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="12.322" y="37.048" size="1.27" layer="28" ratio="10" rot="MR180"/>
 </element>
-<element name="R10" library="Harp Motor H2-module v1.0" package="R0402$1" value="DNI" x="8" y="36.2" smashed="yes" rot="MR180">
-<attribute name="DIGIKEY_PN" value="-" x="8" y="36.2" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="MPN" value="DNI" x="8" y="36.2" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="R10" library="Harp Motor H2-module v1.0" package="R0402" value="DNI 0R" x="8" y="36.2" smashed="yes" rot="MR180">
+<attribute name="MPN" value="RC0402JR-070RL" x="8" y="36.2" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="NAME" x="6.965" y="35.265" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="DNI" x="8" y="36.2" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="OEPS" value="OEPS020001" x="8" y="36.2" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="7.365" y="38.105" size="1.27" layer="28" rot="MR180"/>
 </element>
-<element name="R11" library="Harp Motor H2-module v1.0" package="R0402$1" value="0R" x="8.1" y="38.4" smashed="yes" rot="MR180">
-<attribute name="DIGIKEY_PN" value="a de 0R" x="8.1" y="38.4" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="MPN" value="a de 0R" x="8.1" y="38.4" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="R11" library="Harp Motor H2-module v1.0" package="R0402" value="0R" x="8.1" y="38.4" smashed="yes" rot="MR180">
+<attribute name="MPN" value="RC0402JR-070RL" x="8.1" y="38.4" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="NAME" x="7.065" y="39.965" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="a de 0R" x="8.1" y="38.4" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="OEPS" value="OEPS020001" x="8.1" y="38.4" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="7.465" y="40.305" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="C18" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="36.4236" y="31.242" smashed="yes" rot="MR90">
-<attribute name="DIGIKEY_PN" value="445-5932-1-ND" x="45.1866" y="31.242" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="MPN" value="C1005X7R1H104K050BB" x="45.1866" y="31.242" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="35.643" y="32.3516" size="0.8128" layer="26" font="vector" ratio="15" rot="MR270"/>
-<attribute name="NOTES" value="-" x="45.1866" y="31.242" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="OEPS" value="OEPS010004" x="45.1866" y="31.242" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="TYPE" value="SMD" x="45.1866" y="31.242" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="34.9736" y="30.742" size="1.016" layer="28" rot="MR90"/>
 </element>
-<element name="IC2" library="Harp Motor H2-module v1.0" package="SOT23-5" value="74LVC1G125DBV" x="38.862" y="32.004" smashed="yes" rot="MR180">
-<attribute name="NAME" x="36.068" y="35.179" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="VALUE" x="36.322" y="35.814" size="1.27" layer="28" rot="MR180"/>
+<element name="IC2" library="Harp Motor H2-module v1.0" package="SOT23-5" value="74LVC1G125DBV" x="38.862" y="31.877" smashed="yes" rot="MR180">
+<attribute name="MPN" value="SN74LVC1G125DBVT" x="38.862" y="31.877" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="NAME" x="36.068" y="35.052" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
+<attribute name="OEPS" value="OEPS080029" x="38.862" y="31.877" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="VALUE" x="36.322" y="35.687" size="1.27" layer="28" rot="MR180"/>
+</element>
+<element name="IC9" library="Harp Motor H2-module v1.0" package="TSOT23-5" value="LP5907MFX-3.3" x="25.876" y="49.738" smashed="yes" rot="R90">
+<attribute name="MPN" value="LP5907MFX-3.3/NOPB" x="17.875" y="43.261" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="26.892" y="48.036" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
+<attribute name="OEPS" value="OEPS080016" x="17.875" y="43.261" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="29.31" y="48.341" size="1.016" layer="27" ratio="10" rot="R90"/>
+<attribute name="VALUE" x="29.31" y="48.341" size="1.016" layer="27" ratio="10" rot="R90"/>
 </element>
 </elements>
 <signals>
@@ -1755,19 +1561,14 @@ Your Eurocircuits Team
 <contactref element="C6" pad="2"/>
 <contactref element="C4" pad="2"/>
 <contactref element="R1" pad="1"/>
-<contactref element="CLKIN" pad="5"/>
+<contactref element="X8" pad="5"/>
 <contactref element="C24" pad="2"/>
-<contactref element="IC9" pad="2"/>
 <contactref element="C23" pad="2"/>
 <contactref element="X1" pad="5"/>
 <contactref element="C14" pad="2"/>
 <contactref element="C17" pad="2"/>
-<contactref element="R6" pad="1"/>
-<contactref element="T2" pad="2"/>
 <contactref element="R12" pad="1"/>
 <contactref element="T1" pad="2"/>
-<contactref element="R13" pad="1"/>
-<contactref element="T3" pad="2"/>
 <contactref element="C2" pad="2"/>
 <contactref element="R3" pad="1"/>
 <contactref element="X7" pad="P2"/>
@@ -1955,6 +1756,11 @@ Your Eurocircuits Team
 <via x="10.287" y="31.369" extent="1-16" drill="0.35"/>
 <via x="39.878" y="35.052" extent="1-16" drill="0.35"/>
 <via x="42.8752" y="19.9136" extent="1-16" drill="0.35"/>
+<contactref element="R13" pad="1"/>
+<contactref element="R6" pad="1"/>
+<contactref element="T3" pad="2"/>
+<contactref element="T2" pad="2"/>
+<contactref element="IC9" pad="2"/>
 </signal>
 <signal name="PDI_CLK">
 <contactref element="R34" pad="1"/>
@@ -1986,9 +1792,9 @@ Your Eurocircuits Team
 <contactref element="C17" pad="1"/>
 <contactref element="IC12" pad="5"/>
 <contactref element="C9" pad="1"/>
-<wire x1="14.478" y1="20.442" x2="17.2392" y2="20.442" width="0.2032" layer="1"/>
+<wire x1="14.484" y1="20.442" x2="17.2392" y2="20.442" width="0.2032" layer="1"/>
 <wire x1="17.2392" y1="20.442" x2="17.248" y2="20.4332" width="0.2032" layer="1"/>
-<wire x1="14.478" y1="25.65" x2="17.2324" y2="25.65" width="0.2032" layer="1"/>
+<wire x1="14.484" y1="25.65" x2="17.2324" y2="25.65" width="0.2032" layer="1"/>
 <wire x1="17.2324" y1="25.65" x2="17.248" y2="25.6656" width="0.2032" layer="1"/>
 <wire x1="30.127" y1="38.382" x2="30.127" y2="35.213" width="0.2032" layer="1"/>
 <wire x1="30.127" y1="35.213" x2="30.076" y2="35.162" width="0.2032" layer="1"/>
@@ -2110,7 +1916,7 @@ Your Eurocircuits Team
 <wire x1="44.342" y1="29.4624" x2="44.3317" y2="29.4727" width="0.2032" layer="16"/>
 <via x="44.85" y="29.4624" extent="1-16" drill="0.35"/>
 <wire x1="37.342" y1="30.642" x2="37.912" y2="30.642" width="0.2" layer="16"/>
-<wire x1="37.912" y1="30.642" x2="37.912" y2="30.704" width="0.15" layer="16"/>
+<wire x1="37.912" y1="30.642" x2="37.912" y2="30.571" width="0.15" layer="16"/>
 </signal>
 <signal name="OSC2">
 <contactref element="IC8" pad="37"/>
@@ -2292,39 +2098,37 @@ Your Eurocircuits Team
 <contactref element="C5" pad="1"/>
 <contactref element="IC1" pad="20"/>
 <contactref element="TP13" pad="TP"/>
-<contactref element="IC9" pad="1"/>
 <contactref element="C23" pad="1"/>
-<contactref element="IC9" pad="3"/>
 <wire x1="27.28" y1="48.788" x2="28.702" y2="48.788" width="0.2032" layer="1"/>
 <wire x1="28.702" y1="48.788" x2="29.5618" y2="48.788" width="0.2032" layer="1"/>
 <wire x1="29.5618" y1="48.788" x2="29.8168" y2="49.043" width="0.2032" layer="1"/>
-<wire x1="32.346" y1="49.107" x2="32.282" y2="49.043" width="0.2032" layer="1"/>
+<wire x1="32.346" y1="49.082" x2="32.282" y2="49.043" width="0.2032" layer="1"/>
 <wire x1="32.282" y1="49.043" x2="29.8168" y2="49.043" width="0.2032" layer="1"/>
 <wire x1="40.7338" y1="32.9646" x2="40.7338" y2="36.1296" width="0.3048" layer="1"/>
-<wire x1="40.7338" y1="36.1296" x2="40.7784" y2="36.1742" width="0.3048" layer="1"/>
+<wire x1="40.7338" y1="36.1296" x2="40.7534" y2="36.1742" width="0.3048" layer="1"/>
 <wire x1="40.804" y1="39.535" x2="40.904" y2="36.2998" width="0.3048" layer="1"/>
-<wire x1="40.904" y1="36.2998" x2="40.7784" y2="36.1742" width="0.3048" layer="1"/>
+<wire x1="40.904" y1="36.2998" x2="40.7534" y2="36.1742" width="0.3048" layer="1"/>
 <wire x1="40.735" y1="29.695" x2="40.7338" y2="29.697896875" width="0.3048" layer="1"/>
 <wire x1="40.7338" y1="29.697896875" x2="40.7338" y2="31.218" width="0.3048" layer="1"/>
 <wire x1="40.7338" y1="31.218" x2="40.7338" y2="32.9646" width="0.3048" layer="1"/>
 <wire x1="42.635" y1="29.695" x2="42.635" y2="30.964" width="0.3048" layer="1"/>
 <wire x1="42.635" y1="30.964" x2="42.381" y2="31.218" width="0.3048" layer="1"/>
 <wire x1="42.381" y1="31.218" x2="40.7338" y2="31.218" width="0.3048" layer="1"/>
-<via x="39.6992" y="31.7676" extent="1-16" drill="0.35"/>
+<via x="40.2072" y="31.7676" extent="1-16" drill="0.35"/>
 <wire x1="39.0992" y1="47.2368" x2="39.0992" y2="36.4" width="0.2032" layer="16"/>
 <wire x1="39.0992" y1="47.2368" x2="38.714" y2="47.622" width="0.2032" layer="16"/>
 <wire x1="32.242" y1="47.622" x2="38.714" y2="47.622" width="0.2032" layer="16"/>
 <via x="32.242" y="47.622" extent="1-16" drill="0.35"/>
-<wire x1="32.346" y1="49.107" x2="32.242" y2="49.003" width="0.2032" layer="1"/>
+<wire x1="32.346" y1="49.082" x2="32.242" y2="49.003" width="0.2032" layer="1"/>
 <wire x1="32.242" y1="49.003" x2="32.242" y2="47.622" width="0.2032" layer="1"/>
 <wire x1="33.377" y1="45.632" x2="33.377" y2="47.57" width="0.2032" layer="1"/>
 <wire x1="33.377" y1="47.57" x2="32.684" y2="48.263" width="0.2032" layer="1"/>
-<wire x1="32.684" y1="48.769" x2="32.346" y2="49.107" width="0.2032" layer="1"/>
+<wire x1="32.684" y1="48.769" x2="32.346" y2="49.082" width="0.2032" layer="1"/>
 <wire x1="32.684" y1="48.769" x2="32.684" y2="48.263" width="0.2032" layer="1"/>
-<wire x1="39.6992" y1="31.7676" x2="39.221334375" y2="32.2456" width="0.2032" layer="15"/>
+<wire x1="40.2072" y1="31.7676" x2="39.729334375" y2="32.2456" width="0.2032" layer="15"/>
 <wire x1="9.55" y1="30.955" x2="9.55" y2="18.946" width="0.2032" layer="16"/>
 <wire x1="9.55" y1="30.955" x2="8.905" y2="31.6" width="0.2032" layer="16"/>
-<wire x1="40.7784" y1="36.1742" x2="40.5526" y2="36.4" width="0.2032" layer="1"/>
+<wire x1="40.7534" y1="36.1742" x2="40.5526" y2="36.4" width="0.2032" layer="1"/>
 <wire x1="40.5526" y1="36.4" x2="39.0992" y2="36.4" width="0.2032" layer="1"/>
 <via x="39.0992" y="36.4" extent="1-16" drill="0.35"/>
 <wire x1="27.28" y1="50.688" x2="28.536" y2="50.688" width="0.2032" layer="1"/>
@@ -2351,16 +2155,18 @@ Your Eurocircuits Team
 <wire x1="9.55" y1="18.946" x2="9.398" y2="18.794" width="0.2032" layer="16"/>
 <wire x1="40.7338" y1="32.9646" x2="40.7338" y2="32.0022" width="0.2032" layer="1"/>
 <wire x1="40.7338" y1="32.0022" x2="40.4992" y2="31.7676" width="0.2032" layer="1"/>
-<wire x1="40.4992" y1="31.7676" x2="39.6992" y2="31.7676" width="0.2032" layer="1"/>
+<wire x1="40.4992" y1="31.7676" x2="40.2072" y2="31.7676" width="0.2032" layer="1"/>
 <via x="8.905" y="31.6" extent="1-16" drill="0.35"/>
 <wire x1="9.55" y1="11.4" x2="9.55" y2="18.946" width="0.2032" layer="16"/>
 <wire x1="9.0456" y1="32.2456" x2="8.88" y2="32.4112" width="0.2032" layer="15"/>
 <wire x1="8.88" y1="33.578025" x2="8.88" y2="32.4112" width="0.2032" layer="15"/>
 <wire x1="8.905" y1="31.6" x2="8.905" y2="32.105" width="0.2032" layer="15"/>
 <wire x1="8.905" y1="32.105" x2="9.0456" y2="32.2456" width="0.2032" layer="15"/>
-<wire x1="39.221334375" y1="32.2456" x2="9.0456" y2="32.2456" width="0.2032" layer="15"/>
+<wire x1="39.729334375" y1="32.2456" x2="9.0456" y2="32.2456" width="0.2032" layer="15"/>
+<contactref element="IC9" pad="3"/>
+<contactref element="IC9" pad="1"/>
 </signal>
-<signal name="+3V3_U">
+<signal name="V+">
 <contactref element="C28" pad="1"/>
 <contactref element="C26" pad="1"/>
 <contactref element="C27" pad="1"/>
@@ -2522,7 +2328,7 @@ Your Eurocircuits Team
 <wire x1="46.534" y1="48.0651" x2="46.534" y2="48.055" width="0.254" layer="1"/>
 </signal>
 <signal name="U_CLOCK_IN">
-<contactref element="CLKIN" pad="4"/>
+<contactref element="X8" pad="4"/>
 <contactref element="R2" pad="1"/>
 <wire x1="13.965425" y1="39.681575" x2="13.567" y2="40.08" width="0.2032" layer="1"/>
 <wire x1="13.567" y1="40.588" x2="13.567" y2="40.08" width="0.2032" layer="1"/>
@@ -2544,10 +2350,10 @@ Your Eurocircuits Team
 <wire x1="38.8214" y1="35.1434" x2="38.862" y2="35.1028" width="0.2032" layer="15"/>
 <wire x1="38.8214" y1="35.1434" x2="22.1866" y2="35.1434" width="0.2032" layer="15"/>
 <via x="38.862" y="35.1028" extent="1-16" drill="0.35"/>
-<wire x1="38.862" y1="35.1028" x2="38.862" y2="33.294" width="0.2032" layer="16"/>
+<wire x1="38.862" y1="35.1028" x2="38.862" y2="33.183" width="0.2032" layer="16"/>
 </signal>
 <signal name="N$103">
-<contactref element="CLKIN" pad="1"/>
+<contactref element="X8" pad="1"/>
 <contactref element="R2" pad="2"/>
 <contactref element="R5" pad="2"/>
 <wire x1="23.248" y1="40.33" x2="23.248" y2="36.598" width="0.2032" layer="1"/>
@@ -2558,12 +2364,12 @@ Your Eurocircuits Team
 </signal>
 <signal name="N$104">
 <contactref element="C24" pad="1"/>
-<contactref element="IC9" pad="5"/>
 <contactref element="R5" pad="1"/>
 <wire x1="24.548" y1="40.33" x2="24.548" y2="43.94" width="0.2032" layer="1"/>
-<wire x1="24.548" y1="43.94" x2="24.748" y2="44.14" width="0.2032" layer="1"/>
-<wire x1="24.748" y1="44.14" x2="24.748" y2="48.512" width="0.2032" layer="1"/>
+<wire x1="24.548" y1="43.94" x2="24.773" y2="44.14" width="0.2032" layer="1"/>
+<wire x1="24.773" y1="44.14" x2="24.748" y2="48.512" width="0.2032" layer="1"/>
 <wire x1="24.748" y1="48.512" x2="24.472" y2="48.788" width="0.2032" layer="1"/>
+<contactref element="IC9" pad="5"/>
 </signal>
 <signal name="EMERGENCY_INPUT">
 <contactref element="IC8" pad="4"/>
@@ -2605,10 +2411,10 @@ Your Eurocircuits Team
 <signal name="HARP_H2_CLOCK_OUT">
 <contactref element="X1" pad="4"/>
 <contactref element="IC2" pad="4"/>
-<wire x1="39.812" y1="30.704" x2="44.861" y2="30.704" width="0.2032" layer="16"/>
+<wire x1="39.812" y1="30.571" x2="44.98785" y2="30.57715" width="0.2032" layer="16"/>
 <wire x1="46.054" y1="27.86" x2="45.466" y2="28.448" width="0.2032" layer="16"/>
 <wire x1="45.466" y1="28.448" x2="45.466" y2="30.099" width="0.2032" layer="16"/>
-<wire x1="45.466" y1="30.099" x2="44.861" y2="30.704" width="0.2032" layer="16"/>
+<wire x1="45.466" y1="30.099" x2="44.98785" y2="30.57715" width="0.2032" layer="16"/>
 <wire x1="48.19" y1="27.86" x2="46.054" y2="27.86" width="0.2032" layer="16"/>
 </signal>
 <signal name="HALL_EFFCT_IN">
@@ -2626,14 +2432,14 @@ Your Eurocircuits Team
 <wire x1="26.946" y1="16.696" x2="26.6" y2="16.696" width="0.2032" layer="1"/>
 <contactref element="R19" pad="2"/>
 <contactref element="C42" pad="2"/>
-<wire x1="23" y1="35.05" x2="24.9" y2="35.05" width="0.2032" layer="16"/>
+<wire x1="23" y1="35.05" x2="24.9" y2="35.1" width="0.2032" layer="16"/>
 <via x="26.6" y="16.696" extent="1-16" drill="0.35"/>
 <wire x1="26.6" y1="16.696" x2="26.6" y2="32.9" width="0.2032" layer="2"/>
 <wire x1="26.6" y1="32.9" x2="26" y2="33.5" width="0.2032" layer="2"/>
 <wire x1="26" y1="33.5" x2="26" y2="34.4" width="0.2032" layer="2"/>
 <via x="26" y="34.4" extent="1-16" drill="0.35"/>
 <wire x1="26" y1="34.4" x2="25.55" y2="34.4" width="0.2032" layer="16"/>
-<wire x1="25.55" y1="34.4" x2="24.9" y2="35.05" width="0.2032" layer="16"/>
+<wire x1="25.55" y1="34.4" x2="24.9" y2="35.1" width="0.2032" layer="16"/>
 </signal>
 <signal name="U_ENCODER_B_PHASE">
 <via x="16.85" y="23.75" extent="1-16" drill="0.35"/>
@@ -2646,7 +2452,7 @@ Your Eurocircuits Team
 <wire x1="26.573" y1="4.973" x2="26.573" y2="7.124" width="0.2032" layer="1"/>
 <wire x1="26.404" y1="4.804" x2="26.573" y2="4.973" width="0.2032" layer="1"/>
 <contactref element="IC11" pad="4"/>
-<wire x1="14.478" y1="23.75" x2="16.85" y2="23.75" width="0.2032" layer="1"/>
+<wire x1="14.484" y1="23.75" x2="16.85" y2="23.75" width="0.2032" layer="1"/>
 </signal>
 <signal name="U_STEP_ENABLE">
 <contactref element="T3" pad="1"/>
@@ -3073,7 +2879,7 @@ Your Eurocircuits Team
 <wire x1="16.0646" y1="3.2646" x2="26.7646" y2="3.2646" width="0.2032" layer="1"/>
 <wire x1="26.7646" y1="3.2646" x2="27.373" y2="3.873" width="0.2032" layer="1"/>
 <contactref element="IC12" pad="4"/>
-<wire x1="14.478" y1="18.542" x2="16.008" y2="18.542" width="0.2032" layer="1"/>
+<wire x1="14.484" y1="18.542" x2="16.008" y2="18.542" width="0.2032" layer="1"/>
 <wire x1="16.008" y1="18.542" x2="16.05" y2="18.5" width="0.2032" layer="1"/>
 </signal>
 <signal name="N$62">
@@ -3103,8 +2909,8 @@ Your Eurocircuits Team
 <contactref element="R17" pad="2"/>
 <contactref element="R19" pad="1"/>
 <contactref element="C41" pad="2"/>
-<wire x1="18.4" y1="36.35" x2="20.8" y2="36.35" width="0.2032" layer="16"/>
-<wire x1="20.8" y1="36.35" x2="23" y2="36.35" width="0.2032" layer="16"/>
+<wire x1="18.4" y1="36.35" x2="20.8" y2="36.3" width="0.2032" layer="16"/>
+<wire x1="20.8" y1="36.3" x2="23" y2="36.35" width="0.2032" layer="16"/>
 </signal>
 <signal name="N$64">
 <contactref element="R17" pad="1"/>
@@ -3204,14 +3010,14 @@ Your Eurocircuits Team
 <wire x1="9.5" y1="23.1" x2="9.5" y2="19.892" width="0.2032" layer="1"/>
 <contactref element="X2" pad="3"/>
 <contactref element="IC12" pad="2"/>
-<wire x1="11.888" y1="19.492" x2="9.9" y2="19.492" width="0.2032" layer="1"/>
+<wire x1="11.872" y1="19.492" x2="9.9" y2="19.492" width="0.2032" layer="1"/>
 <wire x1="3.4" y1="23.874" x2="8.726" y2="23.874" width="0.2032" layer="1"/>
 <wire x1="8.726" y1="23.874" x2="9.5" y2="23.1" width="0.2032" layer="1"/>
 </signal>
 <signal name="ENCODER_B_PHASE">
 <contactref element="X2" pad="2"/>
 <contactref element="IC11" pad="2"/>
-<wire x1="11.888" y1="24.7" x2="10.7" y2="24.7" width="0.2032" layer="1"/>
+<wire x1="11.872" y1="24.7" x2="10.7" y2="24.7" width="0.2032" layer="1"/>
 <wire x1="8.986" y1="26.414" x2="3.4" y2="26.414" width="0.2032" layer="1"/>
 <wire x1="10.7" y1="24.7" x2="8.986" y2="26.414" width="0.2032" layer="1"/>
 </signal>
@@ -3253,16 +3059,6 @@ Your Eurocircuits Team
 <note version="6.3" minversion="6.2.2" severity="warning">
 Since Version 6.2.2 text objects can contain more than one line,
 which will not be processed correctly with this version.
-</note>
-<note version="8.3" severity="warning">
-Since Version 8.3, EAGLE supports URNs for individual library
-assets (packages, symbols, and devices). The URNs of those assets
-will not be understood (or retained) with this version.
-</note>
-<note version="8.3" severity="warning">
-Since Version 8.3, EAGLE supports the association of 3D packages
-with devices in libraries, schematics, and board files. Those 3D
-packages will not be understood (or retained) with this version.
 </note>
 </compatibility>
 </eagle>
