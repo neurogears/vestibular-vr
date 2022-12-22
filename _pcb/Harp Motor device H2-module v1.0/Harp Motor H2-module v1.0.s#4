@@ -1988,7 +1988,7 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="OEPS" value="OEPS030005"/>
 </part>
 <part name="GND29" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
-<part name="X1" library="Harp Motor H2-module v1.0" deviceset="90G-5" device="" value="be sure about plug type">
+<part name="X1" library="Harp Motor H2-module v1.0" deviceset="90G-5" device="" value="1x5 MAIN PLUG">
 <attribute name="MPN" value="20.155MH/5-E"/>
 <attribute name="OEPS" value="OEPS070037"/>
 </part>
@@ -2150,11 +2150,11 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="MPN" value="C1005X7R1H104K050BB"/>
 <attribute name="OEPS" value="OEPS010004"/>
 </part>
-<part name="C15" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0603K" value="4.7uF ??">
+<part name="C15" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0603K" value="4.7uF">
 <attribute name="MPN" value="C1608X6S1C475K080AC"/>
 <attribute name="OEPS" value="OEPS010018"/>
 </part>
-<part name="R9" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="100R DNI">
+<part name="R9" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="DNI 100R">
 <attribute name="MPN" value="ERJ-2RKF1000X
 "/>
 <attribute name="OEPS" value="OEPS020004"/>

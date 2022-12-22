@@ -226,6 +226,7 @@ RX
 TX
 
 V+</text>
+<text x="13.716" y="43.18" size="0.8128" layer="25" font="vector" ratio="15" rot="R90">CLKIN</text>
 </plain>
 <libraries>
 <library name="Harp Motor H2-module v1.0">
@@ -1266,9 +1267,9 @@ Your Eurocircuits Team
 <attribute name="OEPS" value="OEPS020037" x="20.21" y="26.6908" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="22.115" y="26.0558" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="CLKIN" library="Harp Motor H2-module v1.0" package="35RASMT2BHNTRX" value="CLCK_JACK" x="17.142" y="48.788" smashed="yes" rot="R270">
+<element name="X8" library="Harp Motor H2-module v1.0" package="35RASMT2BHNTRX" value="CLCK_JACK" x="17.142" y="48.788" smashed="yes" rot="R270">
 <attribute name="MPN" value="35RASMT2BHNTRX" x="17.142" y="48.788" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="13.414" y="44.154" size="0.8128" layer="25" font="vector" ratio="15" rot="R90"/>
+<attribute name="NAME" x="16.044" y="37.417" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="OEPS" value="OEPS070025" x="17.142" y="48.788" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="18.793" y="41.803" size="0.8128" layer="25" font="vector" ratio="15" rot="R270" display="off"/>
 </element>
@@ -1415,7 +1416,7 @@ Your Eurocircuits Team
 <attribute name="OEPS" value="OEPS010018" x="23.7" y="26.2" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="22.05" y="25.4" size="1.016" layer="28" rot="MR90"/>
 </element>
-<element name="R9" library="Harp Motor H2-module v1.0" package="R0402" value="100R DNI" x="26.6" y="25.3" smashed="yes" rot="MR180">
+<element name="R9" library="Harp Motor H2-module v1.0" package="R0402" value="DNI 100R" x="26.6" y="25.3" smashed="yes" rot="MR180">
 <attribute name="MPN" value="ERJ-2RKF1000X
 " x="26.6" y="25.3" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="NAME" x="26.565" y="24.465" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
@@ -1560,7 +1561,7 @@ Your Eurocircuits Team
 <contactref element="C6" pad="2"/>
 <contactref element="C4" pad="2"/>
 <contactref element="R1" pad="1"/>
-<contactref element="CLKIN" pad="5"/>
+<contactref element="X8" pad="5"/>
 <contactref element="C24" pad="2"/>
 <contactref element="C23" pad="2"/>
 <contactref element="X1" pad="5"/>
@@ -2327,7 +2328,7 @@ Your Eurocircuits Team
 <wire x1="46.534" y1="48.0651" x2="46.534" y2="48.055" width="0.254" layer="1"/>
 </signal>
 <signal name="U_CLOCK_IN">
-<contactref element="CLKIN" pad="4"/>
+<contactref element="X8" pad="4"/>
 <contactref element="R2" pad="1"/>
 <wire x1="13.965425" y1="39.681575" x2="13.567" y2="40.08" width="0.2032" layer="1"/>
 <wire x1="13.567" y1="40.588" x2="13.567" y2="40.08" width="0.2032" layer="1"/>
@@ -2352,7 +2353,7 @@ Your Eurocircuits Team
 <wire x1="38.862" y1="35.1028" x2="38.862" y2="33.183" width="0.2032" layer="16"/>
 </signal>
 <signal name="N$103">
-<contactref element="CLKIN" pad="1"/>
+<contactref element="X8" pad="1"/>
 <contactref element="R2" pad="2"/>
 <contactref element="R5" pad="2"/>
 <wire x1="23.248" y1="40.33" x2="23.248" y2="36.598" width="0.2032" layer="1"/>

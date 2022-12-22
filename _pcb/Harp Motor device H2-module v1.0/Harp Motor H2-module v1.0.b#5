@@ -1376,7 +1376,7 @@ Your Eurocircuits Team
 <element name="X7" library="Harp Motor H2-module v1.0" package="DC_POWER_INPUT_2.1MM" value="DC_JACK2.1MM" x="53.038" y="6.364" smashed="yes" rot="R180">
 <attribute name="MPN" value="163-179PH-EX" x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="41.924" y="4.281" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="OEPS" value="TBD 2" x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="OEPS" value="OEPS070026" x="53.038" y="6.364" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="47.038" y="1.614" size="0.6096" layer="27" rot="R180"/>
 </element>
 <element name="R4" library="Harp Motor H2-module v1.0" package="R0402" value="div tensao ADC" x="24.8772" y="22.2772" smashed="yes" rot="MR90">
@@ -1392,15 +1392,15 @@ Your Eurocircuits Team
 <attribute name="VALUE" x="24.929" y="22.907" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="IC11" library="Harp Motor H2-module v1.0" package="SOT23-5" value="74LVC1G125DBV" x="13.178" y="24.7" smashed="yes" rot="R270">
-<attribute name="MPN" value="74LVC1G125DBV" x="13.178" y="24.7" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="SN74LVC1G125DBVT" x="13.178" y="24.7" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="11.344" y="26.87" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="OEPS" value="74LVC1G125DBV" x="13.178" y="24.7" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OEPS" value="OEPS080029" x="13.178" y="24.7" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="9.368" y="27.24" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="IC12" library="Harp Motor H2-module v1.0" package="SOT23-5" value="74LVC1G125DBV" x="13.178" y="19.492" smashed="yes" rot="R270">
-<attribute name="MPN" value="74LVC1G125DBV" x="13.178" y="19.492" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="SN74LVC1G125DBVT" x="13.178" y="19.492" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="11.218" y="16.456" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="OEPS" value="74LVC1G125DBV" x="13.178" y="19.492" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OEPS" value="OEPS080029" x="13.178" y="19.492" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="9.368" y="22.032" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C9" library="Harp Motor H2-module v1.0" package="C0402K" value="100nF" x="29.476" y="35.162" smashed="yes" rot="R180">
@@ -1452,10 +1452,10 @@ Your Eurocircuits Team
 <attribute name="OEPS" value="OEPS040003" x="31.9" y="15.2" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="31.265" y="17.74" size="1.27" layer="28" rot="MR180"/>
 </element>
-<element name="R17" library="Harp Motor H2-module v1.0" package="R0402" value="10k 1%" x="18.4" y="35.7" smashed="yes" rot="MR90">
-<attribute name="MPN" value="ERJ-2RKF1002X" x="18.4" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
+<element name="R17" library="Harp Motor H2-module v1.0" package="R0402" value="10k" x="18.4" y="35.7" smashed="yes" rot="MR90">
+<attribute name="MPN" value="CRCW040210K0FKED" x="18.4" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="17.635" y="36.035" size="0.8128" layer="26" font="vector" ratio="15" rot="MR0"/>
-<attribute name="OEPS" value="OEPS020013" x="18.4" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="OEPS" value="OEPS020030" x="18.4" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="16.495" y="35.065" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="C41" library="Harp Motor H2-module v1.0" package="C0402K" value="15nF 5%" x="20.8" y="35.7" smashed="yes" rot="MR90">
@@ -1464,10 +1464,10 @@ Your Eurocircuits Team
 <attribute name="OEPS" value="TBD" x="20.8" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="18.895" y="35.065" size="1.27" layer="28" rot="MR90"/>
 </element>
-<element name="R19" library="Harp Motor H2-module v1.0" package="R0402" value="10k 1%" x="23" y="35.7" smashed="yes" rot="MR270">
-<attribute name="MPN" value="ERJ-2RKF1002X" x="23" y="35.7" size="1.778" layer="28" rot="MR270" display="off"/>
+<element name="R19" library="Harp Motor H2-module v1.0" package="R0402" value="10k" x="23" y="35.7" smashed="yes" rot="MR270">
+<attribute name="MPN" value="CRCW040210K0FKED" x="23" y="35.7" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="21.865" y="33.865" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="OEPS020013" x="23" y="35.7" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="OEPS" value="OEPS020030" x="23" y="35.7" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="24.905" y="36.335" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="C42" library="Harp Motor H2-module v1.0" package="C0402K" value="15nF 5%" x="24.9" y="35.7" smashed="yes" rot="MR270">
@@ -1491,7 +1491,7 @@ Your Eurocircuits Team
 <element name="IC10" library="Harp Motor H2-module v1.0" package="SOT23-5" value="OPA365" x="14.1" y="34" smashed="yes" rot="MR90">
 <attribute name="MPN" value="OEPS080019=TLV272CDGKR" x="14.1" y="34" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="12.622" y="31.922" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="TBD 4" x="14.1" y="34" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="OEPS" value="TBD" x="14.1" y="34" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="12.322" y="37.048" size="1.27" layer="28" ratio="10" rot="MR180"/>
 </element>
 <element name="R10" library="Harp Motor H2-module v1.0" package="R0402" value="DNI 0R" x="8" y="36.2" smashed="yes" rot="MR180">
@@ -1513,9 +1513,9 @@ Your Eurocircuits Team
 <attribute name="VALUE" x="34.9736" y="30.742" size="1.016" layer="28" rot="MR90"/>
 </element>
 <element name="IC2" library="Harp Motor H2-module v1.0" package="SOT23-5" value="74LVC1G125DBV" x="38.862" y="31.877" smashed="yes" rot="MR180">
-<attribute name="MPN" value="74LVC1G125DBV" x="38.862" y="31.877" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="MPN" value="SN74LVC1G125DBVT" x="38.862" y="31.877" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="NAME" x="36.068" y="35.052" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="74LVC1G125DBV" x="38.862" y="31.877" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="OEPS" value="OEPS080029" x="38.862" y="31.877" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="36.322" y="35.687" size="1.27" layer="28" rot="MR180"/>
 </element>
 <element name="IC9" library="Harp Motor H2-module v1.0" package="TSOT23-5" value="LP5907MFX-3.3" x="25.876" y="49.738" smashed="yes" rot="R90">

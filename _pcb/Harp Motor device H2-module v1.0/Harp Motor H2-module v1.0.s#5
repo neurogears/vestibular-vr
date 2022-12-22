@@ -1988,7 +1988,7 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="OEPS" value="OEPS030005"/>
 </part>
 <part name="GND29" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
-<part name="X1" library="Harp Motor H2-module v1.0" deviceset="90G-5" device="" value="be sure about plug type">
+<part name="X1" library="Harp Motor H2-module v1.0" deviceset="90G-5" device="" value="1x5 MAIN PLUG">
 <attribute name="MPN" value="20.155MH/5-E"/>
 <attribute name="OEPS" value="OEPS070037"/>
 </part>
@@ -2122,7 +2122,7 @@ DIN A3, landscape with location and doc. field</description>
 </part>
 <part name="X7" library="Harp Motor H2-module v1.0" deviceset="DC_JACK" device="2.1MM">
 <attribute name="MPN" value="163-179PH-EX"/>
-<attribute name="OEPS" value="TBD"/>
+<attribute name="OEPS" value="OEPS070026"/>
 </part>
 <part name="R4" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="div tensao ADC">
 <attribute name="MPN" value="n.a"/>
@@ -2150,7 +2150,7 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="MPN" value="C1005X7R1H104K050BB"/>
 <attribute name="OEPS" value="OEPS010004"/>
 </part>
-<part name="C15" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0603K" value="4.7uF ??">
+<part name="C15" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0603K" value="4.7uF">
 <attribute name="MPN" value="C1608X6S1C475K080AC"/>
 <attribute name="OEPS" value="OEPS010018"/>
 </part>
@@ -2186,18 +2186,18 @@ DIN A3, landscape with location and doc. field</description>
 </part>
 <part name="VDD8" library="Harp Motor H2-module v1.0" deviceset="V+" device="" value="+3V3_u"/>
 <part name="GND37" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
-<part name="R17" library="Harp Motor H2-module v1.0" deviceset="R-EU_" device="R0402" value="10k 1%">
-<attribute name="MPN" value="ERJ-2RKF1002X"/>
-<attribute name="OEPS" value="OEPS020013"/>
+<part name="R17" library="Harp Motor H2-module v1.0" deviceset="R-EU_" device="R0402" value="10k">
+<attribute name="MPN" value="CRCW040210K0FKED"/>
+<attribute name="OEPS" value="OEPS020030"/>
 </part>
 <part name="C41" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0402K" value="15nF 5%">
 <attribute name="MPN" value="TBD"/>
 <attribute name="OEPS" value="TBD"/>
 </part>
 <part name="GND45" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
-<part name="R19" library="Harp Motor H2-module v1.0" deviceset="R-EU_" device="R0402" value="10k 1%">
-<attribute name="MPN" value="ERJ-2RKF1002X"/>
-<attribute name="OEPS" value="OEPS020013"/>
+<part name="R19" library="Harp Motor H2-module v1.0" deviceset="R-EU_" device="R0402" value="10k">
+<attribute name="MPN" value="CRCW040210K0FKED"/>
+<attribute name="OEPS" value="OEPS020030"/>
 </part>
 <part name="C42" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0402K" value="15nF 5%">
 <attribute name="MPN" value="TBD"/>

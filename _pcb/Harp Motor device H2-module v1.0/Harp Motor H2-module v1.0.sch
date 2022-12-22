@@ -2018,10 +2018,8 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="OEPS" value="OEPS020030"/>
 </part>
 <part name="R5" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="10R">
-<attribute name="MPN" value="ERJ-PA2J100X
-"/>
-<attribute name="OEPS" value="OEPS020041
-"/>
+<attribute name="MPN" value="ERJ-PA2J100X "/>
+<attribute name="OEPS" value="OEPS020041 "/>
 </part>
 <part name="GND1" library="Harp Motor H2-module v1.0" deviceset="GND" device="">
 <attribute name="DIGKEYPN" value=""/>
@@ -2124,13 +2122,13 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="MPN" value="163-179PH-EX"/>
 <attribute name="OEPS" value="OEPS070026"/>
 </part>
-<part name="R4" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="div tensao ADC">
-<attribute name="MPN" value="n.a"/>
-<attribute name="OEPS" value="TBD"/>
+<part name="R4" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="DNI">
+<attribute name="MPN" value="DNI"/>
+<attribute name="OEPS" value="DNI"/>
 </part>
-<part name="R7" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="div tensao ADC">
-<attribute name="MPN" value="n.a."/>
-<attribute name="OEPS" value="TBD"/>
+<part name="R7" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="DNI">
+<attribute name="MPN" value="DNI"/>
+<attribute name="OEPS" value="DNI"/>
 </part>
 <part name="GND13" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
 <part name="VDD6" library="Harp Motor H2-module v1.0" deviceset="V+" device="" value="+3V3_u"/>
@@ -2150,13 +2148,12 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="MPN" value="C1005X7R1H104K050BB"/>
 <attribute name="OEPS" value="OEPS010004"/>
 </part>
-<part name="C15" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0603K" value="4.7uF">
+<part name="C15" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0603K" value="DNI 4.7uF">
 <attribute name="MPN" value="C1608X6S1C475K080AC"/>
 <attribute name="OEPS" value="OEPS010018"/>
 </part>
 <part name="R9" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="DNI 100R">
-<attribute name="MPN" value="ERJ-2RKF1000X
-"/>
+<attribute name="MPN" value="ERJ-2RKF1000X "/>
 <attribute name="OEPS" value="OEPS020004"/>
 </part>
 <part name="GND24" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
@@ -2876,13 +2873,13 @@ Rotary Joint = H1 module</text>
 </instance>
 <instance part="R4" gate="G$1" x="149.86" y="226.06" smashed="yes" rot="R90">
 <attribute name="NAME" x="148.082" y="226.5934" size="1.4224" layer="95" font="vector" ratio="12" rot="R180"/>
-<attribute name="VALUE" x="158.242" y="224.282" size="1.4224" layer="96" font="vector" ratio="12" rot="R180"/>
+<attribute name="VALUE" x="155.702" y="224.282" size="1.4224" layer="96" font="vector" ratio="12" rot="R180"/>
 <attribute name="MPN" x="149.86" y="226.06" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="OEPS" x="149.86" y="226.06" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="R7" gate="G$1" x="149.86" y="210.82" smashed="yes" rot="R90">
 <attribute name="NAME" x="148.082" y="211.3534" size="1.4224" layer="95" font="vector" ratio="12" rot="R180"/>
-<attribute name="VALUE" x="148.082" y="209.042" size="1.4224" layer="96" font="vector" ratio="12" rot="R180"/>
+<attribute name="VALUE" x="154.94" y="209.042" size="1.4224" layer="96" font="vector" ratio="12" rot="R180"/>
 <attribute name="MPN" x="149.86" y="210.82" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="OEPS" x="149.86" y="210.82" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
