@@ -340,16 +340,8 @@ bool app_write_REG_OUT_WRITE(void *a)
 /* REG_REG_OPTICAL_TRACKING_READ                                        */
 /************************************************************************/
 // This register is an array with 6 positions
-void app_read_REG_REG_OPTICAL_TRACKING_READ(void)
-{
-	//app_regs.REG_REG_OPTICAL_TRACKING_READ[0] = 0;
-
-}
-
+void app_read_REG_REG_OPTICAL_TRACKING_READ(void) {}
 bool app_write_REG_REG_OPTICAL_TRACKING_READ(void *a)
 {
-	int16_t *reg = ((int16_t*)a);
-
-	app_regs.REG_REG_OPTICAL_TRACKING_READ[0] = reg[0];
-	return true;
+	return false;
 }

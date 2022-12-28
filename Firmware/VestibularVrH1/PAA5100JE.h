@@ -22,13 +22,18 @@ typedef struct Motion {
 } Motion;
 
 
-bool optical_tracking_initialize(void);
-void performanceOptimizationRoutine(void);
+bool optical_tracking_initialize_flow0(void);
+bool optical_tracking_initialize_flow1(void);
+void performanceOptimizationRoutine_flow0(void);
+void performanceOptimizationRoutine_flow1(void);
 
-void optical_tracking_read_motion (Motion motion[]);
+void optical_tracking_read_motion(Motion motion_flow0[], Motion motion_flow1[]);
+void optical_tracking_read_motion_optimized(Motion motion_flow0[], Motion motion_flow1[]);
 
-uint8_t optical_tracking_read_register(uint8_t address);
-void optical_tracking_write_register(uint8_t address, uint8_t byte);
+uint8_t optical_tracking_read_register_flow0(uint8_t address);
+uint8_t optical_tracking_read_register_flow1(uint8_t address);
+void optical_tracking_write_register_flow0(uint8_t address, uint8_t byte);
+void optical_tracking_write_register_flow1(uint8_t address, uint8_t byte);
 
 
 #endif /* _SPI_H_ */

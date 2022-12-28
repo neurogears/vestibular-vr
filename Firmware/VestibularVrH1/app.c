@@ -6,6 +6,9 @@
 #include "app_funcs.h"
 #include "app_ios_and_regs.h"
 
+#include "spi.h"
+#include "PAA5100JE.h"
+
 /************************************************************************/
 /* Declare application registers                                        */
 /************************************************************************/
@@ -74,8 +77,13 @@ void core_callback_initialize_hardware(void)
 	/* Don't delete this function!!! */
 	init_ios();
 	
-	/* Initialize hardware */
+	/* Initialize spi on port C */
+	spi_initialize_flow0();
+	spi_initialize_flow1();
 	
+	/* Initialize the optical tracking devices */
+	optical_tracking_initialize_flow0();
+	optical_tracking_initialize_flow1();
 }
 
 void core_callback_reset_registers(void)
@@ -126,9 +134,15 @@ void core_callback_device_to_speed(void) {}
 uint8_t pulse_countdown_valve0 = 0;
 uint8_t pulse_countdown_valve1 = 0;
 
+uint16_t optical_counter = 0;
+uint16_t optical_counter_divider = 10; // 200Hz
+
 void core_callback_t_before_exec(void) {}
 void core_callback_t_after_exec(void) {}
-void core_callback_t_new_second(void) {}
+void core_callback_t_new_second(void)
+{	
+	optical_counter = optical_counter_divider-1;
+}
 void core_callback_t_500us(void)
 {
 	if (pulse_countdown_valve0 > 0)
@@ -139,7 +153,25 @@ void core_callback_t_500us(void)
 		if (--pulse_countdown_valve1 == 0)
 			clr_VALVE1;
 }
-void core_callback_t_1ms(void) {}
+void core_callback_t_1ms(void)
+{
+	if (++optical_counter == optical_counter_divider)
+	{		
+		Motion optical_motion_flow0;
+		Motion optical_motion_flow1;
+		
+		optical_tracking_read_motion_optimized(&optical_motion_flow0, &optical_motion_flow1);
+		
+		memcpy(app_regs.REG_REG_OPTICAL_TRACKING_READ+0, ((uint8_t*)(&optical_motion_flow0))+2,5);
+		memcpy(app_regs.REG_REG_OPTICAL_TRACKING_READ+3, ((uint8_t*)(&optical_motion_flow1))+2,5);
+		*(((uint8_t*)(&app_regs.REG_REG_OPTICAL_TRACKING_READ[2]))+1) = 0;	// Clear high byte of [2]
+		*(((uint8_t*)(&app_regs.REG_REG_OPTICAL_TRACKING_READ[5]))+1) = 0;	// Clear high byte of [2]
+				
+		core_func_send_event(ADD_REG_REG_OPTICAL_TRACKING_READ, true);
+		
+		optical_counter = 0;
+	}
+}
 
 /************************************************************************/
 /* Callbacks: clock control                                             */
