@@ -89,19 +89,31 @@ void core_callback_initialize_hardware(void)
 void core_callback_reset_registers(void)
 {
 	/* Initialize registers */
+	app_regs.REG_CAM0_TRIGGER_FREQUENCY = 120;		// 120 Hz
+	app_regs.REG_CAM0_TRIGGER_DURATION_US = 1000;	// 1 mS
+	
+	app_regs.REG_CAM1_TRIGGER_FREQUENCY = 120;		// 120 Hz
+	app_regs.REG_CAM1_TRIGGER_DURATION_US = 1000;	// 1 mS
+		
 	app_regs.REG_VALVE0_PULSE = 10; // 10 ms
 	app_regs.REG_VALVE1_PULSE = 10; // 10 ms
 	
 	app_regs.REG_OUT_SET = 0;
 	app_regs.REG_OUT_CLEAR = 0;
 	app_regs.REG_OUT_TOGGLE = 0;
-	app_regs.REG_OUT_WRITE = 0;	
+	app_regs.REG_OUT_WRITE = 0;
 }
 
 void core_callback_registers_were_reinitialized(void)
 {
 	/* Update registers if needed */
 	app_read_REG_IN_STATE();
+	
+	app_write_REG_CAM0_TRIGGER_FREQUENCY(&app_regs.REG_CAM0_TRIGGER_FREQUENCY);
+	app_write_REG_CAM0_TRIGGER_DURATION_US(&app_regs.REG_CAM0_TRIGGER_DURATION_US);
+	
+	app_write_REG_CAM1_TRIGGER_FREQUENCY(&app_regs.REG_CAM1_TRIGGER_FREQUENCY);
+	app_write_REG_CAM1_TRIGGER_DURATION_US(&app_regs.REG_CAM1_TRIGGER_DURATION_US);
 	
 }
 
@@ -137,11 +149,45 @@ uint8_t pulse_countdown_valve1 = 0;
 uint16_t optical_counter = 0;
 uint16_t optical_counter_divider = 10; // 200Hz
 
+extern bool cam0_start_request;
+extern bool cam1_start_request;
+extern bool cam0_stop_request;
+extern bool cam1_stop_request;
+
+extern bool cam0_acquiring;
+extern bool cam1_acquiring;
+
+extern uint8_t cam0_freq_prescaler;
+extern uint8_t cam1_freq_prescaler;
+extern uint16_t cam0_freq_target_count;
+extern uint16_t cam1_freq_target_count;
+extern uint16_t cam0_freq_dutycyle;
+extern uint16_t cam1_freq_dutycyle;
+
+bool stop_cam0_when_possible = false;
+bool stop_cam1_when_possible = false;
+
 void core_callback_t_before_exec(void) {}
 void core_callback_t_after_exec(void) {}
 void core_callback_t_new_second(void)
 {	
 	optical_counter = optical_counter_divider-1;
+	
+	if (cam0_start_request)
+	{
+		cam0_start_request = false;
+		cam0_acquiring = true;
+		
+		timer_type0_pwm(&TCC0, cam0_freq_prescaler, cam0_freq_target_count, cam0_freq_dutycyle, INT_LEVEL_LOW, INT_LEVEL_LOW);
+	}
+
+	if (cam1_start_request)
+	{
+		cam1_start_request = false;
+		cam1_acquiring = true;
+		
+		timer_type0_pwm(&TCD0, cam1_freq_prescaler, cam1_freq_target_count, cam1_freq_dutycyle, INT_LEVEL_LOW, INT_LEVEL_LOW);
+	}
 }
 void core_callback_t_500us(void)
 {
@@ -170,6 +216,19 @@ void core_callback_t_1ms(void)
 		core_func_send_event(ADD_REG_REG_OPTICAL_TRACKING_READ, true);
 		
 		optical_counter = 0;
+	}
+	
+	
+	if (cam0_stop_request)
+	{
+		cam0_stop_request = false;
+		stop_cam0_when_possible = true;
+	}
+
+	if (cam1_stop_request)
+	{
+		cam1_stop_request = false;
+		stop_cam1_when_possible = true;
 	}
 }
 

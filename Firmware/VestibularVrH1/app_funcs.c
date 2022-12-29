@@ -48,53 +48,87 @@ bool (*app_func_wr_pointer[])(void*) = {
 /************************************************************************/
 /* REG_CAM0_EVENT                                                       */
 /************************************************************************/
-void app_read_REG_CAM0_EVENT(void)
-{
-	//app_regs.REG_CAM0_EVENT = 0;
-
-}
-
+void app_read_REG_CAM0_EVENT(void) {}
 bool app_write_REG_CAM0_EVENT(void *a)
 {
-	uint8_t reg = *((uint8_t*)a);
-
-	app_regs.REG_CAM0_EVENT = reg;
-	return true;
+	return false;
 }
 
 
 /************************************************************************/
 /* REG_CAM1_EVENT                                                       */
 /************************************************************************/
-void app_read_REG_CAM1_EVENT(void)
-{
-	//app_regs.REG_CAM1_EVENT = 0;
-
-}
-
+void app_read_REG_CAM1_EVENT(void) {}
 bool app_write_REG_CAM1_EVENT(void *a)
 {
-	uint8_t reg = *((uint8_t*)a);
-
-	app_regs.REG_CAM1_EVENT = reg;
-	return true;
+	return false;
 }
 
 
 /************************************************************************/
 /* REG_CAM0_TRIGGER_FREQUENCY                                           */
 /************************************************************************/
-void app_read_REG_CAM0_TRIGGER_FREQUENCY(void)
-{
-	//app_regs.REG_CAM0_TRIGGER_FREQUENCY = 0;
+bool cam0_start_request = false;
+bool cam1_start_request = false;
+bool cam0_stop_request = false;
+bool cam1_stop_request = false;
 
+bool cam0_acquiring = false;
+bool cam1_acquiring = false;
+
+uint8_t cam0_freq_prescaler;
+uint8_t cam1_freq_prescaler;
+uint16_t cam0_freq_target_count;
+uint16_t cam1_freq_target_count;
+uint16_t cam0_freq_dutycyle;
+uint16_t cam1_freq_dutycyle;
+
+void update_cam0_timer_pre_values(void)
+{
+	calculate_timer_16bits(32000000, app_regs.REG_CAM0_TRIGGER_FREQUENCY, &cam0_freq_prescaler, &cam0_freq_target_count);
+	
+	switch (cam0_freq_prescaler)
+	{
+		case TIMER_PRESCALER_DIV1:    cam0_freq_dutycyle = (app_regs.REG_CAM0_TRIGGER_DURATION_US *32.0) / 1.0;    return;
+		case TIMER_PRESCALER_DIV2:    cam0_freq_dutycyle = (app_regs.REG_CAM0_TRIGGER_DURATION_US *32.0) / 2.0;    return;
+		case TIMER_PRESCALER_DIV4:    cam0_freq_dutycyle = (app_regs.REG_CAM0_TRIGGER_DURATION_US *32.0) / 4.0;    return;
+		case TIMER_PRESCALER_DIV8:    cam0_freq_dutycyle = (app_regs.REG_CAM0_TRIGGER_DURATION_US *32.0) / 8.0;    return;
+		case TIMER_PRESCALER_DIV64:   cam0_freq_dutycyle = (app_regs.REG_CAM0_TRIGGER_DURATION_US *32.0) / 64.0;   return;
+		case TIMER_PRESCALER_DIV256:  cam0_freq_dutycyle = (app_regs.REG_CAM0_TRIGGER_DURATION_US *32.0) / 256.0;  return;
+		case TIMER_PRESCALER_DIV1024: cam0_freq_dutycyle = (app_regs.REG_CAM0_TRIGGER_DURATION_US *32.0) / 1024.0; return;
+	}
 }
 
+void update_cam1_timer_pre_values(void)
+{
+	calculate_timer_16bits(32000000, app_regs.REG_CAM1_TRIGGER_FREQUENCY, &cam1_freq_prescaler, &cam1_freq_target_count);
+	
+	switch (cam1_freq_prescaler)
+	{
+		case TIMER_PRESCALER_DIV1:    cam1_freq_dutycyle = (app_regs.REG_CAM1_TRIGGER_DURATION_US *32.0) / 1.0;    return;
+		case TIMER_PRESCALER_DIV2:    cam1_freq_dutycyle = (app_regs.REG_CAM1_TRIGGER_DURATION_US *32.0) / 2.0;    return;
+		case TIMER_PRESCALER_DIV4:    cam1_freq_dutycyle = (app_regs.REG_CAM1_TRIGGER_DURATION_US *32.0) / 4.0;    return;
+		case TIMER_PRESCALER_DIV8:    cam1_freq_dutycyle = (app_regs.REG_CAM1_TRIGGER_DURATION_US *32.0) / 8.0;    return;
+		case TIMER_PRESCALER_DIV64:   cam1_freq_dutycyle = (app_regs.REG_CAM1_TRIGGER_DURATION_US *32.0) / 64.0;   return;
+		case TIMER_PRESCALER_DIV256:  cam1_freq_dutycyle = (app_regs.REG_CAM1_TRIGGER_DURATION_US *32.0) / 256.0;  return;
+		case TIMER_PRESCALER_DIV1024: cam1_freq_dutycyle = (app_regs.REG_CAM1_TRIGGER_DURATION_US *32.0) / 1024.0; return;
+	}
+}
+
+void app_read_REG_CAM0_TRIGGER_FREQUENCY(void) {}
 bool app_write_REG_CAM0_TRIGGER_FREQUENCY(void *a)
 {
 	uint16_t reg = *((uint16_t*)a);
+	
+	if (reg < 1 || reg > 1000)
+		return false;
+	
+	if (cam0_acquiring)
+		return false;
 
 	app_regs.REG_CAM0_TRIGGER_FREQUENCY = reg;
+	update_cam0_timer_pre_values();
+	
 	return true;
 }
 
@@ -102,17 +136,20 @@ bool app_write_REG_CAM0_TRIGGER_FREQUENCY(void *a)
 /************************************************************************/
 /* REG_CAM0_TRIGGER_DURATION_US                                         */
 /************************************************************************/
-void app_read_REG_CAM0_TRIGGER_DURATION_US(void)
-{
-	//app_regs.REG_CAM0_TRIGGER_DURATION_US = 0;
-
-}
-
+void app_read_REG_CAM0_TRIGGER_DURATION_US(void) {}
 bool app_write_REG_CAM0_TRIGGER_DURATION_US(void *a)
 {
 	uint16_t reg = *((uint16_t*)a);
-
+	
+	if (reg < 100 || reg > 5000)
+		return false;
+	
+	if (cam0_acquiring)
+		return false;
+	
 	app_regs.REG_CAM0_TRIGGER_DURATION_US = reg;
+	update_cam0_timer_pre_values();
+	
 	return true;
 }
 
@@ -120,17 +157,20 @@ bool app_write_REG_CAM0_TRIGGER_DURATION_US(void *a)
 /************************************************************************/
 /* REG_CAM1_TRIGGER_FREQUENCY                                           */
 /************************************************************************/
-void app_read_REG_CAM1_TRIGGER_FREQUENCY(void)
-{
-	//app_regs.REG_CAM1_TRIGGER_FREQUENCY = 0;
-
-}
-
+void app_read_REG_CAM1_TRIGGER_FREQUENCY(void) {}
 bool app_write_REG_CAM1_TRIGGER_FREQUENCY(void *a)
 {
 	uint16_t reg = *((uint16_t*)a);
+	
+	if (reg < 1 || reg > 1000)
+		return false;
+	
+	if (cam1_acquiring)
+		return false;
 
 	app_regs.REG_CAM1_TRIGGER_FREQUENCY = reg;
+	update_cam1_timer_pre_values();
+	
 	return true;
 }
 
@@ -138,17 +178,20 @@ bool app_write_REG_CAM1_TRIGGER_FREQUENCY(void *a)
 /************************************************************************/
 /* REG_CAM1_TRIGGER_DURATION_US                                         */
 /************************************************************************/
-void app_read_REG_CAM1_TRIGGER_DURATION_US(void)
-{
-	//app_regs.REG_CAM1_TRIGGER_DURATION_US = 0;
-
-}
-
+void app_read_REG_CAM1_TRIGGER_DURATION_US(void) {}
 bool app_write_REG_CAM1_TRIGGER_DURATION_US(void *a)
 {
 	uint16_t reg = *((uint16_t*)a);
-
+	
+	if (reg < 100 || reg > 5000)
+		return false;
+	
+	if (cam1_acquiring)
+		return false;
+	
 	app_regs.REG_CAM1_TRIGGER_DURATION_US = reg;
+	update_cam1_timer_pre_values();
+	
 	return true;
 }
 
@@ -158,14 +201,50 @@ bool app_write_REG_CAM1_TRIGGER_DURATION_US(void *a)
 /************************************************************************/
 void app_read_REG_START_AND_STOP(void)
 {
-	//app_regs.REG_START_AND_STOP = 0;
-
+	app_regs.REG_START_AND_STOP  = (cam0_acquiring) ? B_START_CAM0 : B_STOP_CAM0;
+	app_regs.REG_START_AND_STOP |= (cam1_acquiring) ? B_START_CAM1 : B_STOP_CAM1;
 }
 
 bool app_write_REG_START_AND_STOP(void *a)
 {
 	uint8_t reg = *((uint8_t*)a);
-
+	
+	if (reg & B_START_CAM0)
+	{
+		if (cam0_acquiring == false)
+		{				
+			cam0_start_request = true;
+		}
+	}
+	
+	if (reg & B_START_CAM1)
+	{
+		if (cam1_acquiring == false)
+		{			
+			cam1_start_request = true;
+		}
+	}
+				
+	if (reg & B_STOP_CAM0)		
+	{
+		cam0_start_request = false;
+			
+		if (cam0_acquiring)
+		{
+			cam0_stop_request = true;
+		}
+	}
+				
+	if (reg & B_STOP_CAM1)
+	{
+		cam1_start_request = false;
+			
+		if (cam1_acquiring)
+		{
+			cam1_stop_request = true;
+		}
+	}
+	
 	app_regs.REG_START_AND_STOP = reg;
 	return true;
 }

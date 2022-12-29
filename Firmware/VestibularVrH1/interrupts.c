@@ -29,7 +29,7 @@ extern AppRegs app_regs;
 /************************************************************************/ 
 /* LICK0                                                                */
 /************************************************************************/
-bool previous_lick0_state = false;
+bool previous_lick0_state = true;	// Licks are inverted;
 
 ISR(PORTA_INT0_vect, ISR_NAKED)
 {
@@ -60,7 +60,7 @@ ISR(PORTA_INT0_vect, ISR_NAKED)
 /************************************************************************/ 
 /* LICK1                                                                */
 /************************************************************************/
-bool previous_lick1_state = false;
+bool previous_lick1_state = true;	// Licks are inverted
 
 ISR(PORTA_INT1_vect, ISR_NAKED)
 {
@@ -88,3 +88,70 @@ ISR(PORTA_INT1_vect, ISR_NAKED)
 	reti();
 }
 
+/************************************************************************/
+/* CAMERA 0                                                             */
+/************************************************************************/
+extern bool cam0_acquiring;
+extern bool stop_cam0_when_possible;
+
+uint32_t cam0_int_s;
+uint16_t cam0_int_us;
+
+ISR(TCC0_OVF_vect, ISR_NAKED)
+{		
+	core_func_mark_user_timestamp();
+	core_func_read_user_timestamp(&cam0_int_s, &cam0_int_us);
+	
+	reti();
+}
+
+ISR(TCC0_CCA_vect, ISR_NAKED)
+{
+	if (stop_cam0_when_possible)
+	{
+		stop_cam0_when_possible = false;
+		cam0_acquiring = false;
+		
+		timer_type0_stop(&TCC0);
+	}
+	
+	app_regs.REG_CAM0_EVENT = B_TRIGGER;
+	core_func_update_user_timestamp(cam0_int_s, cam0_int_us);
+	core_func_send_event(ADD_REG_CAM0_EVENT, false);
+	
+	reti();
+}
+
+/************************************************************************/
+/* CAMERA 1                                                             */
+/************************************************************************/
+extern bool cam1_acquiring;
+extern bool stop_cam1_when_possible;
+
+uint32_t cam1_int_s;
+uint16_t cam1_int_us;
+
+ISR(TCD0_OVF_vect, ISR_NAKED)
+{
+	core_func_mark_user_timestamp();
+	core_func_read_user_timestamp(&cam1_int_s, &cam1_int_us);
+	
+	reti();
+}
+
+ISR(TCD0_CCA_vect, ISR_NAKED)
+{
+	if (stop_cam1_when_possible)
+	{
+		stop_cam1_when_possible = false;
+		cam1_acquiring = false;
+		
+		timer_type0_stop(&TCD0);
+	}
+	
+	app_regs.REG_CAM1_EVENT = B_TRIGGER;
+	core_func_update_user_timestamp(cam1_int_s, cam1_int_us);
+	core_func_send_event(ADD_REG_CAM1_EVENT, false);
+	
+	reti();
+}
