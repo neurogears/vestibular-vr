@@ -29,8 +29,8 @@ void hwbp_app_initialize(void)
     /* Define versions */
     uint8_t hwH = 1;
     uint8_t hwL = 0;
-    uint8_t fwH = 0;
-    uint8_t fwL = 1;
+    uint8_t fwH = 1;
+    uint8_t fwL = 0;
     uint8_t ass = 0;
     
    	/* Start core */
