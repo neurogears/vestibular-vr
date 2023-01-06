@@ -36,6 +36,14 @@ NeuroGEARS:
 ************************************************************************************************
 
 
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @January 6th 2023	
+>> VestibularVR H1-module v1.0
+	- notes added on schematic
+		. buffers with wrong pn - corrected OEPS code; still wrong buffers' symbol
+		. generated new BOM with corrected pn
+
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 *  @November 12th 2022	
 
