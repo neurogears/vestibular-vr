@@ -1121,13 +1121,13 @@ Your Eurocircuits Team
 <element name="C4" library="Harp Motor H2-module v1.0" package="C0402K" value="47pF" x="39.38" y="42.499" smashed="yes" rot="R270">
 <attribute name="MPN" value="04025A470JAT2A" x="52.38" y="42.499" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="39.5992" y="40.8378" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="OEPS" value="OEPS080013" x="39.38" y="42.499" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OEPS" value="OEPS010011" x="39.38" y="42.499" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="37.475" y="43.134" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="C6" library="Harp Motor H2-module v1.0" package="C0402K" value="47pF" x="39.38" y="45.706" smashed="yes" rot="R90">
 <attribute name="MPN" value="04025A470JAT2A" x="31.38" y="40.206" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="40.4842" y="46.5074" size="0.8128" layer="25" font="vector" ratio="15"/>
-<attribute name="OEPS" value="OEPS080013" x="39.38" y="45.706" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OEPS" value="OEPS010011" x="39.38" y="45.706" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="41.285" y="45.071" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="L1" library="Harp Motor H2-module v1.0" package="R0805" value="40R@100MHz" x="41.754" y="39.535" smashed="yes">
@@ -1205,7 +1205,7 @@ Your Eurocircuits Team
 <element name="C13" library="Harp Motor H2-module v1.0" package="C0402K" value="47pF" x="38.1448" y="30.34885" smashed="yes" rot="R90">
 <attribute name="MPN" value="04025A470JAT2A" x="38.1448" y="30.34885" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="37.95315" y="32.5526" size="0.8128" layer="25" font="vector" ratio="15" rot="R180"/>
-<attribute name="OEPS" value="OEPS080013" x="38.1448" y="30.34885" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OEPS" value="OEPS010011" x="38.1448" y="30.34885" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="40.0498" y="29.71385" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="TP4" library="Harp Motor H2-module v1.0" package="TP11R" value="NO_COMPONENT" x="23.1056" y="19.7566" smashed="yes">
@@ -1390,13 +1390,13 @@ Your Eurocircuits Team
 <attribute name="OEPS" value="DNI" x="23.024" y="22.272" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="24.929" y="22.907" size="1.27" layer="28" rot="MR270"/>
 </element>
-<element name="IC11" library="Harp Motor H2-module v1.0" package="SOT23-5" value="74LVC1G125DBV" x="13.178" y="24.7" smashed="yes" rot="R270">
+<element name="IC11" library="Harp Motor H2-module v1.0" package="SOT23-5" value="SN74LVC1G125DBVT" x="13.178" y="24.7" smashed="yes" rot="R270">
 <attribute name="MPN" value="SN74LVC1G125DBVT" x="13.178" y="24.7" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="11.344" y="26.87" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OEPS" value="OEPS080029" x="13.178" y="24.7" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="9.368" y="27.24" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="IC12" library="Harp Motor H2-module v1.0" package="SOT23-5" value="74LVC1G125DBV" x="13.178" y="19.492" smashed="yes" rot="R270">
+<element name="IC12" library="Harp Motor H2-module v1.0" package="SOT23-5" value="SN74LVC1G125DBVT" x="13.178" y="19.492" smashed="yes" rot="R270">
 <attribute name="MPN" value="SN74LVC1G125DBVT" x="13.178" y="19.492" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="11.218" y="16.456" size="0.8128" layer="25" font="vector" ratio="15"/>
 <attribute name="OEPS" value="OEPS080029" x="13.178" y="19.492" size="1.778" layer="27" rot="R270" display="off"/>
@@ -1486,10 +1486,10 @@ Your Eurocircuits Team
 <attribute name="OEPS" value="OEPS020015" x="10.8" y="37" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="12.705" y="37.635" size="1.27" layer="28" rot="MR270"/>
 </element>
-<element name="IC10" library="Harp Motor H2-module v1.0" package="SOT23-5" value="OPA365" x="14.1" y="34" smashed="yes" rot="MR90">
-<attribute name="MPN" value="OEPS080019=TLV272CDGKR" x="14.1" y="34" size="1.778" layer="28" rot="MR90" display="off"/>
+<element name="IC10" library="Harp Motor H2-module v1.0" package="SOT23-5" value="THS4281DBVT" x="14.1" y="34" smashed="yes" rot="MR90">
+<attribute name="MPN" value="THS4281DBVT" x="14.1" y="34" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="12.622" y="31.922" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="TBD" x="14.1" y="34" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="OEPS" value="OEPS F01 068" x="14.1" y="34" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="12.322" y="37.048" size="1.27" layer="28" ratio="10" rot="MR180"/>
 </element>
 <element name="R10" library="Harp Motor H2-module v1.0" package="R0402" value="DNI 0R" x="8" y="36.2" smashed="yes" rot="MR180">
@@ -1510,7 +1510,7 @@ Your Eurocircuits Team
 <attribute name="OEPS" value="OEPS010004" x="45.1866" y="31.242" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="34.9736" y="30.742" size="1.016" layer="28" rot="MR90"/>
 </element>
-<element name="IC2" library="Harp Motor H2-module v1.0" package="SOT23-5" value="74LVC1G125DBV" x="38.862" y="31.877" smashed="yes" rot="MR180">
+<element name="IC2" library="Harp Motor H2-module v1.0" package="SOT23-5" value="SN74LVC1G125DBVT" x="38.862" y="31.877" smashed="yes" rot="MR180">
 <attribute name="MPN" value="SN74LVC1G125DBVT" x="38.862" y="31.877" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="NAME" x="36.068" y="35.052" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
 <attribute name="OEPS" value="OEPS080029" x="38.862" y="31.877" size="1.778" layer="28" rot="MR180" display="off"/>

@@ -1882,11 +1882,11 @@ DIN A3, landscape with location and doc. field</description>
 </part>
 <part name="C4" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0402K" value="47pF">
 <attribute name="MPN" value="04025A470JAT2A"/>
-<attribute name="OEPS" value="OEPS080013"/>
+<attribute name="OEPS" value="OEPS010011"/>
 </part>
 <part name="C6" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0402K" value="47pF">
 <attribute name="MPN" value="04025A470JAT2A"/>
-<attribute name="OEPS" value="OEPS080013"/>
+<attribute name="OEPS" value="OEPS010011"/>
 </part>
 <part name="L1" library="Harp Motor H2-module v1.0" deviceset="R-EU_" device="R0805" value="40R@100MHz">
 <attribute name="MPN" value="MI0805K400R-10"/>
@@ -1968,7 +1968,7 @@ DIN A3, landscape with location and doc. field</description>
 </part>
 <part name="C13" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0402K" value="47pF">
 <attribute name="MPN" value="04025A470JAT2A"/>
-<attribute name="OEPS" value="OEPS080013"/>
+<attribute name="OEPS" value="OEPS010011"/>
 </part>
 <part name="TP4" library="Harp Motor H2-module v1.0" deviceset="TPSQ" device="TP11R" value="NO_COMPONENT"/>
 <part name="TP5" library="Harp Motor H2-module v1.0" deviceset="TPSQ" device="TP11R" value="NO_COMPONENT"/>
@@ -2123,11 +2123,11 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="OEPS" value="OEPS070026"/>
 </part>
 <part name="R4" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="DNI">
-<attribute name="MPN" value="n.a"/>
-<attribute name="OEPS" value="TBD"/>
+<attribute name="MPN" value="DNI"/>
+<attribute name="OEPS" value="DNI"/>
 </part>
 <part name="R7" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="DNI">
-<attribute name="MPN" value="-"/>
+<attribute name="MPN" value="DNI"/>
 <attribute name="OEPS" value="DNI"/>
 </part>
 <part name="GND13" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
@@ -2212,8 +2212,8 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="OEPS" value="OEPS020015"/>
 </part>
 <part name="GND49" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
-<part name="IC10" library="Harp Motor H2-module v1.0" deviceset="OPA365" device="">
-<attribute name="MPN" value="OEPS080019=TLV272CDGKR"/>
+<part name="IC10" library="Harp Motor H2-module v1.0" deviceset="OPA365" device="" value="THS4281DBVT">
+<attribute name="MPN" value="THS4281DBVT"/>
 <attribute name="OEPS" value="TBD"/>
 </part>
 <part name="+3V7" library="Harp Motor H2-module v1.0" deviceset="+3V3" device=""/>
