@@ -2132,11 +2132,11 @@ DIN A3, landscape with location and doc. field</description>
 </part>
 <part name="GND13" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
 <part name="VDD6" library="Harp Motor H2-module v1.0" deviceset="V+" device="" value="+3V3_u"/>
-<part name="IC11" library="Harp Motor H2-module v1.0" deviceset="74*1G125" device="DBV" technology="LVC">
+<part name="IC11" library="Harp Motor H2-module v1.0" deviceset="74*1G125" device="DBV" technology="LVC" value="SN74LVC1G125DBVT">
 <attribute name="MPN" value="SN74LVC1G125DBVT"/>
 <attribute name="OEPS" value="OEPS080029"/>
 </part>
-<part name="IC12" library="Harp Motor H2-module v1.0" deviceset="74*1G125" device="DBV" technology="LVC">
+<part name="IC12" library="Harp Motor H2-module v1.0" deviceset="74*1G125" device="DBV" technology="LVC" value="SN74LVC1G125DBVT">
 <attribute name="MPN" value="SN74LVC1G125DBVT"/>
 <attribute name="OEPS" value="OEPS080029"/>
 </part>
@@ -2212,9 +2212,9 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="OEPS" value="OEPS020015"/>
 </part>
 <part name="GND49" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
-<part name="IC10" library="Harp Motor H2-module v1.0" deviceset="OPA365" device="">
-<attribute name="MPN" value="OEPS080019=TLV272CDGKR"/>
-<attribute name="OEPS" value="TBD"/>
+<part name="IC10" library="Harp Motor H2-module v1.0" deviceset="OPA365" device="" value="THS4281DBVT">
+<attribute name="MPN" value="THS4281DBVT"/>
+<attribute name="OEPS" value="OEPS F01 068"/>
 </part>
 <part name="+3V7" library="Harp Motor H2-module v1.0" deviceset="+3V3" device=""/>
 <part name="P+3" library="Harp Motor H2-module v1.0" deviceset="+5V" device=""/>
@@ -2232,7 +2232,7 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="OEPS" value="OEPS010004"/>
 </part>
 <part name="GND12" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
-<part name="IC2" library="Harp Motor H2-module v1.0" deviceset="74*1G125" device="DBV" technology="LVC">
+<part name="IC2" library="Harp Motor H2-module v1.0" deviceset="74*1G125" device="DBV" technology="LVC" value="SN74LVC1G125DBVT">
 <attribute name="MPN" value="SN74LVC1G125DBVT"/>
 <attribute name="OEPS" value="OEPS080029"/>
 </part>

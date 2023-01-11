@@ -2132,11 +2132,11 @@ DIN A3, landscape with location and doc. field</description>
 </part>
 <part name="GND13" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
 <part name="VDD6" library="Harp Motor H2-module v1.0" deviceset="V+" device="" value="+3V3_u"/>
-<part name="IC11" library="Harp Motor H2-module v1.0" deviceset="74*1G125" device="DBV" technology="LVC">
+<part name="IC11" library="Harp Motor H2-module v1.0" deviceset="74*1G125" device="DBV" technology="LVC" value="SN74LVC1G125DBVT">
 <attribute name="MPN" value="SN74LVC1G125DBVT"/>
 <attribute name="OEPS" value="OEPS080029"/>
 </part>
-<part name="IC12" library="Harp Motor H2-module v1.0" deviceset="74*1G125" device="DBV" technology="LVC">
+<part name="IC12" library="Harp Motor H2-module v1.0" deviceset="74*1G125" device="DBV" technology="LVC" value="SN74LVC1G125DBVT">
 <attribute name="MPN" value="SN74LVC1G125DBVT"/>
 <attribute name="OEPS" value="OEPS080029"/>
 </part>
@@ -2188,8 +2188,8 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="OEPS" value="OEPS020030"/>
 </part>
 <part name="C41" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0402K" value="15nF 5%">
-<attribute name="MPN" value="TBD"/>
-<attribute name="OEPS" value="TBD"/>
+<attribute name="MPN" value="CGA2B3X7R1V153K050BB"/>
+<attribute name="OEPS" value="OEPS010023"/>
 </part>
 <part name="GND45" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
 <part name="R19" library="Harp Motor H2-module v1.0" deviceset="R-US_" device="R0402" value="10k">
@@ -2197,8 +2197,8 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="OEPS" value="OEPS020030"/>
 </part>
 <part name="C42" library="Harp Motor H2-module v1.0" deviceset="C-EU" device="C0402K" value="15nF 5%">
-<attribute name="MPN" value="TBD"/>
-<attribute name="OEPS" value="TBD"/>
+<attribute name="MPN" value="CGA2B3X7R1V153K050BB"/>
+<attribute name="OEPS" value="OEPS010023"/>
 </part>
 <part name="GND46" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
 <part name="GND47" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
@@ -2214,7 +2214,7 @@ DIN A3, landscape with location and doc. field</description>
 <part name="GND49" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
 <part name="IC10" library="Harp Motor H2-module v1.0" deviceset="OPA365" device="" value="THS4281DBVT">
 <attribute name="MPN" value="THS4281DBVT"/>
-<attribute name="OEPS" value="TBD"/>
+<attribute name="OEPS" value="OEPS F01 068"/>
 </part>
 <part name="+3V7" library="Harp Motor H2-module v1.0" deviceset="+3V3" device=""/>
 <part name="P+3" library="Harp Motor H2-module v1.0" deviceset="+5V" device=""/>
@@ -2232,7 +2232,7 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="OEPS" value="OEPS010004"/>
 </part>
 <part name="GND12" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
-<part name="IC2" library="Harp Motor H2-module v1.0" deviceset="74*1G125" device="DBV" technology="LVC">
+<part name="IC2" library="Harp Motor H2-module v1.0" deviceset="74*1G125" device="DBV" technology="LVC" value="SN74LVC1G125DBVT">
 <attribute name="MPN" value="SN74LVC1G125DBVT"/>
 <attribute name="OEPS" value="OEPS080029"/>
 </part>
