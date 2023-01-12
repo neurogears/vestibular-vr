@@ -1457,9 +1457,9 @@ Your Eurocircuits Team
 <attribute name="VALUE" x="16.495" y="35.065" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="C41" library="Harp Motor H2-module v1.0" package="C0402K" value="15nF 5%" x="20.8" y="35.7" smashed="yes" rot="MR90">
-<attribute name="MPN" value="TBD" x="20.8" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MPN" value="CGA2B3X7R1V153K050BB" x="20.8" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="21.835" y="37.535" size="0.8128" layer="26" font="vector" ratio="15" rot="MR0"/>
-<attribute name="OEPS" value="TBD" x="20.8" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="OEPS" value="OEPS010023" x="20.8" y="35.7" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="18.895" y="35.065" size="1.27" layer="28" rot="MR90"/>
 </element>
 <element name="R19" library="Harp Motor H2-module v1.0" package="R0402" value="10k" x="23" y="35.7" smashed="yes" rot="MR270">
@@ -1469,9 +1469,9 @@ Your Eurocircuits Team
 <attribute name="VALUE" x="24.905" y="36.335" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="C42" library="Harp Motor H2-module v1.0" package="C0402K" value="15nF 5%" x="24.9" y="35.7" smashed="yes" rot="MR270">
-<attribute name="MPN" value="TBD" x="24.9" y="35.7" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="MPN" value="CGA2B3X7R1V153K050BB" x="24.9" y="35.7" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="NAME" x="24.465" y="38.265" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="TBD" x="24.9" y="35.7" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="OEPS" value="OEPS010023" x="24.9" y="35.7" size="1.778" layer="28" rot="MR270" display="off"/>
 <attribute name="VALUE" x="26.805" y="36.335" size="1.27" layer="28" rot="MR270"/>
 </element>
 <element name="R20" library="Harp Motor H2-module v1.0" package="R0402" value="24k" x="10.8" y="33.1" smashed="yes" rot="MR270">

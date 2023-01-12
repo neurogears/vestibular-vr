@@ -2212,8 +2212,8 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="OEPS" value="OEPS020015"/>
 </part>
 <part name="GND49" library="Harp Motor H2-module v1.0" deviceset="GND" device=""/>
-<part name="IC10" library="Harp Motor H2-module v1.0" deviceset="OPA365" device="">
-<attribute name="MPN" value="OEPS080019=TLV272CDGKR"/>
+<part name="IC10" library="Harp Motor H2-module v1.0" deviceset="OPA365" device="" value="THS4281DBVT">
+<attribute name="MPN" value="THS4281DBVT"/>
 <attribute name="OEPS" value="TBD"/>
 </part>
 <part name="+3V7" library="Harp Motor H2-module v1.0" deviceset="+3V3" device=""/>

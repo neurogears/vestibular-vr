@@ -1489,7 +1489,7 @@ Your Eurocircuits Team
 <element name="IC10" library="Harp Motor H2-module v1.0" package="SOT23-5" value="THS4281DBVT" x="14.1" y="34" smashed="yes" rot="MR90">
 <attribute name="MPN" value="THS4281DBVT" x="14.1" y="34" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="12.622" y="31.922" size="0.8128" layer="26" font="vector" ratio="15" rot="MR180"/>
-<attribute name="OEPS" value="OEPS F01 068" x="14.1" y="34" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="OEPS" value="OEPS080038" x="14.1" y="34" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="12.322" y="37.048" size="1.27" layer="28" ratio="10" rot="MR180"/>
 </element>
 <element name="R10" library="Harp Motor H2-module v1.0" package="R0402" value="DNI 0R" x="8" y="36.2" smashed="yes" rot="MR180">
