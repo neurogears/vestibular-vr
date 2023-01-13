@@ -171,6 +171,14 @@
               </Combinator>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>Go Trial Start</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>StateIndicator</Name>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
@@ -179,6 +187,7 @@
             <Edge From="3" To="4" Label="Source2" />
             <Edge From="4" To="5" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -228,6 +237,14 @@
               <Combinator xsi:type="rx:Last" />
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>Reward</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>StateIndicator</Name>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
@@ -236,6 +253,7 @@
             <Edge From="3" To="4" Label="Source1" />
             <Edge From="4" To="5" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -307,6 +325,14 @@
               </Combinator>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>NoGo Trial Start</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>StateIndicator</Name>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
@@ -315,6 +341,7 @@
             <Edge From="3" To="4" Label="Source2" />
             <Edge From="4" To="5" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -343,9 +370,18 @@
               <Name>Source1</Name>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>Pass</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>StateIndicator</Name>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -369,19 +405,31 @@
         <Name>Timeout</Name>
         <Workflow>
           <Nodes>
-            <Expression xsi:type="WorkflowInput">
-              <Name>Source1</Name>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Timer">
+                <rx:DueTime>PT5S</rx:DueTime>
+                <rx:Period>PT0S</rx:Period>
+              </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Delay">
-                <rx:DueTime>PT5S</rx:DueTime>
+              <Combinator xsi:type="BooleanProperty">
+                <Value>false</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>Timeout</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>StateIndicator</Name>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -414,6 +462,9 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Repeat" />
+      </Expression>
+      <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:String">
+        <rx:Name>StateIndicator</rx:Name>
       </Expression>
     </Nodes>
     <Edges>
