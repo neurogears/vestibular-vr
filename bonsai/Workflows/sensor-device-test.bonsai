@@ -5,9 +5,13 @@
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
+      <Expression xsi:type="rx:BehaviorSubject" TypeArguments="harp:HarpMessage">
+        <rx:Name>HarpCommands</rx:Name>
+      </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="harp:Device">
           <harp:DeviceState>Active</harp:DeviceState>
@@ -349,14 +353,192 @@
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>CameraEvents1</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="harp:FilterMessage">
+                <harp:Address>32</harp:Address>
+                <harp:MessageType>Event</harp:MessageType>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="harp:Parse">
+              <harp:Type>TimestampedU8</harp:Type>
+              <harp:IsArray>false</harp:IsArray>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Filter" DisplayName="StartCameraKey" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>LButton RButton Cancel ShiftKey ControlKey Menu Pause A B C P Q R S Shift</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="harp:CreateMessage">
+          <harp:MessageType>Write</harp:MessageType>
+          <harp:Address>38</harp:Address>
+          <harp:PayloadType>U8</harp:PayloadType>
+          <harp:Payload>1</harp:Payload>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>HarpCommands</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="BooleanProperty">
+          <Value>true</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>CameraAcquiring1</Name>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Filter" DisplayName="StopCameraKey" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>MButton D Shift</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="harp:CreateMessage">
+          <harp:MessageType>Write</harp:MessageType>
+          <harp:Address>38</harp:Address>
+          <harp:PayloadType>U8</harp:PayloadType>
+          <harp:Payload>4</harp:Payload>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>HarpCommands</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="BooleanProperty">
+          <Value>false</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>CameraAcquiring1</Name>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Filter" DisplayName="SetCameraConfigurationKey" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>LButton RButton Cancel A B C Shift</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="rx:Condition">
+        <Name>AcquisitonStopped</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CameraAcquiring1</Name>
+            </Expression>
+            <Expression xsi:type="Equal">
+              <Operand xsi:type="BooleanProperty">
+                <Value>false</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Payload" DisplayName="Cam1Hz" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="harp:CreateMessage">
+          <harp:MessageType>Write</harp:MessageType>
+          <harp:Address>34</harp:Address>
+          <harp:PayloadType>U16</harp:PayloadType>
+          <harp:Payload>100</harp:Payload>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="harp:CreateMessage">
+          <harp:MessageType>Write</harp:MessageType>
+          <harp:Address>35</harp:Address>
+          <harp:PayloadType>U16</harp:PayloadType>
+          <harp:Payload>500</harp:Payload>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Merge" />
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>HarpCommands</Name>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>InitialParameters</Name>
+        <Description>CameraAcquiring - Has acquisition been started? Should not send camera configuration if currently acquiring</Description>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Boolean">
+              <rx:Name>CameraAcquiring1</rx:Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="BooleanProperty">
+                <Value>false</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>CameraAcquiring1</Name>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="1" To="2" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
-      <Edge From="0" To="4" Label="Source1" />
       <Edge From="1" To="2" Label="Source1" />
-      <Edge From="1" To="3" Label="Source1" />
-      <Edge From="4" To="5" Label="Source1" />
-      <Edge From="4" To="6" Label="Source1" />
+      <Edge From="1" To="5" Label="Source1" />
+      <Edge From="1" To="8" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="2" To="4" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="5" To="7" Label="Source1" />
+      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="11" To="13" Label="Source1" />
+      <Edge From="13" To="14" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="17" To="19" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="22" To="23" Label="Source1" />
+      <Edge From="23" To="25" Label="Source1" />
+      <Edge From="23" To="26" Label="Source1" />
+      <Edge From="24" To="25" Label="Source2" />
+      <Edge From="25" To="27" Label="Source1" />
+      <Edge From="26" To="27" Label="Source2" />
+      <Edge From="27" To="28" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
