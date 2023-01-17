@@ -320,7 +320,7 @@
                 <harp:MessageType>Write</harp:MessageType>
                 <harp:Address>36</harp:Address>
                 <harp:PayloadType>U16</harp:PayloadType>
-                <harp:Payload>500</harp:Payload>
+                <harp:Payload>100</harp:Payload>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -328,7 +328,7 @@
                 <harp:MessageType>Write</harp:MessageType>
                 <harp:Address>34</harp:Address>
                 <harp:PayloadType>U16</harp:PayloadType>
-                <harp:Payload>500</harp:Payload>
+                <harp:Payload>100</harp:Payload>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -336,7 +336,7 @@
                 <harp:MessageType>Write</harp:MessageType>
                 <harp:Address>35</harp:Address>
                 <harp:PayloadType>U16</harp:PayloadType>
-                <harp:Payload>250</harp:Payload>
+                <harp:Payload>1000</harp:Payload>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -344,7 +344,7 @@
                 <harp:MessageType>Write</harp:MessageType>
                 <harp:Address>37</harp:Address>
                 <harp:PayloadType>U16</harp:PayloadType>
-                <harp:Payload>250</harp:Payload>
+                <harp:Payload>1000</harp:Payload>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -483,16 +483,6 @@ it.Item2 as Timestamp)</scr:Expression>
         </Combinator>
       </Expression>
       <Expression xsi:type="rx:Accumulate" />
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="harp:FilterMessage">
-          <harp:Address>39</harp:Address>
-          <harp:MessageType>Event</harp:MessageType>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="harp:Parse">
-        <harp:Type>U8</harp:Type>
-        <harp:IsArray>false</harp:IsArray>
-      </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\Lick.bonsai">
         <Value_x0020_Bit>2</Value_x0020_Bit>
         <TriggerBit>32</TriggerBit>
@@ -500,6 +490,69 @@ it.Item2 as Timestamp)</scr:Expression>
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\Lick.bonsai">
         <Value_x0020_Bit>1</Value_x0020_Bit>
         <TriggerBit>16</TriggerBit>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>Camera0TriggerEvent</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Address" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="harp:FilterMessage">
+                <harp:Address>32</harp:Address>
+                <harp:MessageType>Event</harp:MessageType>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="harp:Parse">
+              <harp:Type>U8</harp:Type>
+              <harp:IsArray>false</harp:IsArray>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="2" Label="Source1" />
+            <Edge From="1" To="2" Label="Source2" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:TimeInterval" />
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>Camera1TriggerEvent</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Address" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="harp:FilterMessage">
+                <harp:Address>33</harp:Address>
+                <harp:MessageType>Event</harp:MessageType>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="harp:Parse">
+              <harp:Type>U8</harp:Type>
+              <harp:IsArray>false</harp:IsArray>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="2" Label="Source1" />
+            <Edge From="1" To="2" Label="Source2" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+          </Edges>
+        </Workflow>
       </Expression>
     </Nodes>
     <Edges>
@@ -530,12 +583,13 @@ it.Item2 as Timestamp)</scr:Expression>
       <Edge From="24" To="25" Label="Source1" />
       <Edge From="25" To="26" Label="Source1" />
       <Edge From="25" To="30" Label="Source1" />
+      <Edge From="25" To="31" Label="Source1" />
       <Edge From="25" To="32" Label="Source1" />
-      <Edge From="25" To="33" Label="Source1" />
+      <Edge From="25" To="34" Label="Source1" />
       <Edge From="26" To="27" Label="Source1" />
       <Edge From="27" To="28" Label="Source1" />
       <Edge From="28" To="29" Label="Source1" />
-      <Edge From="30" To="31" Label="Source1" />
+      <Edge From="32" To="33" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
