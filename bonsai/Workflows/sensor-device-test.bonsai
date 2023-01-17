@@ -380,15 +380,19 @@
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="spk:SpinnakerCapture">
-          <spk:Index xsi:nil="true" />
-          <spk:SerialNumber>22085343</spk:SerialNumber>
-          <spk:ColorProcessing>Default</spk:ColorProcessing>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="spk:SpinnakerCapture">
+            <spk:Index xsi:nil="true" />
+            <spk:SerialNumber>22085343</spk:SerialNumber>
+            <spk:ColorProcessing>Default</spk:ColorProcessing>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="rx:PublishSubject">
-        <Name>Camera1</Name>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="rx:PublishSubject">
+          <Name>Camera1</Name>
+        </Builder>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>InitialParameters</Name>
@@ -413,7 +417,7 @@
         </Workflow>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
-        <Property Name="Filter" DisplayName="StartCameraKey" />
+        <Property Name="Filter" DisplayName="StartCamera1Key" />
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="wie:KeyDown">
@@ -441,7 +445,7 @@
         <Name>CameraAcquiring1</Name>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
-        <Property Name="Filter" DisplayName="StopCameraKey" />
+        <Property Name="Filter" DisplayName="StopCamera2Key" />
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="wie:KeyDown">
@@ -469,7 +473,7 @@
         <Name>CameraAcquiring1</Name>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
-        <Property Name="Filter" DisplayName="SetCameraConfigurationKey" />
+        <Property Name="Filter" DisplayName="SetCamera1ConfigurationKey" />
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="wie:KeyDown">
@@ -505,7 +509,7 @@
           <harp:MessageType>Write</harp:MessageType>
           <harp:Address>34</harp:Address>
           <harp:PayloadType>U16</harp:PayloadType>
-          <harp:Payload>20</harp:Payload>
+          <harp:Payload>100</harp:Payload>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -518,6 +522,46 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Merge" />
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>HarpCommands</Name>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Filter" DisplayName="ToggleValve1Key" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>LButton MButton XButton1 ShiftKey ControlKey Capital CapsLock KanaMode HanguelMode HangulMode A D E P Q T U Shift</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="harp:CreateMessage">
+          <harp:MessageType>Write</harp:MessageType>
+          <harp:Address>44</harp:Address>
+          <harp:PayloadType>U8</harp:PayloadType>
+          <harp:Payload>4</harp:Payload>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>HarpCommands</Name>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Filter" DisplayName="ToggleValve2Key" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>RButton Back LineFeed B H J Shift</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="harp:CreateMessage">
+          <harp:MessageType>Write</harp:MessageType>
+          <harp:Address>44</harp:Address>
+          <harp:PayloadType>U8</harp:PayloadType>
+          <harp:Payload>8</harp:Payload>
+        </Combinator>
       </Expression>
       <Expression xsi:type="MulticastSubject">
         <Name>HarpCommands</Name>
@@ -551,6 +595,12 @@
       <Edge From="28" To="30" Label="Source1" />
       <Edge From="29" To="30" Label="Source2" />
       <Edge From="30" To="31" Label="Source1" />
+      <Edge From="32" To="33" Label="Source1" />
+      <Edge From="33" To="34" Label="Source1" />
+      <Edge From="34" To="35" Label="Source1" />
+      <Edge From="36" To="37" Label="Source1" />
+      <Edge From="37" To="38" Label="Source1" />
+      <Edge From="38" To="39" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
