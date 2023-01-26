@@ -1,0 +1,4 @@
+In each experiment, the rotary platform is first sent to the HOME position. Then a sequence of motions are carried out with 1s pauses in between. (Aerotech motion composer controlled)
+
+Distances = [400, 400, 400, 400, 400, 200, 200, 200, 200, 200, 100, 100, 100, 100, 100, 50, 50, 50, 50]
+Velocities = [250, 150, 100, 50, 25, 250, 150, 100, 50, 25, 250, 150, 100, 50, 25, 250, 150, 100, 50, 25]
