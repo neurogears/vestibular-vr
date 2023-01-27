@@ -1,0 +1,7 @@
+In each experiment, the rotary platform is first sent to the HOME position twice. Then a sequence of motions are carried out with 2s pauses in between. (Aerotech motion composer controlled).
+The servo output is also recored on a harp behavior device. Couldn't access the servo loop for the platform with the optical flow sensor, so moved both platforms with the same command on each trial and mesasured servo value from lower platform.
+
+Distances =  [400, 400, 400, 400, 400, 400, 400, 200, 200, 200, 200, 200, 200, 200, 100, 100, 100, 100, 100, 100, 100];
+Velocities = [250, 200, 150, 100, 50,  25,  10,  250, 200, 150, 100, 50,  25,  10,  250, 200, 150, 100, 50,  25,  10 ];
+
+Then repeated with distances reversed.
