@@ -223,7 +223,7 @@ def process(value):
                 <harp:MessageType>Write</harp:MessageType>
                 <harp:Address>33</harp:Address>
                 <harp:PayloadType>S32</harp:PayloadType>
-                <harp:Payload>-120</harp:Payload>
+                <harp:Payload>120</harp:Payload>
               </Combinator>
             </Expression>
             <Expression xsi:type="MulticastSubject">
