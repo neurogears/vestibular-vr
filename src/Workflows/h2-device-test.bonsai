@@ -6,7 +6,6 @@
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:ipy="clr-namespace:Bonsai.Scripting.IronPython;assembly=Bonsai.Scripting.IronPython"
-                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -279,7 +278,7 @@ def process(value):
                 <harp:MessageType>Write</harp:MessageType>
                 <harp:Address>33</harp:Address>
                 <harp:PayloadType>S32</harp:PayloadType>
-                <harp:Payload>-120</harp:Payload>
+                <harp:Payload>120</harp:Payload>
               </Combinator>
             </Expression>
             <Expression xsi:type="MulticastSubject">
@@ -299,22 +298,6 @@ def process(value):
       <Expression xsi:type="MulticastSubject">
         <Name>Counter</Name>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="cv:CameraCapture">
-          <cv:Index>0</cv:Index>
-          <cv:CaptureProperties />
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="cv:Crop">
-          <cv:RegionOfInterest>
-            <cv:X>22</cv:X>
-            <cv:Y>237</cv:Y>
-            <cv:Width>250</cv:Width>
-            <cv:Height>243</cv:Height>
-          </cv:RegionOfInterest>
-        </Combinator>
-      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
@@ -332,7 +315,6 @@ def process(value):
       <Edge From="16" To="17" Label="Source1" />
       <Edge From="17" To="18" Label="Source1" />
       <Edge From="18" To="19" Label="Source1" />
-      <Edge From="20" To="21" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
