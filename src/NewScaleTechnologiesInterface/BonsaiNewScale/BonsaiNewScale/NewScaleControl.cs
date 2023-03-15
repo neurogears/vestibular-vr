@@ -26,38 +26,38 @@ namespace BonsaiNewScale
                 {
                     var axThread = new Thread(t =>
                     {
-                        ax.ctrl = new AxNstSquiggleCtrl();
-                        ax.form = new Form
+                        ax.Control = new AxNstSquiggleCtrl();
+                        ax.Form = new Form
                         {
-                            Controls = { ax.ctrl }
+                            Controls = { ax.Control }
                         };
-                        ax.form.Load += (sender, e) =>
+                        ax.Form.Load += (sender, e) =>
                         {
-                            ax.ctrl.Initialize();
-                            ax.ctrl.Connect();
+                            ax.Control.Initialize();
+                            ax.Control.Connect();
 
-                            var sourceObserver = Observer.Create<double>(val => { ax.ctrl.MoveAbsolute(0, val); });
+                            var sourceObserver = Observer.Create<double>(val => { ax.Control.MoveAbsolute(0, val); });
                             var dispose = source.Subscribe(sourceObserver);
 
                             Task.Factory.StartNew(() =>
                             {
                                 while (!cancellationToken.IsCancellationRequested)
                                 {
-                                    ax.ctrl.QueryPosStatus(0);
-                                    observer.OnNext(ax.ctrl.get_Position(0));
+                                    ax.Control.QueryPosStatus(0);
+                                    observer.OnNext(ax.Control.get_Position(0));
                                 }
-                            }).ContinueWith(x => ax.form.Invoke((MethodInvoker)delegate
+                            }).ContinueWith(x => ax.Form.Invoke((MethodInvoker)delegate
                             {
                                 sourceObserver.OnCompleted();
                                 dispose.Dispose();
 
-                                ax.form.Close();
-                                ax.ctrl.Disconnect();
-                                ax.ctrl.Dispose();
+                                ax.Form.Close();
+                                ax.Control.Disconnect();
+                                ax.Control.Dispose();
                             }));
                         };
 
-                        ax.form.ShowDialog();
+                        ax.Form.ShowDialog();
                     });
                     axThread.SetApartmentState(ApartmentState.STA);
                     axThread.Start();
@@ -70,7 +70,7 @@ namespace BonsaiNewScale
 
     struct SquiggleContext
     {
-        public AxNstSquiggleCtrl ctrl;
-        public Form form;
+        public AxNstSquiggleCtrl Control;
+        public Form Form;
     }
 }
