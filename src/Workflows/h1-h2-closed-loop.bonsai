@@ -6,7 +6,6 @@
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
-                 xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -427,12 +426,6 @@
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="ExternalizedMapping">
-        <Property Name="PulseStepInterval" />
-        <Property Name="NominalPulseInterval" />
-        <Property Name="InitialPulseInterval" />
-        <Property Name="PulsePeriod" />
-      </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>Initialise</Name>
         <Workflow>
@@ -442,14 +435,6 @@
                 <rx:DueTime>PT0.5S</rx:DueTime>
                 <rx:Period>PT0S</rx:Period>
               </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="IntProperty">
-                <Value>0</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="rx:BehaviorSubject">
-              <Name>PosCounter</Name>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="harp:CreateMessage">
@@ -521,50 +506,6 @@
                 <harp:Payload>64</harp:Payload>
               </Combinator>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Payload" DisplayName="PulseStepInterval" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Address>36</harp:Address>
-                <harp:PayloadType>U16</harp:PayloadType>
-                <harp:Payload>350</harp:Payload>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Payload" DisplayName="NominalPulseInterval" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Address>34</harp:Address>
-                <harp:PayloadType>U16</harp:PayloadType>
-                <harp:Payload>250</harp:Payload>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Payload" DisplayName="InitialPulseInterval" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Address>35</harp:Address>
-                <harp:PayloadType>U16</harp:PayloadType>
-                <harp:Payload>500</harp:Payload>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Payload" DisplayName="PulsePeriod" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Address>37</harp:Address>
-                <harp:PayloadType>U16</harp:PayloadType>
-                <harp:Payload>250</harp:Payload>
-              </Combinator>
-            </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Merge" />
             </Expression>
@@ -572,40 +513,36 @@
               <Name>H2Commands</Name>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>0</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>PosCounter</Name>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
+            <Edge From="0" To="2" Label="Source1" />
             <Edge From="0" To="3" Label="Source1" />
             <Edge From="0" To="4" Label="Source1" />
-            <Edge From="0" To="5" Label="Source1" />
-            <Edge From="0" To="6" Label="Source1" />
-            <Edge From="1" To="2" Label="Source1" />
-            <Edge From="3" To="20" Label="Source1" />
-            <Edge From="4" To="20" Label="Source2" />
-            <Edge From="5" To="20" Label="Source3" />
-            <Edge From="6" To="20" Label="Source4" />
-            <Edge From="7" To="8" Label="Source1" />
-            <Edge From="7" To="9" Label="Source1" />
-            <Edge From="7" To="10" Label="Source1" />
-            <Edge From="7" To="11" Label="Source1" />
-            <Edge From="7" To="13" Label="Source1" />
-            <Edge From="7" To="15" Label="Source2" />
-            <Edge From="7" To="17" Label="Source2" />
-            <Edge From="7" To="19" Label="Source2" />
-            <Edge From="8" To="20" Label="Source5" />
-            <Edge From="9" To="20" Label="Source6" />
-            <Edge From="10" To="20" Label="Source7" />
-            <Edge From="11" To="20" Label="Source8" />
-            <Edge From="12" To="13" Label="Source2" />
-            <Edge From="13" To="20" Label="Source11" />
-            <Edge From="14" To="15" Label="Source1" />
-            <Edge From="15" To="20" Label="Source9" />
-            <Edge From="16" To="17" Label="Source1" />
-            <Edge From="17" To="20" Label="Source10" />
-            <Edge From="18" To="19" Label="Source1" />
-            <Edge From="19" To="20" Label="Source12" />
-            <Edge From="20" To="21" Label="Source1" />
-            <Edge From="21" To="22" Label="Source1" />
+            <Edge From="0" To="13" Label="Source1" />
+            <Edge From="1" To="10" Label="Source1" />
+            <Edge From="2" To="10" Label="Source2" />
+            <Edge From="3" To="10" Label="Source3" />
+            <Edge From="4" To="10" Label="Source4" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="5" To="7" Label="Source1" />
+            <Edge From="5" To="8" Label="Source1" />
+            <Edge From="5" To="9" Label="Source1" />
+            <Edge From="6" To="10" Label="Source5" />
+            <Edge From="7" To="10" Label="Source6" />
+            <Edge From="8" To="10" Label="Source7" />
+            <Edge From="9" To="10" Label="Source8" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="13" To="14" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -623,9 +560,21 @@
         <Combinator xsi:type="rx:WithLatestFrom" />
       </Expression>
       <Expression xsi:type="Subtract" />
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Encoder</Name>
+      </Expression>
       <Expression xsi:type="Divide">
         <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
-          <Value>1</Value>
+          <Value>2</Value>
+        </Operand>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:WithLatestFrom" />
+      </Expression>
+      <Expression xsi:type="Subtract" />
+      <Expression xsi:type="Divide">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
+          <Value>4</Value>
         </Operand>
       </Expression>
       <Expression xsi:type="rx:Sink">
@@ -735,30 +684,22 @@
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="spk:SpinnakerCapture">
-          <spk:Index xsi:nil="true" />
-          <spk:SerialNumber>22085343</spk:SerialNumber>
-          <spk:ColorProcessing>Default</spk:ColorProcessing>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Image</Selector>
-      </Expression>
     </Nodes>
     <Edges>
-      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
       <Edge From="4" To="5" Label="Source1" />
-      <Edge From="5" To="6" Label="Source1" />
-      <Edge From="6" To="8" Label="Source1" />
-      <Edge From="7" To="8" Label="Source2" />
-      <Edge From="8" To="9" Label="Source1" />
+      <Edge From="5" To="7" Label="Source1" />
+      <Edge From="6" To="7" Label="Source2" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="8" To="11" Label="Source1" />
       <Edge From="9" To="10" Label="Source1" />
-      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="10" To="11" Label="Source2" />
       <Edge From="11" To="12" Label="Source1" />
       <Edge From="12" To="13" Label="Source1" />
+      <Edge From="13" To="14" Label="Source1" />
       <Edge From="14" To="15" Label="Source1" />
-      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
