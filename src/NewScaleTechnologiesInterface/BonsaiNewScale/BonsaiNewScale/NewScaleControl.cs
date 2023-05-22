@@ -29,7 +29,8 @@ namespace BonsaiNewScale
                         ax.Control = new AxNstSquiggleCtrl();
                         ax.Form = new Form
                         {
-                            Controls = { ax.Control }
+                            Controls = { ax.Control },
+                            Size = new System.Drawing.Size(0, 0)
                         };
                         ax.Form.Load += (sender, e) =>
                         {

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.7.0"
+<WorkflowBuilder Version="2.7.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
@@ -7,7 +7,7 @@
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:ipy="clr-namespace:Bonsai.Scripting.IronPython;assembly=Bonsai.Scripting.IronPython"
-                 xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
+                 xmlns:p1="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
@@ -562,7 +562,7 @@
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="harp:Parse">
-                    <harp:Type>S16</harp:Type>
+                    <harp:Type>TimestampedS16</harp:Type>
                     <harp:IsArray>false</harp:IsArray>
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
@@ -574,7 +574,7 @@
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
                   <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="2" To="4" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -916,10 +916,10 @@ def process(value):
         </Workflow>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="spk:SpinnakerCapture">
-          <spk:Index xsi:nil="true" />
-          <spk:SerialNumber>22085343</spk:SerialNumber>
-          <spk:ColorProcessing>Default</spk:ColorProcessing>
+        <Combinator xsi:type="p1:SpinnakerCapture">
+          <p1:Index xsi:nil="true" />
+          <p1:SerialNumber>22085343</p1:SerialNumber>
+          <p1:ColorProcessing>Default</p1:ColorProcessing>
         </Combinator>
       </Expression>
       <Expression xsi:type="MemberSelector">
@@ -930,6 +930,9 @@ def process(value):
       </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>Encoder</Name>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Value</Selector>
       </Expression>
       <Expression xsi:type="Divide">
         <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
@@ -1074,7 +1077,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:MatrixWriter">
-                      <dsp:Path>C:\Users\neurogears\source\repos\vestibular-vr\Data\2023_03_15_22_10_56-Plimbo-22g\Streams_37</dsp:Path>
+                      <dsp:Path>C:\Users\neurogears\source\repos\vestibular-vr\Data\2023_03_16_09_37_00-Plimbo-22g\Streams_37</dsp:Path>
                       <dsp:Suffix>None</dsp:Suffix>
                       <dsp:Overwrite>false</dsp:Overwrite>
                       <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -1102,6 +1105,7 @@ def process(value):
               </Workflow>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
+              <Name>LogHarpReads</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="SubscribeSubject">
@@ -1138,7 +1142,7 @@ def process(value):
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:MatrixWriter">
-                      <dsp:Path>C:\Users\neurogears\source\repos\vestibular-vr\Data\2023_03_15_22_10_56-Plimbo-22g\StreamReadDump.bin</dsp:Path>
+                      <dsp:Path>C:\Users\neurogears\source\repos\vestibular-vr\Data\2023_03_16_09_37_00-Plimbo-22g\StreamReadDump.bin</dsp:Path>
                       <dsp:Suffix>None</dsp:Suffix>
                       <dsp:Overwrite>false</dsp:Overwrite>
                       <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -1197,7 +1201,8 @@ def process(value):
       <Edge From="15" To="16" Label="Source1" />
       <Edge From="15" To="17" Label="Source1" />
       <Edge From="18" To="19" Label="Source1" />
-      <Edge From="20" To="21" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="21" To="22" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

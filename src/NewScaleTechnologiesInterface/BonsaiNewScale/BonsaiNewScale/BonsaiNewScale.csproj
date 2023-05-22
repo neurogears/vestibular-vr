@@ -23,8 +23,7 @@
 
   <ItemGroup>
     <Reference Include="AxInterop.NstSquiggleCtrlLib">
-      <HintPath>D:\Examples\NstVbDemo2\obj\x64\Release\AxInterop.NstSquiggleCtrlLib.dll</HintPath>
-      <Private>true</Private>
+      <HintPath>..\..\AxInterop.NstSquiggleCtrlLib.dll</HintPath>
     </Reference>
   </ItemGroup>
 
