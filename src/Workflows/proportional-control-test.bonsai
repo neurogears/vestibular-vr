@@ -838,8 +838,8 @@ def process(value):
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="harp:CreateMessage">
                 <harp:MessageType>Write</harp:MessageType>
-                <harp:Address>33</harp:Address>
-                <harp:PayloadType>S32</harp:PayloadType>
+                <harp:Address>42</harp:Address>
+                <harp:PayloadType>S16</harp:PayloadType>
                 <harp:Payload>0</harp:Payload>
               </Combinator>
             </Expression>
