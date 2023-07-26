@@ -1,6 +1,6 @@
 if (!(Test-Path "./Bonsai.exe")) {
     # & dotnet build ../src/VestibularVR.sln --configuration Release
-    Invoke-WebRequest "https://github.com/bonsai-rx/bonsai/releases/download/2.7/Bonsai.zip" -OutFile "temp.zip"
+    Invoke-WebRequest "https://github.com/bonsai-rx/bonsai/releases/download/2.7.2/Bonsai.zip" -OutFile "temp.zip"
     Move-Item -Path "NuGet.config" "temp.config"
     Expand-Archive "temp.zip" -DestinationPath "." -Force
     Move-Item -Path "temp.config" "NuGet.config" -Force
