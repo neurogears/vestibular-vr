@@ -1,0 +1,56 @@
+
+
+
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @May 4th 2023
+
+
+
+>> VestibularVR H2-module v2.0 REVIEWs
+	
+
+1- STEP MOTOR control were inverted control due to FET stage.				>>OK
+	- FETs removed and substitued by straight buffers
+	- STEP MOTOR control stage not-inverted now
+
+
+2- PULSE & ENABLE pins to STEP MOTOR CONTROL were switched on micro			>>OK
+
+		
+3- OPAMP used on HALL Effect substitued		>>OK
+	- the one used was OPA365AIDBVR - nowadays very hard to find.
+	- substitued by THS4281DBVT
+	- BOM updated
+			
+		
+4- Hall Effect power supply is 5V.					>>OK
+    Populated R11 to 5V and removed R10 to 3V3.
+			
+		
+5- Check AnalogInput/HallSensor input voltage range
+	LAST DOUBT - HAS TO CHECKED WITH.. SOMEONE?? DATASHEET? WAS IT CHECKED??
+			>> ??
+	
+6. both parts have Enable pin; pin were not drawn in symbol; now it is			>>OK
+
+	- new part SN74LVC1G125DBVT more available in suppliers
+	- old part Enable pin of 74VHC1GT126DT1G active high;
+	- new part Enable pin of new SN74LVC1G125DBVT active low;
+		> more safe; independent of voltage supply used
+	- part number corrected
+	- OEPS code corrected
+	- symbol draw corrected
+	- new BOM re-checked - was ok	
+			
+			
+			
+7. IC2, IC4, IC5, IC6 part nb corrected:						>>OK
+	- was set as 74VHC1GT126DT1G
+	- was changed to SN74LVC1G125DBVT  	
+			>>OK
+
+8. still missing update & check BOM on 	VestibularVR H1-module v2.0				>> ??
+
+

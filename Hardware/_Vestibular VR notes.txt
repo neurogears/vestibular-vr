@@ -1,0 +1,1012 @@
+
+
+>> Vestibular VR Project <<
+	- Rotary Stage for 2D navigation 
+	- In mice for Neurocience and Behaviour experiments
+	> project with Neurogears & Univ Marselha
+	
+
+
+>> GENERAL INFO <<
+	People involved
+		Ede Rancz <Ede.Rancz@crick.ac.uk>
+		Xavier Cano Ferrer <xavier.cano-ferrer@crick.ac.uk> - 
+			Engineer at Crick that designed the device
+		Mathias - 
+			Is doing the 3D printings, works in the fab lab
+
+NeuroGEARS: 
+	. Project leader: Andrew Erskine
+	. GitHub to interface with Ede
+		https://github.com/neurogears/vestibular-vr/issues
+	. Files will be on GitHub as well
+		https://github.com/neurogears/vestibular-vr
+	. Also have files on GoogleDrive
+		G:\My Drive\management\external projects\NGR\2201 VestibularVR Ede Rancz Marseille
+	. Info on 
+		https://docs.google.com/document/d/12CUnzF7pFWBNZng8NylbyNUOLclV19EQ2G7OUyfC5wM/edit
+
+
+
+>>  main goal: 
+		- rebuild hw module to make it simple on wiring & assembling & data aquisition and processing
+			.  hw rebuild made with harp hw & fw modules
+			. data aquisition & processing made with Bonsai
+
+
+
+>> repositories
+	https://github.com/neurogears/vestibular-vr					Closed-loop VR setup for Rancz Lab
+	https://github.com/neurogears/device.vestibularH1			The H1 device will be placed inside the moving platform
+	https://github.com/neurogears/device.vestibularH2			The H2 device will be placed outside the moving platform		
+	https://github.com/neurogears/peripheral.licksensor		The lick sensor module for the Vestibular VR system
+	
+	
+************************************************************************************************
+************************************************************************************************
+************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @16 Junho 2023
+
+>> revisões do Filipe:
+>>Vestibular H2		<<<<<<<<<<<
+
+	Penso que a versão deverá ser 1.1, e não 2.0, porque não há quebra de compatibilidade com a anterior, apenas correcções.
+			>> OK
+
+	IC2, IC4, IC5, IC6, IC11 and IC12
+	O PN não é correcto porque o Logic High é 0.7 x VCC = 0.7 x 5 V = 3.5 V e como o uc está a usar 3.3, não chega ao valor.
+	Para os IC4, IC5 e IC6 é um problema.
+	Usar o OEPS080017 M74VHC1GT126DT1G que tem Logic High igual a 2.0V
+	Atenção que tem um case diferente e o enable é a nível alto.
+			>> OK
+
+
+
+	Suggestion: Get rid of R10 and create a direct line to 5V
+			>> OK
+
+	R9 is DNI or 100R? It's not clear on both the schematic and BOM
+	C15 is DNI or 4.7uF? It's not clear on both the schematic and BOM
+	They both should be DNI, right? Because we use the internal voltage reference of the microcontroller.
+			>> both DNI  OK
+
+	The IC10 THS4281DBVT seems a very good choice, btw!
+
+	Adicionar label perto do X7 a indicar que a entrada é de 12V
+		>>OK
+
+	Alterar o texto na PCB para apenas "v1.1" e retirar o texto "H2-module Harp Motor device". Assim fica genérico, não nos comprometemos com o nome.
+		>> OK
+
+
+
+>> Vestibular H1		<<<<<<<<<<<
+
+	. Penso que a versão deverá ser 1.1, e não 2.0, porque não há quebra de compatibilidade com a anterior, apenas correcções.
+		>> OK
+		
+	I would suggest change IC2, IC4, IC5 and IC6 to OEPS080017 M74VHC1GT126DT1G
+	This way, the user can change the supply to 5V in case they are using 5V cameras and the buffers will be working under specs.
+		>> OK
+
+	Alterar a versão na PCB no canto inferior esquerdo para "v1.1"
+		>> OK
+
+
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @May 26th 2023	
+
+>> Conclusão sobre panorama analisado abaixo
+	- há diferentes gamas de Photodiodes para diferentes gamas de distância, tipo superfície, acbamento auxiliar com óptica para optimizar desempenho, etc
+	- as diferentes gamas são:
+		. OPTICAL NAVIGATION > OPTICAL MOUSE SENSOR 
+			. várias resoluções CPI: 
+			. toda a gama de distância mais curta ~<2~3mm
+			. resolução CPI: min: 2000	Max: 20 000	
+				- alguns mecanicamente faceis mas sem info de resolução!!
+			. alguns sem LED IR integrado
+			
+		. OPTICAL NAVIGATION  > OPTICAL TRACKING SENSOR 
+			. várias gamas de distâncias disponíveis desde 15mm a 80mm(?? mais??
+			. preparados para lidar com diferentes superficies
+			. várias resoluções disponíveis - desde 50cpi a 20000 cpi
+			. quase todos sem adicionar componentes extra ópticas/lentes - já integrados
+			
+		. OBJECT MOTION SENSING > OPTICAL MOTION TRACKING
+			.  para distâncias muitos maiores:	~80mm TO INFINITY (exemplos em quadcopers)
+			. sem sentido para aqui
+			
+	- a gama concluida e sugerida como a mais correcta a utilizar seria a OPTICAL NAVIGATION  > OPTICAL TRACKING SENSOR 
+	- o sensor a escolher ainda por definir..
+	
+>> Filipe conversou com (??) mas a decisão ficou pela escolha já feita por eles	PMW3360-T2QU
+		
+	- 'PMW3360-T2QU or similar' - mensagem de Andrew @24/05/2023
+		. há hipótese ou justifica-se escolher outro sensor??
+		
+>> A partir de agora:
+		. continuar o redesenho de VestibularVR H1-module v2.0 para o coupling do Photodide PMW3360
+		. na datasheet não há pinout determinístico do chip on board; pinout inferido a partir da imagem !!!!
+				https://www.tindie.com/products/jkicklighter/pmw3360-motion-sensor/
+	
+	
+>> outros links para PMW3360DM-T2QU q podem ser úteis:
+		https://github.com/ziteh/pmw3360-pcb
+		https://github.com/mrjohnk/PMW3360DM-T2QU
+		https://github.com/mrjohnk/PMW3360DM-T2QU/tree/master
+		https://www.tindie.com/products/jkicklighter/pmw3360-motion-sensor/				o KIT
+	
+
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @May 25th 2023	
+
+>> OPTICAL SENSORS ANALYSIS
+
+- FROM "ROTARY STAGE DOCUMENTATION.DOCX" - stated as FUTURE IMPLEMENTATIONS
+
+	- OPTICAL MOTION SENSORS SUGERIDOS: 
+		. These are Optical motion sensor options with higher capabilities than the ADNS 2160. 		<< NOT 2160 - 2610
+				. stated as the actual used		>> NOK?? 	ver notas abaixo
+				
+		. Optical sensors ADNS 3050: https://github.com/Tom101222/Adns-3050-Optical-Sensor
+				. #!! ref do sensor errada no documento 3050; não 3500
+				. Resolution 2000 cpi													<< OK
+				. WORKING DISTANCE	typ ~2.4mm								<< NOK
+					
+		. Optical sensors PWM3360: https://github.com/mrjohnk/PMW3360DM-T2QU
+																									>> NOK?? 	ver notas abaixo
+		
+		. Optical sensors ADNS 9800: https://github.com/mrjohnk/ADNS-9800
+			. WORKING DISTANCE :	1 to 5 mm lift detection				<< NOK		??
+			. Resolution up to 8200 cpi with ~50 cpi step					<< OK
+				
+		. neste github todos com samples de códico em C - Arduino etc..
+
+
+
+
+
+>> PRODUCTS > OPTICAL > NAVIGATION > (...)			PIXArt
+
+		. CPI - counts per inch
+		. SQUAL - Surface Quality
+			. The SQUAL value gives the number of valid features detected by the sensor in the current frame.
+			. measure of the number of valid features visible by the sensor in the current frame.
+		. OPTICAL FLOW SENSORS
+		. OPTICAL NAVIGATION
+			gamas pixart
+				Optical Mouse Sensor
+				Optical Finger Navigation
+				Optical Tracking Sensor
+				Optical Encoder
+
+		> general documentation:
+			https://www.hamamatsu.com/eu/en/product/optical-sensors/photodiodes/ingaas-photodiode/related_documents.html
+
+
+
+		>> ADNS-2610		Optical Mouse Sensor		stated on 'ROTARY STAGE DOCUMENTATION' AS ACTUAL (??) sensor used
+				. Resolution 400 cpi resolution
+				. Accurate motion up to 12 ips		<< speed
+				. WORKING DISTANCE	2.4mm			<< OK ??
+				
+				
+		> PAA5100JE-Q			(O ACTUAL ??)														
+			. gama	 PRODUCTS > 	OPTICAL NAVIGATION > OPTICAL TRACKING SENSOR > PAA5100JE-Q
+						OPTICAL NAVIGATION > OPTICAL TRACKING SENSOR		
+						
+			. detection surface coverage to include carpets, granite, tiles and wooden floors	<< makes sense to surface working with?
+			 . WORKING DISTANCE to Tracking Surface		15~35mm (extendable range) 		<< used as distance ref to other sensors 
+			 . Resolution	340@35mm to 790@15mm														<< NOK - Main Issue - LOW RESOLUTION
+			 . libraries: C++; Python; MicroPython
+				https://shop.pimoroni.com/products/paa5100je-optical-tracking-spi-breakout?variant=39315330170963		KIT
+				https://www.pixart.com/products-detail/74/PAA5100JE-Q						<< web manufaturer specific
+			. apenas pq é o 'único optical' q existe em kit?? Acho q há mais; Ver abaixo
+
+			
+			
+		> PMW3360 DM -T2QU				(O SUGERIDO)											
+			.  'gama' diferente:  PRODUCTS > OPTICAL NAVIGATION > OPTICAL MOUSE SENSOR > PMW3360DM-T2QU			OPTICAL MOUSE SENSOR
+						OPTICAL NAVIGATION > OPTICAL MOUSE SENSOR
+						
+			. SEM KIT integração mecânica; ter de ser construido out-of-scratch		<< NOK
+			. Resolution (cpi)	12,000	- Frame Rate (fps)	12,000									<< OK??	higher than needed??
+			. Lift Cutoff (mm) <2mm																					<< NOK??  Is it same as 'WORKING DISTANCE'??
+			. área aplicação: GAMING MOUSE														<< OK/NOK	to HIGH resolution - more than needed
+				- even to GAMING MICE read to be a resolution to exagerated/not-needed!!
+			. to be used WITH LENS for optimum performance - PixArt’s LM19-LSI			<< NOK
+				https://www.pixart.com/products-detail/10/PMW3360DM-T2Q
+			. on kit
+				https://www.tindie.com/products/jkicklighter/pmw3360-motion-sensor/#specs
+			
+
+
+>> >>>>>>>>	OUTROS COMO OPÇÃO:
+
+>> VISTO POR GAMAS:
+
+		
+		
+	>  GAMA	 								
+		OPTICAL NAVIGATION > OPTICAL MOUSE SENSOR 
+			.
+			toda a gama de distância mais curta ~<2~3mm
+			. resolução CPI: min: 2000	Max: 20 000	
+				- alguns mecanicamente faceis mas sem info de resolução!!
+			. alguns sem LED IR integrado
+			
+			
+
+
+	>  GAMA	 								
+		OPTICAL NAVIGATION  > OPTICAL TRACKING SENSOR 
+			
+			. várias gamas de distâncias disponíveis
+			. preparados para lidar com diferentes superficies
+			. várias resoluções disponíveis - desde 50cpi a 20000 cpi
+			
+			
+		> PAT9130							
+				gama 		PRODUCTS > OPTICAL NAVIGATION > OPTICAL TRACKING SENSOR > PAT9130EW-TKMT
+					> OPTICAL NAVIGATION > OPTICAL TRACKING SENSOR					>> DIFFERENT PRODUCT RANGE !!!!!!!!
+				
+				. laser based
+				. C libraries & program
+				. Ability to detect the presence of paper edges, materials and pictures with high accuracy
+				. Wide WORKING DISTANCE range: 5mm~60mm for glossy surface 		<< is surface glossy?? shiny?	Or dim?	OK ??
+					and 20mm~40mm for standard print paper									<< or more like paper
+				. Resolution of up to 6,700cpi															<< OK
+				. Versatile X-Y Motion																			<< motion needs X/Y	?? or only 1 dim?
+				. ALREADY ON KIT VERSION																<< OK
+					https://os.mbed.com/components/PAT9130EW-Versatile-X-Y-Motion-Tracking-/
+					
+		
+		> PAT9125EL							
+			gama	 PRODUCTS > OPTICAL NAVIGATION > OPTICAL TRACKING SENSOR > PAT9125EL-TKIT / TKMT		laser based
+								OPTICAL TRACKING SENSOR
+								
+			. ALREADY ON KIT
+			. WORKING DISTANCE range of 1~10mm (on stainless steel)										<< OK		MAXIMUM distance to short ??
+			. Resolution: from approx. 5cpi to 1275cpi, or 630 counts/rev (based on 1mm diameter shaft)			<< OK ?? how garantee good resolution ??
+			. Requires no optical lens	!!!				<< kit with optical lens?? seems so..							<< NOK ??
+			. Tracking Surfaces	= Glossy surface		<< is surface glossy or dim ??									<< NOK??
+				https://www.pixart.com/products-detail/72/PAT9125EL-TKIT___TKMT
+				https://os.mbed.com/components/PAT9125EL-Evaluation-Board/			KIT
+				
+			
+		> PAT9400LU-MB11
+				https://www.pixart.com/products-detail/142/PAT9400LU-MB11
+				. Tracking Speed	25cm/s
+				. Wide working range of 8.8mm~16.8mm
+				. Resolution	400 count/cm	~ 1000 cpi
+				. angle to surface 0º		<< !!!
+			
+		 > PAT9136E1-TXQT																	<<<	GOOD REF
+				https://www.pixart.com/products-detail/140/PAT9136E1-TXQT
+				. Tracking Speed	5m/s	
+				. Working Distance to Tracking Surface		5~50mm
+				. Resolution	20000 CPI
+				
+		> PMJ9100S1
+				https://www.pixart.com/products-detail/66/PMJ9100S1
+				. Tracking Speed	Up to 15ips
+				. Working Distance to Tracking Surface	9.00mm ± 0.15mm
+				. Resolution	17,904 CPI
+				. Package Type	Module with FPC connector			<< ~KIT
+				
+		> PAA5160E1-Q																		<<<	GOOD REF	
+				https://www.pixart.com/products-detail/141/PAA5160E1-Q
+				https://www.epsglobal.com/products/semiconductors/sensing-and-haptics/optical-tracking/paa5102ks
+				. dual-axis motion data	<< not refered on others!!							<< !!!!!!
+				. Tracking Speed	2.5m/s
+				. Working Distance to Tracking Surface		10~27mm
+				. Resolution	20000 CPI
+				. Tracking Surfaces	epoxy flooring (...), laminated wood flooring,		<< !!!!!!
+					
+		
+		
+
+			
+
+	>  GAMA	 								
+		OBJECT MOTION SENSING > OPTICAL MOTION TRACKING
+			. completely diferent type of sensor
+			. to use with MUCH FAR DISTANCES
+				
+		> PMW3901 							
+			. gama  OBJECT MOTION SENSING > OPTICAL MOTION TRACKING > PMW3901MB-TXQT	
+						OPTICAL MOTION TRACKING: 																					>> VERY DIFFERENT PRODUCT RANGE !!!!!!!!
+						
+			. detects motion of surfaces in front of it, DISTANCE FROM ~80mm TO INFINITY		<<<  MINIMUM DISTANCE TO FAR - NOK ????
+			. ALREADY ON KIT VERSION como o sensor actual									<< OK
+			. Resolution ?? - not found!!																	<< NOK
+			. Phyton Library !!!!!!!!!!!!!!!!																<< NOK	??
+				https://shop.pimoroni.com/products/pmw3901-optical-flow-sensor-breakout?variant=27869870358611
+				https://www.digikey.pt/pt/products/detail/seeed-technology-co-ltd/114991252/7650464
+
+
+
+
+
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @May 24th 2023	
+
+>> novo firmware e testes com Ede
+	- novo controle de velocidade 		OK
+	-  Ede realmente a querer 	novo Photodiode		PMW3360 	
+		eu vou começar agora em mais know-how sobre isto
+				https://www.pixart.com/products-detail/10/PMW3360DM-T2Q
+				
+		
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @May 4th 2023	
+
+>> doubt about HALL EFFECT SENSOR:
+	- what sensor will be used??
+		. notes about it:
+			- @March14th:	Module is an Allegro A3141 IC  		
+			- link to KY-003 module is  an A3141 IC based breakout board 	; 
+				. says will be discontinued - will it??
+				. have tests already been made with hall effect sensors?
+				. have it gone well?
+				. minimum voltage= 5V
+				
+				. if will be discontinued:	https://datasheetspdf.com/pdf/948703/AllegroMicroSystems/A3141/1
+				"Date of status change: October 31, 2005"		?? to old time ??
+				>> for the A3141, refer to the A1101
+		
+		. still messed about wich sensor will be used??
+		
+		
+	- emergency stop button:
+		. has it been already tested?				@May 24th stil not sure about 
+
+
+
+
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @May 2nd 2023	
+
+>> After Ede's tests with VestibularVR H2:
+
+>> VestibularVR H2 module
+	>> PMW3360 Sensor #19
+	- Optical Tracking - to see sphere moving:
+		. o utilizado: 		PAA5100JE
+		. Want to utilise faster 	PMW3360
+
+			. for optic flow detection. Interface and addresses are in theory the same but when this sensor is used in place of PAA5100-JE the reported values do not appear to be linked to movement.
+					>>> sensores não 'compatíveis' ??
+					- problema a nivel de camada SPI ??
+					- investigar camada firmware!!!		Filipe
+					- tb considerar  o envolver outro sensor PMW3389  ??			
+			
+			- bom exemplo para código com sensor novo
+			https://github.com/mrjohnk/PMW3360DM-T2QU/blob/master/Arduino%20Examples/PMW3360DM-polling/PMW3360DM-polling.ino
+			
+			- mas nada directamente/assumidamente compativel pelo manufacturer - camada SPI, distâncias leitura etc
+	
+	>> do Filipe: "I need more info here."
+		
+	>> 	o 2º PMW3360 sensor é mais rápido é uma exigência para os ratos por lá
+			complcado a integrar..
+			começar a utilizar um sensor um rato de computador..		
+				>> conceptualmente a mesma coisa;
+					na práctica - resolução, algoritmia interna do sensor, etc não sei
+
+
+
+
+>> Rotary motion jitter + overshoot #18
+	Observed that at lower than maximum steps/rev on motor driver, there is some jitter/vibration during movement. 
+	This is a potential issue for imaging stability in experiments (e.g. probes). 
+	Increasing steps/rev generates smoother motion but pulses/s from H2 is not at high enough frequency to drive at required speed. 
+		Therefore need to increase pulses/s from H2 command.
+
+	Current implementation of workflow + motor control sends target position as a command, therefore motor will continue turning to target position even if treadmill motion stops. 
+	Should instead implement proportional control between flow sensor and motor (with direct velocity override).
+
+
+	>> resposta Filipe
+	We can reduce the pulse period to half, which means increasing speed to double. 
+	If this seems a good solution, we would then need to test the pulse jitter to make sure it's stable at this speed.
+			>> OK; redimensionada forma de controlo do motor; mensagens feedback OK a 24 Maio
+	
+				
+
+
+	
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @March 14th 2023	
+
+>> Filipe's comments about PCB after programming firmware
+	- Deixo aqui umas notas minhas para depois discutirmos. Não ligues para já, é só mesmo para não me perder.
+	>> sobre módulo vestibularH2 - StepController
+	
+	1- Os outputs estão negados, parece-me. Ou seja, para fazer enable tenho de enviar um 0 lógico. O PULSE está tb invertido, pois o motor roda no flanco descendente. Será que dá para corrigir em hardware na board actual?
+
+	2- O ampop. Tinhamos falado em usar o OPA365AIDBVR mas estás a usar o THS4281DBVT. Qual foi a razão? O primeiro parece estar fora de stock.
+		- sim; fora de stock & previsão de reentrega muito longa
+		
+
+	3- O PULSE e o DIR têm de ser trocados. O PULSE precisa de estar no pino 0 do porto. Conseguimos mudar em hardware?
+		- sem raspar/danificar a PCB não??	Talvez...
+
+		
+	4- Make 5V as hall sensor supply output. Populate R11 and remove R10.
+		>> OK - Fácil;	mudar:	R11=0R	R10=DNI			??wrong??? Rs switched?? @May 4th 2023
+
+		
+	5- Check AnalogInput/HallSensor input voltage range
+	>> Hall effect sensor:
+	Module is an Allegro A3141 IC  		will be discontinued	
+	https://www.phippselectronics.com/product/magnetic-hall-effect-sensor-module-ky-003/
+		>> Vcc=4.5V~24V		OK!!!
+	
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @February 16th 2023	
+
+>> equipment study:
+	
+		****************************************************************************************************
+
+		1. 
+		refereces to old encoder LPD3806-600 (no longer exists) 
+		https://www.amazon.co.uk/Wisamic-Incremental-Encoder-Dc5-24v-Voltage/dp/B015GYY7XU/ref=asc_df_B015GYY7XU/?tag=googshopuk-21&linkCode=df0&hvadid=231995364607&hvpos=&hvnetw=g&hvrand=2855211729431962431&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9045997&hvtargid=pla-487280118197&psc=1
+
+		****************************************************************************************************
+
+		2. 
+		actual part chosen replacement is 
+		Closed Loop Stepper Motor & Encoder already integrated
+		- Electrical OK
+		- Mechanichaly: seems not to have problem to be integrated in the actual structure
+		STILL HAVE TO BE SURE ABOUT IT!!!
+		https://www.omc-stepperonline.com/nema-23-closed-loop-stepper-motor-3-0nm-424oz-in-encoder-1000ppr-4000cpr-23hs45-4204d-e1000
+
+
+
+		****************************************************************************************************
+		3. contents not coherent inbetween pages
+		on pg.8 
+		original encoder get's you to a spec with a 600PPR incremental encoder 
+
+		on pg49. 
+		there's a reference to the encoder as "incremental encoder with 2400 PPR"
+
+		>> then it's not coherent with exposed before
+
+		However the part we have for replacement seems to (not sure yet..??) is able to accomplish  this 2400 ppr resolution 
+
+
+
+
+
+		****************************************************************************************************
+		4. STEP SPEED & RESOLUTION
+
+		1st. STEP RESOLUTION - how much a step will make motor moves
+
+		- small resolution > one makes moveing a lot 
+		- big resolution > one step, makes moves just a little bit
+		PPR Pulse Per Revolution
+		4PPR > 1step => 90º
+		360PPR > 1step => 1º
+
+		then:
+		- to get higher speed of revolution, you'll need higher frequency sending steps orders
+		- bigger step resolution, higher frequency to 
+
+
+		pg.29
+		"micro stepping configuration of 25,000 steps per revolution appears to be one of the best."
+		With the setup made 360º/25000ppr= 0.014º per step
+
+
+
+		2nd. STEP SPEED
+		- the time period which orders are sent to move the step motor
+
+		on pg.29.
+		- "main loop() execution period on the Teensy 3.5 at 120 MHz is approximately 270 µs" (~3.7kHz)
+		(Teensy 3.5 - microprocessor)
+		=> period 270us
+
+		- 270us is higher than period we can achieve of our microprocessor 
+		- the maximum on our's is a period of 500us.
+		with this period of 500us, MAXIMUM number of PPS would be1/500us= 2000 PPS.
+
+
+		Then, maximum movement we would made on 1s would be
+		0.014º step * 2000PPS = 28º per second
+
+
+
+		With speed of microprocessor maximum PPS= 2000PPS => maximum speed 0.014º*2000= 28º per second
+
+		" range of speed (...) vary from 20 to 100 deg/s"
+		@ 20º per sec - is achievable
+		@ 100º/s 	- no!!	and don't undestand how they made it
+
+		At low speed 20º/s ok
+		At high speed.. it doesn't
+
+		Is that enough??
+
+
+
+		****************************************************************************************************
+		5. SPEED Mechanicaly
+
+		About Mechanycal issue...
+		Anyway, motor axis with the setup made before, runs preety slow.
+
+		And with the size relation from the small motor pulley to the big circular pulley, "main stage"/rotary platform (where the mouse is) this rotary platform even get's running preety slow!!
+
+		Have someone of you already seen that thing working?
+		runs fast.. runs slow???
+
+
+		****************************************************************************************************
+		6. 
+		pg.29
+		" The Encoder can be used to record the position separately or implement a close loop control using the
+		encoder as a position reference."
+
+		is really always used? 
+		how critical is it, to have it or not have it encoder there?
+
+
+
+		****************************************************************************************************
+
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @February 2nd 2023	
+
+>> Stepper driver & Motor+integrate &Encoder substitution
+	- Driver 
+	https://www.omc-stepperonline.com/digital-stepper-driver-1-0-4-2a-20-50vdc-for-nema-17-23-24-stepper-motor-dm542t
+	
+	
+	- Stepper Motor 3.0Nm/424oz.in Encoder 1000PPR(4000CPR)	https://www.omc-stepperonline.com/nema-23-closed-loop-stepper-motor-3-0nm-424oz-in-encoder-1000ppr-4000cpr-23hs45-4204d-e1000
+
+
+	- D-Sub15 plugs to connect:		
+		1.7m(67") Encoder Extension Cable for Closed Loop Stepper Motor		5.38€
+		https://www.omc-stepperonline.com/1-7m-67-encoder-extension-cable-for-closed-loop-stepper-motor-ce2m
+		
+	- DIN 4pins
+	AWG18 Motor Extension Cable 1.7m 		4.7€		
+		https://www.omc-stepperonline.com/1-7m-67-awg18-motor-extension-cable-with-gx16-aviation-connector-for-nema-34-closed-loop-stepper-motors-cm2m-18
+		
+	
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @January 6th 2023	
+>> VestibularVR H1-module v1.0
+	- notes added on schematic
+		. buffers with wrong pn - corrected OEPS code; still wrong buffers' symbol
+		. generated new BOM with corrected pn
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @November 12th 2022	
+
+>> starting design of 		Harp Motor device H2-module v1.0
+	
+	> meeting notes @ 23-05-2022
+		Optical flow acquired at 100Hz seems reasonable to Ede.		<< WHICH OPTICAL FLOW IS THIS????
+	
+	> meeting notes @ 17-06-2022
+		Mouse has the flow control: we can't have a timestamp but the precision and sample rate (>= 1KH) is very good.
+		the major issue is jitter, no latency
+	
+	
+	
+	> NOTES about Requirements:
+		• mouse movement is tracked by optical sensors measuring movement induced by mouse on the treadmill (polystyrene sphere kept afloat with compressed air)	>> OK
+		
+		• "Control of vestibular platform rotation"
+			. rotary platform actuated by a stepper motor using time belt (...) rotaded with variable latencyresolution 0.1º
+				>> where one is the control of this step motors? 	EXTERNAL (Filipe)
+				>> motor control DM542 	
+				>> PDF OK
+					>> final goal: control DM542 motor driver		
+						TBD
+				
+		• "incremental encoder coupled to motor shaft"		
+				>> Wisamic 600p/r   LPD3806-600BM-G5-24C
+				>> Incremental Rotary Encoder Dc5-24v Wide Voltage Power Supply 6mm Shaft
+				>> PDF OK
+					>> final goal:	read IOs about encoder
+						TBD
+				
+		• "Hall effect sensors are used for homing purposes"	
+				>> H2 module OK!!
+				>> WINGONEER 5Pcs Hall Effect KY-003 Magnetic Sensor Module DC 5V For Arduino PIC AVR Smart Cars
+				>> PDF OK
+					>> final goal: read IO about Hall Effect sensor
+						TBD
+						
+		• "emergency stop button which should immediately halt any movement"	
+				>> H2 module !! OK
+					>> final goal: read Interrupt IO from Emergency Buttuon; Level translation: Button@ 12V & micro @3V3		
+						TBD
+		
+		• "weight board the rotary platform is up to 2kg and requires a motor with 'specs'
+				>> NO SPECS ABOUT THE MOTOR!!!!!!!!!!
+				>> no need - only about motor control/driver
+				>> OK
+				
+		• "Closed-loop & Open-loop" modularity
+			. closed-loop - rotation of treadmill is feedback to motor control
+									latency motion->motor feedback is <XXX		
+										>> LATENCY TO BE DEFINED
+									feedback gain able to be adjusted
+		
+			.open-loop		- platform rotation is independent from treadmill movement & is experimented controlled
+			
+				>> these things should be 'easy' push-pull/on-off?
+					or Bonsai is enough to control it?
+					If 'easy´push-pull other mech terminals should be thought to put in
+						TBD
+		
+		• "Modularity" - system 'shuld' be able adding & removing components from rotary platform
+				e.g. headpos holder, camera, eye-tracking..		
+					>> hw removing and/or sw removing??
+			
+			
+		• "VR- setup is surrounded by 4 static screens providing a complete VR surround to assembly"
+				>> power & control on these issues - nothing to do with us, right?		
+					NOTHING WITH ME - OK!!
+		
+		• "..off-platform secondary HARP device will integrate signals from (...) rotary platform [our HARP] and off platform sensors (hall-effect, rotary sensors) and ULTIMATELY DRIVE PLATFORM MOTOR
+				>> drives from BONSAI interface..
+				>> OK
+				
+		• 2 HARP device - OnBoard & OffPlatform [Motor Device] MUST have means of syncronising their sample clocks	
+				>> OK
+			
+		• HARP CLOCK GENERATOR: SHOULD/CAN BE COMPLETED INTEGRATED IN H2 MODULE??
+				>> NO!! Will be out Clock Generator - an external module - with several outputs
+				>> OK
+		
+		
+		
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @November 11th 2022	
+>> end BOM
+	. specific PN about headers and plugs
+		pcb header 5way MPN: 20.155MH/5-E	Frnll: 2517861
+		wire plug	5 way	MPN: 20.1550M/5-E	Frnll: 2575218
+
+		
+
+	. PN about buffers 74LVC1G07DBV (74LVC1G07) - not in OEPS
+	
+	. PN & site about camera
+		PAA5100JE		Near Optical Flow SPI Breakout
+		Detect motion of close-up surfaces with this Breakout Garden compatible optical navigation breakout - great for floor tracking for ground dwelling robots!
+		PAA5100JE		Near Optical Flow SPI Breakout
+			https://shop.pimoroni.com/products/paa5100je-optical-tracking-spi-breakout?variant=39315330170963
+			https://cdn.shopify.com/s/files/1/0174/1800/files/PAA5100JE_PIM573_schematic.pdf?v=1621247278
+		
+
+>> VestibularVR H1-module v1.0
+	. hw built and tested
+	. buffers not available were replaced by equivalent; wire shunts needed to be done
+	. more critical error: USBD+ & USDM- on FTDI pins were switched after FTDI buffer
+		- copper cutted and shunts done with wire
+		- if at high freq, have trouble on comm new board with this correction must be done immediatly
+	
+	. next step: start fw development
+	
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @October 2nd 2022	
+
+>>1st step design restarted to be done in Eagle
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @Setembro 26th 2022	
+
+>> 1st step PCB design finished:
+	- next steps:
+		. a review with Filipe
+		. decide about IC buffers in SPI lines (??); in & out it makes difficult to have pieces for it
+		. decide about IC buffers/level shift in H1-board-IOs plug; believe must be!!
+		. optmizing PSU stages; was dimensioned to high current LEDs & FANs; 
+			1st 12V stage can be optimized!!
+		. tes points in:
+			- power rails
+			- free u pads
+			- others?? decide which ones..
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @Setembro 22th 2022	
+
+
+>> data sent from Andrew:
+	- valve:
+		. PN to be used: LHDB0633280D
+				[1st PN sent LHDA1233115H 3-way LEE valve, and then corrected ]
+
+					PN			actuation V					power			internal 	plunger
+														hold V		@hold V			seal			head
+			LHDB0633280D 	12V 				6V		 590mW	 		FKM 		PPA
+			I_hold=0.6/6=100mA
+			
+			
+		. abstract datasheet: PDS-106-2015-07-Lo-LohmHDISolenoidValve
+		
+		. [our valve common used: LHDA1231115H]
+
+
+		
+
+	- lick sensor:
+		'Lick sensor will most likely be the same as in the mice poke simple v1.2 (from champalimaud hardware)
+			https://github.com/harp-tech/harp_behavior/blob/master/PCB%20modules/Port%20Breakout/harp%20behavior%20poke%20port%20breakout%20v1.1.pdf
+			. lick sensor on PokeSimple_V1.1	852-GP1A57HRJ00F
+			
+			.lick sensor referenced
+				This is the port breakout we are aiming to copy		PhotointerrupterMouser	852-GP1A57HRJ00F
+				https://pt.mouser.com/ProductDetail/Sharp-Microelectronics/GP1A57HRJ00F?qs=bgJ5QXnU1LTpUr5Jbs6P8Q%3D%3D
+
+			. lick sensor is same in both projects >> OK
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @Setembro 19th 2022	
+
+>> investing on choosing to H1 module:	email@September 16th
+	- valves for water delivery
+			- the one beeing used (12V)		https://www.theleeco.com/product/lhd-series-2-3-way-control-solenoid-valves/
+			
+	- lick detection sensors:
+		. Ede says 'option to use either the beam-break or capacitive sensor'
+			- capacitive touch sensor already used (5V)		https://www.adafruit.com/product/1374
+			- beam-break (similar) 									http://brianisett.com/2016/03/26/diy-lickometer/#lick-circuit
+	
+	>> opinion from sensores above - either valves & lick detection:
+			1st:	electronic control is 'simple' way to manage any of it; 12V rail is available in H1 module; any valve & sensor up to this voltage can be easily controled
+			2nd: 	main issue when chossing will be:
+						. how these components are built or which component is preffered to be bought
+						. it's mechanical integration in the whole system - doesn't have to do with us!
+			
+				> on these stage then, chossing these parts should/must be done by Manchester or others
+			
+			
+
+
+
+>> micro to be used:
+	AtxMega 3A2A4U
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @16 Setembro 2022	
+
+>> em H1-harp configuration
+	- IR device
+		. to detect mouse already went to get water
+		. waiting for feedback from university to know about PN suggestion
+		. similar ao circuito harp OnPoke(??)
+
+>> em H2-Motor Device
+
+	- what for Treadmill motion & Motor pins on H2 Module?
+		. Treadmill motion:
+			sensor measuring sphere movement
+		&
+		. Motor
+			step motor control
+		
+		> Treadmill & Step control pins have to available to test open & closed loop control
+		
+		
+	- photodiode to syncronize screens - if used will be connected on this module H2
+			. not sure if will be used
+			. if so, will be connected on extra IOs left on H2 board
+			
+
+>> notas sem sentido:
+	. em falta o módulo de um motor?? Bruno ainda não tinha visto todo o esquema??
+	. 'similar to Behaviour Board'... Bruno q referiu.. a q se referia??
+
+	
+	
+	
+
+
+********************************
+* 13 Setembro 2021
+
+PN:
+	- photodiode digital junto ao tubo da água - para detectar a água ou a lingua ??
+	- válvulas, por exemplo, para desenhar o circuito que a vai atacar
+	
+	
+	
+
+********************************
+* 9 Setembro 2021
+
+>> ToDos by now after 1st meeting (check it out :||)
+
+	- rotary wiring to 2x USB_cameras & 5 IOs inside H1-rotary stage
+		2 USB cables
+		+
+		5 extra IOs
+
+	- clarify on H1-module:
+		. IR diodes - photodiodes??  to tongue detections??
+		. refered as UDK? ports??
+		
+		
+	
+	- boost or step-up to electrovalves on rotary stage..
+		. was it taken as a final solution? 
+		. be sure about 2 electrovalves (1 spare?)		<< decide about what valve and it's control
+		
+	
+	
+>> In-Out IR (NEW ??)
+	PAA5100JE Near Optical Flow SPI Breakout
+		Detect motion of close-up surfaces with this Breakout Garden compatible optical navigation breakout - great for floor tracking for ground dwelling robots
+		https://shop.pimoroni.com/products/paa5100je-optical-tracking-spi-breakout?variant=39315330170963
+		https://cdn.shopify.com/s/files/1/0174/1800/files/PAA5100JE_PIM573_schematic.pdf?v=1621247278
+
+
+
+>> OEPS responsability about modules módulos to be done:
+	
+	H1 >> modules inside rotary stage: 
+			- 1 LED control to pupil's mouse excitation
+			- 2 electrovalves control to supply mouse water; 12V control
+			- 2 'moving detect' sensores on main sphere to know about mouse movement
+			- 1 screen LDR sensor (light black&white on a corner ??) to know about which frame screen is; to syncronize mouse movement & screen images (?)
+			- IR diodes on board?? what for? with flat cable.. must have plugs.. don't have notes to remember about it
+			
+			
+			
+	H2 >> modules on a 'stoped' stage:
+			- step-motor control
+			- step-motor encoder reading & data sharing
+			- step-mootor increasing sensor/encoder 
+			- hall effect sensor & for data reading and & sharing; know about ALL-platform moving???
+			- Main Emergency Button to disable all system
+		
+
+
+	> design must be made in Eagle!
+	>	OPES responsability:
+		. to design & build & assembling boards
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+************************************************************************************************
+************************************************************************************************
+************************************************************************************************
+************************************************************************************************
+************************************************************************************************
+************************************************************************************************
+************************************************************************************************
+
+
+********************************
+* 16-08-2022
+	Due to the slip ring restriction, the camera needs to be USB2.0.
+	Andrew will check with Ede the valves (voltages) and lick ports they are using.
+	DrawIO: https://drive.google.com/file/d/1IXwrk58W3oOoU6d4bJTaxhsgl-Ja3gbr/view?usp=sharing
+
+Previous notes
+	Updated documentation:
+		https://atranvan.github.io/vestibular_setup/
+		https://github.com/neurogears/vestibular-vr
+
+	Optical options:
+		PMW3360
+		https://www.pixart.com/products-detail/10/PMW3360DM-T2QU
+		https://pdf1.alldatasheet.com/datasheet-pdf/view/899001/PIXART/PMW3360.html
+
+	https://github.com/SunjunKim/PMW3360_Arduino
+	https://geekhack.org/index.php?topic=100027.0
+
+	ADNS3050 -- didn't find good documentation and seems to be obsolete
+
+
+********************************
+* 17-06-2022
+
+We will use GitHub to keep track of things.
+	GitHub: 
+		https://github.com/neurogears/vestibular-vr
+
+
+Mouse as the flow control: 
+	we can't have a timestamp but the precision and sample rate (>= 1KH<) is very good.
+	The distance between the mouse/flow control sensor changes in time because the ball is floating and moves the center of mass when the animal is walking.
+	To Ede, the major issue is jitter, no latency. The animal learns if there's a delay of less than 16 or 17 ms but will not learn if there's a significant jitter.
+
+The SQUAl value of the current sensor used in the setup is stated in the document (Rotary stage documentation.pdf).
+
+VR: There are two approaches:
+ - VR googles, use two screens in front of the animal.
+ - Cave, which uses a round screen around the animal.
+
+Ede:
+	" The idea is to cover the animal field of view as much as possible.
+	If surrounding the animal is possible, that's ideal.
+	A stationary screen has a lot of advantages.
+	We've chosen the google approach because it was easier for the Ph.D. student that was doing the work."
+
+Slip ring:
+	ONIX coax
+	Cameras
+	And hardware timestamp of these (trigger or strobe from cameras)
+	We may need a hole to blow air to the ball
+	Spinner, na have a solution for that.
+	The rotation platform should be as cheap and simple as possible to be open source.
+
+Screens used by NGR on other experiments for high speed 240Hz and low latency.
+	https://www.amazon.co.uk/Alienware-AW2721D-2560x1440-DisplayPort-Adjustable/dp/B08NFBBTTL	https://www.dell.com/en-uk/shop/alienware-27-gaming-monitor-aw2721d/apd/210-axnu/monitors-monitor-accessories#techspecs_section
+
+Ede says that using 6 screens in portrait can be a good idea to increase the filed of view.
+
+
+
+
+
+********************************
+* 23-05-2022
+-> First meeting notes 23-05-2022
+	. Optical flow acquired at 100Hz seems reasonabale to Ede.
+	. Round screen: link
+	. The PCB will be outside of the board
+		https://www.kicad.org/download/windows/
+		https://github.com/Aharoni-Lab/Miniscope-v4/archive/refs/heads/master.zip
+
+
+
+
+
+	

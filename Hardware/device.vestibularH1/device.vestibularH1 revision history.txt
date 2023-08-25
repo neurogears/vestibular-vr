@@ -1,0 +1,43 @@
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @16 Junho 2023
+
+
+>> Vestibular H1		<<<<<<<<<<<
+
+	. Penso que a versão deverá ser 1.1, e não 2.0, porque não há quebra de compatibilidade com a anterior, apenas correcções.
+		OK
+		
+	I would suggest change IC2, IC4, IC5 and IC6 to OEPS080017 M74VHC1GT126DT1G
+	This way, the user can change the supply to 5V in case they are using 5V cameras and the buffers will be working under specs.
+		OK
+
+	Alterar a versão na PCB no canto inferior esquerdo para "v1.1"
+		OK
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+*  @May 5th 2023
+
+>> VestibularVR H1-module v2.0
+
+- u programming header pinout upside-down!!!		>>OK
+
+-  USBDP & USBDP pin switched!!!		>> OK
+
+-	IC2, IC4, IC5, IC6 part nb corrected:			>> OK
+	- was set as 74VHC1GT126DT1G
+	- was changed to SN74LVC1G125DBVT  
+
+- both parts have Enable pin; pin not drawn in symbol		>> OK
+
+- new part SN74LVC1G125DBVT more available in suppliers		>> OK
+	- Enable pin of 74VHC1GT126DT1G active high;
+	- Enable pin of new SN74LVC1G125DBVT active low;
+		> more safe; independent of voltage supply used
+
+		- part number corrected
+		- OEPS code corrected
+		- symbol draw not corrected
+		- new BOM generated

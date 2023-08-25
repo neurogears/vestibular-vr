@@ -1,0 +1,9 @@
+# Visual studio files
+.vs
+.suo
+.nuget
+bin
+obj
+Debug
+packages
+*.componentinfo.xml

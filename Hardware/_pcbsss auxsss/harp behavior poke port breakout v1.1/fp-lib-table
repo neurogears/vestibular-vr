@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "harp behavior poke port breakout v1.1")(type "KiCad")(uri "$(KIPRJMOD)/harp behavior poke port breakout v1.1.pretty")(options "")(descr ""))
+)

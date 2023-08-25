@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "rgb v2.0-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/rgb v2.0-eagle-import.kicad_sym")(options "")(descr ""))
+)
