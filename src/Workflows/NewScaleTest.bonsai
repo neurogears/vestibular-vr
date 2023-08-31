@@ -40,7 +40,11 @@
         <Name>TargetPosition</Name>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p1:NewScaleControl" />
+        <Combinator xsi:type="p1:NewScaleControl">
+          <p1:Speed>4000</p1:Speed>
+          <p1:Acceleration>10000</p1:Acceleration>
+          <p1:CutoffSpeed>2000</p1:CutoffSpeed>
+        </Combinator>
       </Expression>
       <Expression xsi:type="MemberSelector">
         <Selector>Position</Selector>
@@ -58,6 +62,11 @@
       </Expression>
       <Expression xsi:type="MulticastSubject">
         <Name>MotorRunning</Name>
+      </Expression>
+      <Expression xsi:type="HasFlag">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="p1:MotorStatus">
+          <Value>Stalled</Value>
+        </Operand>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="wie:KeyDown">
@@ -84,6 +93,7 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Merge" />
       </Expression>
+      <Expression xsi:type="rx:Accumulate" />
       <Expression xsi:type="MulticastSubject">
         <Name>TargetPosition</Name>
       </Expression>
@@ -96,12 +106,14 @@
       <Edge From="8" To="11" Label="Source1" />
       <Edge From="9" To="10" Label="Source1" />
       <Edge From="11" To="12" Label="Source1" />
+      <Edge From="11" To="14" Label="Source1" />
       <Edge From="12" To="13" Label="Source1" />
-      <Edge From="14" To="15" Label="Source1" />
-      <Edge From="15" To="18" Label="Source1" />
-      <Edge From="16" To="17" Label="Source1" />
-      <Edge From="17" To="18" Label="Source2" />
-      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="16" To="19" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="18" To="19" Label="Source2" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="20" To="21" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
