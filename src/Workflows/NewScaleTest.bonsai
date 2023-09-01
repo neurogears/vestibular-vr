@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.1"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                 xmlns:p1="clr-namespace:NewScale;assembly=NewScale"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="spk:SpinnakerCapture">
+          <spk:Index xsi:nil="true" />
+          <spk:SerialNumber>14471741</spk:SerialNumber>
+          <spk:ColorProcessing>Default</spk:ColorProcessing>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Image</Selector>
+      </Expression>
+      <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Boolean">
+        <rx:Name>MotorRunning</rx:Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="BooleanProperty">
+          <Value>false</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>MotorRunning</Name>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject" TypeArguments="sys:Double">
+        <rx:Name>CurrentPosition</rx:Name>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject" TypeArguments="sys:Double">
+        <rx:Name>TargetPosition</rx:Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>TargetPosition</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:NstDevice">
+          <p1:Axis>0</p1:Axis>
+          <p1:IgnoreBonsaiCommands>false</p1:IgnoreBonsaiCommands>
+          <p1:ZeroPosition>2002</p1:ZeroPosition>
+          <p1:PositioningSpeed>4000</p1:PositioningSpeed>
+          <p1:PositioningAcceleration>10000</p1:PositioningAcceleration>
+          <p1:PositioningCutoffSpeed>2000</p1:PositioningCutoffSpeed>
+          <p1:PositioningAbsoluteTarget>5000</p1:PositioningAbsoluteTarget>
+          <p1:ControlSpeed>4000</p1:ControlSpeed>
+          <p1:ControlAcceleration>10000</p1:ControlAcceleration>
+          <p1:ControlCutoffSpeed>2000</p1:ControlCutoffSpeed>
+          <p1:ControlSteps>50</p1:ControlSteps>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Position</Selector>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>CurrentPosition</Name>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>MotorStatus</Selector>
+      </Expression>
+      <Expression xsi:type="HasFlag">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="p1:MotorStatus">
+          <Value>MotorRunning</Value>
+        </Operand>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>MotorRunning</Name>
+      </Expression>
+      <Expression xsi:type="HasFlag">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="p1:MotorStatus">
+          <Value>Stalled</Value>
+        </Operand>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>Left</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="DoubleProperty">
+          <Value>-500</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>Right</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="DoubleProperty">
+          <Value>500</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Merge" />
+      </Expression>
+      <Expression xsi:type="rx:Accumulate" />
+      <Expression xsi:type="MulticastSubject">
+        <Name>TargetPosition</Name>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="8" To="9" Label="Source1" />
+      <Edge From="8" To="11" Label="Source1" />
+      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="11" To="14" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="16" To="19" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="18" To="19" Label="Source2" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="20" To="21" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>
