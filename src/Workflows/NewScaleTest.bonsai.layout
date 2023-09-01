@@ -103,16 +103,20 @@
     <WindowState>Normal</WindowState>
   </DialogSettings>
   <DialogSettings>
-    <Visible>false</Visible>
+    <Visible>true</Visible>
     <Location>
-      <X>130</X>
-      <Y>130</Y>
+      <X>414</X>
+      <Y>280</Y>
     </Location>
     <Size>
-      <Width>336</Width>
-      <Height>65</Height>
+      <Width>307</Width>
+      <Height>671</Height>
     </Size>
     <WindowState>Normal</WindowState>
+    <VisualizerTypeName>NewScale.NstDeviceVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <NstDeviceVisualizer />
+    </VisualizerSettings>
   </DialogSettings>
   <DialogSettings>
     <Visible>false</Visible>
@@ -141,8 +145,8 @@
     <VisualizerSettings>
       <TimeSeriesVisualizer>
         <Capacity>640</Capacity>
-        <Min>1999.5</Min>
-        <Max>2000.6</Max>
+        <Min>2201.4</Min>
+        <Max>2202.6</Max>
         <AutoScale>true</AutoScale>
       </TimeSeriesVisualizer>
     </VisualizerSettings>
@@ -289,7 +293,7 @@
       <TimeSeriesVisualizer>
         <Capacity>640</Capacity>
         <Min>0</Min>
-        <Max>20000</Max>
+        <Max>14000</Max>
         <AutoScale>true</AutoScale>
       </TimeSeriesVisualizer>
     </VisualizerSettings>
