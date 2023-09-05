@@ -43,15 +43,15 @@
         <Combinator xsi:type="p1:NstDevice">
           <p1:Axis>0</p1:Axis>
           <p1:IgnoreBonsaiCommands>false</p1:IgnoreBonsaiCommands>
-          <p1:ZeroPosition>2002</p1:ZeroPosition>
-          <p1:PositioningSpeed>4000</p1:PositioningSpeed>
+          <p1:ZeroPosition>6886.5</p1:ZeroPosition>
+          <p1:PositioningSpeed>2000</p1:PositioningSpeed>
           <p1:PositioningAcceleration>10000</p1:PositioningAcceleration>
           <p1:PositioningCutoffSpeed>2000</p1:PositioningCutoffSpeed>
-          <p1:PositioningAbsoluteTarget>5000</p1:PositioningAbsoluteTarget>
-          <p1:ControlSpeed>4000</p1:ControlSpeed>
+          <p1:PositioningAbsoluteTarget>15000</p1:PositioningAbsoluteTarget>
+          <p1:ControlSpeed>400</p1:ControlSpeed>
           <p1:ControlAcceleration>10000</p1:ControlAcceleration>
-          <p1:ControlCutoffSpeed>2000</p1:ControlCutoffSpeed>
-          <p1:ControlSteps>50</p1:ControlSteps>
+          <p1:ControlCutoffSpeed>400</p1:ControlCutoffSpeed>
+          <p1:ControlSteps>100</p1:ControlSteps>
         </Combinator>
       </Expression>
       <Expression xsi:type="MemberSelector">
