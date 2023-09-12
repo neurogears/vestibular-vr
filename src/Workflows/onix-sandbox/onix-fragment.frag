@@ -1,8 +1,14 @@
 #version 400
-in vec2 tex_coord;
+uniform sampler2D tex;
+uniform float range = 1.0f;
+uniform float red = 1.0f;
+vec2 value;
+in vec2 texCoord;
 out vec4 frag_colour;
 
 void main()
 {
-  frag_colour = vec4(1.0, 1.0, 1.0, 1.0);
+  vec4 texel = texture(tex, texCoord);
+  
+  frag_colour = vec4(red, 0.0, 0.0, 1.0);
 }
