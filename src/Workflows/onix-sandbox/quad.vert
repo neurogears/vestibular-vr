@@ -1,6 +1,6 @@
 #version 400
 uniform int channel;
-uniform int numchannels = 16;
+uniform int numchannels = 64;
 in vec2 vp;
 in vec2 vt;
 out vec2 tex_coord;

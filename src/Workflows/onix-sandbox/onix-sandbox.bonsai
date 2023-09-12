@@ -3,9 +3,9 @@
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
-                 xmlns:p1="clr-namespace:Bonsai.ONIX.Design;assembly=Bonsai.ONIX.Design"
-                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns:p1="clr-namespace:Bonsai.ONIX.Design;assembly=Bonsai.ONIX.Design"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
@@ -68,113 +68,100 @@
         <Combinator xsi:type="res:LoadResources" />
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gl:RenderFrame" />
+        <Combinator xsi:type="rx:Timer">
+          <rx:DueTime>PT0S</rx:DueTime>
+          <rx:Period>PT1S</rx:Period>
+        </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gl:DrawMesh">
-          <gl:ShaderName>OnixMaterial</gl:ShaderName>
-          <gl:MeshName>Plane</gl:MeshName>
+        <Combinator xsi:type="dsp:MatrixReader">
+          <dsp:Path>C:\Users\neurogears\source\repos\vestibular-vr\src\Workflows\onix-sandbox\TestEphysData_64.bin</dsp:Path>
+          <dsp:Offset>0</dsp:Offset>
+          <dsp:SampleRate>0</dsp:SampleRate>
+          <dsp:ChannelCount>64</dsp:ChannelCount>
+          <dsp:BufferLength>500</dsp:BufferLength>
+          <dsp:Depth>U8</dsp:Depth>
+          <dsp:Layout>ColumnMajor</dsp:Layout>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Reshape">
+          <dsp:Channels>0</dsp:Channels>
+          <dsp:Rows>64</dsp:Rows>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Rescale">
+          <dsp:Min>0</dsp:Min>
+          <dsp:Max>200</dsp:Max>
+          <dsp:RangeMin>0</dsp:RangeMin>
+          <dsp:RangeMax>1</dsp:RangeMax>
+          <dsp:RescaleType>Linear</dsp:RescaleType>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:ConvertScale">
+          <dsp:Depth xsi:nil="true" />
+          <dsp:Scale>1</dsp:Scale>
+          <dsp:Shift>0.1</dsp:Shift>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:ConvertToImage" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:CreateGraphicsDataModel">
+          <p1:BufferLength>10</p1:BufferLength>
+          <p1:InternalFormat>Rgba</p1:InternalFormat>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:LatestOnUpdateFrame" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:DrawGraphicsDataModel">
+          <p1:ShaderName>OnixMaterial</p1:ShaderName>
+          <p1:TextureUniformName>tex</p1:TextureUniformName>
         </Combinator>
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="Combinator">
           <Combinator xsi:type="rx:Timer">
             <rx:DueTime>PT0S</rx:DueTime>
-            <rx:Period>PT0.1S</rx:Period>
+            <rx:Period>PT1S</rx:Period>
           </Combinator>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="Combinator">
-          <Combinator xsi:type="dsp:MatrixReader">
-            <dsp:Path>C:\Users\neurogears\source\repos\vestibular-vr\src\Workflows\onix-sandbox\TestEphysData_64.bin</dsp:Path>
-            <dsp:Offset>0</dsp:Offset>
-            <dsp:SampleRate>0</dsp:SampleRate>
-            <dsp:ChannelCount>64</dsp:ChannelCount>
-            <dsp:BufferLength>500</dsp:BufferLength>
-            <dsp:Depth>U8</dsp:Depth>
-            <dsp:Layout>ColumnMajor</dsp:Layout>
+          <Combinator xsi:type="FloatProperty">
+            <Value>0.01</Value>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="rx:Accumulate" />
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="gl:UpdateUniform">
+            <gl:UniformName>red</gl:UniformName>
+            <gl:ShaderName>OnixMaterial</gl:ShaderName>
           </Combinator>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="Combinator">
-          <Combinator xsi:type="dsp:Reshape">
-            <dsp:Channels>0</dsp:Channels>
-            <dsp:Rows>64</dsp:Rows>
+          <Combinator xsi:type="gl:RenderFrame" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="gl:DrawMesh">
+            <gl:ShaderName>OnixMaterial</gl:ShaderName>
+            <gl:MeshName>Plane</gl:MeshName>
           </Combinator>
         </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="dsp:Rescale">
-            <dsp:Min>0</dsp:Min>
-            <dsp:Max>200</dsp:Max>
-            <dsp:RangeMin>-100</dsp:RangeMin>
-            <dsp:RangeMax>100</dsp:RangeMax>
-            <dsp:RescaleType>Linear</dsp:RescaleType>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="cv:ConvertToImage" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="p1:CreateGraphicsDataModel">
-            <p1:BufferLength>100</p1:BufferLength>
-            <p1:InternalFormat>Rgba</p1:InternalFormat>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:LatestOnUpdateFrame" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="p1:DrawGraphicsDataModel">
-            <p1:ShaderName>OnixMaterial</p1:ShaderName>
-            <p1:TextureUniformName>tex</p1:TextureUniformName>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="MemberSelector">
-          <Selector>ModelParts</Selector>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Index">
-          <Operand xsi:type="IntProperty">
-            <Value>0</Value>
-          </Operand>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="MemberSelector">
-          <Selector>Texture</Selector>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Timer">
-          <rx:DueTime>PT1S</rx:DueTime>
-          <rx:Period>PT0S</rx:Period>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="FloatProperty">
-          <Value>0</Value>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gl:UpdateUniform">
-          <gl:UniformName>red</gl:UniformName>
-          <gl:ShaderName>OnixMaterial</gl:ShaderName>
-        </Combinator>
       </Expression>
     </Nodes>
     <Edges>
@@ -182,18 +169,17 @@
       <Edge From="1" To="2" Label="Source1" />
       <Edge From="2" To="3" Label="Source1" />
       <Edge From="4" To="5" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
       <Edge From="6" To="7" Label="Source1" />
       <Edge From="7" To="8" Label="Source1" />
       <Edge From="8" To="9" Label="Source1" />
       <Edge From="9" To="10" Label="Source1" />
       <Edge From="10" To="11" Label="Source1" />
       <Edge From="11" To="12" Label="Source1" />
-      <Edge From="11" To="14" Label="Source1" />
-      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="13" To="14" Label="Source1" />
       <Edge From="14" To="15" Label="Source1" />
       <Edge From="15" To="16" Label="Source1" />
       <Edge From="17" To="18" Label="Source1" />
-      <Edge From="18" To="19" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
