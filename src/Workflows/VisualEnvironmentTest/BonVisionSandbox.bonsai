@@ -225,70 +225,6 @@ it.Item3 as Light)</scr:Expression>
         <Width>1</Width>
         <Height>1</Height>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gli:KeyDown">
-          <gli:Key>W</gli:Key>
-          <gli:Modifiers xsi:nil="true" />
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="FloatProperty">
-          <Value>1</Value>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gli:KeyDown">
-          <gli:Key>S</gli:Key>
-          <gli:Modifiers xsi:nil="true" />
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="FloatProperty">
-          <Value>-1</Value>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Merge" />
-      </Expression>
-      <Expression xsi:type="rx:Accumulate" />
-      <Expression xsi:type="rx:PublishSubject">
-        <Name>Translation</Name>
-      </Expression>
-      <Expression xsi:type="rx:PublishSubject">
-        <Name>TranslationChange</Name>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gli:KeyDown">
-          <gli:Key>A</gli:Key>
-          <gli:Modifiers xsi:nil="true" />
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="FloatProperty">
-          <Value>0.1</Value>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gli:KeyDown">
-          <gli:Key>D</gli:Key>
-          <gli:Modifiers xsi:nil="true" />
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="FloatProperty">
-          <Value>-0.1</Value>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Merge" />
-      </Expression>
-      <Expression xsi:type="rx:Accumulate" />
-      <Expression xsi:type="rx:PublishSubject">
-        <Name>Rotation</Name>
-      </Expression>
-      <Expression xsi:type="rx:PublishSubject">
-        <Name>RotationChange</Name>
-      </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>Draw3DStim</Name>
       </Expression>
@@ -405,6 +341,70 @@ it.Item3 as Light)</scr:Expression>
         </Specular>
         <SpecularExponent>10</SpecularExponent>
         <MeshName>Plane</MeshName>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gli:KeyDown">
+          <gli:Key>W</gli:Key>
+          <gli:Modifiers xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="FloatProperty">
+          <Value>1</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gli:KeyDown">
+          <gli:Key>S</gli:Key>
+          <gli:Modifiers xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="FloatProperty">
+          <Value>-1</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Merge" />
+      </Expression>
+      <Expression xsi:type="rx:Accumulate" />
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>Translation</Name>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>TranslationChange</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gli:KeyDown">
+          <gli:Key>A</gli:Key>
+          <gli:Modifiers xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="FloatProperty">
+          <Value>0.1</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gli:KeyDown">
+          <gli:Key>D</gli:Key>
+          <gli:Modifiers xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="FloatProperty">
+          <Value>-0.1</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Merge" />
+      </Expression>
+      <Expression xsi:type="rx:Accumulate" />
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>Rotation</Name>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>RotationChange</Name>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:CreateQuaternionRotation">
@@ -552,25 +552,25 @@ it.Item2 as CurrentRotation
       <Edge From="23" To="24" Label="Source1" />
       <Edge From="24" To="25" Label="Source1" />
       <Edge From="26" To="27" Label="Source1" />
-      <Edge From="27" To="30" Label="Source1" />
-      <Edge From="28" To="29" Label="Source1" />
-      <Edge From="29" To="30" Label="Source2" />
+      <Edge From="27" To="28" Label="Source1" />
+      <Edge From="29" To="30" Label="Source1" />
       <Edge From="30" To="31" Label="Source1" />
-      <Edge From="30" To="33" Label="Source1" />
-      <Edge From="31" To="32" Label="Source1" />
-      <Edge From="34" To="35" Label="Source1" />
-      <Edge From="35" To="38" Label="Source1" />
-      <Edge From="36" To="37" Label="Source1" />
-      <Edge From="37" To="38" Label="Source2" />
-      <Edge From="38" To="39" Label="Source1" />
-      <Edge From="38" To="41" Label="Source1" />
+      <Edge From="32" To="33" Label="Source1" />
+      <Edge From="33" To="34" Label="Source1" />
+      <Edge From="35" To="36" Label="Source1" />
+      <Edge From="36" To="39" Label="Source1" />
+      <Edge From="37" To="38" Label="Source1" />
+      <Edge From="38" To="39" Label="Source2" />
       <Edge From="39" To="40" Label="Source1" />
-      <Edge From="42" To="43" Label="Source1" />
+      <Edge From="39" To="42" Label="Source1" />
+      <Edge From="40" To="41" Label="Source1" />
       <Edge From="43" To="44" Label="Source1" />
+      <Edge From="44" To="47" Label="Source1" />
       <Edge From="45" To="46" Label="Source1" />
-      <Edge From="46" To="47" Label="Source1" />
+      <Edge From="46" To="47" Label="Source2" />
+      <Edge From="47" To="48" Label="Source1" />
+      <Edge From="47" To="50" Label="Source1" />
       <Edge From="48" To="49" Label="Source1" />
-      <Edge From="49" To="50" Label="Source1" />
       <Edge From="51" To="52" Label="Source1" />
       <Edge From="53" To="54" Label="Source1" />
       <Edge From="55" To="57" Label="Source1" />
