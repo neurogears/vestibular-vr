@@ -410,6 +410,9 @@
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Draw3DStim</Name>
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
