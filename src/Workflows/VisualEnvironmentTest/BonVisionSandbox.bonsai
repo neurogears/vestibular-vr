@@ -138,9 +138,9 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:Translate">
           <gl:Order>Append</gl:Order>
-          <gl:X>-0.157679558</gl:X>
+          <gl:X>0</gl:X>
           <gl:Y>0</gl:Y>
-          <gl:Z>1.04495764</gl:Z>
+          <gl:Z>-2</gl:Z>
         </Combinator>
       </Expression>
       <Expression xsi:type="SubscribeSubject">
@@ -167,7 +167,7 @@
             <gl:Y>1</gl:Y>
             <gl:Z>0</gl:Z>
           </gl:Axis>
-          <gl:Angle>-3.69999886</gl:Angle>
+          <gl:Angle>0</gl:Angle>
         </Combinator>
       </Expression>
       <Expression xsi:type="MemberSelector">
@@ -453,7 +453,7 @@ it.Item3 as Light)</scr:Expression>
             <gl:Y>1</gl:Y>
             <gl:Z>0</gl:Z>
           </gl:Axis>
-          <gl:Angle>0.1</gl:Angle>
+          <gl:Angle>-0.1</gl:Angle>
         </Combinator>
       </Expression>
       <Expression xsi:type="MulticastSubject">
