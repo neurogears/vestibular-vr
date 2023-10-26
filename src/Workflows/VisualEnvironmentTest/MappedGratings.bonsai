@@ -9,17 +9,17 @@
     <Nodes>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:CreateWindow">
-          <gl:Width>640</gl:Width>
-          <gl:Height>480</gl:Height>
+          <gl:Width>7680</gl:Width>
+          <gl:Height>1080</gl:Height>
           <gl:VSync>On</gl:VSync>
           <gl:SwapSync>false</gl:SwapSync>
           <gl:ClearColor>Black</gl:ClearColor>
           <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
           <gl:CursorVisible>true</gl:CursorVisible>
           <gl:Location xsi:nil="true" />
-          <gl:WindowBorder>Resizable</gl:WindowBorder>
-          <gl:WindowState>Normal</gl:WindowState>
-          <gl:DisplayDevice>Primary</gl:DisplayDevice>
+          <gl:WindowBorder>Fixed</gl:WindowBorder>
+          <gl:WindowState>Fullscreen</gl:WindowState>
+          <gl:DisplayDevice>Third</gl:DisplayDevice>
           <gl:TargetRenderFrequency>60</gl:TargetRenderFrequency>
           <gl:TargetUpdateFrequency xsi:nil="true" />
           <gl:RenderState />
@@ -279,10 +279,10 @@
         <LocationY>0</LocationY>
         <Layer>0</Layer>
         <ExtentX>180</ExtentX>
-        <ExtentY>60</ExtentY>
+        <ExtentY>180</ExtentY>
         <SpatialFrequency>0.1</SpatialFrequency>
         <TemporalFrequency>0</TemporalFrequency>
-        <Phase>-2950.72046</Phase>
+        <Phase>-54323.02</Phase>
         <Angle>0</Angle>
         <SquareWave>false</SquareWave>
         <Contrast>2</Contrast>
@@ -307,10 +307,10 @@
         <LocationY>0</LocationY>
         <Layer>0</Layer>
         <ExtentX>180</ExtentX>
-        <ExtentY>60</ExtentY>
+        <ExtentY>180</ExtentY>
         <SpatialFrequency>0.1</SpatialFrequency>
         <TemporalFrequency>0</TemporalFrequency>
-        <Phase>13263.9609</Phase>
+        <Phase>64636.2539</Phase>
         <Angle>0</Angle>
         <SquareWave>false</SquareWave>
         <Contrast>2</Contrast>
