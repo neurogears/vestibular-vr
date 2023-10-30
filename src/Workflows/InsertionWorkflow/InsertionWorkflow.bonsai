@@ -5,9 +5,9 @@
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:p1="clr-namespace:NewScale;assembly=NewScale"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
-                 xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
-                 xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:p2="clr-namespace:Bonsai.ONIX;assembly=Bonsai.ONIX"
+                 xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
+                 xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
                  xmlns:p3="clr-namespace:Bonsai.ONIX.Design;assembly=Bonsai.ONIX.Design"
                  xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
@@ -76,37 +76,51 @@
               </Operand>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="wie:KeyDown">
-                <wie:Filter>Left</wie:Filter>
-                <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="DoubleProperty">
-                <Value>-500</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="wie:KeyDown">
-                <wie:Filter>Right</wie:Filter>
-                <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="DoubleProperty">
-                <Value>500</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Merge" />
-            </Expression>
-            <Expression xsi:type="rx:Accumulate" />
-            <Expression xsi:type="MulticastSubject">
-              <Name>TargetPosition</Name>
-            </Expression>
             <Expression xsi:type="rx:PublishSubject" TypeArguments="sys:Double">
               <rx:Name>CurrentPosition</rx:Name>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="wie:KeyDown">
+                  <wie:Filter>Left</wie:Filter>
+                  <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="DoubleProperty">
+                  <Value>-500</Value>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="wie:KeyDown">
+                  <wie:Filter>Right</wie:Filter>
+                  <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="DoubleProperty">
+                  <Value>500</Value>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="rx:Merge" />
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="rx:Accumulate" />
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MulticastSubject">
+                <Name>TargetPosition</Name>
+              </Builder>
             </Expression>
           </Nodes>
           <Edges>
@@ -119,12 +133,12 @@
             <Edge From="8" To="9" Label="Source1" />
             <Edge From="8" To="11" Label="Source1" />
             <Edge From="9" To="10" Label="Source1" />
-            <Edge From="13" To="14" Label="Source1" />
-            <Edge From="14" To="17" Label="Source1" />
-            <Edge From="15" To="16" Label="Source1" />
-            <Edge From="16" To="17" Label="Source2" />
-            <Edge From="17" To="18" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="18" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="17" To="18" Label="Source2" />
             <Edge From="18" To="19" Label="Source1" />
+            <Edge From="19" To="20" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -25461,7 +25475,9 @@
             <Expression xsi:type="MemberSelector">
               <Selector>Clock</Selector>
             </Expression>
-            <Expression xsi:type="rx:PublishSubject" />
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>Clock</Name>
+            </Expression>
             <Expression xsi:type="Index">
               <Operand xsi:type="IntProperty">
                 <Value>0</Value>
@@ -25671,18 +25687,23 @@
         </Workflow>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
-        <Property Name="Path" DisplayName="LoggingDirectory" />
+        <Property Name="Path" DisplayName="LoggingDirectory" Category="LoggingDirectory" />
+        <Property Name="SpikeDataLogName" />
+        <Property Name="LfpDataLogName" />
+        <Property Name="FrameCounterLogName" />
+        <Property Name="ClockLogName" />
+        <Property Name="ManipulatorPositionLogName" />
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>Logging</Name>
         <Workflow>
           <Nodes>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="Path" />
+              <Property Name="Value" DisplayName="Path" Category="Logging" />
             </Expression>
             <Expression xsi:type="PropertySource" TypeArguments="io:GetDirectories,sys:String">
               <MemberName>Path</MemberName>
-              <Value>.</Value>
+              <Value>C:\Users\Admin\source\repos\ae-dev\data-dump</Value>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Timestamp" />
@@ -25705,11 +25726,11 @@
               <Name>LoggingPath</Name>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="SpikeDataLogName" />
+              <Property Name="Value" DisplayName="SpikeDataLogName" Category="Logging" />
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>SpikeData</Value>
+                <Value>SpikeData.bin</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -25738,11 +25759,11 @@
               <Name>LoggingPath</Name>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="LfpDataLogName" />
+              <Property Name="Value" DisplayName="LfpDataLogName" Category="Logging" />
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>LFP</Value>
+                <Value>LFP.bin</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -25771,11 +25792,11 @@
               <Name>LoggingPath</Name>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="FrameCounterLogName" />
+              <Property Name="Value" DisplayName="FrameCounterLogName" Category="Logging" />
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="StringProperty">
-                <Value>FrameCounter</Value>
+                <Value>FrameCounter.bin</Value>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -25797,19 +25818,70 @@
                 <dsp:Layout>ColumnMajor</dsp:Layout>
               </Combinator>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="SubscribeSubject">
-                <Name>TimestampedCurrentPosition</Name>
-              </Builder>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Clock</Name>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="dsp:MatrixWriter">
-                  <dsp:Suffix>None</dsp:Suffix>
-                  <dsp:Overwrite>false</dsp:Overwrite>
-                  <dsp:Layout>ColumnMajor</dsp:Layout>
-                </Combinator>
-              </Builder>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>LoggingPath</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="ClockLogName" Category="Logging" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>Clock.bin</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="Format">
+              <Format>{0}\{1}</Format>
+              <Selector>Item1,Item2</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Path" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="dsp:MatrixWriter">
+                <dsp:Suffix>None</dsp:Suffix>
+                <dsp:Overwrite>false</dsp:Overwrite>
+                <dsp:Layout>ColumnMajor</dsp:Layout>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>TimestampedCurrentPosition</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>LoggingPath</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="ManipulatorPositionLogName" Category="Logging" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="StringProperty">
+                <Value>CurrentPosition.csv</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="Format">
+              <Format>{0}\{1}</Format>
+              <Selector>Item1,Item2</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="FileName" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="io:CsvWriter">
+              <io:Append>false</io:Append>
+              <io:Overwrite>false</io:Overwrite>
+              <io:Suffix>None</io:Suffix>
+              <io:IncludeHeader>false</io:IncludeHeader>
             </Expression>
           </Nodes>
           <Edges>
@@ -25839,7 +25911,20 @@
             <Edge From="26" To="27" Label="Source1" />
             <Edge From="27" To="28" Label="Source1" />
             <Edge From="28" To="29" Label="Source2" />
-            <Edge From="30" To="31" Label="Source1" />
+            <Edge From="30" To="37" Label="Source1" />
+            <Edge From="31" To="34" Label="Source1" />
+            <Edge From="32" To="33" Label="Source1" />
+            <Edge From="33" To="34" Label="Source2" />
+            <Edge From="34" To="35" Label="Source1" />
+            <Edge From="35" To="36" Label="Source1" />
+            <Edge From="36" To="37" Label="Source2" />
+            <Edge From="38" To="45" Label="Source1" />
+            <Edge From="39" To="42" Label="Source1" />
+            <Edge From="40" To="41" Label="Source1" />
+            <Edge From="41" To="42" Label="Source2" />
+            <Edge From="42" To="43" Label="Source1" />
+            <Edge From="43" To="44" Label="Source1" />
+            <Edge From="44" To="45" Label="Source2" />
           </Edges>
         </Workflow>
       </Expression>
