@@ -10,6 +10,55 @@
                 }
             },
             "type": "object"
+        },
+        "trial": {
+            "properties": {
+                "reward": {
+                    "default": [],
+                    "items": {
+                        "$ref": "#/definitions/reward-protocol"
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "reward-protocol": {
+            "properties": {
+                "amount-high": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "amount-low": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "delay": {
+                    "default": 0,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "properties": {
+        "metadata": {
+            "properties": {
+                "animal-id": {
+                    "default": "",
+                    "type": "string"
+                },
+                "root-path": {
+                    "default": "",
+                    "type": "string"
+                }
+            }
+        },
+        "trials": {
+            "items": {
+                "$ref": "#/definitions/trial"
+            },
+            "type": "array"
         }
     },
     "title": "VestibularVrSession",
