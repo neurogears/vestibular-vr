@@ -3,15 +3,15 @@
 # yaml-language-server: $schema=schema.json
 
 metadata:
-  animal-id: plimbo
-  root-path: C:/
+  animalId: plimbo
+  rootPath: C:/
 
 trials: [
   &trialTypeA {
     reward: [
       {
-        amount-high: 0,
-        amount-low: 0
+        amountHigh: 0,
+        amountLow: 0
       }
     ]
   },
@@ -19,8 +19,8 @@ trials: [
   &trialTypeB {
     reward: [
       {
-        amount-high: 1,
-        amount-low: 0.1
+        amountHigh: 1,
+        amountLow: 0.1
       }
     ]
   }

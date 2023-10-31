@@ -83,7 +83,7 @@ namespace DataSchema
     
         private double _delay = 0D;
     
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="amount-high")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="amountHigh")]
         public double AmountHigh
         {
             get
@@ -96,7 +96,7 @@ namespace DataSchema
             }
         }
     
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="amount-low")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="amountLow")]
         public double AmountLow
         {
             get
@@ -193,7 +193,7 @@ namespace DataSchema
     
         private string _rootPath = "";
     
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="animal-id")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="animalId")]
         public string AnimalId
         {
             get
@@ -206,7 +206,7 @@ namespace DataSchema
             }
         }
     
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="root-path")]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="rootPath")]
         public string RootPath
         {
             get

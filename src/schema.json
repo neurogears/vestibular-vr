@@ -16,19 +16,19 @@
                 "reward": {
                     "default": [],
                     "items": {
-                        "$ref": "#/definitions/reward-protocol"
+                        "$ref": "#/definitions/rewardProtocol"
                     },
                     "type": "array"
                 }
             }
         },
-        "reward-protocol": {
+        "rewardProtocol": {
             "properties": {
-                "amount-high": {
+                "amountHigh": {
                     "default": 0,
                     "type": "number"
                 },
-                "amount-low": {
+                "amountLow": {
                     "default": 0,
                     "type": "number"
                 },
@@ -44,11 +44,11 @@
     "properties": {
         "metadata": {
             "properties": {
-                "animal-id": {
+                "animalId": {
                     "default": "",
                     "type": "string"
                 },
-                "root-path": {
+                "rootPath": {
                     "default": "",
                     "type": "string"
                 }
