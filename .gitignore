@@ -1,2 +1,27 @@
-
 desktop.ini
+
+# State recovery files
+~*
+
+# Bonsai scripting and environment files
+.vs
+bin
+obj
+Packages
+*.bin
+*.avi
+*.dll
+*.exe
+*.exe.settings
+SessionSummary
+Data/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv
+winpython
+Firmware/
