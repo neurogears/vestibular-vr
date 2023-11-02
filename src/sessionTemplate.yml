@@ -22,7 +22,7 @@ blocks: [
           haltProbability: 0.5,
           minumumDelay: 0.1,
           randomDelay: 0.5,
-          haltTime: 2
+          haltTime: 10
         },
         gratingsProtocol: {
           spatialFrequency: 0.5
