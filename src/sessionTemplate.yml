@@ -20,7 +20,12 @@ blocks: [
         },
         visualStim: grating
       },
-      {<<: *normalTrial}
+      {<<: *normalTrial},
+      {<<: *normalTrial,
+        reward: {
+          amountHigh: 1
+        }
+      }
     ]
   }
 ]
