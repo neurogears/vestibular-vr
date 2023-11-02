@@ -24,7 +24,9 @@ blocks: [
           randomDelay: 0.5,
           haltTime: 2
         },
-        visualStim: grating
+        gratingsProtocol: {
+          spatialFrequency: 0.5
+        }
       },
       {<<: *normalTrial},
       {<<: *normalTrial,
@@ -36,8 +38,8 @@ blocks: [
           minumumDelay: 0.1,
           randomDelay: 0.5,
           haltTime: 5
-        }
-
+        },
+        gratingsProtocol: {spatialFrequency: 0.1}
       }
     ]
   }

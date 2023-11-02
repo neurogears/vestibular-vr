@@ -18,8 +18,8 @@
                 "reward": {
                     "$ref": "#/definitions/rewardProtocol"
                 },
-                "visualStim": {
-                    "$ref": "#/definitions/stimulusProtocol"
+                "gratingsProtocol": {
+                    "$ref": "#/definitions/gratingsProtocol"
                 },
                 "runGainModifier": {
                     "default": 1,
@@ -81,6 +81,14 @@
                 }
             },
             "type": "object"
+        },
+        "gratingsProtocol": {
+            "properties": {
+                "spatialFrequency": {
+                    "default": 0.5,
+                    "type": "number"
+                }
+            }
         }
     },
     "properties": {

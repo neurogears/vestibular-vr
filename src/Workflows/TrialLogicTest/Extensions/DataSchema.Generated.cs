@@ -48,7 +48,7 @@ namespace DataSchema
     
         private RewardProtocol _reward;
     
-        private StimulusProtocol _visualStim;
+        private GratingsProtocol _gratingsProtocol;
     
         private double _runGainModifier = 1D;
     
@@ -71,16 +71,16 @@ namespace DataSchema
         }
     
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="visualStim")]
-        public StimulusProtocol VisualStim
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="gratingsProtocol")]
+        public GratingsProtocol GratingsProtocol
         {
             get
             {
-                return _visualStim;
+                return _gratingsProtocol;
             }
             set
             {
-                _visualStim = value;
+                _gratingsProtocol = value;
             }
         }
     
@@ -130,7 +130,7 @@ namespace DataSchema
                 new Trial
                 {
                     Reward = _reward,
-                    VisualStim = _visualStim,
+                    GratingsProtocol = _gratingsProtocol,
                     RunGainModifier = _runGainModifier,
                     RunThresholdModifier = _runThresholdModifier,
                     HaltProtocol = _haltProtocol
@@ -290,6 +290,37 @@ namespace DataSchema
                     MinumumDelay = _minumumDelay,
                     RandomDelay = _randomDelay,
                     HaltTime = _haltTime
+                }));
+        }
+    }
+
+
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class GratingsProtocol
+    {
+    
+        private double _spatialFrequency = 0.5D;
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="spatialFrequency")]
+        public double SpatialFrequency
+        {
+            get
+            {
+                return _spatialFrequency;
+            }
+            set
+            {
+                _spatialFrequency = value;
+            }
+        }
+    
+        public System.IObservable<GratingsProtocol> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
+                new GratingsProtocol
+                {
+                    SpatialFrequency = _spatialFrequency
                 }));
         }
     }
@@ -461,6 +492,11 @@ namespace DataSchema
             return Process<HaltProtocol>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<GratingsProtocol> source)
+        {
+            return Process<GratingsProtocol>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<VestibularVrSession> source)
         {
             return Process<VestibularVrSession>(source);
@@ -482,6 +518,7 @@ namespace DataSchema
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Trial>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<RewardProtocol>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<HaltProtocol>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<GratingsProtocol>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<VestibularVrSession>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Metadata>))]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]
