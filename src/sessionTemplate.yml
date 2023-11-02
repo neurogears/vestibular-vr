@@ -5,7 +5,7 @@
 metadata:
   animalId: plimbo
   rootPath: C:/
-  runGain: 1
+  runGain: 0.01
   runThreshold: 1
 
 blocks: [
@@ -25,7 +25,7 @@ blocks: [
           haltTime: 10
         },
         gratingsProtocol: {
-          spatialFrequency: 0.5
+          spatialFrequency: 0.2
         }
       },
       {<<: *normalTrial},
