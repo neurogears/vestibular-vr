@@ -14,18 +14,19 @@ namespace DataSchema
     public partial class Block
     {
     
-        private int _size = 40;
+        private System.Collections.Generic.List<Trial> _trials = new System.Collections.Generic.List<Trial>();
     
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="size")]
-        public int Size
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="trials")]
+        public System.Collections.Generic.List<Trial> Trials
         {
             get
             {
-                return _size;
+                return _trials;
             }
             set
             {
-                _size = value;
+                _trials = value;
             }
         }
     
@@ -34,7 +35,7 @@ namespace DataSchema
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
                 new Block
                 {
-                    Size = _size
+                    Trials = _trials
                 }));
         }
     }
@@ -45,11 +46,17 @@ namespace DataSchema
     public partial class Trial
     {
     
-        private System.Collections.Generic.List<RewardProtocol> _reward = new System.Collections.Generic.List<RewardProtocol>();
+        private RewardProtocol _reward;
+    
+        private StimulusProtocol _visualStim;
+    
+        private double _runGainModifier = 1D;
+    
+        private double _runThresholdModifier = 1D;
     
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="reward")]
-        public System.Collections.Generic.List<RewardProtocol> Reward
+        public RewardProtocol Reward
         {
             get
             {
@@ -61,14 +68,71 @@ namespace DataSchema
             }
         }
     
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="visualStim")]
+        public StimulusProtocol VisualStim
+        {
+            get
+            {
+                return _visualStim;
+            }
+            set
+            {
+                _visualStim = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runGainModifier")]
+        public double RunGainModifier
+        {
+            get
+            {
+                return _runGainModifier;
+            }
+            set
+            {
+                _runGainModifier = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runThresholdModifier")]
+        public double RunThresholdModifier
+        {
+            get
+            {
+                return _runThresholdModifier;
+            }
+            set
+            {
+                _runThresholdModifier = value;
+            }
+        }
+    
         public System.IObservable<Trial> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
                 new Trial
                 {
-                    Reward = _reward
+                    Reward = _reward,
+                    VisualStim = _visualStim,
+                    RunGainModifier = _runGainModifier,
+                    RunThresholdModifier = _runThresholdModifier
                 }));
         }
+    }
+
+
+    public enum StimulusProtocol
+    {
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="grating")]
+        Grating = 0,
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="texture")]
+        Texture = 1,
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cloud")]
+        Cloud = 2,
     }
 
 
@@ -137,12 +201,91 @@ namespace DataSchema
 
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class HaltProtocol
+    {
+    
+        private double _haltProbability = 0.5D;
+    
+        private double _minumumDelay = 0.1D;
+    
+        private double _randomDelay = 0.5D;
+    
+        private double _haltTime = 2D;
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="haltProbability")]
+        public double HaltProbability
+        {
+            get
+            {
+                return _haltProbability;
+            }
+            set
+            {
+                _haltProbability = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="minumumDelay")]
+        public double MinumumDelay
+        {
+            get
+            {
+                return _minumumDelay;
+            }
+            set
+            {
+                _minumumDelay = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="randomDelay")]
+        public double RandomDelay
+        {
+            get
+            {
+                return _randomDelay;
+            }
+            set
+            {
+                _randomDelay = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="haltTime")]
+        public double HaltTime
+        {
+            get
+            {
+                return _haltTime;
+            }
+            set
+            {
+                _haltTime = value;
+            }
+        }
+    
+        public System.IObservable<HaltProtocol> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
+                new HaltProtocol
+                {
+                    HaltProbability = _haltProbability,
+                    MinumumDelay = _minumumDelay,
+                    RandomDelay = _randomDelay,
+                    HaltTime = _haltTime
+                }));
+        }
+    }
+
+
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class VestibularVrSession
     {
     
         private Metadata _metadata;
     
-        private System.Collections.Generic.List<Trial> _trials = new System.Collections.Generic.List<Trial>();
+        private System.Collections.Generic.List<Block> _blocks = new System.Collections.Generic.List<Block>();
     
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="metadata")]
@@ -159,16 +302,16 @@ namespace DataSchema
         }
     
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="trials")]
-        public System.Collections.Generic.List<Trial> Trials
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="blocks")]
+        public System.Collections.Generic.List<Block> Blocks
         {
             get
             {
-                return _trials;
+                return _blocks;
             }
             set
             {
-                _trials = value;
+                _blocks = value;
             }
         }
     
@@ -178,7 +321,7 @@ namespace DataSchema
                 new VestibularVrSession
                 {
                     Metadata = _metadata,
-                    Trials = _trials
+                    Blocks = _blocks
                 }));
         }
     }
@@ -192,6 +335,10 @@ namespace DataSchema
         private string _animalId = "";
     
         private string _rootPath = "";
+    
+        private double _runGain = 1D;
+    
+        private double _runThreshold = 1D;
     
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="animalId")]
         public string AnimalId
@@ -219,13 +366,41 @@ namespace DataSchema
             }
         }
     
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runGain")]
+        public double RunGain
+        {
+            get
+            {
+                return _runGain;
+            }
+            set
+            {
+                _runGain = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runThreshold")]
+        public double RunThreshold
+        {
+            get
+            {
+                return _runThreshold;
+            }
+            set
+            {
+                _runThreshold = value;
+            }
+        }
+    
         public System.IObservable<Metadata> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
                 new Metadata
                 {
                     AnimalId = _animalId,
-                    RootPath = _rootPath
+                    RootPath = _rootPath,
+                    RunGain = _runGain,
+                    RunThreshold = _runThreshold
                 }));
         }
     }
@@ -264,6 +439,11 @@ namespace DataSchema
             return Process<RewardProtocol>(source);
         }
 
+        public System.IObservable<string> Process(System.IObservable<HaltProtocol> source)
+        {
+            return Process<HaltProtocol>(source);
+        }
+
         public System.IObservable<string> Process(System.IObservable<VestibularVrSession> source)
         {
             return Process<VestibularVrSession>(source);
@@ -284,6 +464,7 @@ namespace DataSchema
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Block>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Trial>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<RewardProtocol>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<HaltProtocol>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<VestibularVrSession>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Metadata>))]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]

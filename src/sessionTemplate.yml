@@ -5,23 +5,22 @@
 metadata:
   animalId: plimbo
   rootPath: C:/
+  runGain: 1
+  runThreshold: 1
 
-trials: [
-  &trialTypeA {
-    reward: [
+blocks: [
+  &blockA
+  {
+    trials: [
+      &normalTrial
       {
-        amountHigh: 0,
-        amountLow: 0
-      }
-    ]
-  },
-
-  &trialTypeB {
-    reward: [
-      {
-        amountHigh: 1,
-        amountLow: 0.1
-      }
+        reward: {
+          amountHigh: 2,
+          amountLow: 0
+        },
+        visualStim: grating
+      },
+      {<<: *normalTrial}
     ]
   }
 ]

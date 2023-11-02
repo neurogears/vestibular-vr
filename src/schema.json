@@ -4,9 +4,11 @@
     "definitions": {
         "block": {
             "properties": {
-                "size": {
-                    "default": 40,
-                    "type": "integer"
+                "trials": {
+                    "items": {
+                        "$ref": "#/definitions/trial"
+                    },
+                    "type": "array"
                 }
             },
             "type": "object"
@@ -14,13 +16,29 @@
         "trial": {
             "properties": {
                 "reward": {
-                    "default": [],
-                    "items": {
-                        "$ref": "#/definitions/rewardProtocol"
-                    },
-                    "type": "array"
+                    "$ref": "#/definitions/rewardProtocol"
+                },
+                "visualStim": {
+                    "$ref": "#/definitions/stimulusProtocol"
+                },
+                "runGainModifier": {
+                    "default": 1,
+                    "type": "number"
+                },
+                "runThresholdModifier": {
+                    "default": 1,
+                    "type": "number"
                 }
             }
+        },
+        "stimulusProtocol": {
+            "default": "grating",
+            "enum": [
+                "grating", 
+                "texture",
+                "cloud"
+            ],
+            "type": "string"
         },
         "rewardProtocol": {
             "properties": {
@@ -39,6 +57,27 @@
                 }
             },
             "type": "object"
+        },
+        "haltProtocol": {
+            "properties": {
+                "haltProbability": {
+                    "default": 0.5,
+                    "type": "number"
+                },
+                "minumumDelay": {
+                    "default": 0.1,
+                    "type": "number"
+                },
+                "randomDelay": {
+                    "default": 0.5,
+                    "type": "number"
+                },
+                "haltTime": {
+                    "default": 2,
+                    "type": "number"
+                }
+            },
+            "type": "object"
         }
     },
     "properties": {
@@ -51,12 +90,20 @@
                 "rootPath": {
                     "default": "",
                     "type": "string"
+                },
+                "runGain": {
+                    "default": 1,
+                    "type": "number"
+                },
+                "runThreshold": {
+                    "default": 1,
+                    "type": "number"
                 }
             }
         },
-        "trials": {
+        "blocks": {
             "items": {
-                "$ref": "#/definitions/trial"
+                "$ref": "#/definitions/block"
             },
             "type": "array"
         }
