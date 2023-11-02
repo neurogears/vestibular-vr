@@ -28,6 +28,9 @@
                 "runThresholdModifier": {
                     "default": 1,
                     "type": "number"
+                },
+                "haltProtocol": {
+                    "$ref": "#/definitions/haltProtocol"
                 }
             }
         },

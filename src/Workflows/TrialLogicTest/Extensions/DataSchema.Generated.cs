@@ -54,6 +54,8 @@ namespace DataSchema
     
         private double _runThresholdModifier = 1D;
     
+        private HaltProtocol _haltProtocol;
+    
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="reward")]
         public RewardProtocol Reward
@@ -108,6 +110,20 @@ namespace DataSchema
             }
         }
     
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="haltProtocol")]
+        public HaltProtocol HaltProtocol
+        {
+            get
+            {
+                return _haltProtocol;
+            }
+            set
+            {
+                _haltProtocol = value;
+            }
+        }
+    
         public System.IObservable<Trial> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
@@ -116,7 +132,8 @@ namespace DataSchema
                     Reward = _reward,
                     VisualStim = _visualStim,
                     RunGainModifier = _runGainModifier,
-                    RunThresholdModifier = _runThresholdModifier
+                    RunThresholdModifier = _runThresholdModifier,
+                    HaltProtocol = _haltProtocol
                 }));
         }
     }

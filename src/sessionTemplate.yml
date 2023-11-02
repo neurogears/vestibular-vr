@@ -18,6 +18,12 @@ blocks: [
           amountHigh: 2,
           amountLow: 0
         },
+        haltProtocol: {
+          haltProbability: 0.5,
+          minumumDelay: 0.1,
+          randomDelay: 0.5,
+          haltTime: 2
+        },
         visualStim: grating
       },
       {<<: *normalTrial},
