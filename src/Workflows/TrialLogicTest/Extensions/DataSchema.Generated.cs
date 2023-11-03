@@ -386,7 +386,9 @@ namespace DataSchema
     
         private double _runGain = 1D;
     
-        private double _runThreshold = 1D;
+        private double _runThreshold = 100D;
+    
+        private double _runThresholdDecay = 1D;
     
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="animalId")]
         public string AnimalId
@@ -440,6 +442,19 @@ namespace DataSchema
             }
         }
     
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runThresholdDecay")]
+        public double RunThresholdDecay
+        {
+            get
+            {
+                return _runThresholdDecay;
+            }
+            set
+            {
+                _runThresholdDecay = value;
+            }
+        }
+    
         public System.IObservable<Metadata> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
@@ -448,7 +463,8 @@ namespace DataSchema
                     AnimalId = _animalId,
                     RootPath = _rootPath,
                     RunGain = _runGain,
-                    RunThreshold = _runThreshold
+                    RunThreshold = _runThreshold,
+                    RunThresholdDecay = _runThresholdDecay
                 }));
         }
     }

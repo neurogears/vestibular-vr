@@ -6,7 +6,8 @@ metadata:
   animalId: plimbo
   rootPath: C:/
   runGain: 0.01
-  runThreshold: 1
+  runThreshold: 100
+  runThresholdDecay: -1
 
 blocks: [
   &blockA
