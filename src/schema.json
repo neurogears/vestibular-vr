@@ -1,0 +1,128 @@
+{
+    "$id": "h...",
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "definitions": {
+        "block": {
+            "properties": {
+                "trials": {
+                    "items": {
+                        "$ref": "#/definitions/trial"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "trial": {
+            "properties": {
+                "reward": {
+                    "$ref": "#/definitions/rewardProtocol"
+                },
+                "gratingsProtocol": {
+                    "$ref": "#/definitions/gratingsProtocol"
+                },
+                "runGainModifier": {
+                    "default": 1,
+                    "type": "number"
+                },
+                "runThresholdModifier": {
+                    "default": 1,
+                    "type": "number"
+                },
+                "haltProtocol": {
+                    "$ref": "#/definitions/haltProtocol"
+                }
+            }
+        },
+        "stimulusProtocol": {
+            "default": "grating",
+            "enum": [
+                "grating", 
+                "texture",
+                "cloud"
+            ],
+            "type": "string"
+        },
+        "rewardProtocol": {
+            "properties": {
+                "amountHigh": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "amountLow": {
+                    "default": 0,
+                    "type": "number"
+                },
+                "delay": {
+                    "default": 0,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "haltProtocol": {
+            "properties": {
+                "haltProbability": {
+                    "default": 0.5,
+                    "type": "number"
+                },
+                "minumumDelay": {
+                    "default": 0.1,
+                    "type": "number"
+                },
+                "randomDelay": {
+                    "default": 0.5,
+                    "type": "number"
+                },
+                "haltTime": {
+                    "default": 2,
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "gratingsProtocol": {
+            "properties": {
+                "spatialFrequency": {
+                    "default": 0.5,
+                    "type": "number"
+                }
+            }
+        }
+    },
+    "properties": {
+        "metadata": {
+            "properties": {
+                "animalId": {
+                    "default": "",
+                    "type": "string"
+                },
+                "rootPath": {
+                    "default": "",
+                    "type": "string"
+                },
+                "runGain": {
+                    "default": 1,
+                    "type": "number"
+                },
+                "runThreshold": {
+                    "default": 100,
+                    "type": "number"
+                },
+                "runThresholdDecay": {
+                    "default": -1,
+                    "type": "number"
+                }
+            }
+        },
+        "blocks": {
+            "items": {
+                "$ref": "#/definitions/block"
+            },
+            "type": "array"
+        }
+    },
+    "title": "VestibularVrSession",
+    "type": "object"
+}
