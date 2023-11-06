@@ -21,7 +21,7 @@ blocks: [
         },
         haltProtocol: {
           haltProbability: 0.5,
-          minumumDelay: 0.1,
+          minumumDelay: 1,
           randomDelay: 0.5,
           haltTime: 10
         },
@@ -36,7 +36,7 @@ blocks: [
         },
         haltProtocol: {
           haltProbability: 0.5,
-          minumumDelay: 0.1,
+          minumumDelay: 1,
           randomDelay: 0.5,
           haltTime: 5
         },
