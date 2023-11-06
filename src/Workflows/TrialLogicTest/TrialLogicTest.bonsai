@@ -7,6 +7,7 @@
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
                  xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
                  xmlns:p2="clr-namespace:Bonsai.Numerics.Distributions;assembly=Bonsai.Numerics"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
@@ -358,6 +359,17 @@
               <Name>ClosedLoopGratings</Name>
               <Workflow>
                 <Nodes>
+                  <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Boolean">
+                    <rx:Name>UpdateStmuli</rx:Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="BooleanProperty">
+                      <Value>true</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>UpdateStmuli</Name>
+                  </Expression>
                   <Expression xsi:type="WorkflowInput">
                     <Name>Source1</Name>
                   </Expression>
@@ -388,7 +400,7 @@
                     <ExtentY>60</ExtentY>
                     <SpatialFrequency>0.2</SpatialFrequency>
                     <TemporalFrequency>0</TemporalFrequency>
-                    <Phase>-1650.11865</Phase>
+                    <Phase>-1993.8938</Phase>
                     <Angle>0</Angle>
                     <SquareWave>false</SquareWave>
                     <Contrast>2</Contrast>
@@ -424,7 +436,7 @@
                     <ExtentY>60</ExtentY>
                     <SpatialFrequency>0.2</SpatialFrequency>
                     <TemporalFrequency>0</TemporalFrequency>
-                    <Phase>11963.3594</Phase>
+                    <Phase>12307.1348</Phase>
                     <Angle>0</Angle>
                     <SquareWave>false</SquareWave>
                     <Contrast>2</Contrast>
@@ -439,21 +451,22 @@
                   <Expression xsi:type="WorkflowOutput" />
                 </Nodes>
                 <Edges>
-                  <Edge From="0" To="6" Label="Source1" />
-                  <Edge From="0" To="12" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="3" To="6" Label="Source2" />
+                  <Edge From="3" To="9" Label="Source1" />
+                  <Edge From="3" To="15" Label="Source1" />
                   <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source3" />
-                  <Edge From="6" To="13" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="9" Label="Source2" />
                   <Edge From="7" To="8" Label="Source1" />
-                  <Edge From="8" To="9" Label="Source1" />
-                  <Edge From="9" To="12" Label="Source2" />
+                  <Edge From="8" To="9" Label="Source3" />
+                  <Edge From="9" To="16" Label="Source1" />
                   <Edge From="10" To="11" Label="Source1" />
-                  <Edge From="11" To="12" Label="Source3" />
-                  <Edge From="12" To="13" Label="Source2" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="15" Label="Source2" />
                   <Edge From="13" To="14" Label="Source1" />
+                  <Edge From="14" To="15" Label="Source3" />
+                  <Edge From="15" To="16" Label="Source2" />
+                  <Edge From="16" To="17" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -492,6 +505,13 @@
               <Name>CalculatePhaseProcession</Name>
               <Workflow>
                 <Nodes>
+                  <Expression xsi:type="Annotation">
+                    <Name>DeltaSwitch</Name>
+                    <Text><![CDATA[Used to globally control movement delta gain, e.g. set to 0 to halt update of visual stimuli, or to 1 to enable update.]]></Text>
+                  </Expression>
+                  <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Single">
+                    <rx:Name>MovementDeltaSwitch</rx:Name>
+                  </Expression>
                   <Expression xsi:type="SubscribeSubject">
                     <Name>MovementDelta</Name>
                   </Expression>
@@ -502,6 +522,13 @@
                     <Combinator xsi:type="FloatProperty">
                       <Value>0.01</Value>
                     </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:WithLatestFrom" />
+                  </Expression>
+                  <Expression xsi:type="Multiply" />
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>MovementDeltaSwitch</Name>
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:WithLatestFrom" />
@@ -536,17 +563,21 @@
                   </Expression>
                 </Nodes>
                 <Edges>
-                  <Edge From="0" To="3" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="3" Label="Source2" />
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="2" To="5" Label="Source1" />
                   <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source2" />
                   <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="5" To="9" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="6" To="8" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source2" />
+                  <Edge From="8" To="9" Label="Source1" />
                   <Edge From="9" To="10" Label="Source1" />
                   <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="10" To="14" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                  <Edge From="14" To="15" Label="Source1" />
+                  <Edge From="15" To="16" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -654,6 +685,30 @@
             </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>Trial</Name>
+            </Expression>
+            <Expression xsi:type="rx:Sink">
+              <Name>StartClosedLoop</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="FloatProperty">
+                      <Value>1</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>MovementDeltaSwitch</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source1" />
+                </Edges>
+              </Workflow>
             </Expression>
             <Expression xsi:type="rx:SelectMany">
               <Name>WaitForThreshold</Name>
@@ -816,10 +871,59 @@
                   <Expression xsi:type="WorkflowInput">
                     <Name>Source1</Name>
                   </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="FloatProperty">
+                      <Value>0</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>MovementDeltaSwitch</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>Trial</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>HaltProtocol.HaltTime</Selector>
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>TimeSpan.FromSeconds(it)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="DueTime" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="gl:Timer">
+                      <gl:DueTime>PT5S</gl:DueTime>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="FloatProperty">
+                      <Value>1</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>MovementDeltaSwitch</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Take">
+                      <rx:Count>1</rx:Count>
+                    </Combinator>
+                  </Expression>
                   <Expression xsi:type="WorkflowOutput" />
                 </Nodes>
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="7" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source1" />
+                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -1010,14 +1114,15 @@
             <Edge From="38" To="39" Label="Source1" />
             <Edge From="40" To="41" Label="Source1" />
             <Edge From="41" To="42" Label="Source1" />
-            <Edge From="41" To="49" Label="Source1" />
             <Edge From="42" To="43" Label="Source1" />
+            <Edge From="42" To="50" Label="Source1" />
             <Edge From="43" To="44" Label="Source1" />
-            <Edge From="43" To="47" Label="Source1" />
             <Edge From="44" To="45" Label="Source1" />
+            <Edge From="44" To="48" Label="Source1" />
             <Edge From="45" To="46" Label="Source1" />
-            <Edge From="47" To="48" Label="Source1" />
-            <Edge From="49" To="50" Label="Source1" />
+            <Edge From="46" To="47" Label="Source1" />
+            <Edge From="48" To="49" Label="Source1" />
+            <Edge From="50" To="51" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -1041,16 +1146,6 @@
       </Expression>
       <Expression xsi:type="rx:BehaviorSubject">
         <Name>ProbabilitySampling</Name>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="BooleanProperty">
-          <Value>false</Value>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="NotEqual">
-        <Operand xsi:type="BooleanProperty">
-          <Value>true</Value>
-        </Operand>
       </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>ProbabilitySampling</Name>
@@ -1098,11 +1193,10 @@
       <Edge From="24" To="25" Label="Source1" />
       <Edge From="25" To="26" Label="Source1" />
       <Edge From="27" To="28" Label="Source1" />
-      <Edge From="29" To="30" Label="Source1" />
-      <Edge From="30" To="32" Label="Source1" />
-      <Edge From="31" To="32" Label="Source2" />
-      <Edge From="32" To="33" Label="Source1" />
-      <Edge From="33" To="34" Label="Source1" />
+      <Edge From="28" To="30" Label="Source1" />
+      <Edge From="29" To="30" Label="Source2" />
+      <Edge From="30" To="31" Label="Source1" />
+      <Edge From="31" To="32" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
