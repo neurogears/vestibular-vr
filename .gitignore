@@ -25,3 +25,5 @@ __pycache__/
 .venv
 winpython
 Firmware/
+
+Python/vestibular-vr/.idea/
