@@ -4,9 +4,9 @@ import scipy.signal as signal
 
 # load raw data
 fs = 100000.0
-data_path_1 = 'C:/VestibularVRData/benchmarks/ScreenSync/Data2023_09_20_17_23_49/PhotoDiode1.bin'
-data_path_2 = 'C:/VestibularVRData/benchmarks/ScreenSync/Data2023_09_20_17_23_49/PhotoDiode2.bin'
-window = 18000000
+data_path_1 = 'C:/VestibularVRData/benchmarks/RoundTrip/Data2023_09_21_18_07_32/PhotoDiode1.bin'
+data_path_2 = 'C:/VestibularVRData/benchmarks/RoundTrip/Data2023_09_21_18_07_32/PhotoDiode2.bin'
+window = 100000000
 
 with open(data_path_1, 'rb') as f:
     photo_diode_1 = np.fromfile(f, dtype=np.int16).astype(np.single)[0:window]
@@ -26,21 +26,25 @@ photo_diode_2[np.where(photo_diode_2 <= pd2_thresh)] = 0
 photo_diode_2[np.where(photo_diode_2 > pd2_thresh)] = 1
 
 # get peaks
-pd1_peaks, pd1_props = signal.find_peaks(photo_diode_1, prominence=1, width=20000)
-pd2_peaks, pd2_props = signal.find_peaks(photo_diode_2, prominence=1, width=20000)
+pd1_peaks, pd1_props = signal.find_peaks(photo_diode_1, prominence=1, width=7000)
+pd2_peaks, pd2_props = signal.find_peaks(photo_diode_2, prominence=1, width=7000)
 
-t_offsets = (pd2_peaks - pd1_peaks) / fs
+pd1_peaks = pd1_props['left_bases']
+pd2_peaks = pd2_props['left_bases']
+
+pd1_diffs = np.diff(pd1_peaks) / fs
+pd2_diffs = np.diff(pd2_peaks) / fs
 
 plt.figure()
 plt.plot(photo_diode_1, 'b')
-plt.plot(pd1_props['left_bases'], photo_diode_1[pd1_peaks], 'bx')
-plt.plot(photo_diode_2, 'r')
-plt.plot(pd2_props['left_bases'], photo_diode_2[pd2_peaks], 'rx')
+plt.plot(pd1_peaks, (photo_diode_1[pd1_peaks]*0)+1, 'bx')
+plt.plot(photo_diode_2, 'b')
+plt.plot(pd2_peaks, (photo_diode_2[pd2_peaks]*0)+1, 'bx')
 
 plt.figure()
-plt.hist(t_offsets)
-plt.xlabel('sync offset (s)')
+plt.hist(pd1_diffs / 2)
+plt.xlabel('round trip time (s)')
 plt.ylabel('frequency')
-plt.title('mean={mean:.5f}, sd={sd:.5f}'.format(mean=np.mean(t_offsets), sd=np.std(t_offsets)))
+plt.title('mean={mean:.5f}, sd={sd:.5f}'.format(mean=np.mean(pd1_diffs / 2), sd=np.std(pd1_diffs / 2)))
 
 plt.show()
