@@ -5,8 +5,10 @@ import scipy.signal as signal
 # load raw data
 # data_path_1 = 'C:/VestibularVRData/benchmarks/ScreenSync/Data2023_09_20_17_23_49/PhotoDiode1.bin'
 # data_path_2 = 'C:/VestibularVRData/benchmarks/ScreenSync/Data2023_09_20_17_23_49/PhotoDiode2.bin'
-data_path_1 = 'C:/VestibularVRData/benchmarks/ScreenSync_MatroxOnly/Data2023_11_30_11_43_44/PhotoDiode1.bin'
-data_path_2 = 'C:/VestibularVRData/benchmarks/ScreenSync_MatroxOnly/Data2023_11_30_11_43_44/PhotoDiode2.bin'
+# data_path_1 = 'C:/VestibularVRData/benchmarks/ScreenSync_MatroxOnly/Data2023_11_30_11_43_44/PhotoDiode1.bin'
+# data_path_2 = 'C:/VestibularVRData/benchmarks/ScreenSync_MatroxOnly/Data2023_11_30_11_43_44/PhotoDiode2.bin'
+data_path_1 = 'C:/VestibularVRData/benchmarks/ScreenSync_MatroxOnly/Data2023_11_30_12_33_27/PhotoDiode1.bin'
+data_path_2 = 'C:/VestibularVRData/benchmarks/ScreenSync_MatroxOnly/Data2023_11_30_12_33_27/PhotoDiode2.bin'
 fs = 100000.0
 window = 90000000
 
