@@ -6,8 +6,8 @@
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
-                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
@@ -89,9 +89,9 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:CreateWindow">
-          <gl:Width>640</gl:Width>
-          <gl:Height>480</gl:Height>
-          <gl:VSync>On</gl:VSync>
+          <gl:Width>7680</gl:Width>
+          <gl:Height>1080</gl:Height>
+          <gl:VSync>Off</gl:VSync>
           <gl:SwapSync>false</gl:SwapSync>
           <gl:ClearColor>LightGrey</gl:ClearColor>
           <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
@@ -99,9 +99,9 @@
           <gl:Location xsi:nil="true" />
           <gl:WindowBorder>Resizable</gl:WindowBorder>
           <gl:WindowState>Fullscreen</gl:WindowState>
-          <gl:DisplayDevice>Third</gl:DisplayDevice>
-          <gl:TargetRenderFrequency>60</gl:TargetRenderFrequency>
-          <gl:TargetUpdateFrequency xsi:nil="true" />
+          <gl:DisplayDevice>Primary</gl:DisplayDevice>
+          <gl:TargetRenderFrequency>200</gl:TargetRenderFrequency>
+          <gl:TargetUpdateFrequency>200</gl:TargetUpdateFrequency>
           <gl:RenderState />
           <gl:GraphicsMode>
             <gl:ColorFormat>
@@ -140,7 +140,7 @@
             </Expression>
             <Expression xsi:type="PropertySource" TypeArguments="io:GetDirectories,sys:String">
               <MemberName>Path</MemberName>
-              <Value>C:\Users\Admin\source\repos\vestibular-vr\Data\Benchmarks\ScreenSync</Value>
+              <Value>C:\Users\Admin\source\repos\vestibular-vr\Data\Benchmarks\ScreenSync_MatroxOnly</Value>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Timestamp" />
@@ -181,7 +181,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Users\Admin\source\repos\vestibular-vr\Data\Benchmarks\ScreenSync/Data2023_09_20_17_23_49/\PhotoDiode1.bin</dsp:Path>
+                <dsp:Path>C:\Users\Admin\source\repos\vestibular-vr\Data\Benchmarks\ScreenSync_MatroxOnly/Data2023_11_30_11_43_44/\PhotoDiode1.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -212,7 +212,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Users\Admin\source\repos\vestibular-vr\Data\Benchmarks\ScreenSync/Data2023_09_20_17_23_49/\PhotoDiode2.bin</dsp:Path>
+                <dsp:Path>C:\Users\Admin\source\repos\vestibular-vr\Data\Benchmarks\ScreenSync_MatroxOnly/Data2023_11_30_11_43_44/\PhotoDiode2.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -279,7 +279,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawQuad.bonsai">
-              <ExtentX>12</ExtentX>
+              <ExtentX>16</ExtentX>
               <ExtentY>2</ExtentY>
               <LocationX>0</LocationX>
               <LocationY>0</LocationY>
