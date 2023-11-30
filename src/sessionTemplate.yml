@@ -1,0 +1,53 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+
+metadata:
+  animalId: plimbo
+  rootPath: C:/
+  runGain: 0.01
+  runThreshold: 20
+  runThresholdDecay: -1
+
+blocks: [
+  &blockA
+  {
+    trials: [
+      &normalTrial
+      {
+        reward: {
+          amountHigh: 2,
+          amountLow: 0
+        },
+        haltProtocol: {
+          haltProbability: 0.5,
+          minumumDelay: 1,
+          randomDelay: 0.5,
+          haltTime: 10
+        },
+        gratingsProtocol: {
+          spatialFrequency: 0.2
+        }
+      },
+      {<<: *normalTrial},
+      {<<: *normalTrial,
+        reward: {
+          amountHigh: 1
+        },
+        haltProtocol: {
+          haltProbability: 0.5,
+          minumumDelay: 1,
+          randomDelay: 0.5,
+          haltTime: 5
+        },
+        gratingsProtocol: {spatialFrequency: 0.1}
+      },
+      {<<: *normalTrial},
+      {<<: *normalTrial},
+      {<<: *normalTrial},
+      {<<: *normalTrial},
+      {<<: *normalTrial},
+      {<<: *normalTrial}
+    ]
+  }
+]
