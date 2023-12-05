@@ -192,11 +192,11 @@
                   <Expression xsi:type="WorkflowInput">
                     <Name>Source1</Name>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="harp:FilterMessage">
-                      <harp:MessageType>Event</harp:MessageType>
+                  <Expression xsi:type="harp:FilterRegister">
+                    <harp:FilterType>Include</harp:FilterType>
+                    <harp:Register xsi:type="harp:FilterRegisterAddress">
                       <harp:Address>39</harp:Address>
-                    </Combinator>
+                    </harp:Register>
                   </Expression>
                   <Expression xsi:type="harp:Parse">
                     <harp:Register xsi:type="harp:ParseMessagePayload">
