@@ -19,7 +19,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:LoadSettings">
-          <p1:Path>C:\Users\neurogears\source\repos\vestibular-vr\src\sessionTemplate.yml</p1:Path>
+          <p1:Path>C:\Users\erski\source\repos\neurogears\vestibular-vr\src\sessionTemplate.yml</p1:Path>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">

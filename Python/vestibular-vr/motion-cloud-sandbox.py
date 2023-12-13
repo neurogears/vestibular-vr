@@ -12,4 +12,4 @@ envelope = mc.envelope_gabor(fx, fy, ft,
 movie = mc.random_cloud(envelope)
 movie = mc.rectif(movie)
 
-mc.anim_save(movie, 'test-movie/test-movie', display=False, verbose=True, vext='.mp4')
+mc.anim_save(movie, 'test-images/test-image', display=False, verbose=True, vext='.png')
