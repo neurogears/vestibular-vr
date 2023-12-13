@@ -10,13 +10,13 @@ metadata:
 blocks: [
   &blockA
   {
-    stimulus: {
-      
-    }
+    stimulus: {type: "grating"},
+    totalRuntime: 120
   },
   &blockB
   {
-
+    stimulus: {type: "cloud"},
+    totalRuntime: 140
   },
   {<<: *blockA},
   {<<: *blockB}
