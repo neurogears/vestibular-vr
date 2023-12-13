@@ -14,104 +14,112 @@ namespace DataSchema
     public partial class Block
     {
     
-        private System.Collections.Generic.List<Trial> _trials = new System.Collections.Generic.List<Trial>();
+        private StimulusProtocol _stimulus;
     
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="trials")]
-        public System.Collections.Generic.List<Trial> Trials
-        {
-            get
-            {
-                return _trials;
-            }
-            set
-            {
-                _trials = value;
-            }
-        }
+        private double _totalRuntime = 120D;
     
-        public System.IObservable<Block> Process()
-        {
-            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
-                new Block
-                {
-                    Trials = _trials
-                }));
-        }
-    }
-
-
-    [Bonsai.CombinatorAttribute()]
-    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    public partial class Trial
-    {
+        private double _runThreshold = 100D;
     
-        private RewardProtocol _reward;
+        private double _runThresholdDecay = -1D;
     
-        private GratingsProtocol _gratingsProtocol;
-    
-        private double _runGainModifier = 1D;
-    
-        private double _runThresholdModifier = 1D;
+        private double _haltProbability = 0.5D;
     
         private HaltProtocol _haltProtocol;
     
+        /// <summary>
+        /// The visual stimulus to use
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="reward")]
-        public RewardProtocol Reward
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="stimulus")]
+        [System.ComponentModel.DescriptionAttribute("The visual stimulus to use")]
+        public StimulusProtocol Stimulus
         {
             get
             {
-                return _reward;
+                return _stimulus;
             }
             set
             {
-                _reward = value;
+                _stimulus = value;
             }
         }
     
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="gratingsProtocol")]
-        public GratingsProtocol GratingsProtocol
+        /// <summary>
+        /// How long (in seconds) this block should run for
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="totalRuntime")]
+        [System.ComponentModel.DescriptionAttribute("How long (in seconds) this block should run for")]
+        public double TotalRuntime
         {
             get
             {
-                return _gratingsProtocol;
+                return _totalRuntime;
             }
             set
             {
-                _gratingsProtocol = value;
+                _totalRuntime = value;
             }
         }
     
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runGainModifier")]
-        public double RunGainModifier
+        /// <summary>
+        /// The value (in position units) to reach before a halt decision is applied
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runThreshold")]
+        [System.ComponentModel.DescriptionAttribute("The value (in position units) to reach before a halt decision is applied")]
+        public double RunThreshold
         {
             get
             {
-                return _runGainModifier;
+                return _runThreshold;
             }
             set
             {
-                _runGainModifier = value;
+                _runThreshold = value;
             }
         }
     
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runThresholdModifier")]
-        public double RunThresholdModifier
+        /// <summary>
+        /// Distance to threshold is decayed by this amount (in position units) per time tick set in the workflow
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runThresholdDecay")]
+        [System.ComponentModel.DescriptionAttribute("Distance to threshold is decayed by this amount (in position units) per time tick" +
+            " set in the workflow")]
+        public double RunThresholdDecay
         {
             get
             {
-                return _runThresholdModifier;
+                return _runThresholdDecay;
             }
             set
             {
-                _runThresholdModifier = value;
+                _runThresholdDecay = value;
             }
         }
     
+        /// <summary>
+        /// The probability that a halt decision is made after a running threshold has been reached
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="haltProbability")]
+        [System.ComponentModel.DescriptionAttribute("The probability that a halt decision is made after a running threshold has been r" +
+            "eached")]
+        public double HaltProbability
+        {
+            get
+            {
+                return _haltProbability;
+            }
+            set
+            {
+                _haltProbability = value;
+            }
+        }
+    
+        /// <summary>
+        /// The halt protocol to use on a positive halt decision
+        /// </summary>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="haltProtocol")]
+        [System.ComponentModel.DescriptionAttribute("The halt protocol to use on a positive halt decision")]
         public HaltProtocol HaltProtocol
         {
             get
@@ -124,93 +132,93 @@ namespace DataSchema
             }
         }
     
-        public System.IObservable<Trial> Process()
+        public System.IObservable<Block> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
-                new Trial
+                new Block
                 {
-                    Reward = _reward,
-                    GratingsProtocol = _gratingsProtocol,
-                    RunGainModifier = _runGainModifier,
-                    RunThresholdModifier = _runThresholdModifier,
+                    Stimulus = _stimulus,
+                    TotalRuntime = _totalRuntime,
+                    RunThreshold = _runThreshold,
+                    RunThresholdDecay = _runThresholdDecay,
+                    HaltProbability = _haltProbability,
                     HaltProtocol = _haltProtocol
                 }));
         }
     }
 
 
-    public enum StimulusProtocol
-    {
-    
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="grating")]
-        Grating = 0,
-    
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="texture")]
-        Texture = 1,
-    
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cloud")]
-        Cloud = 2,
-    }
-
-
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    public partial class RewardProtocol
+    public partial class StimulusProtocol
     {
     
-        private double _amountHigh = 0D;
+        private StimulusProtocolType _type = DataSchema.StimulusProtocolType.Grating;
     
-        private double _amountLow = 0D;
+        private double _spatialFrequency = 0.1D;
     
-        private double _delay = 0D;
+        private string _path = "";
     
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="amountHigh")]
-        public double AmountHigh
+        /// <summary>
+        /// The type and parameters of the visual stimulus to use
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="type")]
+        [System.ComponentModel.DescriptionAttribute("The type and parameters of the visual stimulus to use")]
+        public StimulusProtocolType Type
         {
             get
             {
-                return _amountHigh;
+                return _type;
             }
             set
             {
-                _amountHigh = value;
+                _type = value;
             }
         }
     
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="amountLow")]
-        public double AmountLow
+        /// <summary>
+        /// Spatial frequency for stimuli where this is a parameter
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="spatialFrequency")]
+        [System.ComponentModel.DescriptionAttribute("Spatial frequency for stimuli where this is a parameter")]
+        public double SpatialFrequency
         {
             get
             {
-                return _amountLow;
+                return _spatialFrequency;
             }
             set
             {
-                _amountLow = value;
+                _spatialFrequency = value;
             }
         }
     
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="delay")]
-        public double Delay
+        /// <summary>
+        /// Path to texture or video if required
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="path")]
+        [System.ComponentModel.DescriptionAttribute("Path to texture or video if required")]
+        public string Path
         {
             get
             {
-                return _delay;
+                return _path;
             }
             set
             {
-                _delay = value;
+                _path = value;
             }
         }
     
-        public System.IObservable<RewardProtocol> Process()
+        public System.IObservable<StimulusProtocol> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
-                new RewardProtocol
+                new StimulusProtocol
                 {
-                    AmountHigh = _amountHigh,
-                    AmountLow = _amountLow,
-                    Delay = _delay
+                    Type = _type,
+                    SpatialFrequency = _spatialFrequency,
+                    Path = _path
                 }));
         }
     }
@@ -221,26 +229,13 @@ namespace DataSchema
     public partial class HaltProtocol
     {
     
-        private double _haltProbability = 0.5D;
-    
         private double _minumumDelay = 0.1D;
     
         private double _randomDelay = 0.5D;
     
         private double _haltTime = 2D;
     
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="haltProbability")]
-        public double HaltProbability
-        {
-            get
-            {
-                return _haltProbability;
-            }
-            set
-            {
-                _haltProbability = value;
-            }
-        }
+        private double _haltGain = 0D;
     
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="minumumDelay")]
         public double MinumumDelay
@@ -281,46 +276,28 @@ namespace DataSchema
             }
         }
     
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="haltGain")]
+        public double HaltGain
+        {
+            get
+            {
+                return _haltGain;
+            }
+            set
+            {
+                _haltGain = value;
+            }
+        }
+    
         public System.IObservable<HaltProtocol> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
                 new HaltProtocol
                 {
-                    HaltProbability = _haltProbability,
                     MinumumDelay = _minumumDelay,
                     RandomDelay = _randomDelay,
-                    HaltTime = _haltTime
-                }));
-        }
-    }
-
-
-    [Bonsai.CombinatorAttribute()]
-    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
-    public partial class GratingsProtocol
-    {
-    
-        private double _spatialFrequency = 0.5D;
-    
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="spatialFrequency")]
-        public double SpatialFrequency
-        {
-            get
-            {
-                return _spatialFrequency;
-            }
-            set
-            {
-                _spatialFrequency = value;
-            }
-        }
-    
-        public System.IObservable<GratingsProtocol> Process()
-        {
-            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
-                new GratingsProtocol
-                {
-                    SpatialFrequency = _spatialFrequency
+                    HaltTime = _haltTime,
+                    HaltGain = _haltGain
                 }));
         }
     }
@@ -375,6 +352,20 @@ namespace DataSchema
     }
 
 
+    public enum StimulusProtocolType
+    {
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="grating")]
+        Grating = 0,
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="texture")]
+        Texture = 1,
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cloud")]
+        Cloud = 2,
+    }
+
+
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class Metadata
@@ -385,10 +376,6 @@ namespace DataSchema
         private string _rootPath = "";
     
         private double _runGain = 1D;
-    
-        private double _runThreshold = 100D;
-    
-        private double _runThresholdDecay = 1D;
     
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="animalId")]
         public string AnimalId
@@ -429,32 +416,6 @@ namespace DataSchema
             }
         }
     
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runThreshold")]
-        public double RunThreshold
-        {
-            get
-            {
-                return _runThreshold;
-            }
-            set
-            {
-                _runThreshold = value;
-            }
-        }
-    
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runThresholdDecay")]
-        public double RunThresholdDecay
-        {
-            get
-            {
-                return _runThresholdDecay;
-            }
-            set
-            {
-                _runThresholdDecay = value;
-            }
-        }
-    
         public System.IObservable<Metadata> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
@@ -462,9 +423,7 @@ namespace DataSchema
                 {
                     AnimalId = _animalId,
                     RootPath = _rootPath,
-                    RunGain = _runGain,
-                    RunThreshold = _runThreshold,
-                    RunThresholdDecay = _runThresholdDecay
+                    RunGain = _runGain
                 }));
         }
     }
@@ -493,24 +452,14 @@ namespace DataSchema
             return Process<Block>(source);
         }
 
-        public System.IObservable<string> Process(System.IObservable<Trial> source)
+        public System.IObservable<string> Process(System.IObservable<StimulusProtocol> source)
         {
-            return Process<Trial>(source);
-        }
-
-        public System.IObservable<string> Process(System.IObservable<RewardProtocol> source)
-        {
-            return Process<RewardProtocol>(source);
+            return Process<StimulusProtocol>(source);
         }
 
         public System.IObservable<string> Process(System.IObservable<HaltProtocol> source)
         {
             return Process<HaltProtocol>(source);
-        }
-
-        public System.IObservable<string> Process(System.IObservable<GratingsProtocol> source)
-        {
-            return Process<GratingsProtocol>(source);
         }
 
         public System.IObservable<string> Process(System.IObservable<VestibularVrSession> source)
@@ -531,10 +480,8 @@ namespace DataSchema
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Block>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Trial>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<RewardProtocol>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<StimulusProtocol>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<HaltProtocol>))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<GratingsProtocol>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<VestibularVrSession>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Metadata>))]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]

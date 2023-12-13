@@ -4,69 +4,63 @@
     "definitions": {
         "block": {
             "properties": {
-                "trials": {
-                    "items": {
-                        "$ref": "#/definitions/trial"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "trial": {
-            "properties": {
-                "reward": {
-                    "$ref": "#/definitions/rewardProtocol"
+                "stimulus": {
+                    "$ref": "#/definitions/stimulusProtocol",
+                    "description": "The visual stimulus to use"
                 },
-                "gratingsProtocol": {
-                    "$ref": "#/definitions/gratingsProtocol"
-                },
-                "runGainModifier": {
-                    "default": 1,
+                "totalRuntime": {
+                    "default": 120,
+                    "description": "How long (in seconds) this block should run for",
                     "type": "number"
                 },
-                "runThresholdModifier": {
-                    "default": 1,
+                "runThreshold": {
+                    "default": 100,
+                    "description": "The value (in position units) to reach before a halt decision is applied",
+                    "type": "number"
+                },
+                "runThresholdDecay": {
+                    "default": -1,
+                    "description": "Distance to threshold is decayed by this amount (in position units) per time tick set in the workflow",
+                    "type": "number"
+                },
+                "haltProbability": {
+                    "default": 0.5,
+                    "description": "The probability that a halt decision is made after a running threshold has been reached",
                     "type": "number"
                 },
                 "haltProtocol": {
-                    "$ref": "#/definitions/haltProtocol"
-                }
-            }
-        },
-        "stimulusProtocol": {
-            "default": "grating",
-            "enum": [
-                "grating", 
-                "texture",
-                "cloud"
-            ],
-            "type": "string"
-        },
-        "rewardProtocol": {
-            "properties": {
-                "amountHigh": {
-                    "default": 0,
-                    "type": "number"
-                },
-                "amountLow": {
-                    "default": 0,
-                    "type": "number"
-                },
-                "delay": {
-                    "default": 0,
-                    "minimum": 0,
-                    "type": "number"
+                    "$ref": "#/definitions/haltProtocol",
+                    "description": "The halt protocol to use on a positive halt decision"
                 }
             },
             "type": "object"
         },
-        "haltProtocol": {
+        "stimulusProtocol": {
             "properties": {
-                "haltProbability": {
-                    "default": 0.5,
+                "type": {
+                    "default": "grating",
+                    "description": "The type and parameters of the visual stimulus to use",
+                    "enum": [
+                        "grating", 
+                        "texture",
+                        "cloud"
+                    ],
+                    "type": "string"
+                },
+                "spatialFrequency": {
+                    "default": 0.1,
+                    "description": "Spatial frequency for stimuli where this is a parameter",
                     "type": "number"
                 },
+                "path": {
+                    "default": "",
+                    "description": "Path to texture or video if required",
+                    "type": "string"
+                }
+            }
+        },
+        "haltProtocol": {
+            "properties": {
                 "minumumDelay": {
                     "default": 0.1,
                     "type": "number"
@@ -78,17 +72,13 @@
                 "haltTime": {
                     "default": 2,
                     "type": "number"
+                },
+                "haltGain": {
+                    "default": 0,
+                    "type": "number"
                 }
             },
             "type": "object"
-        },
-        "gratingsProtocol": {
-            "properties": {
-                "spatialFrequency": {
-                    "default": 0.5,
-                    "type": "number"
-                }
-            }
         }
     },
     "properties": {
@@ -104,14 +94,6 @@
                 },
                 "runGain": {
                     "default": 1,
-                    "type": "number"
-                },
-                "runThreshold": {
-                    "default": 100,
-                    "type": "number"
-                },
-                "runThresholdDecay": {
-                    "default": -1,
                     "type": "number"
                 }
             }
