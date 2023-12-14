@@ -11,54 +11,31 @@ blocks: [
   &blockA
   {
     stimulus: {type: "grating"},
-    totalRuntime: 120
+    totalRuntime: 120,
+    runThreshold: 100,
+    runThresholdDecay: -1,
+    haltProbability: 0.5,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 2,
+      haltGain: 0
+    }
   },
   &blockB
   {
     stimulus: {type: "cloud"},
-    totalRuntime: 140
+    totalRuntime: 140,
+    runThreshold: 200,
+    runThresholdDecay: -1,
+    haltProbability: 0.7,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 0.5,
+      haltGain: 0
+    }
   },
   {<<: *blockA},
   {<<: *blockB}
-
-  # &blockA
-  # {
-  #   trials: [
-  #     &normalTrial
-  #     {
-  #       reward: {
-  #         amountHigh: 2,
-  #         amountLow: 0
-  #       },
-  #       haltProtocol: {
-  #         haltProbability: 0.5,
-  #         minumumDelay: 1,
-  #         randomDelay: 0.5,
-  #         haltTime: 10
-  #       },
-  #       gratingsProtocol: {
-  #         spatialFrequency: 0.2
-  #       }
-  #     },
-  #     {<<: *normalTrial},
-  #     {<<: *normalTrial,
-  #       reward: {
-  #         amountHigh: 1
-  #       },
-  #       haltProtocol: {
-  #         haltProbability: 0.5,
-  #         minumumDelay: 1,
-  #         randomDelay: 0.5,
-  #         haltTime: 5
-  #       },
-  #       gratingsProtocol: {spatialFrequency: 0.1}
-  #     },
-  #     {<<: *normalTrial},
-  #     {<<: *normalTrial},
-  #     {<<: *normalTrial},
-  #     {<<: *normalTrial},
-  #     {<<: *normalTrial},
-  #     {<<: *normalTrial}
-  #   ]
-  # }
 ]
