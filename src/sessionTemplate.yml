@@ -13,6 +13,7 @@ blocks: [
     stimulus: {type: "grating"},
     totalRuntime: 120,
     runThreshold: 100,
+    decayTimestep: 0.1,
     runThresholdDecay: -1,
     haltProbability: 0.5,
     haltProtocol: {
@@ -27,6 +28,7 @@ blocks: [
     stimulus: {type: "cloud"},
     totalRuntime: 140,
     runThreshold: 200,
+    decayTimestep: 0.1,
     runThresholdDecay: -1,
     haltProbability: 0.7,
     haltProtocol: {

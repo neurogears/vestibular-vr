@@ -18,9 +18,14 @@
                     "description": "The value (in position units) to reach before a halt decision is applied",
                     "type": "number"
                 },
+                "decayTimestep": {
+                    "default": 0.1,
+                    "description": "On each timestep (in seconds) the runThresholdDecay is applied",
+                    "type": "number"
+                },
                 "runThresholdDecay": {
                     "default": -1,
-                    "description": "Distance to threshold is decayed by this amount (in position units) per time tick set in the workflow",
+                    "description": "Distance to threshold is decayed by this amount (in position units) per decayTimestep",
                     "type": "number"
                 },
                 "haltProbability": {

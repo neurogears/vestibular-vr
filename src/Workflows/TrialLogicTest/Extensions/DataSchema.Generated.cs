@@ -20,6 +20,8 @@ namespace DataSchema
     
         private double _runThreshold = 100D;
     
+        private double _decayTimestep = 0.1D;
+    
         private double _runThresholdDecay = -1D;
     
         private double _haltProbability = 0.5D;
@@ -79,11 +81,28 @@ namespace DataSchema
         }
     
         /// <summary>
-        /// Distance to threshold is decayed by this amount (in position units) per time tick set in the workflow
+        /// On each timestep (in seconds) the runThresholdDecay is applied
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="decayTimestep")]
+        [System.ComponentModel.DescriptionAttribute("On each timestep (in seconds) the runThresholdDecay is applied")]
+        public double DecayTimestep
+        {
+            get
+            {
+                return _decayTimestep;
+            }
+            set
+            {
+                _decayTimestep = value;
+            }
+        }
+    
+        /// <summary>
+        /// Distance to threshold is decayed by this amount (in position units) per decayTimestep
         /// </summary>
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runThresholdDecay")]
-        [System.ComponentModel.DescriptionAttribute("Distance to threshold is decayed by this amount (in position units) per time tick" +
-            " set in the workflow")]
+        [System.ComponentModel.DescriptionAttribute("Distance to threshold is decayed by this amount (in position units) per decayTime" +
+            "step")]
         public double RunThresholdDecay
         {
             get
@@ -140,6 +159,7 @@ namespace DataSchema
                     Stimulus = _stimulus,
                     TotalRuntime = _totalRuntime,
                     RunThreshold = _runThreshold,
+                    DecayTimestep = _decayTimestep,
                     RunThresholdDecay = _runThresholdDecay,
                     HaltProbability = _haltProbability,
                     HaltProtocol = _haltProtocol
