@@ -1098,11 +1098,35 @@
         </Size>
         <WindowState>Normal</WindowState>
       </DialogSettings>
+      <DialogSettings xsi:type="WorkflowEditorSettings">
+        <Visible>false</Visible>
+        <Location>
+          <X>0</X>
+          <Y>0</Y>
+        </Location>
+        <Size>
+          <Width>0</Width>
+          <Height>0</Height>
+        </Size>
+        <WindowState>Normal</WindowState>
+        <EditorDialogSettings>
+          <Visible>false</Visible>
+          <Location>
+            <X>312</X>
+            <Y>312</Y>
+          </Location>
+          <Size>
+            <Width>498</Width>
+            <Height>239</Height>
+          </Size>
+          <WindowState>Normal</WindowState>
+        </EditorDialogSettings>
+      </DialogSettings>
       <DialogSettings>
         <Visible>true</Visible>
         <Location>
-          <X>156</X>
-          <Y>156</Y>
+          <X>133</X>
+          <Y>423</Y>
         </Location>
         <Size>
           <Width>416</Width>
@@ -1114,7 +1138,7 @@
           <TimeSeriesVisualizer>
             <Capacity>640</Capacity>
             <Min>0</Min>
-            <Max>160</Max>
+            <Max>80</Max>
             <AutoScale>true</AutoScale>
           </TimeSeriesVisualizer>
         </VisualizerSettings>
