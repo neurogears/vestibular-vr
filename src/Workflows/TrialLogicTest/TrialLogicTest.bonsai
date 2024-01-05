@@ -19,7 +19,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:LoadSettings">
-          <p1:Path>C:\Users\erski\source\repos\neurogears\vestibular-vr\src\sessionTemplate.yml</p1:Path>
+          <p1:Path>C:\Users\neurogears\source\repos\vestibular-vr\src\sessionTemplate.yml</p1:Path>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -32,8 +32,8 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:CreateWindow">
-          <gl:Width>1920</gl:Width>
-          <gl:Height>1080</gl:Height>
+          <gl:Width>1080</gl:Width>
+          <gl:Height>480</gl:Height>
           <gl:VSync>On</gl:VSync>
           <gl:SwapSync>false</gl:SwapSync>
           <gl:ClearColor>Black</gl:ClearColor>
@@ -349,12 +349,12 @@
             </Expression>
             <Expression xsi:type="Disable">
               <Builder xsi:type="SubscribeSubject">
-                <Name>Trial</Name>
+                <Name>Block</Name>
               </Builder>
             </Expression>
             <Expression xsi:type="Disable">
               <Builder xsi:type="MemberSelector">
-                <Selector>HaltProtocol.HaltProbability</Selector>
+                <Selector>HaltProbability</Selector>
               </Builder>
             </Expression>
             <Expression xsi:type="Disable">
@@ -431,7 +431,7 @@
                     <ExtentY>60</ExtentY>
                     <SpatialFrequency>0.1</SpatialFrequency>
                     <TemporalFrequency>0</TemporalFrequency>
-                    <Phase>-1581.36389</Phase>
+                    <Phase>-11482.0566</Phase>
                     <Angle>0</Angle>
                     <SquareWave>false</SquareWave>
                     <Contrast>2</Contrast>
@@ -467,7 +467,7 @@
                     <ExtentY>60</ExtentY>
                     <SpatialFrequency>0.1</SpatialFrequency>
                     <TemporalFrequency>0</TemporalFrequency>
-                    <Phase>11894.6045</Phase>
+                    <Phase>21795.2969</Phase>
                     <Angle>0</Angle>
                     <SquareWave>false</SquareWave>
                     <Contrast>2</Contrast>
@@ -1132,6 +1132,162 @@
                 </Workflow>
               </Builder>
             </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Block</Name>
+            </Expression>
+            <Expression xsi:type="rx:Sink">
+              <Name>StartClosedLoop</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="FloatProperty">
+                      <Value>1</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>MovementDeltaSwitch</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="rx:SelectMany">
+              <Name>WaitForThreshold</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>ThresholdDistance</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>Block</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>RunThreshold</Selector>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="Value" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="GreaterThan">
+                    <Operand xsi:type="DoubleProperty">
+                      <Value>100</Value>
+                    </Operand>
+                  </Expression>
+                  <Expression xsi:type="rx:Condition">
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="WorkflowInput">
+                          <Name>Source1</Name>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Take">
+                      <rx:Count>1</rx:Count>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>DrawCall</Name>
+                  </Expression>
+                  <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawText.bonsai">
+                    <ExtentX>1</ExtentX>
+                    <ExtentY>1</ExtentY>
+                    <Text>Wait for thresh</Text>
+                    <Font>Microsoft Sans Serif, 40pt</Font>
+                    <Alignment>Center</Alignment>
+                    <LineAlignment>Center</LineAlignment>
+                    <TextRenderingHint>AntiAliasGridFit</TextRenderingHint>
+                    <Color>
+                      <Val0>255</Val0>
+                      <Val1>255</Val1>
+                      <Val2>255</Val2>
+                      <Val3>255</Val3>
+                    </Color>
+                    <LocationX>0</LocationX>
+                    <LocationY>0.4</LocationY>
+                    <Layer>0</Layer>
+                    <Angle>0</Angle>
+                  </Expression>
+                </Nodes>
+                <Edges>
+                  <Edge From="1" To="5" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source2" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="7" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="9" To="10" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="rx:SelectMany">
+              <Name>ArbitraryTimer</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Timer">
+                      <rx:DueTime>PT2S</rx:DueTime>
+                      <rx:Period>PT0S</rx:Period>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Take">
+                      <rx:Count>1</rx:Count>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>DrawCall</Name>
+                  </Expression>
+                  <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawText.bonsai">
+                    <ExtentX>1</ExtentX>
+                    <ExtentY>1</ExtentY>
+                    <Text>Wait for timer</Text>
+                    <Font>Microsoft Sans Serif, 40pt</Font>
+                    <Alignment>Center</Alignment>
+                    <LineAlignment>Center</LineAlignment>
+                    <TextRenderingHint>AntiAliasGridFit</TextRenderingHint>
+                    <Color>
+                      <Val0>255</Val0>
+                      <Val1>255</Val1>
+                      <Val2>255</Val2>
+                      <Val3>255</Val3>
+                    </Color>
+                    <LocationX>0</LocationX>
+                    <LocationY>0.4</LocationY>
+                    <Layer>0</Layer>
+                    <Angle>0</Angle>
+                  </Expression>
+                </Nodes>
+                <Edges>
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
@@ -1183,6 +1339,9 @@
             <Edge From="50" To="51" Label="Source1" />
             <Edge From="52" To="53" Label="Source1" />
             <Edge From="54" To="55" Label="Source1" />
+            <Edge From="56" To="57" Label="Source1" />
+            <Edge From="57" To="58" Label="Source1" />
+            <Edge From="58" To="59" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
