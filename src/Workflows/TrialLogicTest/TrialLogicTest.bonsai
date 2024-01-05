@@ -97,6 +97,17 @@
         <Name>ProbabilitySampling</Name>
       </Expression>
       <Expression xsi:type="Combinator">
+        <Combinator xsi:type="StringProperty">
+          <Value>Session start</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MulticastSubject">
+        <Name>ExperimentEvents</Name>
+      </Expression>
+      <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:String">
+        <rx:Name>ExperimentEvents</rx:Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:RenderFrame" />
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.OrthographicView.bonsai">
@@ -431,7 +442,7 @@
                     <ExtentY>60</ExtentY>
                     <SpatialFrequency>0.1</SpatialFrequency>
                     <TemporalFrequency>0</TemporalFrequency>
-                    <Phase>-9694.433</Phase>
+                    <Phase>-8113.073</Phase>
                     <Angle>0</Angle>
                     <SquareWave>false</SquareWave>
                     <Contrast>2</Contrast>
@@ -467,7 +478,7 @@
                     <ExtentY>60</ExtentY>
                     <SpatialFrequency>0.1</SpatialFrequency>
                     <TemporalFrequency>0</TemporalFrequency>
-                    <Phase>20007.6738</Phase>
+                    <Phase>18426.3145</Phase>
                     <Angle>0</Angle>
                     <SquareWave>false</SquareWave>
                     <Contrast>2</Contrast>
@@ -1182,7 +1193,7 @@
                   </Expression>
                   <Expression xsi:type="GreaterThan">
                     <Operand xsi:type="DoubleProperty">
-                      <Value>100</Value>
+                      <Value>200</Value>
                     </Operand>
                   </Expression>
                   <Expression xsi:type="rx:Condition">
@@ -1204,27 +1215,13 @@
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>DrawCall</Name>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="StringProperty">
+                      <Value>Wait for run threshold...</Value>
+                    </Combinator>
                   </Expression>
-                  <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawText.bonsai">
-                    <ExtentX>1</ExtentX>
-                    <ExtentY>1</ExtentY>
-                    <Text>Wait for thresh</Text>
-                    <Font>Microsoft Sans Serif, 40pt</Font>
-                    <Alignment>Center</Alignment>
-                    <LineAlignment>Center</LineAlignment>
-                    <TextRenderingHint>AntiAliasGridFit</TextRenderingHint>
-                    <Color>
-                      <Val0>255</Val0>
-                      <Val1>255</Val1>
-                      <Val2>255</Val2>
-                      <Val3>255</Val3>
-                    </Color>
-                    <LocationX>0</LocationX>
-                    <LocationY>0.4</LocationY>
-                    <Layer>0</Layer>
-                    <Angle>0</Angle>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>ExperimentEvents</Name>
                   </Expression>
                 </Nodes>
                 <Edges>
@@ -1269,6 +1266,14 @@
                     </Operand>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="StringProperty">
+                      <Value>Check halt probability</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>ExperimentEvents</Name>
+                  </Expression>
                 </Nodes>
                 <Edges>
                   <Edge From="1" To="2" Label="Source1" />
@@ -1277,6 +1282,7 @@
                   <Edge From="4" To="5" Label="Source1" />
                   <Edge From="5" To="6" Label="Source2" />
                   <Edge From="6" To="7" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -1313,33 +1319,10 @@
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>DrawCall</Name>
-                  </Expression>
-                  <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawText.bonsai">
-                    <ExtentX>1</ExtentX>
-                    <ExtentY>1</ExtentY>
-                    <Text>PerformHalt</Text>
-                    <Font>Microsoft Sans Serif, 40pt</Font>
-                    <Alignment>Center</Alignment>
-                    <LineAlignment>Center</LineAlignment>
-                    <TextRenderingHint>AntiAliasGridFit</TextRenderingHint>
-                    <Color>
-                      <Val0>255</Val0>
-                      <Val1>255</Val1>
-                      <Val2>255</Val2>
-                      <Val3>255</Val3>
-                    </Color>
-                    <LocationX>0</LocationX>
-                    <LocationY>0.4</LocationY>
-                    <Layer>0</Layer>
-                    <Angle>0</Angle>
-                  </Expression>
                 </Nodes>
                 <Edges>
                   <Edge From="1" To="2" Label="Source1" />
                   <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -1378,33 +1361,10 @@
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>DrawCall</Name>
-                  </Expression>
-                  <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawText.bonsai">
-                    <ExtentX>1</ExtentX>
-                    <ExtentY>1</ExtentY>
-                    <Text>NotHalt</Text>
-                    <Font>Microsoft Sans Serif, 40pt</Font>
-                    <Alignment>Center</Alignment>
-                    <LineAlignment>Center</LineAlignment>
-                    <TextRenderingHint>AntiAliasGridFit</TextRenderingHint>
-                    <Color>
-                      <Val0>255</Val0>
-                      <Val1>255</Val1>
-                      <Val2>255</Val2>
-                      <Val3>255</Val3>
-                    </Color>
-                    <LocationX>0</LocationX>
-                    <LocationY>0.4</LocationY>
-                    <Layer>0</Layer>
-                    <Angle>0</Angle>
-                  </Expression>
                 </Nodes>
                 <Edges>
                   <Edge From="1" To="2" Label="Source1" />
                   <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -1490,16 +1450,17 @@
       <Edge From="10" To="11" Label="Source1" />
       <Edge From="11" To="12" Label="Source1" />
       <Edge From="13" To="14" Label="Source1" />
-      <Edge From="14" To="15" Label="Source1" />
-      <Edge From="15" To="16" Label="Source1" />
       <Edge From="16" To="17" Label="Source1" />
-      <Edge From="16" To="18" Label="Source1" />
-      <Edge From="16" To="19" Label="Source1" />
-      <Edge From="16" To="20" Label="Source1" />
-      <Edge From="21" To="22" Label="Source1" />
-      <Edge From="22" To="23" Label="Source1" />
-      <Edge From="23" To="24" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="19" To="21" Label="Source1" />
+      <Edge From="19" To="22" Label="Source1" />
+      <Edge From="19" To="23" Label="Source1" />
+      <Edge From="24" To="25" Label="Source1" />
       <Edge From="25" To="26" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="28" To="29" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
