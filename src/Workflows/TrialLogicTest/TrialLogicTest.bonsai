@@ -471,7 +471,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>-81749.1</Phase>
+                          <Phase>-69854.99</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -507,7 +507,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>92062.34</Phase>
+                          <Phase>80168.2344</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -992,7 +992,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="gl:Timer">
-                                  <gl:DueTime>PT1.397S</gl:DueTime>
+                                  <gl:DueTime>PT1.282S</gl:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -1140,6 +1140,19 @@
                                   <Value>Apply halt</Value>
                                 </Combinator>
                               </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>Block</Name>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>HaltProtocol.HaltTime</Selector>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="rx:Zip" />
+                              </Expression>
+                              <Expression xsi:type="Format">
+                                <Format>{0}: {1}s</Format>
+                                <Selector>Item1,Item2</Selector>
+                              </Expression>
                               <Expression xsi:type="MulticastSubject">
                                 <Name>ExperimentEvents</Name>
                               </Expression>
@@ -1158,7 +1171,11 @@
                               <Edge From="11" To="12" Label="Source1" />
                               <Edge From="12" To="13" Label="Source1" />
                               <Edge From="13" To="14" Label="Source1" />
-                              <Edge From="15" To="16" Label="Source1" />
+                              <Edge From="15" To="18" Label="Source1" />
+                              <Edge From="16" To="17" Label="Source1" />
+                              <Edge From="17" To="18" Label="Source2" />
+                              <Edge From="18" To="19" Label="Source1" />
+                              <Edge From="19" To="20" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>
