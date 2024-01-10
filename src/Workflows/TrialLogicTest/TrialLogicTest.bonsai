@@ -348,52 +348,6 @@
             <Expression xsi:type="rx:BehaviorSubject">
               <Name>TrialFinished</Name>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="SubscribeSubject">
-                <Name>ProbabilitySampling</Name>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="p2:Sample" />
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="SubscribeSubject">
-                <Name>Block</Name>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="MemberSelector">
-                <Selector>HaltProbability</Selector>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="PropertyMapping">
-                <PropertyMappings>
-                  <Property Name="Value" />
-                </PropertyMappings>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="GreaterThan">
-                <Operand xsi:type="DoubleProperty">
-                  <Value>0.5</Value>
-                </Operand>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="rx:Take">
-                  <rx:Count>1</rx:Count>
-                </Combinator>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="rx:AsyncSubject">
-                <Name>TrialTypeChoice</Name>
-              </Builder>
-            </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>DrawCall</Name>
             </Expression>
@@ -442,7 +396,7 @@
                     <ExtentY>60</ExtentY>
                     <SpatialFrequency>0.1</SpatialFrequency>
                     <TemporalFrequency>0</TemporalFrequency>
-                    <Phase>-8113.073</Phase>
+                    <Phase>-10106.9629</Phase>
                     <Angle>0</Angle>
                     <SquareWave>false</SquareWave>
                     <Contrast>2</Contrast>
@@ -478,7 +432,7 @@
                     <ExtentY>60</ExtentY>
                     <SpatialFrequency>0.1</SpatialFrequency>
                     <TemporalFrequency>0</TemporalFrequency>
-                    <Phase>18426.3145</Phase>
+                    <Phase>20420.2031</Phase>
                     <Angle>0</Angle>
                     <SquareWave>false</SquareWave>
                     <Contrast>2</Contrast>
@@ -1171,32 +1125,159 @@
               </Workflow>
             </Expression>
             <Expression xsi:type="rx:SelectMany">
-              <Name>WaitForThreshold</Name>
+              <Name>TrialLoop</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
                     <Name>Source1</Name>
                   </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>ThresholdDistance</Name>
+                  <Expression xsi:type="rx:SelectMany">
+                    <Name>ResetThresholdDistance</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="WorkflowInput">
+                          <Name>Source1</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="FloatProperty">
+                            <Value>0</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="MulticastSubject">
+                          <Name>ThresholdDistance</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Take">
+                            <rx:Count>1</rx:Count>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                      </Edges>
+                    </Workflow>
                   </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>Block</Name>
+                  <Expression xsi:type="rx:SelectMany">
+                    <Name>WaitForThreshold</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="WorkflowInput">
+                          <Name>Source1</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>ThresholdDistance</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>RunThreshold</Selector>
+                        </Expression>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="Value" />
+                          </PropertyMappings>
+                        </Expression>
+                        <Expression xsi:type="GreaterThan">
+                          <Operand xsi:type="DoubleProperty">
+                            <Value>100</Value>
+                          </Operand>
+                        </Expression>
+                        <Expression xsi:type="rx:Condition">
+                          <Workflow>
+                            <Nodes>
+                              <Expression xsi:type="WorkflowInput">
+                                <Name>Source1</Name>
+                              </Expression>
+                              <Expression xsi:type="WorkflowOutput" />
+                            </Nodes>
+                            <Edges>
+                              <Edge From="0" To="1" Label="Source1" />
+                            </Edges>
+                          </Workflow>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Take">
+                            <rx:Count>1</rx:Count>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="StringProperty">
+                            <Value>Wait for run threshold...</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="MulticastSubject">
+                          <Name>ExperimentEvents</Name>
+                        </Expression>
+                      </Nodes>
+                      <Edges>
+                        <Edge From="1" To="5" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source2" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="7" To="8" Label="Source1" />
+                        <Edge From="9" To="10" Label="Source1" />
+                      </Edges>
+                    </Workflow>
                   </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>RunThreshold</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="Value" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="GreaterThan">
-                    <Operand xsi:type="DoubleProperty">
-                      <Value>200</Value>
-                    </Operand>
+                  <Expression xsi:type="rx:SelectMany">
+                    <Name>DecideHalt</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="WorkflowInput">
+                          <Name>Source1</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>ProbabilitySampling</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="p2:Sample" />
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>HaltProbability</Selector>
+                        </Expression>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="Value" />
+                          </PropertyMappings>
+                        </Expression>
+                        <Expression xsi:type="LessThan">
+                          <Operand xsi:type="DoubleProperty">
+                            <Value>0.5</Value>
+                          </Operand>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="StringProperty">
+                            <Value>Check halt probability</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="MulticastSubject">
+                          <Name>ExperimentEvents</Name>
+                        </Expression>
+                      </Nodes>
+                      <Edges>
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="6" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source2" />
+                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="8" To="9" Label="Source1" />
+                      </Edges>
+                    </Workflow>
                   </Expression>
                   <Expression xsi:type="rx:Condition">
+                    <Name>IsHalt</Name>
                     <Workflow>
                       <Nodes>
                         <Expression xsi:type="WorkflowInput">
@@ -1209,162 +1290,211 @@
                       </Edges>
                     </Workflow>
                   </Expression>
+                  <Expression xsi:type="rx:SelectMany">
+                    <Name>HaltDelay</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="WorkflowInput">
+                          <Name>Source1</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>HaltProtocol.MinumumDelay</Selector>
+                        </Expression>
+                        <Expression xsi:type="scr:ExpressionTransform">
+                          <scr:Expression>TimeSpan.FromSeconds(it)</scr:Expression>
+                        </Expression>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="DueTime" />
+                          </PropertyMappings>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="gl:Timer">
+                            <gl:DueTime>PT0.1S</gl:DueTime>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Take">
+                            <rx:Count>1</rx:Count>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="StringProperty">
+                            <Value>Halt delay</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="MulticastSubject">
+                          <Name>ExperimentEvents</Name>
+                        </Expression>
+                      </Nodes>
+                      <Edges>
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="8" To="9" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
+                  <Expression xsi:type="rx:SelectMany">
+                    <Name>ApplyHalt</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="WorkflowInput">
+                          <Name>Source1</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="FloatProperty">
+                            <Value>0</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="MulticastSubject">
+                          <Name>MovementDeltaSwitch</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>HaltProtocol.HaltTime</Selector>
+                        </Expression>
+                        <Expression xsi:type="scr:ExpressionTransform">
+                          <scr:Expression>TimeSpan.FromSeconds(it)</scr:Expression>
+                        </Expression>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="DueTime" />
+                          </PropertyMappings>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="gl:Timer">
+                            <gl:DueTime>PT2S</gl:DueTime>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="FloatProperty">
+                            <Value>1</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="MulticastSubject">
+                          <Name>MovementDeltaSwitch</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Take">
+                            <rx:Count>1</rx:Count>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="StringProperty">
+                            <Value>Apply halt</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="MulticastSubject">
+                          <Name>ExperimentEvents</Name>
+                        </Expression>
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="7" To="8" Label="Source1" />
+                        <Edge From="8" To="9" Label="Source1" />
+                        <Edge From="9" To="10" Label="Source1" />
+                        <Edge From="10" To="11" Label="Source1" />
+                        <Edge From="12" To="13" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
+                  <Expression xsi:type="rx:Condition">
+                    <Name>NotHalt</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="WorkflowInput">
+                          <Name>Source1</Name>
+                        </Expression>
+                        <Expression xsi:type="BitwiseNot" />
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
+                  <Expression xsi:type="rx:SelectMany">
+                    <Name>PerformNotHalt</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="WorkflowInput">
+                          <Name>Source1</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="gl:Timer">
+                            <gl:DueTime>PT0S</gl:DueTime>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="FloatProperty">
+                            <Value>0</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Take">
+                            <rx:Count>1</rx:Count>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="StringProperty">
+                            <Value>Perform not halt</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="MulticastSubject">
+                          <Name>ExperimentEvents</Name>
+                        </Expression>
+                      </Nodes>
+                      <Edges>
+                        <Edge From="1" To="2" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Merge" />
+                  </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Take">
                       <rx:Count>1</rx:Count>
                     </Combinator>
                   </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="StringProperty">
-                      <Value>Wait for run threshold...</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MulticastSubject">
-                    <Name>ExperimentEvents</Name>
+                    <Combinator xsi:type="rx:Repeat" />
                   </Expression>
                 </Nodes>
                 <Edges>
-                  <Edge From="1" To="5" Label="Source1" />
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
                   <Edge From="2" To="3" Label="Source1" />
                   <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="4" To="5" Label="Source2" />
-                  <Edge From="5" To="6" Label="Source1" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="7" To="8" Label="Source1" />
-                  <Edge From="9" To="10" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="rx:SelectMany">
-              <Name>DecideHalt</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>ProbabilitySampling</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p2:Sample" />
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>Block</Name>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>HaltProbability</Selector>
-                  </Expression>
-                  <Expression xsi:type="PropertyMapping">
-                    <PropertyMappings>
-                      <Property Name="Value" />
-                    </PropertyMappings>
-                  </Expression>
-                  <Expression xsi:type="LessThan">
-                    <Operand xsi:type="DoubleProperty">
-                      <Value>0.5</Value>
-                    </Operand>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="StringProperty">
-                      <Value>Check halt probability</Value>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="MulticastSubject">
-                    <Name>ExperimentEvents</Name>
-                  </Expression>
-                </Nodes>
-                <Edges>
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="6" Label="Source1" />
-                  <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="3" To="7" Label="Source1" />
                   <Edge From="4" To="5" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source2" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="8" To="9" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="rx:Condition">
-              <Name>IsHalt</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="rx:SelectMany">
-              <Name>PerformHalt</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Timer">
-                      <rx:DueTime>PT2S</rx:DueTime>
-                      <rx:Period>PT0S</rx:Period>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Take">
-                      <rx:Count>1</rx:Count>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="3" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="rx:Condition">
-              <Name>NotHalt</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="BitwiseNot" />
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                </Edges>
-              </Workflow>
-            </Expression>
-            <Expression xsi:type="rx:SelectMany">
-              <Name>PerformNotHalt</Name>
-              <Workflow>
-                <Nodes>
-                  <Expression xsi:type="WorkflowInput">
-                    <Name>Source1</Name>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Timer">
-                      <rx:DueTime>PT2S</rx:DueTime>
-                      <rx:Period>PT0S</rx:Period>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Take">
-                      <rx:Count>1</rx:Count>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="WorkflowOutput" />
-                </Nodes>
-                <Edges>
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="9" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source2" />
+                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -1374,58 +1504,46 @@
             <Edge From="1" To="2" Label="Source1" />
             <Edge From="3" To="4" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
-            <Edge From="6" To="10" Label="Source1" />
+            <Edge From="6" To="9" Label="Source1" />
             <Edge From="7" To="8" Label="Source1" />
-            <Edge From="8" To="9" Label="Source1" />
-            <Edge From="9" To="10" Label="Source2" />
-            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="8" To="9" Label="Source2" />
+            <Edge From="9" To="10" Label="Source1" />
             <Edge From="11" To="12" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
             <Edge From="13" To="14" Label="Source1" />
-            <Edge From="14" To="17" Label="Source1" />
-            <Edge From="15" To="16" Label="Source1" />
-            <Edge From="16" To="17" Label="Source2" />
+            <Edge From="15" To="20" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
             <Edge From="17" To="18" Label="Source1" />
-            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="19" To="20" Label="Source2" />
             <Edge From="20" To="21" Label="Source1" />
             <Edge From="21" To="22" Label="Source1" />
-            <Edge From="23" To="28" Label="Source1" />
+            <Edge From="22" To="32" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
             <Edge From="24" To="25" Label="Source1" />
             <Edge From="25" To="26" Label="Source1" />
             <Edge From="26" To="27" Label="Source1" />
-            <Edge From="27" To="28" Label="Source2" />
+            <Edge From="27" To="31" Label="Source1" />
             <Edge From="28" To="29" Label="Source1" />
             <Edge From="29" To="30" Label="Source1" />
-            <Edge From="30" To="40" Label="Source1" />
-            <Edge From="31" To="32" Label="Source1" />
-            <Edge From="32" To="33" Label="Source1" />
-            <Edge From="33" To="34" Label="Source1" />
+            <Edge From="30" To="31" Label="Source2" />
+            <Edge From="31" To="32" Label="Source2" />
+            <Edge From="32" To="34" Label="Source1" />
+            <Edge From="33" To="34" Label="Source2" />
             <Edge From="34" To="35" Label="Source1" />
-            <Edge From="35" To="39" Label="Source1" />
             <Edge From="36" To="37" Label="Source1" />
             <Edge From="37" To="38" Label="Source1" />
-            <Edge From="38" To="39" Label="Source2" />
-            <Edge From="39" To="40" Label="Source2" />
-            <Edge From="40" To="42" Label="Source1" />
-            <Edge From="41" To="42" Label="Source2" />
+            <Edge From="38" To="39" Label="Source1" />
+            <Edge From="38" To="46" Label="Source1" />
+            <Edge From="39" To="40" Label="Source1" />
+            <Edge From="40" To="41" Label="Source1" />
+            <Edge From="40" To="44" Label="Source1" />
+            <Edge From="41" To="42" Label="Source1" />
             <Edge From="42" To="43" Label="Source1" />
             <Edge From="44" To="45" Label="Source1" />
-            <Edge From="45" To="46" Label="Source1" />
             <Edge From="46" To="47" Label="Source1" />
-            <Edge From="46" To="54" Label="Source1" />
-            <Edge From="47" To="48" Label="Source1" />
             <Edge From="48" To="49" Label="Source1" />
-            <Edge From="48" To="52" Label="Source1" />
             <Edge From="49" To="50" Label="Source1" />
-            <Edge From="50" To="51" Label="Source1" />
-            <Edge From="52" To="53" Label="Source1" />
-            <Edge From="54" To="55" Label="Source1" />
-            <Edge From="56" To="57" Label="Source1" />
-            <Edge From="57" To="58" Label="Source1" />
-            <Edge From="58" To="59" Label="Source1" />
-            <Edge From="59" To="60" Label="Source1" />
-            <Edge From="59" To="62" Label="Source1" />
-            <Edge From="60" To="61" Label="Source1" />
-            <Edge From="62" To="63" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
