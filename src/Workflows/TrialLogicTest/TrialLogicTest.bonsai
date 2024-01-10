@@ -432,7 +432,7 @@
                     <ExtentY>60</ExtentY>
                     <SpatialFrequency>0.1</SpatialFrequency>
                     <TemporalFrequency>0</TemporalFrequency>
-                    <Phase>-51841.5664</Phase>
+                    <Phase>-81749.1</Phase>
                     <Angle>0</Angle>
                     <SquareWave>false</SquareWave>
                     <Contrast>2</Contrast>
@@ -468,7 +468,7 @@
                     <ExtentY>60</ExtentY>
                     <SpatialFrequency>0.1</SpatialFrequency>
                     <TemporalFrequency>0</TemporalFrequency>
-                    <Phase>62154.81</Phase>
+                    <Phase>92062.34</Phase>
                     <Angle>0</Angle>
                     <SquareWave>false</SquareWave>
                     <Contrast>2</Contrast>
@@ -1371,7 +1371,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="gl:Timer">
-                            <gl:DueTime>PT0.295S</gl:DueTime>
+                            <gl:DueTime>PT1.397S</gl:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -1648,7 +1648,7 @@
                         <Expression xsi:type="WorkflowOutput" />
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="StringProperty">
-                            <Value>Perform not halt</Value>
+                            <Value>No halt</Value>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
