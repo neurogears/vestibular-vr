@@ -11,7 +11,7 @@ blocks: [
   &blockA
   {
     stimulus: {type: "grating"},
-    totalRuntime: 120,
+    totalRuntime: 20,
     runThreshold: 100,
     decayTimestep: 0.1,
     runThresholdDecay: -1,
