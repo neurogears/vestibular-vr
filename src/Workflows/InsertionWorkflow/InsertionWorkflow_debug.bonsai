@@ -25465,7 +25465,7 @@
                     </p2:NeuropixelsV1ADC>
                   </p2:ADCs>
                 </p2:Configuration>
-                <p2:RequireSNMatch>false</p2:RequireSNMatch>
+                <p2:RequireSNMatch>true</p2:RequireSNMatch>
                 <p2:BlockSize>20</p2:BlockSize>
               </Combinator>
             </Expression>
@@ -25507,71 +25507,79 @@
             <Expression xsi:type="rx:PublishSubject">
               <Name>FrameCounter</Name>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="gl:CreateWindow">
-                <gl:Width>640</gl:Width>
-                <gl:Height>480</gl:Height>
-                <gl:Title>Spike Data</gl:Title>
-                <gl:VSync>Off</gl:VSync>
-                <gl:SwapSync>false</gl:SwapSync>
-                <gl:ClearColor>Transparent</gl:ClearColor>
-                <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
-                <gl:CursorVisible>true</gl:CursorVisible>
-                <gl:Location xsi:nil="true" />
-                <gl:WindowBorder>Resizable</gl:WindowBorder>
-                <gl:WindowState>Normal</gl:WindowState>
-                <gl:DisplayDevice>Primary</gl:DisplayDevice>
-                <gl:TargetRenderFrequency>60</gl:TargetRenderFrequency>
-                <gl:TargetUpdateFrequency xsi:nil="true" />
-                <gl:RenderState />
-                <gl:GraphicsMode>
-                  <gl:ColorFormat>
-                    <gl:Red>8</gl:Red>
-                    <gl:Green>8</gl:Green>
-                    <gl:Blue>8</gl:Blue>
-                    <gl:Alpha>8</gl:Alpha>
-                  </gl:ColorFormat>
-                  <gl:Depth>16</gl:Depth>
-                  <gl:Stencil>0</gl:Stencil>
-                  <gl:Samples>0</gl:Samples>
-                  <gl:AccumulatorFormat>
-                    <gl:Red>0</gl:Red>
-                    <gl:Green>0</gl:Green>
-                    <gl:Blue>0</gl:Blue>
-                    <gl:Alpha>0</gl:Alpha>
-                  </gl:AccumulatorFormat>
-                  <gl:Buffers>2</gl:Buffers>
-                  <gl:Stereo>false</gl:Stereo>
-                </gl:GraphicsMode>
-              </Combinator>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="gl:CreateWindow">
+                  <gl:Width>640</gl:Width>
+                  <gl:Height>480</gl:Height>
+                  <gl:Title>Spike Data</gl:Title>
+                  <gl:VSync>Off</gl:VSync>
+                  <gl:SwapSync>false</gl:SwapSync>
+                  <gl:ClearColor>Transparent</gl:ClearColor>
+                  <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
+                  <gl:CursorVisible>true</gl:CursorVisible>
+                  <gl:Location xsi:nil="true" />
+                  <gl:WindowBorder>Resizable</gl:WindowBorder>
+                  <gl:WindowState>Normal</gl:WindowState>
+                  <gl:DisplayDevice>Primary</gl:DisplayDevice>
+                  <gl:TargetRenderFrequency>60</gl:TargetRenderFrequency>
+                  <gl:TargetUpdateFrequency xsi:nil="true" />
+                  <gl:RenderState />
+                  <gl:GraphicsMode>
+                    <gl:ColorFormat>
+                      <gl:Red>8</gl:Red>
+                      <gl:Green>8</gl:Green>
+                      <gl:Blue>8</gl:Blue>
+                      <gl:Alpha>8</gl:Alpha>
+                    </gl:ColorFormat>
+                    <gl:Depth>16</gl:Depth>
+                    <gl:Stencil>0</gl:Stencil>
+                    <gl:Samples>0</gl:Samples>
+                    <gl:AccumulatorFormat>
+                      <gl:Red>0</gl:Red>
+                      <gl:Green>0</gl:Green>
+                      <gl:Blue>0</gl:Blue>
+                      <gl:Alpha>0</gl:Alpha>
+                    </gl:AccumulatorFormat>
+                    <gl:Buffers>2</gl:Buffers>
+                    <gl:Stereo>false</gl:Stereo>
+                  </gl:GraphicsMode>
+                </Combinator>
+              </Builder>
             </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.BonVisionResources.bonsai" />
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="gl:ShaderResources">
-                <gl:Shaders>
-                  <gl:ShaderConfiguration xsi:type="gl:Material">
-                    <gl:Name>lfp_material</gl:Name>
-                    <gl:RenderState />
-                    <gl:ShaderUniforms />
-                    <gl:BufferBindings />
-                    <gl:FramebufferAttachments />
-                    <gl:VertexShader>quad.vert</gl:VertexShader>
-                    <gl:FragmentShader>probe_image.frag</gl:FragmentShader>
-                  </gl:ShaderConfiguration>
-                  <gl:ShaderConfiguration xsi:type="gl:Material">
-                    <gl:Name>spike_material</gl:Name>
-                    <gl:RenderState />
-                    <gl:ShaderUniforms />
-                    <gl:BufferBindings />
-                    <gl:FramebufferAttachments />
-                    <gl:VertexShader>quad.vert</gl:VertexShader>
-                    <gl:FragmentShader>probe_image.frag</gl:FragmentShader>
-                  </gl:ShaderConfiguration>
-                </gl:Shaders>
-              </Combinator>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.BonVisionResources.bonsai" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="res:LoadResources" />
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="gl:ShaderResources">
+                  <gl:Shaders>
+                    <gl:ShaderConfiguration xsi:type="gl:Material">
+                      <gl:Name>lfp_material</gl:Name>
+                      <gl:RenderState />
+                      <gl:ShaderUniforms />
+                      <gl:BufferBindings />
+                      <gl:FramebufferAttachments />
+                      <gl:VertexShader>quad.vert</gl:VertexShader>
+                      <gl:FragmentShader>probe_image.frag</gl:FragmentShader>
+                    </gl:ShaderConfiguration>
+                    <gl:ShaderConfiguration xsi:type="gl:Material">
+                      <gl:Name>spike_material</gl:Name>
+                      <gl:RenderState />
+                      <gl:ShaderUniforms />
+                      <gl:BufferBindings />
+                      <gl:FramebufferAttachments />
+                      <gl:VertexShader>quad.vert</gl:VertexShader>
+                      <gl:FragmentShader>probe_image.frag</gl:FragmentShader>
+                    </gl:ShaderConfiguration>
+                  </gl:Shaders>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="res:LoadResources" />
+              </Builder>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p2:MemoryUsageDevice">
@@ -25695,68 +25703,96 @@
                 <p2:Direction11>Input</p2:Direction11>
               </Combinator>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="gl:RenderFrame" />
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="gl:RenderFrame" />
+              </Builder>
             </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.OrthographicView.bonsai">
-              <Left>0</Left>
-              <Right>1</Right>
-              <Bottom>0</Bottom>
-              <Top>1</Top>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="IncludeWorkflow" Path="BonVision:Environment.OrthographicView.bonsai">
+                <Left>0</Left>
+                <Right>1</Right>
+                <Bottom>0</Bottom>
+                <Top>1</Top>
+              </Builder>
             </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>LFPData</Name>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="SubscribeSubject">
+                <Name>LFPData</Name>
+              </Builder>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:WithLatestFrom" />
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="rx:WithLatestFrom" />
+              </Builder>
             </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Item2</Selector>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MemberSelector">
+                <Selector>Item2</Selector>
+              </Builder>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p3:CreateGraphicsDataModel">
-                <p3:BufferLength>250</p3:BufferLength>
-                <p3:InternalFormat>R16</p3:InternalFormat>
-              </Combinator>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="p3:CreateGraphicsDataModel">
+                  <p3:BufferLength>250</p3:BufferLength>
+                  <p3:InternalFormat>R16</p3:InternalFormat>
+                </Combinator>
+              </Builder>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p3:DrawGraphicsDataModel">
-                <p3:ShaderName>lfp_material</p3:ShaderName>
-                <p3:TextureUniformName>uTexture</p3:TextureUniformName>
-              </Combinator>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="p3:DrawGraphicsDataModel">
+                  <p3:ShaderName>lfp_material</p3:ShaderName>
+                  <p3:TextureUniformName>uTexture</p3:TextureUniformName>
+                </Combinator>
+              </Builder>
             </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
-              <X>0</X>
-              <Y>0</Y>
-              <Width>1</Width>
-              <Height>0.5</Height>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
+                <X>0</X>
+                <Y>0</Y>
+                <Width>1</Width>
+                <Height>0.5</Height>
+              </Builder>
             </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>SpikeData</Name>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="SubscribeSubject">
+                <Name>SpikeData</Name>
+              </Builder>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:WithLatestFrom" />
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="rx:WithLatestFrom" />
+              </Builder>
             </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Item2</Selector>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MemberSelector">
+                <Selector>Item2</Selector>
+              </Builder>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p3:CreateGraphicsDataModel">
-                <p3:BufferLength>250</p3:BufferLength>
-                <p3:InternalFormat>R16</p3:InternalFormat>
-              </Combinator>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="p3:CreateGraphicsDataModel">
+                  <p3:BufferLength>250</p3:BufferLength>
+                  <p3:InternalFormat>R16</p3:InternalFormat>
+                </Combinator>
+              </Builder>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p3:DrawGraphicsDataModel">
-                <p3:ShaderName>spike_material</p3:ShaderName>
-                <p3:TextureUniformName>uTexture</p3:TextureUniformName>
-              </Combinator>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="p3:DrawGraphicsDataModel">
+                  <p3:ShaderName>spike_material</p3:ShaderName>
+                  <p3:TextureUniformName>uTexture</p3:TextureUniformName>
+                </Combinator>
+              </Builder>
             </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
-              <X>0</X>
-              <Y>0.5</Y>
-              <Width>1</Width>
-              <Height>0.5</Height>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
+                <X>0</X>
+                <Y>0.5</Y>
+                <Width>1</Width>
+                <Height>0.5</Height>
+              </Builder>
             </Expression>
           </Nodes>
           <Edges>
@@ -25820,7 +25856,7 @@
             </Expression>
             <Expression xsi:type="PropertySource" TypeArguments="io:GetDirectories,sys:String">
               <MemberName>Path</MemberName>
-              <Value>C:\Users\Admin\source\repos\Data\TEST</Value>
+              <Value>C:\Users\Admin\source\repos\ae-dev\data-dump</Value>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Timestamp" />
@@ -25864,7 +25900,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Users\Admin\source\repos\ae-dev\data-dump_2024-01-30T125105Z\\SpikeData.bin</dsp:Path>
+                <dsp:Path>C:\Users\Admin\source\repos\ae-dev\data-dump_2024-02-02T142747Z\\SpikeData.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -25898,7 +25934,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Users\Admin\source\repos\ae-dev\data-dump_2024-01-30T125105Z\\LFP.bin</dsp:Path>
+                <dsp:Path>C:\Users\Admin\source\repos\ae-dev\data-dump_2024-02-02T142747Z\\LFP.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -25932,7 +25968,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Users\Admin\source\repos\ae-dev\data-dump_2024-01-30T125105Z\\FrameCounter.bin</dsp:Path>
+                <dsp:Path>C:\Users\Admin\source\repos\ae-dev\data-dump_2024-02-02T142747Z\\FrameCounter.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -25966,7 +26002,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>C:\Users\Admin\source\repos\ae-dev\data-dump_2024-01-30T125105Z\\Clock.bin</dsp:Path>
+                <dsp:Path>C:\Users\Admin\source\repos\ae-dev\data-dump_2024-02-02T142747Z\\Clock.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -25999,7 +26035,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Users\Admin\source\repos\ae-dev\data-dump_2024-01-30T125105Z\\CurrentPosition.csv</io:FileName>
+              <io:FileName>C:\Users\Admin\source\repos\ae-dev\data-dump_2024-02-02T142747Z\\CurrentPosition.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>None</io:Suffix>
