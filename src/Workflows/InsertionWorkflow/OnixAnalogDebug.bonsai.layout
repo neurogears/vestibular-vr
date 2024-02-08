@@ -27,6 +27,66 @@
     <WindowState>Normal</WindowState>
   </DialogSettings>
   <DialogSettings>
+    <Visible>false</Visible>
+    <Location>
+      <X>0</X>
+      <Y>0</Y>
+    </Location>
+    <Size>
+      <Width>0</Width>
+      <Height>0</Height>
+    </Size>
+    <WindowState>Normal</WindowState>
+  </DialogSettings>
+  <DialogSettings>
+    <Visible>false</Visible>
+    <Location>
+      <X>0</X>
+      <Y>0</Y>
+    </Location>
+    <Size>
+      <Width>0</Width>
+      <Height>0</Height>
+    </Size>
+    <WindowState>Normal</WindowState>
+  </DialogSettings>
+  <DialogSettings>
+    <Visible>false</Visible>
+    <Location>
+      <X>0</X>
+      <Y>0</Y>
+    </Location>
+    <Size>
+      <Width>0</Width>
+      <Height>0</Height>
+    </Size>
+    <WindowState>Normal</WindowState>
+  </DialogSettings>
+  <DialogSettings>
+    <Visible>false</Visible>
+    <Location>
+      <X>0</X>
+      <Y>0</Y>
+    </Location>
+    <Size>
+      <Width>0</Width>
+      <Height>0</Height>
+    </Size>
+    <WindowState>Normal</WindowState>
+  </DialogSettings>
+  <DialogSettings>
+    <Visible>false</Visible>
+    <Location>
+      <X>0</X>
+      <Y>0</Y>
+    </Location>
+    <Size>
+      <Width>0</Width>
+      <Height>0</Height>
+    </Size>
+    <WindowState>Normal</WindowState>
+  </DialogSettings>
+  <DialogSettings>
     <Visible>true</Visible>
     <Location>
       <X>260</X>
@@ -207,7 +267,7 @@
     <VisualizerSettings>
       <MatVisualizer>
         <XMin>0</XMin>
-        <XMax>1000</XMax>
+        <XMax>240</XMax>
         <YMin>-6</YMin>
         <YMax>10</YMax>
         <AutoScaleX>true</AutoScaleX>
@@ -380,12 +440,12 @@
     <VisualizerSettings>
       <TableLayoutPanelVisualizer>
         <MashupSettings>
-          <Source>14</Source>
+          <Source>19</Source>
           <VisualizerTypeName>Bonsai.Dsp.Design.MatVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <MatVisualizer>
               <XMin>0</XMin>
-              <XMax>1000</XMax>
+              <XMax>240</XMax>
               <YMin>-6</YMin>
               <YMax>10</YMax>
               <AutoScaleX>true</AutoScaleX>
@@ -400,12 +460,12 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>16</Source>
+          <Source>21</Source>
           <VisualizerTypeName>Bonsai.Dsp.Design.MatVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <MatVisualizer>
               <XMin>0</XMin>
-              <XMax>1000</XMax>
+              <XMax>240</XMax>
               <YMin>-6</YMin>
               <YMax>10</YMax>
               <AutoScaleX>true</AutoScaleX>
@@ -420,12 +480,12 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>18</Source>
+          <Source>23</Source>
           <VisualizerTypeName>Bonsai.Dsp.Design.MatVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <MatVisualizer>
               <XMin>0</XMin>
-              <XMax>1000</XMax>
+              <XMax>240</XMax>
               <YMin>-6</YMin>
               <YMax>10</YMax>
               <AutoScaleX>true</AutoScaleX>
@@ -440,12 +500,12 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>20</Source>
+          <Source>25</Source>
           <VisualizerTypeName>Bonsai.Dsp.Design.MatVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <MatVisualizer>
               <XMin>0</XMin>
-              <XMax>1000</XMax>
+              <XMax>240</XMax>
               <YMin>-6</YMin>
               <YMax>10</YMax>
               <AutoScaleX>true</AutoScaleX>
@@ -460,12 +520,12 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>22</Source>
+          <Source>27</Source>
           <VisualizerTypeName>Bonsai.Dsp.Design.MatVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <MatVisualizer>
               <XMin>0</XMin>
-              <XMax>1000</XMax>
+              <XMax>240</XMax>
               <YMin>-6</YMin>
               <YMax>10</YMax>
               <AutoScaleX>true</AutoScaleX>
@@ -480,12 +540,12 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>24</Source>
+          <Source>29</Source>
           <VisualizerTypeName>Bonsai.Dsp.Design.MatVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <MatVisualizer>
               <XMin>0</XMin>
-              <XMax>1000</XMax>
+              <XMax>240</XMax>
               <YMin>-6</YMin>
               <YMax>10</YMax>
               <AutoScaleX>true</AutoScaleX>

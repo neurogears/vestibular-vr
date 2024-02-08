@@ -2,9 +2,10 @@
 <WorkflowBuilder Version="2.8.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:p1="clr-namespace:Bonsai.ONIX;assembly=Bonsai.ONIX"
-                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:p2="clr-namespace:Bonsai.ONIX.Design;assembly=Bonsai.ONIX.Design"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
                  xmlns="https://bonsai-rx.org/2018/workflow">
@@ -25330,52 +25331,115 @@
             </p1:ADCs>
           </p1:Configuration>
           <p1:RequireSNMatch>false</p1:RequireSNMatch>
-          <p1:BlockSize>2</p1:BlockSize>
+          <p1:BlockSize>1</p1:BlockSize>
         </Combinator>
       </Expression>
       <Expression xsi:type="MemberSelector">
         <Selector>SpikeData</Selector>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="dsp:MatrixWriter">
-          <dsp:Path>data_sample.bin</dsp:Path>
-          <dsp:Suffix>None</dsp:Suffix>
-          <dsp:Overwrite>true</dsp:Overwrite>
-          <dsp:Layout>ColumnMajor</dsp:Layout>
-        </Combinator>
-      </Expression>
       <Expression xsi:type="rx:PublishSubject">
         <Name>SpikeData</Name>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p2:CreateGraphicsDataModel">
-          <p2:BufferLength>2</p2:BufferLength>
-          <p2:InternalFormat>R16</p2:InternalFormat>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="p2:CreateGraphicsDataModel">
+            <p2:BufferLength>1000</p2:BufferLength>
+            <p2:InternalFormat>R16</p2:InternalFormat>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p2:DrawGraphicsDataModel">
-          <p2:ShaderName>probe_image</p2:ShaderName>
-          <p2:TextureUniformName>uTexture</p2:TextureUniformName>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="p2:DrawGraphicsDataModel">
+            <p2:ShaderName>probe_image</p2:ShaderName>
+            <p2:TextureUniformName>uTexture</p2:TextureUniformName>
+          </Combinator>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>LFPData</Selector>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>LfpData</Name>
       </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>SpikeData</Name>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="dsp:Submatrix">
-          <dsp:StartRow>200</dsp:StartRow>
-          <dsp:EndRow>201</dsp:EndRow>
-          <dsp:StartCol>0</dsp:StartCol>
-          <dsp:EndCol xsi:nil="true" />
+        <Combinator xsi:type="rx:DelaySubscription">
+          <rx:DueTime>PT10S</rx:DueTime>
         </Combinator>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Interval" DisplayName="AnalogUpdateInterval" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:SampleInterval">
+          <rx:Interval>PT1S</rx:Interval>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>SelectChannel</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="ChannelIndex" />
+            </Expression>
+            <Expression xsi:type="PropertySource" TypeArguments="dsp:Submatrix,sys:Int32">
+              <MemberName>StartRow</MemberName>
+              <Value>2</Value>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="StartRow" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="Add">
+              <Operand xsi:type="IntProperty">
+                <Value>1</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="EndRow" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="dsp:Submatrix">
+                <dsp:StartRow>2</dsp:StartRow>
+                <dsp:EndRow>3</dsp:EndRow>
+                <dsp:StartCol>0</dsp:StartCol>
+                <dsp:EndCol>1</dsp:EndCol>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="6" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="2" To="4" Label="Source1" />
+            <Edge From="3" To="6" Label="Source2" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source3" />
+            <Edge From="6" To="7" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Annotation">
+        <Text><![CDATA[Rescaling parameters depend on the input data type (for NPX will be U16) and the [gain settings applied for the channel](https://github.com/cortex-lab/neuropixels/wiki/Gain_settings)
+
+For example an input trace with U16 type can take values from 0-1023. With a gain setting of 1000x these values map onto -0.6V : 0.6V]]></Text>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="dsp:Rescale">
           <dsp:Min>0</dsp:Min>
-          <dsp:Max>1000</dsp:Max>
-          <dsp:RangeMin>-0.1</dsp:RangeMin>
-          <dsp:RangeMax>-0.1</dsp:RangeMax>
+          <dsp:Max>1023</dsp:Max>
+          <dsp:RangeMin>-0.6</dsp:RangeMin>
+          <dsp:RangeMax>0.6</dsp:RangeMax>
           <dsp:RescaleType>Linear</dsp:RescaleType>
         </Combinator>
       </Expression>
@@ -25388,8 +25452,8 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="dsp:Tile">
-          <dsp:RowTiles>12</dsp:RowTiles>
-          <dsp:ColumnTiles>1</dsp:ColumnTiles>
+          <dsp:RowTiles>1</dsp:RowTiles>
+          <dsp:ColumnTiles>12</dsp:ColumnTiles>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -25401,9 +25465,9 @@
             </p1:HardwareSlot>
             <p1:Address>6</p1:Address>
           </p1:DeviceAddress>
-          <p1:BlockSize>240</p1:BlockSize>
+          <p1:BlockSize>1000</p1:BlockSize>
           <p1:DataType>Volts</p1:DataType>
-          <p1:EnableStream>false</p1:EnableStream>
+          <p1:EnableStream>true</p1:EnableStream>
           <p1:InputRange00>TenVolts</p1:InputRange00>
           <p1:InputRange01>TenVolts</p1:InputRange01>
           <p1:InputRange02>TenVolts</p1:InputRange02>
@@ -25417,18 +25481,80 @@
           <p1:InputRange10>TenVolts</p1:InputRange10>
           <p1:InputRange11>TenVolts</p1:InputRange11>
           <p1:Direction00>Output</p1:Direction00>
-          <p1:Direction01>Input</p1:Direction01>
-          <p1:Direction02>Input</p1:Direction02>
-          <p1:Direction03>Input</p1:Direction03>
-          <p1:Direction04>Input</p1:Direction04>
-          <p1:Direction05>Input</p1:Direction05>
-          <p1:Direction06>Input</p1:Direction06>
-          <p1:Direction07>Input</p1:Direction07>
-          <p1:Direction08>Input</p1:Direction08>
-          <p1:Direction09>Input</p1:Direction09>
-          <p1:Direction10>Input</p1:Direction10>
-          <p1:Direction11>Input</p1:Direction11>
+          <p1:Direction01>Output</p1:Direction01>
+          <p1:Direction02>Output</p1:Direction02>
+          <p1:Direction03>Output</p1:Direction03>
+          <p1:Direction04>Output</p1:Direction04>
+          <p1:Direction05>Output</p1:Direction05>
+          <p1:Direction06>Output</p1:Direction06>
+          <p1:Direction07>Output</p1:Direction07>
+          <p1:Direction08>Output</p1:Direction08>
+          <p1:Direction09>Output</p1:Direction09>
+          <p1:Direction10>Output</p1:Direction10>
+          <p1:Direction11>Output</p1:Direction11>
         </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Data</Selector>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>LfpData</Name>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>SelectChannel</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Value" DisplayName="ChannelIndex" />
+            </Expression>
+            <Expression xsi:type="PropertySource" TypeArguments="dsp:Submatrix,sys:Int32">
+              <MemberName>StartRow</MemberName>
+              <Value>2</Value>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="StartRow" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="Add">
+              <Operand xsi:type="IntProperty">
+                <Value>1</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="EndRow" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="dsp:Submatrix">
+                <dsp:StartRow>2</dsp:StartRow>
+                <dsp:EndRow>3</dsp:EndRow>
+                <dsp:StartCol>0</dsp:StartCol>
+                <dsp:EndCol>1</dsp:EndCol>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="6" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="2" To="4" Label="Source1" />
+            <Edge From="3" To="6" Label="Source2" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source3" />
+            <Edge From="6" To="7" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Index">
+        <Operand xsi:type="IntProperty">
+          <Value>0</Value>
+        </Operand>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:CreateWindow">
@@ -25511,150 +25637,31 @@
       <Expression xsi:type="MemberSelector">
         <Selector>Interval.TotalMilliseconds</Selector>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="dsp:FunctionGenerator">
-            <dsp:BufferLength>10</dsp:BufferLength>
-            <dsp:Frequency>100</dsp:Frequency>
-            <dsp:Waveform>Sine</dsp:Waveform>
-            <dsp:SampleRate>100000</dsp:SampleRate>
-            <dsp:Depth>F64</dsp:Depth>
-            <dsp:Amplitude>1</dsp:Amplitude>
-            <dsp:Offset>0</dsp:Offset>
-            <dsp:Phase>0</dsp:Phase>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="dsp:Tile">
-            <dsp:RowTiles>12</dsp:RowTiles>
-            <dsp:ColumnTiles>1</dsp:ColumnTiles>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="p1:AnalogIODevice">
-            <p1:DeviceAddress>
-              <p1:HardwareSlot>
-                <p1:Driver>riffa</p1:Driver>
-                <p1:Index>0</p1:Index>
-              </p1:HardwareSlot>
-              <p1:Address>6</p1:Address>
-            </p1:DeviceAddress>
-            <p1:BlockSize>120</p1:BlockSize>
-            <p1:DataType>Volts</p1:DataType>
-            <p1:EnableStream>false</p1:EnableStream>
-            <p1:InputRange00>TenVolts</p1:InputRange00>
-            <p1:InputRange01>TenVolts</p1:InputRange01>
-            <p1:InputRange02>TenVolts</p1:InputRange02>
-            <p1:InputRange03>TenVolts</p1:InputRange03>
-            <p1:InputRange04>TenVolts</p1:InputRange04>
-            <p1:InputRange05>TenVolts</p1:InputRange05>
-            <p1:InputRange06>TenVolts</p1:InputRange06>
-            <p1:InputRange07>TenVolts</p1:InputRange07>
-            <p1:InputRange08>TenVolts</p1:InputRange08>
-            <p1:InputRange09>TenVolts</p1:InputRange09>
-            <p1:InputRange10>TenVolts</p1:InputRange10>
-            <p1:InputRange11>TenVolts</p1:InputRange11>
-            <p1:Direction00>Output</p1:Direction00>
-            <p1:Direction01>Input</p1:Direction01>
-            <p1:Direction02>Input</p1:Direction02>
-            <p1:Direction03>Input</p1:Direction03>
-            <p1:Direction04>Input</p1:Direction04>
-            <p1:Direction05>Input</p1:Direction05>
-            <p1:Direction06>Input</p1:Direction06>
-            <p1:Direction07>Input</p1:Direction07>
-            <p1:Direction08>Input</p1:Direction08>
-            <p1:Direction09>Input</p1:Direction09>
-            <p1:Direction10>Input</p1:Direction10>
-            <p1:Direction11>Input</p1:Direction11>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="p1:RealTimeFunctionGenerator">
-            <p1:BufferLength>10</p1:BufferLength>
-            <p1:Frequency>100</p1:Frequency>
-            <p1:Waveform>Sine</p1:Waveform>
-            <p1:Depth>F64</p1:Depth>
-            <p1:Amplitude>1</p1:Amplitude>
-            <p1:Offset>0</p1:Offset>
-            <p1:Phase>0</p1:Phase>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="dsp:Tile">
-            <dsp:RowTiles>12</dsp:RowTiles>
-            <dsp:ColumnTiles>1</dsp:ColumnTiles>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="p1:AnalogIODevice">
-            <p1:DeviceAddress>
-              <p1:HardwareSlot>
-                <p1:Driver>riffa</p1:Driver>
-                <p1:Index>0</p1:Index>
-              </p1:HardwareSlot>
-              <p1:Address>6</p1:Address>
-            </p1:DeviceAddress>
-            <p1:BlockSize>120</p1:BlockSize>
-            <p1:DataType>Volts</p1:DataType>
-            <p1:EnableStream>false</p1:EnableStream>
-            <p1:InputRange00>TenVolts</p1:InputRange00>
-            <p1:InputRange01>TenVolts</p1:InputRange01>
-            <p1:InputRange02>TenVolts</p1:InputRange02>
-            <p1:InputRange03>TenVolts</p1:InputRange03>
-            <p1:InputRange04>TenVolts</p1:InputRange04>
-            <p1:InputRange05>TenVolts</p1:InputRange05>
-            <p1:InputRange06>TenVolts</p1:InputRange06>
-            <p1:InputRange07>TenVolts</p1:InputRange07>
-            <p1:InputRange08>TenVolts</p1:InputRange08>
-            <p1:InputRange09>TenVolts</p1:InputRange09>
-            <p1:InputRange10>TenVolts</p1:InputRange10>
-            <p1:InputRange11>TenVolts</p1:InputRange11>
-            <p1:Direction00>Output</p1:Direction00>
-            <p1:Direction01>Input</p1:Direction01>
-            <p1:Direction02>Input</p1:Direction02>
-            <p1:Direction03>Input</p1:Direction03>
-            <p1:Direction04>Input</p1:Direction04>
-            <p1:Direction05>Input</p1:Direction05>
-            <p1:Direction06>Input</p1:Direction06>
-            <p1:Direction07>Input</p1:Direction07>
-            <p1:Direction08>Input</p1:Direction08>
-            <p1:Direction09>Input</p1:Direction09>
-            <p1:Direction10>Input</p1:Direction10>
-            <p1:Direction11>Input</p1:Direction11>
-          </Combinator>
-        </Builder>
-      </Expression>
     </Nodes>
     <Edges>
       <Edge From="1" To="2" Label="Source1" />
+      <Edge From="1" To="6" Label="Source1" />
       <Edge From="2" To="3" Label="Source1" />
       <Edge From="3" To="4" Label="Source1" />
       <Edge From="4" To="5" Label="Source1" />
-      <Edge From="5" To="6" Label="Source1" />
-      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
       <Edge From="8" To="9" Label="Source1" />
-      <Edge From="9" To="10" Label="Source1" />
-      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="9" To="11" Label="Source1" />
+      <Edge From="10" To="11" Label="Source2" />
       <Edge From="11" To="12" Label="Source1" />
-      <Edge From="13" To="14" Label="Source1" />
+      <Edge From="12" To="14" Label="Source1" />
+      <Edge From="13" To="14" Label="Source2" />
       <Edge From="14" To="15" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
       <Edge From="16" To="17" Label="Source1" />
-      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
       <Edge From="19" To="20" Label="Source1" />
-      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="20" To="21" Label="Source1" />
       <Edge From="22" To="23" Label="Source1" />
-      <Edge From="24" To="25" Label="Source1" />
+      <Edge From="23" To="24" Label="Source1" />
       <Edge From="25" To="26" Label="Source1" />
+      <Edge From="27" To="28" Label="Source1" />
+      <Edge From="28" To="29" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
