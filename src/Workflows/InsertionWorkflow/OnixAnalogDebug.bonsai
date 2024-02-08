@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.1"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:p1="clr-namespace:Bonsai.ONIX;assembly=Bonsai.ONIX"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:viz="clr-namespace:Bonsai.Design.Visualizers;assembly=Bonsai.Design.Visualizers"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:ONIContext">
+          <p1:ContextConfiguration>
+            <p1:Slot>
+              <p1:Driver>riffa</p1:Driver>
+              <p1:Index>0</p1:Index>
+            </p1:Slot>
+            <p1:ReadSize>2048</p1:ReadSize>
+            <p1:WriteSize>2048</p1:WriteSize>
+          </p1:ContextConfiguration>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:AnalogIODevice">
+          <p1:DeviceAddress>
+            <p1:HardwareSlot>
+              <p1:Driver>riffa</p1:Driver>
+              <p1:Index>0</p1:Index>
+            </p1:HardwareSlot>
+            <p1:Address>6</p1:Address>
+          </p1:DeviceAddress>
+          <p1:BlockSize>1000</p1:BlockSize>
+          <p1:DataType>Volts</p1:DataType>
+          <p1:EnableStream>true</p1:EnableStream>
+          <p1:InputRange00>TenVolts</p1:InputRange00>
+          <p1:InputRange01>TenVolts</p1:InputRange01>
+          <p1:InputRange02>TenVolts</p1:InputRange02>
+          <p1:InputRange03>TenVolts</p1:InputRange03>
+          <p1:InputRange04>TenVolts</p1:InputRange04>
+          <p1:InputRange05>TenVolts</p1:InputRange05>
+          <p1:InputRange06>TenVolts</p1:InputRange06>
+          <p1:InputRange07>TenVolts</p1:InputRange07>
+          <p1:InputRange08>TenVolts</p1:InputRange08>
+          <p1:InputRange09>TenVolts</p1:InputRange09>
+          <p1:InputRange10>TenVolts</p1:InputRange10>
+          <p1:InputRange11>TenVolts</p1:InputRange11>
+          <p1:Direction00>Input</p1:Direction00>
+          <p1:Direction01>Input</p1:Direction01>
+          <p1:Direction02>Input</p1:Direction02>
+          <p1:Direction03>Input</p1:Direction03>
+          <p1:Direction04>Input</p1:Direction04>
+          <p1:Direction05>Input</p1:Direction05>
+          <p1:Direction06>Input</p1:Direction06>
+          <p1:Direction07>Input</p1:Direction07>
+          <p1:Direction08>Input</p1:Direction08>
+          <p1:Direction09>Input</p1:Direction09>
+          <p1:Direction10>Input</p1:Direction10>
+          <p1:Direction11>Input</p1:Direction11>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Data</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Submatrix">
+          <dsp:StartRow>0</dsp:StartRow>
+          <dsp:EndRow>1</dsp:EndRow>
+          <dsp:StartCol>0</dsp:StartCol>
+          <dsp:EndCol xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Submatrix">
+          <dsp:StartRow>1</dsp:StartRow>
+          <dsp:EndRow>2</dsp:EndRow>
+          <dsp:StartCol>0</dsp:StartCol>
+          <dsp:EndCol xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Submatrix">
+          <dsp:StartRow>2</dsp:StartRow>
+          <dsp:EndRow>3</dsp:EndRow>
+          <dsp:StartCol>0</dsp:StartCol>
+          <dsp:EndCol xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Submatrix">
+          <dsp:StartRow>3</dsp:StartRow>
+          <dsp:EndRow>4</dsp:EndRow>
+          <dsp:StartCol>0</dsp:StartCol>
+          <dsp:EndCol xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Submatrix">
+          <dsp:StartRow>4</dsp:StartRow>
+          <dsp:EndRow>5</dsp:EndRow>
+          <dsp:StartCol>0</dsp:StartCol>
+          <dsp:EndCol xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Submatrix">
+          <dsp:StartRow>5</dsp:StartRow>
+          <dsp:EndRow>6</dsp:EndRow>
+          <dsp:StartCol>0</dsp:StartCol>
+          <dsp:EndCol xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="viz:TableLayoutPanelBuilder">
+        <viz:ColumnCount>6</viz:ColumnCount>
+        <viz:RowCount>1</viz:RowCount>
+        <viz:ColumnStyles />
+        <viz:RowStyles />
+        <viz:CellSpans />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Clock</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:TimeInterval" />
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Interval.TotalMilliseconds</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Buffer">
+          <dsp:Count>100</dsp:Count>
+          <dsp:Skip xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Average" />
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="1" To="16" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="2" To="5" Label="Source1" />
+      <Edge From="2" To="7" Label="Source1" />
+      <Edge From="2" To="9" Label="Source1" />
+      <Edge From="2" To="11" Label="Source1" />
+      <Edge From="2" To="13" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="4" To="15" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="6" To="15" Label="Source2" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="8" To="15" Label="Source3" />
+      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="10" To="15" Label="Source4" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="12" To="15" Label="Source5" />
+      <Edge From="13" To="14" Label="Source1" />
+      <Edge From="14" To="15" Label="Source6" />
+      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>
