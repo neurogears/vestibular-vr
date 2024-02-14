@@ -59,7 +59,7 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>C:\Users\erski\source\repos\neurogears\vestibular-vr\Python\vestibular-vr\test-movie\test-movie.mp4</gl:FileName>
+              <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Python\vestibular-vr\test-cloud.mp4</gl:FileName>
               <gl:FlipMode>Vertical</gl:FlipMode>
               <gl:FrameCount xsi:nil="true" />
               <gl:StartPosition>0</gl:StartPosition>
@@ -122,7 +122,7 @@
           <gl:ShaderName>Image</gl:ShaderName>
           <gl:TextureName>MotionCloud</gl:TextureName>
           <gl:TextureTarget>Texture2D</gl:TextureTarget>
-          <gl:Index>3676</gl:Index>
+          <gl:Index>880</gl:Index>
         </Combinator>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
