@@ -5,13 +5,13 @@
 metadata:
   animalId: plimbo
   rootPath: D:/TrialLogicTestData/
-  runGain: 0.0005
+  runGain: 0.0008
 
 blocks: [
   &blockA
   {
     stimulus: {type: "grating"},
-    totalRuntime: 20,
+    totalRuntime: 160,
     runThreshold: 100,
     decayTimestep: 0.1,
     runThresholdDecay: -1,

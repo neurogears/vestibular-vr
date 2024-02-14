@@ -98,6 +98,7 @@
                     "type": "string"
                 },
                 "runGain": {
+                    "description": "Coefficient applied to movement delta (e.g. from flow sensor) to calculate running speed in visual environment.",
                     "default": 1,
                     "type": "number"
                 }
