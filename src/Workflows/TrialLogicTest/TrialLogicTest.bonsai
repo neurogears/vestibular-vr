@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <WorkflowBuilder Version="2.8.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:p1="clr-namespace:;assembly=Extensions"
@@ -12,19 +12,23 @@
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
+                 xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="SessionSettingsPath" />
+      </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>Initialization</Name>
         <Workflow>
           <Nodes>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Path" Category="Session Settings" />
+              <Property Name="Path" DisplayName="SessionSettingsPath" Category="Session Settings" />
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:LoadSettings">
-                <p1:Path>C:\Users\neurogears\source\repos\vestibular-vr\src\sessionTemplate.yml</p1:Path>
+                <p1:Path>C:\Users\ONIX\source\ae-dev\vestibular-vr\src\sessionTemplate.yml</p1:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -1573,9 +1577,29 @@
       <Expression xsi:type="rx:PublishSubject">
         <Name>MovementDelta</Name>
       </Expression>
+      <Expression xsi:type="rx:BehaviorSubject" TypeArguments="harp:HarpMessage">
+        <rx:Name>H1Commands</rx:Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="harp:Device">
+          <harp:OperationMode>Active</harp:OperationMode>
+          <harp:OperationLed>On</harp:OperationLed>
+          <harp:DumpRegisters>true</harp:DumpRegisters>
+          <harp:VisualIndicators>On</harp:VisualIndicators>
+          <harp:Heartbeat>Disabled</harp:Heartbeat>
+          <harp:IgnoreErrors>false</harp:IgnoreErrors>
+          <harp:PortName>COM10</harp:PortName>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>H1Events</Name>
+      </Expression>
     </Nodes>
     <Edges>
-      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
