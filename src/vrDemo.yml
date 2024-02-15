@@ -11,11 +11,12 @@ blocks: [
   &blockA
   {
     stimulus: {type: "cloud"},
-    totalRuntime: 120,
+    totalRuntime: 30,
     runThreshold: 100,
     decayTimestep: 0.1,
     runThresholdDecay: -1,
     haltProbability: 0.5,
+    blockGainModifier: 10,
     haltProtocol: {
       minumumDelay: 0.1,
       randomDelay: 1.5,
@@ -26,11 +27,12 @@ blocks: [
   &blockB
   {
     stimulus: {type: "grating"},
-    totalRuntime: 140,
+    totalRuntime: 30,
     runThreshold: 200,
     decayTimestep: 0.1,
     runThresholdDecay: -1,
     haltProbability: 0.7,
+    blockGainModifier: 1,
     haltProtocol: {
       minumumDelay: 0.1,
       randomDelay: 0.5,
