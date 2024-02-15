@@ -10,8 +10,8 @@ metadata:
 blocks: [
   &blockA
   {
-    stimulus: {type: "grating"},
-    totalRuntime: 20,
+    stimulus: {type: "cloud"},
+    totalRuntime: 120,
     runThreshold: 100,
     decayTimestep: 0.1,
     runThresholdDecay: -1,
@@ -25,7 +25,7 @@ blocks: [
   },
   &blockB
   {
-    stimulus: {type: "cloud"},
+    stimulus: {type: "grating"},
     totalRuntime: 140,
     runThreshold: 200,
     decayTimestep: 0.1,
