@@ -16,7 +16,7 @@ blocks: [
     decayTimestep: 0.1,
     runThresholdDecay: -1,
     haltProbability: 0.5,
-    blockGainModifier: 10,
+    blockGainModifier: 100,
     haltProtocol: {
       minumumDelay: 0.1,
       randomDelay: 1.5,
