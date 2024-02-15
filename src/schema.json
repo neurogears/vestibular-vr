@@ -36,6 +36,11 @@
                 "haltProtocol": {
                     "$ref": "#/definitions/haltProtocol",
                     "description": "The halt protocol to use on a positive halt decision"
+                },
+                "blockGainModifier": {
+                    "default": 1,
+                    "description": "Block specific gain coefficient to apply",
+                    "type": "number"
                 }
             },
             "type": "object"

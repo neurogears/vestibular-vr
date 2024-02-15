@@ -28,6 +28,8 @@ namespace DataSchema
     
         private HaltProtocol _haltProtocol;
     
+        private double _blockGainModifier = 1D;
+    
         /// <summary>
         /// The visual stimulus to use
         /// </summary>
@@ -151,6 +153,23 @@ namespace DataSchema
             }
         }
     
+        /// <summary>
+        /// Block specific gain coefficient to apply
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="blockGainModifier")]
+        [System.ComponentModel.DescriptionAttribute("Block specific gain coefficient to apply")]
+        public double BlockGainModifier
+        {
+            get
+            {
+                return _blockGainModifier;
+            }
+            set
+            {
+                _blockGainModifier = value;
+            }
+        }
+    
         public System.IObservable<Block> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
@@ -162,7 +181,8 @@ namespace DataSchema
                     DecayTimestep = _decayTimestep,
                     RunThresholdDecay = _runThresholdDecay,
                     HaltProbability = _haltProbability,
-                    HaltProtocol = _haltProtocol
+                    HaltProtocol = _haltProtocol,
+                    BlockGainModifier = _blockGainModifier
                 }));
         }
     }
@@ -423,7 +443,12 @@ namespace DataSchema
             }
         }
     
+        /// <summary>
+        /// Coefficient applied to movement delta (e.g. from flow sensor) to calculate running speed in visual environment.
+        /// </summary>
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="runGain")]
+        [System.ComponentModel.DescriptionAttribute("Coefficient applied to movement delta (e.g. from flow sensor) to calculate runnin" +
+            "g speed in visual environment.")]
         public double RunGain
         {
             get

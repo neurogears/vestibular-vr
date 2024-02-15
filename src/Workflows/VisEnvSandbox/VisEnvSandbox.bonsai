@@ -4,14 +4,12 @@
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
-                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
-                 xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:CreateWindow">
-          <gl:Width>640</gl:Width>
+          <gl:Width>1080</gl:Width>
           <gl:Height>480</gl:Height>
           <gl:VSync>On</gl:VSync>
           <gl:SwapSync>false</gl:SwapSync>
@@ -82,39 +80,85 @@
       <Expression xsi:type="rx:BehaviorSubject">
         <Name>DrawCall</Name>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="wie:MouseWheel" />
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.SphereMapping.bonsai">
+        <ClearColor>Gray</ClearColor>
+        <Width>2048</Width>
+        <Height>2048</Height>
+        <RotationZ>0</RotationZ>
+        <RotationY>0</RotationY>
+        <RotationX>0</RotationX>
+        <FaceSize xsi:nil="true" />
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="FloatProperty">
-          <Value>0.1</Value>
-        </Combinator>
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.ViewWindow.bonsai">
+        <Width>30</Width>
+        <Height>20</Height>
+        <Rotation>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </Rotation>
+        <Translation>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>-10</Z>
+        </Translation>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:WithLatestFrom" />
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
+        <X>0</X>
+        <Y>0</Y>
+        <Width>1</Width>
+        <Height>1</Height>
       </Expression>
-      <Expression xsi:type="Multiply" />
-      <Expression xsi:type="scr:ExpressionTransform">
-        <scr:Expression>Convert.ToInt32(it)</scr:Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="SubscribeSubject">
+          <Name>DrawCall</Name>
+        </Builder>
       </Expression>
-      <Expression xsi:type="rx:Accumulate" />
-      <Expression xsi:type="scr:ExpressionTransform">
-        <scr:Name>Wrap</scr:Name>
-        <scr:Expression>it &gt;= 0 ? ((it) % (4096)) : (4096 - Math.Abs(it % 4096))</scr:Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
+          <LocationX>-90</LocationX>
+          <LocationY>0</LocationY>
+          <Layer>0</Layer>
+          <ExtentX>180</ExtentX>
+          <ExtentY>60</ExtentY>
+          <SpatialFrequency>0.1</SpatialFrequency>
+          <TemporalFrequency>0</TemporalFrequency>
+          <Phase>-0</Phase>
+          <Angle>0</Angle>
+          <SquareWave>false</SquareWave>
+          <Contrast>2</Contrast>
+          <DutyCycle xsi:nil="true" />
+          <Radius>1</Radius>
+          <Aperture>20</Aperture>
+          <Opacity>1</Opacity>
+        </Builder>
       </Expression>
-      <Expression xsi:type="rx:PublishSubject">
-        <Name>FramePosition</Name>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
+          <LocationX>90</LocationX>
+          <LocationY>0</LocationY>
+          <Layer>0</Layer>
+          <ExtentX>180</ExtentX>
+          <ExtentY>60</ExtentY>
+          <SpatialFrequency>0.1</SpatialFrequency>
+          <TemporalFrequency>0</TemporalFrequency>
+          <Phase>10313.24</Phase>
+          <Angle>0</Angle>
+          <SquareWave>false</SquareWave>
+          <Contrast>2</Contrast>
+          <DutyCycle xsi:nil="true" />
+          <Radius>1</Radius>
+          <Aperture>20</Aperture>
+          <Opacity>1</Opacity>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="rx:Zip" />
+        </Builder>
       </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>DrawCall</Name>
-      </Expression>
-      <Expression xsi:type="SubscribeSubject">
-        <Name>FramePosition</Name>
-      </Expression>
-      <Expression xsi:type="PropertyMapping">
-        <PropertyMappings>
-          <Property Name="Index" />
-        </PropertyMappings>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:BindTexture">
@@ -122,14 +166,36 @@
           <gl:ShaderName>Image</gl:ShaderName>
           <gl:TextureName>MotionCloud</gl:TextureName>
           <gl:TextureTarget>Texture2D</gl:TextureTarget>
-          <gl:Index>880</gl:Index>
+          <gl:Index>0</gl:Index>
         </Combinator>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
         <TextureName />
         <ExtentX>180</ExtentX>
-        <ExtentY>90</ExtentY>
-        <LocationX>0</LocationX>
+        <ExtentY>60</ExtentY>
+        <LocationX>-90</LocationX>
+        <LocationY>0</LocationY>
+        <Layer>0</Layer>
+        <Angle>0</Angle>
+        <ScaleX>1</ScaleX>
+        <ScaleY>1</ScaleY>
+        <ShiftX>0</ShiftX>
+        <ShiftY>0</ShiftY>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:BindTexture">
+          <gl:TextureSlot>Texture0</gl:TextureSlot>
+          <gl:ShaderName>Image</gl:ShaderName>
+          <gl:TextureName>MotionCloud</gl:TextureName>
+          <gl:TextureTarget>Texture2D</gl:TextureTarget>
+          <gl:Index>600</gl:Index>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
+        <TextureName />
+        <ExtentX>180</ExtentX>
+        <ExtentY>60</ExtentY>
+        <LocationX>90</LocationX>
         <LocationY>0</LocationY>
         <Layer>0</Layer>
         <Angle>0</Angle>
@@ -145,17 +211,17 @@
       <Edge From="2" To="3" Label="Source1" />
       <Edge From="4" To="5" Label="Source1" />
       <Edge From="5" To="6" Label="Source1" />
-      <Edge From="7" To="9" Label="Source1" />
-      <Edge From="8" To="9" Label="Source2" />
-      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="8" To="9" Label="Source1" />
       <Edge From="10" To="11" Label="Source1" />
-      <Edge From="11" To="12" Label="Source1" />
-      <Edge From="12" To="13" Label="Source1" />
-      <Edge From="13" To="14" Label="Source1" />
-      <Edge From="15" To="18" Label="Source1" />
-      <Edge From="16" To="17" Label="Source1" />
-      <Edge From="17" To="18" Label="Source2" />
-      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="10" To="12" Label="Source1" />
+      <Edge From="11" To="13" Label="Source1" />
+      <Edge From="12" To="13" Label="Source2" />
+      <Edge From="14" To="15" Label="Source1" />
+      <Edge From="14" To="17" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
