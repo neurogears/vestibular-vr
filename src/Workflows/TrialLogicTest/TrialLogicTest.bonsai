@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <WorkflowBuilder Version="2.8.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
+                 xmlns:p1="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
                  xmlns:viz="clr-namespace:Bonsai.Design.Visualizers;assembly=Bonsai.Design.Visualizers"
-                 xmlns:p1="clr-namespace:;assembly=Extensions"
+                 xmlns:p2="clr-namespace:;assembly=Extensions"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
                  xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
-                 xmlns:p2="clr-namespace:Bonsai.Numerics.Distributions;assembly=Bonsai.Numerics"
+                 xmlns:p3="clr-namespace:Bonsai.Numerics.Distributions;assembly=Bonsai.Numerics"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
-                 xmlns:p3="clr-namespace:DataSchema;assembly=Extensions"
+                 xmlns:p4="clr-namespace:DataSchema;assembly=Extensions"
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
@@ -23,28 +23,40 @@
         <Name>ExperimentEvents</Name>
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="spk:SpinnakerCapture">
-          <spk:Index xsi:nil="true" />
-          <spk:SerialNumber>21205223</spk:SerialNumber>
-          <spk:ColorProcessing>Default</spk:ColorProcessing>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="p1:SpinnakerCapture">
+            <p1:Index xsi:nil="true" />
+            <p1:SerialNumber>21205223</p1:SerialNumber>
+            <p1:ColorProcessing>Default</p1:ColorProcessing>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Image</Selector>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Image</Selector>
+        </Builder>
       </Expression>
-      <Expression xsi:type="VisualizerMapping" />
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="spk:SpinnakerCapture">
-          <spk:Index xsi:nil="true" />
-          <spk:SerialNumber>22085343</spk:SerialNumber>
-          <spk:ColorProcessing>Default</spk:ColorProcessing>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="VisualizerMapping" />
       </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Image</Selector>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="p1:SpinnakerCapture">
+            <p1:Index xsi:nil="true" />
+            <p1:SerialNumber>22085343</p1:SerialNumber>
+            <p1:ColorProcessing>Default</p1:ColorProcessing>
+          </Combinator>
+        </Builder>
       </Expression>
-      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Image</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="VisualizerMapping" />
+      </Expression>
       <Expression xsi:type="viz:TableLayoutPanelBuilder">
         <viz:ColumnCount>3</viz:ColumnCount>
         <viz:RowCount>1</viz:RowCount>
@@ -63,8 +75,8 @@
               <Property Name="Path" DisplayName="SessionSettingsPath" Category="Session Settings" />
             </Expression>
             <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p1:LoadSettings">
-                <p1:Path>C:\Users\ONIX\source\ae-dev\vestibular-vr\src\vrDemo.yml</p1:Path>
+              <Combinator xsi:type="p2:LoadSettings">
+                <p2:Path>C:\Users\ONIX\source\ae-dev\vestibular-vr\src\vrDemo.yml</p2:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -153,9 +165,9 @@
               <Name>RngSeed</Name>
             </Expression>
             <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p2:CreateContinuousUniform">
-                <p2:Lower>0</p2:Lower>
-                <p2:Upper>1</p2:Upper>
+              <Combinator xsi:type="p3:CreateContinuousUniform">
+                <p3:Lower>0</p3:Lower>
+                <p3:Upper>1</p3:Upper>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:BehaviorSubject">
@@ -458,9 +470,9 @@
                     </PropertyMappings>
                   </Expression>
                   <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p2:CreateContinuousUniform">
-                      <p2:Lower>0</p2:Lower>
-                      <p2:Upper>0.5</p2:Upper>
+                    <Combinator xsi:type="p3:CreateContinuousUniform">
+                      <p3:Lower>0</p3:Lower>
+                      <p3:Upper>0.5</p3:Upper>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:AsyncSubject">
@@ -503,7 +515,7 @@
                           <Selector>Stimulus.Type</Selector>
                         </Expression>
                         <Expression xsi:type="Equal">
-                          <Operand xsi:type="WorkflowProperty" TypeArguments="p3:StimulusProtocolType">
+                          <Operand xsi:type="WorkflowProperty" TypeArguments="p4:StimulusProtocolType">
                             <Value>Grating</Value>
                           </Operand>
                         </Expression>
@@ -634,7 +646,7 @@
                           <Selector>Stimulus.Type</Selector>
                         </Expression>
                         <Expression xsi:type="Equal">
-                          <Operand xsi:type="WorkflowProperty" TypeArguments="p3:StimulusProtocolType">
+                          <Operand xsi:type="WorkflowProperty" TypeArguments="p4:StimulusProtocolType">
                             <Value>Cloud</Value>
                           </Operand>
                         </Expression>
@@ -1146,7 +1158,7 @@
                                 <Name>ProbabilitySampling</Name>
                               </Expression>
                               <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p2:Sample" />
+                                <Combinator xsi:type="p3:Sample" />
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Block</Name>
@@ -1216,7 +1228,7 @@
                                 <Name>DelaySampling</Name>
                               </Expression>
                               <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="p2:Sample" />
+                                <Combinator xsi:type="p3:Sample" />
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:Zip" />
