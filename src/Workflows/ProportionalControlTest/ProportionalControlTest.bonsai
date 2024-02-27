@@ -509,45 +509,29 @@
             <Expression xsi:type="rx:BehaviorSubject">
               <Name>PosCounter</Name>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>2</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>DisableMotor</vh2:Control>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>8</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>DisableAnalogInput</vh2:Control>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>32</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>DisableEncoder</vh2:Control>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>64</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>ResetEncoder</vh2:Control>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Timer">
@@ -555,97 +539,65 @@
                 <rx:Period>PT0S</rx:Period>
               </Combinator>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>1</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>EnableMotor</vh2:Control>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>4</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>EnableAnalogInput</vh2:Control>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>16</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>EnableEncoder</vh2:Control>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>64</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>ResetEncoder</vh2:Control>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="NominalPulseInterval" />
+              <Property Name="NominalPulseInterval" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>34</harp:Address>
-                  <harp:PayloadType>U16</harp:PayloadType>
-                  <harp:Value>200</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateNominalPulseIntervalPayload">
+                <vh2:NominalPulseInterval>200</vh2:NominalPulseInterval>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="InitialPulseInterval" />
+              <Property Name="InitialPulseInterval" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>35</harp:Address>
-                  <harp:PayloadType>U16</harp:PayloadType>
-                  <harp:Value>200</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateInitialPulseIntervalPayload">
+                <vh2:InitialPulseInterval>200</vh2:InitialPulseInterval>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="PulseStepInterval" />
+              <Property Name="PulseStepInterval" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>36</harp:Address>
-                  <harp:PayloadType>U16</harp:PayloadType>
-                  <harp:Value>2</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreatePulseStepIntervalPayload">
+                <vh2:PulseStepInterval>2</vh2:PulseStepInterval>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="PulsePeriod" />
+              <Property Name="PulsePeriod" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>37</harp:Address>
-                  <harp:PayloadType>U16</harp:PayloadType>
-                  <harp:Value>10</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreatePulsePeriodPayload">
+                <vh2:PulsePeriod>10</vh2:PulsePeriod>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Merge" />
