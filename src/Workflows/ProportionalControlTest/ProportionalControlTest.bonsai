@@ -836,7 +836,7 @@
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="MemberSelector">
-          <Selector>Item1.X</Selector>
+          <Selector>Item1.Y</Selector>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
@@ -860,7 +860,7 @@
       <Expression xsi:type="Disable">
         <Builder xsi:type="Multiply">
           <Operand xsi:type="DoubleProperty">
-            <Value>1.5</Value>
+            <Value>5</Value>
           </Operand>
         </Builder>
       </Expression>
@@ -895,7 +895,7 @@ def process(value):
                 <harp:Payload xsi:type="harp:CreateMessagePayload">
                   <harp:Address>42</harp:Address>
                   <harp:PayloadType>S16</harp:PayloadType>
-                  <harp:Value>-20000</harp:Value>
+                  <harp:Value>20000</harp:Value>
                 </harp:Payload>
               </Expression>
               <Expression xsi:type="MulticastSubject">
@@ -1030,14 +1030,14 @@ def process(value):
         <Name>FlowSensor1</Name>
       </Expression>
       <Expression xsi:type="MemberSelector">
-        <Selector>Item1.X</Selector>
+        <Selector>Item1.Y</Selector>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
         <Property Name="Value" DisplayName="Gain" Category="OpenLoopParams" />
       </Expression>
       <Expression xsi:type="Multiply">
         <Operand xsi:type="DoubleProperty">
-          <Value>30</Value>
+          <Value>5</Value>
         </Operand>
       </Expression>
       <Expression xsi:type="rx:Sink">
@@ -1070,7 +1070,7 @@ def process(value):
               <harp:Payload xsi:type="harp:CreateMessagePayload">
                 <harp:Address>42</harp:Address>
                 <harp:PayloadType>S16</harp:PayloadType>
-                <harp:Value>0</harp:Value>
+                <harp:Value>496.27791563275434</harp:Value>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="MulticastSubject">
