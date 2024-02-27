@@ -6,6 +6,7 @@
                  xmlns:vh1="clr-namespace:Harp.VestibularH1;assembly=Harp.VestibularH1"
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
+                 xmlns:vh2="clr-namespace:Harp.VestibularH2;assembly=Harp.VestibularH2"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:ipy="clr-namespace:Bonsai.Scripting.IronPython;assembly=Bonsai.Scripting.IronPython"
                  xmlns="https://bonsai-rx.org/2018/workflow">
@@ -460,17 +461,8 @@
                   <Expression xsi:type="WorkflowInput">
                     <Name>Source1</Name>
                   </Expression>
-                  <Expression xsi:type="harp:FilterRegister">
-                    <harp:FilterType>Include</harp:FilterType>
-                    <harp:Register xsi:type="harp:FilterRegisterAddress">
-                      <harp:Address>38</harp:Address>
-                    </harp:Register>
-                  </Expression>
-                  <Expression xsi:type="harp:Parse">
-                    <harp:Register xsi:type="harp:ParseMessagePayload">
-                      <harp:PayloadType>TimestampedS16</harp:PayloadType>
-                      <harp:IsArray>false</harp:IsArray>
-                    </harp:Register>
+                  <Expression xsi:type="vh2:Parse">
+                    <harp:Register xsi:type="vh2:Encoder" />
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
                     <Name>Encoder</Name>
@@ -480,27 +472,16 @@
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="1" To="3" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
-            <Expression xsi:type="rx:PublishSubject">
-              <Name>H2Events</Name>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="MulticastSubject">
-                <Name>LoggingDump</Name>
-              </Builder>
-            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
-            <Edge From="1" To="4" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
-            <Edge From="4" To="5" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -780,15 +761,13 @@ def process(value):
               </Expression>
               <Expression xsi:type="PropertyMapping">
                 <PropertyMappings>
-                  <Property Name="Value" />
+                  <Property Name="ImmediatePulses" />
                 </PropertyMappings>
               </Expression>
-              <Expression xsi:type="harp:CreateMessage">
+              <Expression xsi:type="vh2:CreateMessage">
                 <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>42</harp:Address>
-                  <harp:PayloadType>S16</harp:PayloadType>
-                  <harp:Value>20000</harp:Value>
+                <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
+                  <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
                 </harp:Payload>
               </Expression>
               <Expression xsi:type="MulticastSubject">
@@ -800,7 +779,7 @@ def process(value):
               <Edge From="0" To="1" Label="Source1" />
               <Edge From="1" To="2" Label="Source1" />
               <Edge From="1" To="3" Label="Source1" />
-              <Edge From="2" To="3" Label="Source2" />
+              <Edge From="2" To="3" Label="Source3" />
               <Edge From="3" To="4" Label="Source1" />
               <Edge From="4" To="5" Label="Source1" />
             </Edges>
@@ -903,15 +882,11 @@ def process(value):
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="harp:CreateMessage">
-            <harp:MessageType>Write</harp:MessageType>
-            <harp:Payload xsi:type="harp:CreateMessagePayload">
-              <harp:Address>42</harp:Address>
-              <harp:PayloadType>S16</harp:PayloadType>
-              <harp:Value>0</harp:Value>
-            </harp:Payload>
-          </Combinator>
+        <Builder xsi:type="vh2:CreateMessage">
+          <harp:MessageType>Write</harp:MessageType>
+          <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
+            <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
+          </harp:Payload>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
@@ -955,15 +930,13 @@ def process(value):
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
-                <Property Name="Value" />
+                <Property Name="ImmediatePulses" />
               </PropertyMappings>
             </Expression>
-            <Expression xsi:type="harp:CreateMessage">
+            <Expression xsi:type="vh2:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
-              <harp:Payload xsi:type="harp:CreateMessagePayload">
-                <harp:Address>42</harp:Address>
-                <harp:PayloadType>S16</harp:PayloadType>
-                <harp:Value>0</harp:Value>
+              <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
+                <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="MulticastSubject">
@@ -975,7 +948,7 @@ def process(value):
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
             <Edge From="1" To="3" Label="Source1" />
-            <Edge From="2" To="3" Label="Source2" />
+            <Edge From="2" To="3" Label="Source3" />
             <Edge From="3" To="4" Label="Source1" />
             <Edge From="4" To="5" Label="Source1" />
           </Edges>
