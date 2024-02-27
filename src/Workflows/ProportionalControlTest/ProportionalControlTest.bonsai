@@ -3,9 +3,11 @@
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
+                 xmlns:vh1="clr-namespace:Harp.VestibularH1;assembly=Harp.VestibularH1"
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
-                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
+                 xmlns:vh2="clr-namespace:Harp.VestibularH2;assembly=Harp.VestibularH2"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:ipy="clr-namespace:Bonsai.Scripting.IronPython;assembly=Bonsai.Scripting.IronPython"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
@@ -41,24 +43,14 @@
                   <Expression xsi:type="WorkflowInput">
                     <Name>Source1</Name>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="harp:FilterMessage">
-                      <harp:MessageType>Event</harp:MessageType>
-                      <harp:Address>46</harp:Address>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="harp:Parse">
-                    <harp:Register xsi:type="harp:ParseMessagePayload">
-                      <harp:PayloadType>TimestampedS16</harp:PayloadType>
-                      <harp:IsArray>true</harp:IsArray>
-                    </harp:Register>
+                  <Expression xsi:type="vh1:Parse">
+                    <harp:Register xsi:type="vh1:TimestampedOpticalTrackingRead" />
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
                 </Nodes>
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="3" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -199,24 +191,14 @@
                   <Expression xsi:type="WorkflowInput">
                     <Name>Source1</Name>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="harp:FilterMessage">
-                      <harp:MessageType>Event</harp:MessageType>
-                      <harp:Address>39</harp:Address>
-                    </Combinator>
-                  </Expression>
-                  <Expression xsi:type="harp:Parse">
-                    <harp:Register xsi:type="harp:ParseMessagePayload">
-                      <harp:PayloadType>TimestampedU8</harp:PayloadType>
-                      <harp:IsArray>false</harp:IsArray>
-                    </harp:Register>
+                  <Expression xsi:type="vh1:Parse">
+                    <harp:Register xsi:type="vh1:TimestampedInState" />
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
                 </Nodes>
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="3" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -237,14 +219,9 @@
                         <Expression xsi:type="MemberSelector">
                           <Selector>Value</Selector>
                         </Expression>
-                        <Expression xsi:type="BitwiseAnd">
-                          <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Byte">
-                            <Value>16</Value>
-                          </Operand>
-                        </Expression>
                         <Expression xsi:type="Equal">
-                          <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Byte">
-                            <Value>16</Value>
+                          <Operand xsi:type="WorkflowProperty" TypeArguments="vh1:PortState">
+                            <Value>Lick0</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
@@ -253,28 +230,8 @@
                         <Edge From="0" To="1" Label="Source1" />
                         <Edge From="1" To="2" Label="Source1" />
                         <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="3" To="4" Label="Source1" />
                       </Edges>
                     </Workflow>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Value</Selector>
-                  </Expression>
-                  <Expression xsi:type="BitwiseAnd">
-                    <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Byte">
-                      <Value>1</Value>
-                    </Operand>
-                  </Expression>
-                  <Expression xsi:type="Equal">
-                    <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Byte">
-                      <Value>0</Value>
-                    </Operand>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Seconds</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
                     <Name>LickState1</Name>
@@ -284,13 +241,7 @@
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="5" Label="Source1" />
                   <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="4" To="6" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source2" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="7" To="8" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -311,14 +262,9 @@
                         <Expression xsi:type="MemberSelector">
                           <Selector>Value</Selector>
                         </Expression>
-                        <Expression xsi:type="BitwiseAnd">
-                          <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Byte">
-                            <Value>32</Value>
-                          </Operand>
-                        </Expression>
                         <Expression xsi:type="Equal">
-                          <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Byte">
-                            <Value>32</Value>
+                          <Operand xsi:type="WorkflowProperty" TypeArguments="vh1:PortState">
+                            <Value>Lick1</Value>
                           </Operand>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
@@ -327,28 +273,8 @@
                         <Edge From="0" To="1" Label="Source1" />
                         <Edge From="1" To="2" Label="Source1" />
                         <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="3" To="4" Label="Source1" />
                       </Edges>
                     </Workflow>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Value</Selector>
-                  </Expression>
-                  <Expression xsi:type="BitwiseAnd">
-                    <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Byte">
-                      <Value>2</Value>
-                    </Operand>
-                  </Expression>
-                  <Expression xsi:type="Equal">
-                    <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Byte">
-                      <Value>0</Value>
-                    </Operand>
-                  </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Seconds</Selector>
-                  </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Zip" />
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
                     <Name>LickState2</Name>
@@ -357,24 +283,10 @@
                 </Nodes>
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
-                  <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="1" To="5" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source2" />
                   <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="3" To="4" Label="Source1" />
-                  <Edge From="4" To="6" Label="Source1" />
-                  <Edge From="5" To="6" Label="Source2" />
-                  <Edge From="6" To="7" Label="Source1" />
-                  <Edge From="7" To="8" Label="Source1" />
                 </Edges>
               </Workflow>
-            </Expression>
-            <Expression xsi:type="rx:PublishSubject">
-              <Name>H1Events</Name>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="MulticastSubject">
-                <Name>LoggingDump</Name>
-              </Builder>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
               <Property Name="Filter" DisplayName="SetCameraConfigurationKey" Category="H1Hardware" />
@@ -408,25 +320,17 @@
             <Expression xsi:type="ExternalizedMapping">
               <Property Name="Payload" DisplayName="CamHz" Category="H1Hardware" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>34</harp:Address>
-                  <harp:PayloadType>U16</harp:PayloadType>
-                  <harp:Value>100</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh1:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh1:CreateCam0TriggerFrequencyPayload">
+                <vh1:Cam0TriggerFrequency>100</vh1:Cam0TriggerFrequency>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>35</harp:Address>
-                  <harp:PayloadType>U16</harp:PayloadType>
-                  <harp:Value>500</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh1:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh1:CreateCam0TriggerDurationPayload">
+                <vh1:Cam0TriggerDuration>500</vh1:Cam0TriggerDuration>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Merge" />
@@ -443,15 +347,11 @@
                 <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
               </Combinator>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>38</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>1</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh1:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh1:CreateStartAndStopPayload">
+                <vh1:StartAndStop>StartCam0</vh1:StartAndStop>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="MulticastSubject">
               <Name>H1Commands</Name>
@@ -486,15 +386,11 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Merge" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>38</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>4</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh1:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh1:CreateStartAndStopPayload">
+                <vh1:StartAndStop>StopCam0</vh1:StartAndStop>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="MulticastSubject">
               <Name>H1Commands</Name>
@@ -512,33 +408,31 @@
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
             <Edge From="1" To="5" Label="Source1" />
-            <Edge From="1" To="8" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
             <Edge From="2" To="4" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
             <Edge From="5" To="7" Label="Source1" />
             <Edge From="8" To="9" Label="Source1" />
-            <Edge From="10" To="11" Label="Source1" />
-            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="12" Label="Source1" />
+            <Edge From="10" To="13" Label="Source1" />
+            <Edge From="11" To="12" Label="Source2" />
             <Edge From="12" To="14" Label="Source1" />
-            <Edge From="12" To="15" Label="Source1" />
             <Edge From="13" To="14" Label="Source2" />
-            <Edge From="14" To="16" Label="Source1" />
-            <Edge From="15" To="16" Label="Source2" />
+            <Edge From="14" To="15" Label="Source1" />
             <Edge From="16" To="17" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
             <Edge From="18" To="19" Label="Source1" />
-            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="18" To="20" Label="Source1" />
             <Edge From="20" To="21" Label="Source1" />
-            <Edge From="20" To="22" Label="Source1" />
             <Edge From="22" To="23" Label="Source1" />
-            <Edge From="24" To="25" Label="Source1" />
-            <Edge From="25" To="26" Label="Source1" />
-            <Edge From="26" To="28" Label="Source1" />
-            <Edge From="27" To="28" Label="Source2" />
-            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="26" Label="Source1" />
+            <Edge From="25" To="26" Label="Source2" />
+            <Edge From="26" To="27" Label="Source1" />
+            <Edge From="27" To="28" Label="Source1" />
+            <Edge From="27" To="29" Label="Source1" />
             <Edge From="29" To="30" Label="Source1" />
-            <Edge From="29" To="31" Label="Source1" />
-            <Edge From="31" To="32" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -567,17 +461,8 @@
                   <Expression xsi:type="WorkflowInput">
                     <Name>Source1</Name>
                   </Expression>
-                  <Expression xsi:type="harp:FilterRegister">
-                    <harp:FilterType>Include</harp:FilterType>
-                    <harp:Register xsi:type="harp:FilterRegisterAddress">
-                      <harp:Address>38</harp:Address>
-                    </harp:Register>
-                  </Expression>
-                  <Expression xsi:type="harp:Parse">
-                    <harp:Register xsi:type="harp:ParseMessagePayload">
-                      <harp:PayloadType>TimestampedS16</harp:PayloadType>
-                      <harp:IsArray>false</harp:IsArray>
-                    </harp:Register>
+                  <Expression xsi:type="vh2:Parse">
+                    <harp:Register xsi:type="vh2:Encoder" />
                   </Expression>
                   <Expression xsi:type="rx:PublishSubject">
                     <Name>Encoder</Name>
@@ -587,27 +472,16 @@
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
-                  <Edge From="2" To="3" Label="Source1" />
-                  <Edge From="2" To="4" Label="Source1" />
+                  <Edge From="1" To="3" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
-            <Expression xsi:type="rx:PublishSubject">
-              <Name>H2Events</Name>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="MulticastSubject">
-                <Name>LoggingDump</Name>
-              </Builder>
-            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
-            <Edge From="1" To="4" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
-            <Edge From="4" To="5" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -635,45 +509,29 @@
             <Expression xsi:type="rx:BehaviorSubject">
               <Name>PosCounter</Name>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>2</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>DisableMotor</vh2:Control>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>8</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>DisableAnalogInput</vh2:Control>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>32</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>DisableEncoder</vh2:Control>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>64</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>ResetEncoder</vh2:Control>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Timer">
@@ -681,97 +539,65 @@
                 <rx:Period>PT0S</rx:Period>
               </Combinator>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>1</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>EnableMotor</vh2:Control>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>4</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>EnableAnalogInput</vh2:Control>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>16</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>EnableEncoder</vh2:Control>
+              </harp:Payload>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>32</harp:Address>
-                  <harp:PayloadType>U8</harp:PayloadType>
-                  <harp:Value>64</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>ResetEncoder</vh2:Control>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="NominalPulseInterval" />
+              <Property Name="NominalPulseInterval" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>34</harp:Address>
-                  <harp:PayloadType>U16</harp:PayloadType>
-                  <harp:Value>200</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateNominalPulseIntervalPayload">
+                <vh2:NominalPulseInterval>200</vh2:NominalPulseInterval>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="InitialPulseInterval" />
+              <Property Name="InitialPulseInterval" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>35</harp:Address>
-                  <harp:PayloadType>U16</harp:PayloadType>
-                  <harp:Value>200</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateInitialPulseIntervalPayload">
+                <vh2:InitialPulseInterval>200</vh2:InitialPulseInterval>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="PulseStepInterval" />
+              <Property Name="PulseStepInterval" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>36</harp:Address>
-                  <harp:PayloadType>U16</harp:PayloadType>
-                  <harp:Value>2</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreatePulseStepIntervalPayload">
+                <vh2:PulseStepInterval>2</vh2:PulseStepInterval>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Value" DisplayName="PulsePeriod" />
+              <Property Name="PulsePeriod" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="harp:CreateMessage">
-                <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>37</harp:Address>
-                  <harp:PayloadType>U16</harp:PayloadType>
-                  <harp:Value>10</harp:Value>
-                </harp:Payload>
-              </Combinator>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreatePulsePeriodPayload">
+                <vh2:PulsePeriod>10</vh2:PulsePeriod>
+              </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Merge" />
@@ -836,7 +662,7 @@
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="MemberSelector">
-          <Selector>Item1.X</Selector>
+          <Selector>Item1.Y</Selector>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
@@ -860,7 +686,7 @@
       <Expression xsi:type="Disable">
         <Builder xsi:type="Multiply">
           <Operand xsi:type="DoubleProperty">
-            <Value>1.5</Value>
+            <Value>5</Value>
           </Operand>
         </Builder>
       </Expression>
@@ -887,15 +713,13 @@ def process(value):
               </Expression>
               <Expression xsi:type="PropertyMapping">
                 <PropertyMappings>
-                  <Property Name="Value" />
+                  <Property Name="ImmediatePulses" />
                 </PropertyMappings>
               </Expression>
-              <Expression xsi:type="harp:CreateMessage">
+              <Expression xsi:type="vh2:CreateMessage">
                 <harp:MessageType>Write</harp:MessageType>
-                <harp:Payload xsi:type="harp:CreateMessagePayload">
-                  <harp:Address>42</harp:Address>
-                  <harp:PayloadType>S16</harp:PayloadType>
-                  <harp:Value>-20000</harp:Value>
+                <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
+                  <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
                 </harp:Payload>
               </Expression>
               <Expression xsi:type="MulticastSubject">
@@ -907,7 +731,7 @@ def process(value):
               <Edge From="0" To="1" Label="Source1" />
               <Edge From="1" To="2" Label="Source1" />
               <Edge From="1" To="3" Label="Source1" />
-              <Edge From="2" To="3" Label="Source2" />
+              <Edge From="2" To="3" Label="Source3" />
               <Edge From="3" To="4" Label="Source1" />
               <Edge From="4" To="5" Label="Source1" />
             </Edges>
@@ -1010,15 +834,11 @@ def process(value):
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="harp:CreateMessage">
-            <harp:MessageType>Write</harp:MessageType>
-            <harp:Payload xsi:type="harp:CreateMessagePayload">
-              <harp:Address>42</harp:Address>
-              <harp:PayloadType>S16</harp:PayloadType>
-              <harp:Value>0</harp:Value>
-            </harp:Payload>
-          </Combinator>
+        <Builder xsi:type="vh2:CreateMessage">
+          <harp:MessageType>Write</harp:MessageType>
+          <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
+            <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
+          </harp:Payload>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
@@ -1030,14 +850,14 @@ def process(value):
         <Name>FlowSensor1</Name>
       </Expression>
       <Expression xsi:type="MemberSelector">
-        <Selector>Item1.X</Selector>
+        <Selector>Item1.Y</Selector>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
         <Property Name="Value" DisplayName="Gain" Category="OpenLoopParams" />
       </Expression>
       <Expression xsi:type="Multiply">
         <Operand xsi:type="DoubleProperty">
-          <Value>30</Value>
+          <Value>5</Value>
         </Operand>
       </Expression>
       <Expression xsi:type="rx:Sink">
@@ -1062,15 +882,13 @@ def process(value):
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
-                <Property Name="Value" />
+                <Property Name="ImmediatePulses" />
               </PropertyMappings>
             </Expression>
-            <Expression xsi:type="harp:CreateMessage">
+            <Expression xsi:type="vh2:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
-              <harp:Payload xsi:type="harp:CreateMessagePayload">
-                <harp:Address>42</harp:Address>
-                <harp:PayloadType>S16</harp:PayloadType>
-                <harp:Value>0</harp:Value>
+              <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
+                <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="MulticastSubject">
@@ -1082,7 +900,7 @@ def process(value):
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
             <Edge From="1" To="3" Label="Source1" />
-            <Edge From="2" To="3" Label="Source2" />
+            <Edge From="2" To="3" Label="Source3" />
             <Edge From="3" To="4" Label="Source1" />
             <Edge From="4" To="5" Label="Source1" />
           </Edges>
