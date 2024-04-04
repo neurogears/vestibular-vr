@@ -386,7 +386,11 @@ namespace DataSchema
     
         private double _offset1 = -90D;
     
+        private double _extent1 = 180D;
+    
         private double _offset2 = 90D;
+    
+        private double _extent2 = 180D;
     
         public StimulusProtocol()
         {
@@ -398,7 +402,9 @@ namespace DataSchema
             _spatialFrequency = other._spatialFrequency;
             _path = other._path;
             _offset1 = other._offset1;
+            _extent1 = other._extent1;
             _offset2 = other._offset2;
+            _extent2 = other._extent2;
         }
     
         /// <summary>
@@ -471,6 +477,23 @@ namespace DataSchema
         }
     
         /// <summary>
+        /// X screen extent (in degrees) for primary visual stimulus
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="extent1")]
+        [System.ComponentModel.DescriptionAttribute("X screen extent (in degrees) for primary visual stimulus")]
+        public double Extent1
+        {
+            get
+            {
+                return _extent1;
+            }
+            set
+            {
+                _extent1 = value;
+            }
+        }
+    
+        /// <summary>
         /// Offset (in degrees) for secondary visual stimulus
         /// </summary>
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="offset2")]
@@ -484,6 +507,23 @@ namespace DataSchema
             set
             {
                 _offset2 = value;
+            }
+        }
+    
+        /// <summary>
+        /// X screen extent (in degrees) for secondary visual stimulus
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="extent2")]
+        [System.ComponentModel.DescriptionAttribute("X screen extent (in degrees) for secondary visual stimulus")]
+        public double Extent2
+        {
+            get
+            {
+                return _extent2;
+            }
+            set
+            {
+                _extent2 = value;
             }
         }
     
@@ -503,7 +543,9 @@ namespace DataSchema
             stringBuilder.Append("spatialFrequency = " + _spatialFrequency + ", ");
             stringBuilder.Append("path = " + _path + ", ");
             stringBuilder.Append("offset1 = " + _offset1 + ", ");
-            stringBuilder.Append("offset2 = " + _offset2);
+            stringBuilder.Append("extent1 = " + _extent1 + ", ");
+            stringBuilder.Append("offset2 = " + _offset2 + ", ");
+            stringBuilder.Append("extent2 = " + _extent2);
             return true;
         }
     

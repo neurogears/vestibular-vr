@@ -107,9 +107,19 @@
                     "description": "Offset (in degrees) for primary visual stimulus",
                     "type": "number"
                 },
+                "extent1": {
+                    "default": 180,
+                    "description": "X screen extent (in degrees) for primary visual stimulus",
+                    "type": "number"
+                },
                 "offset2": {
                     "default": 90,
                     "description": "Offset (in degrees) for secondary visual stimulus",
+                    "type": "number"
+                },
+                "extent2": {
+                    "default": 180,
+                    "description": "X screen extent (in degrees) for secondary visual stimulus",
                     "type": "number"
                 }
             }

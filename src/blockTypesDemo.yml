@@ -26,8 +26,7 @@ blocks: [
       randomDelay: 1.5,
       haltTime: 2,
       haltGain: 0
-    },
-    flowXToVisualGain: 0
+    }
   },
   &LinearClosedLoop
   {
@@ -53,5 +52,20 @@ blocks: [
     <<: *LinearClosedLoop,
     flowXToVisualGain: 0,
     playbackToVisualGain: 1
+  },
+
+  &Drum
+  {
+    stimulus: {
+      type: "grating",
+      offset1: 0,
+      offset2: 180
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 1.5,
+      haltTime: 2,
+      haltGain: 0
+    }
   }
 ]
