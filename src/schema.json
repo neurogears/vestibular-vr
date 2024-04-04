@@ -37,6 +37,41 @@
                     "$ref": "#/definitions/haltProtocol",
                     "description": "The halt protocol to use on a positive halt decision"
                 },
+                "flowXToVisualGain": {
+                    "default": 1,
+                    "description": "flow --> visual stimulus motion gain (X dimension)",
+                    "type": "number"
+                },
+                "flowYToVisualGain": {
+                    "default": 0,
+                    "description": "flow --> visual stimulus motion gain (Y dimension)",
+                    "type": "number"
+                },
+                "flowXToMotorGain": {
+                    "default": 0,
+                    "description": "flow --> motor motion gain (X dimension)",
+                    "type": "number"
+                },
+                "flowYToMotorGain": {
+                    "default": 0,
+                    "description": "flow --> motor motion gain (Y dimension)",
+                    "type": "number"
+                },
+                "rotaryToVisualGain": {
+                    "default": 0,
+                    "description": "rotary --> visual stimulus motion gain",
+                    "type": "number"
+                },
+                "playbackToVisualGain": {
+                    "default": 0,
+                    "description": "playback source --> visual stimulus motion gain",
+                    "type": "number"
+                },
+                "playbackToMotorGain": {
+                    "default": 0,
+                    "description": "playback source --> motor motion gain",
+                    "type": "number"
+                },
                 "blockGainModifier": {
                     "default": 1,
                     "description": "Block specific gain coefficient to apply",
@@ -66,6 +101,16 @@
                     "default": "",
                     "description": "Path to texture or video if required",
                     "type": "string"
+                },
+                "offset1": {
+                    "default": -90,
+                    "description": "Offset (in degrees) for primary visual stimulus",
+                    "type": "number"
+                },
+                "offset2": {
+                    "default": 90,
+                    "description": "Offset (in degrees) for secondary visual stimulus",
+                    "type": "number"
                 }
             }
         },
