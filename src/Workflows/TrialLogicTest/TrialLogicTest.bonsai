@@ -398,7 +398,7 @@
               <Name>SessionSettings</Name>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
-              <Name>UnwrapTrialSequence</Name>
+              <Name>UnwrapBlockSequence</Name>
               <Workflow>
                 <Nodes>
                   <Expression xsi:type="WorkflowInput">
