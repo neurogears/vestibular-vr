@@ -43,3 +43,9 @@ blocks: [
   {<<: *blockA},
   {<<: *blockB}
 ]
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10

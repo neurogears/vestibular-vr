@@ -644,6 +644,8 @@ namespace DataSchema
     
         private System.Collections.Generic.List<Block> _blocks = new System.Collections.Generic.List<Block>();
     
+        private MotorSettings _motorSettings;
+    
         public VestibularVrSession()
         {
         }
@@ -652,6 +654,7 @@ namespace DataSchema
         {
             _metadata = other._metadata;
             _blocks = other._blocks;
+            _motorSettings = other._motorSettings;
         }
     
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -682,6 +685,20 @@ namespace DataSchema
             }
         }
     
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="motorSettings")]
+        public MotorSettings MotorSettings
+        {
+            get
+            {
+                return _motorSettings;
+            }
+            set
+            {
+                _motorSettings = value;
+            }
+        }
+    
         public System.IObservable<VestibularVrSession> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new VestibularVrSession(this)));
@@ -695,7 +712,8 @@ namespace DataSchema
         protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
         {
             stringBuilder.Append("metadata = " + _metadata + ", ");
-            stringBuilder.Append("blocks = " + _blocks);
+            stringBuilder.Append("blocks = " + _blocks + ", ");
+            stringBuilder.Append("motorSettings = " + _motorSettings);
             return true;
         }
     
@@ -829,6 +847,118 @@ namespace DataSchema
     }
 
 
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.2.0.0 (YamlDotNet v13.0.0.0)")]
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class MotorSettings
+    {
+    
+        private int _nominalPulseInterval = 200;
+    
+        private int _initialPulseInterval = 200;
+    
+        private int _pulseStepInterval = 2;
+    
+        private int _pulsePeriod = 10;
+    
+        public MotorSettings()
+        {
+        }
+    
+        protected MotorSettings(MotorSettings other)
+        {
+            _nominalPulseInterval = other._nominalPulseInterval;
+            _initialPulseInterval = other._initialPulseInterval;
+            _pulseStepInterval = other._pulseStepInterval;
+            _pulsePeriod = other._pulsePeriod;
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="nominalPulseInterval")]
+        public int NominalPulseInterval
+        {
+            get
+            {
+                return _nominalPulseInterval;
+            }
+            set
+            {
+                _nominalPulseInterval = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="initialPulseInterval")]
+        public int InitialPulseInterval
+        {
+            get
+            {
+                return _initialPulseInterval;
+            }
+            set
+            {
+                _initialPulseInterval = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="pulseStepInterval")]
+        public int PulseStepInterval
+        {
+            get
+            {
+                return _pulseStepInterval;
+            }
+            set
+            {
+                _pulseStepInterval = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="pulsePeriod")]
+        public int PulsePeriod
+        {
+            get
+            {
+                return _pulsePeriod;
+            }
+            set
+            {
+                _pulsePeriod = value;
+            }
+        }
+    
+        public System.IObservable<MotorSettings> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new MotorSettings(this)));
+        }
+    
+        public System.IObservable<MotorSettings> Process<TSource>(System.IObservable<TSource> source)
+        {
+            return System.Reactive.Linq.Observable.Select(source, _ => new MotorSettings(this));
+        }
+    
+        protected virtual bool PrintMembers(System.Text.StringBuilder stringBuilder)
+        {
+            stringBuilder.Append("nominalPulseInterval = " + _nominalPulseInterval + ", ");
+            stringBuilder.Append("initialPulseInterval = " + _initialPulseInterval + ", ");
+            stringBuilder.Append("pulseStepInterval = " + _pulseStepInterval + ", ");
+            stringBuilder.Append("pulsePeriod = " + _pulsePeriod);
+            return true;
+        }
+    
+        public override string ToString()
+        {
+            System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
+            stringBuilder.Append(GetType().Name);
+            stringBuilder.Append(" { ");
+            if (PrintMembers(stringBuilder))
+            {
+                stringBuilder.Append(" ");
+            }
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
+        }
+    }
+
+
     /// <summary>
     /// Serializes a sequence of data model objects into YAML strings.
     /// </summary>
@@ -873,6 +1003,11 @@ namespace DataSchema
         {
             return Process<Metadata>(source);
         }
+
+        public System.IObservable<string> Process(System.IObservable<MotorSettings> source)
+        {
+            return Process<MotorSettings>(source);
+        }
     }
 
 
@@ -888,6 +1023,7 @@ namespace DataSchema
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<HaltProtocol>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<VestibularVrSession>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Metadata>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<MotorSettings>))]
     public partial class DeserializeFromYaml : Bonsai.Expressions.SingleArgumentExpressionBuilder
     {
     

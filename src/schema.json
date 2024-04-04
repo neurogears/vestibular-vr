@@ -159,6 +159,26 @@
                 "$ref": "#/definitions/block"
             },
             "type": "array"
+        },
+        "motorSettings": {
+            "properties": {
+                "nominalPulseInterval": {
+                    "default": 200,
+                    "type": "integer"
+                },
+                "initialPulseInterval": {
+                    "default": 200,
+                    "type": "integer"
+                },
+                "pulseStepInterval": {
+                    "default": 2,
+                    "type": "integer"
+                },
+                "pulsePeriod": {
+                    "default": 10,
+                    "type": "integer"
+                }
+            }
         }
     },
     "title": "VestibularVrSession",
