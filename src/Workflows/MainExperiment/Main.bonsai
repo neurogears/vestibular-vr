@@ -166,6 +166,14 @@
             <Expression xsi:type="MulticastSubject">
               <Name>ExperimentEvents</Name>
             </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="DoubleProperty">
+                <Value>0</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>PosCounter</Name>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
@@ -179,6 +187,7 @@
             <Edge From="11" To="12" Label="Source1" />
             <Edge From="12" To="13" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -1790,11 +1799,109 @@
               <Name>H2Events</Name>
             </Expression>
             <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>H2Events</Name>
+            </Expression>
+            <Expression xsi:type="vh2:FilterRegister">
+              <harp:FilterType>Include</harp:FilterType>
+              <harp:Register xsi:type="vh2:Encoder" />
+            </Expression>
+            <Expression xsi:type="vh2:Parse">
+              <harp:Register xsi:type="vh2:TimestampedEncoder" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value</Selector>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>RotaryEncoder</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SessionSettings</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Delay">
+                <rx:DueTime>PT0.5S</rx:DueTime>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>DisableMotor</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>DisableAnalogInput</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>DisableEncoder</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>ResetEncoder</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Delay">
+                <rx:DueTime>PT1S</rx:DueTime>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>EnableMotor</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>EnableAnalogInput</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>EnableEncoder</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Merge" />
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>H2Commands</Name>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="9" To="15" Label="Source1" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="10" To="12" Label="Source1" />
+            <Edge From="10" To="13" Label="Source1" />
+            <Edge From="10" To="14" Label="Source1" />
+            <Edge From="11" To="19" Label="Source1" />
+            <Edge From="12" To="19" Label="Source2" />
+            <Edge From="13" To="19" Label="Source3" />
+            <Edge From="14" To="19" Label="Source4" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="15" To="17" Label="Source1" />
+            <Edge From="15" To="18" Label="Source1" />
+            <Edge From="16" To="19" Label="Source5" />
+            <Edge From="17" To="19" Label="Source6" />
+            <Edge From="18" To="19" Label="Source7" />
+            <Edge From="19" To="20" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
