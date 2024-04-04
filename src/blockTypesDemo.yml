@@ -7,16 +7,34 @@ metadata:
   rootPath: D:/TrialLogicTestData/
   runGain: 0.0008
 
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
 blocks: [
+  &Linear
+  {
+    stimulus: {
+      type: "grating",
+      offset1: -90,
+      offset2: 90
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 1.5,
+      haltTime: 2,
+      haltGain: 0
+    },
+    flowXToVisualGain: 0
+  },
   &LinearClosedLoop
   {
-    stimulus: {type: "grating"},
-    totalRuntime: 30,
+    <<: *Linear,
     runThreshold: 100,
     decayTimestep: 0.1,
     runThresholdDecay: -1,
-    haltProbability: 0.0,
-    blockGainModifier: 100,
     flowXToVisualGain: 1,
     flowYToVisualGain: 0,
     flowXToMotorGain: 0,
@@ -29,17 +47,11 @@ blocks: [
   {
     <<: *LinearClosedLoop,
     haltProbability: 0.5,
-    haltProtocol: {
-      minumumDelay: 0.1,
-      randomDelay: 1.5,
-      haltTime: 2,
-      haltGain: 0
-    }
   },
+  &LinearClosedLoopPlayback
+  {
+    <<: *LinearClosedLoop,
+    flowXToVisualGain: 0,
+    playbackToVisualGain: 1
+  }
 ]
-
-motorSettings:
-  nominalPulseInterval: 200
-  initialPulseInterval: 200
-  pulseStepInterval: 2
-  pulsePeriod: 10

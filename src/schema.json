@@ -29,7 +29,7 @@
                     "type": "number"
                 },
                 "haltProbability": {
-                    "default": 0.5,
+                    "default": 0.0,
                     "description": "The probability that a halt decision is made after a running threshold has been reached",
                     "type": "number"
                 },
@@ -38,7 +38,7 @@
                     "description": "The halt protocol to use on a positive halt decision"
                 },
                 "flowXToVisualGain": {
-                    "default": 1,
+                    "default": 0,
                     "description": "flow --> visual stimulus motion gain (X dimension)",
                     "type": "number"
                 },

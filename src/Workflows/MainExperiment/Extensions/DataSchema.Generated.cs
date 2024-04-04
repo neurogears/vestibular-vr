@@ -25,11 +25,11 @@ namespace DataSchema
     
         private double _runThresholdDecay = -1D;
     
-        private double _haltProbability = 0.5D;
+        private double _haltProbability = 0D;
     
         private HaltProtocol _haltProtocol;
     
-        private double _flowXToVisualGain = 1D;
+        private double _flowXToVisualGain = 0D;
     
         private double _flowYToVisualGain = 0D;
     
