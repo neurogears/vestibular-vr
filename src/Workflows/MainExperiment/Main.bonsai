@@ -589,12 +589,12 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>-90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
-                          <ExtentX>180</ExtentX>
+                          <ExtentX>360</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <SpatialFrequency>0.5</SpatialFrequency>
+                          <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
                           <Phase>-0</Phase>
                           <Angle>0</Angle>
@@ -647,12 +647,12 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
-                          <ExtentX>180</ExtentX>
+                          <ExtentX>0</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <SpatialFrequency>0.5</SpatialFrequency>
+                          <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
                           <Phase>10313.24</Phase>
                           <Angle>0</Angle>
@@ -801,9 +801,9 @@
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                           <TextureName />
-                          <ExtentX>180</ExtentX>
+                          <ExtentX>360</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>-90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -856,9 +856,9 @@
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                           <TextureName />
-                          <ExtentX>180</ExtentX>
+                          <ExtentX>0</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -1109,6 +1109,78 @@
                     </Workflow>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
+                    <Name>BlockGain</Name>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="MotorGain" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="GroupWorkflow">
+                    <Name>CalculateMotorProcession</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Single">
+                          <rx:Name>MotorDeltaSwitch</rx:Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>MotorDelta</Name>
+                        </Expression>
+                        <Expression xsi:type="ExternalizedMapping">
+                          <Property Name="Value" DisplayName="MotorGain" />
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="FloatProperty">
+                            <Value>0.0008</Value>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        </Expression>
+                        <Expression xsi:type="Multiply" />
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>MotorDeltaSwitch</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>MovementDelta</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Y</Selector>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>FlowYToMotorGain</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        </Expression>
+                        <Expression xsi:type="Multiply" />
+                        <Expression xsi:type="rx:PublishSubject">
+                          <Name>MotorDelta</Name>
+                        </Expression>
+                      </Nodes>
+                      <Edges>
+                        <Edge From="1" To="4" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source2" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="7" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source2" />
+                        <Edge From="8" To="9" Label="Source1" />
+                        <Edge From="9" To="12" Label="Source1" />
+                        <Edge From="10" To="11" Label="Source1" />
+                        <Edge From="11" To="12" Label="Source2" />
+                        <Edge From="12" To="13" Label="Source1" />
+                        <Edge From="13" To="14" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
                     <Name>Block</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
@@ -1124,7 +1196,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="gl:Timer">
-                      <gl:DueTime>PT10S</gl:DueTime>
+                      <gl:DueTime>PT2M</gl:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -1838,15 +1910,17 @@
                   <Edge From="33" To="34" Label="Source1" />
                   <Edge From="35" To="36" Label="Source1" />
                   <Edge From="36" To="37" Label="Source1" />
-                  <Edge From="37" To="38" Label="Source1" />
                   <Edge From="38" To="39" Label="Source1" />
                   <Edge From="39" To="40" Label="Source1" />
                   <Edge From="40" To="41" Label="Source1" />
                   <Edge From="41" To="42" Label="Source1" />
                   <Edge From="42" To="43" Label="Source1" />
+                  <Edge From="43" To="44" Label="Source1" />
                   <Edge From="44" To="45" Label="Source1" />
                   <Edge From="45" To="46" Label="Source1" />
-                  <Edge From="46" To="47" Label="Source1" />
+                  <Edge From="47" To="48" Label="Source1" />
+                  <Edge From="48" To="49" Label="Source1" />
+                  <Edge From="49" To="50" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
