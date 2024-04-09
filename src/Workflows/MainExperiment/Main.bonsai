@@ -58,7 +58,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:LoadSettings">
-                <p1:Path>C:\Users\erski\source\repos\neurogears\vestibular-vr\src\vrDemo.yml</p1:Path>
+                <p1:Path>C:\Users\ONIX\source\ae-dev\vestibular-vr\src\vrDemo.yml</p1:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -575,7 +575,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>-0.5042028</Phase>
+                          <Phase>-0</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -633,7 +633,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>10313.7451</Phase>
+                          <Phase>10313.24</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -782,7 +782,7 @@
                           <TextureName />
                           <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>90</LocationX>
+                          <LocationX>-90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -837,7 +837,7 @@
                           <TextureName />
                           <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>-90</LocationX>
+                          <LocationX>90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -1904,7 +1904,7 @@
                 <harp:VisualIndicators>On</harp:VisualIndicators>
                 <harp:Heartbeat>Disabled</harp:Heartbeat>
                 <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                <harp:PortName>COMx</harp:PortName>
+                <harp:PortName>COM11</harp:PortName>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
