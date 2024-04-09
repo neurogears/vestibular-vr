@@ -4,6 +4,11 @@
     "definitions": {
         "block": {
             "properties": {
+                "alias": {
+                    "default": "unnamed",
+                    "description": "The user-defined name of this block.",
+                    "type": "string"
+                },
                 "stimulus": {
                     "$ref": "#/definitions/stimulusProtocol",
                     "description": "The visual stimulus to use"
@@ -29,13 +34,48 @@
                     "type": "number"
                 },
                 "haltProbability": {
-                    "default": 0.5,
+                    "default": 0.0,
                     "description": "The probability that a halt decision is made after a running threshold has been reached",
                     "type": "number"
                 },
                 "haltProtocol": {
                     "$ref": "#/definitions/haltProtocol",
                     "description": "The halt protocol to use on a positive halt decision"
+                },
+                "flowXToVisualGain": {
+                    "default": 0,
+                    "description": "flow --> visual stimulus motion gain (X dimension)",
+                    "type": "number"
+                },
+                "flowYToVisualGain": {
+                    "default": 0,
+                    "description": "flow --> visual stimulus motion gain (Y dimension)",
+                    "type": "number"
+                },
+                "flowXToMotorGain": {
+                    "default": 0,
+                    "description": "flow --> motor motion gain (X dimension)",
+                    "type": "number"
+                },
+                "flowYToMotorGain": {
+                    "default": 0,
+                    "description": "flow --> motor motion gain (Y dimension)",
+                    "type": "number"
+                },
+                "rotaryToVisualGain": {
+                    "default": 0,
+                    "description": "rotary --> visual stimulus motion gain",
+                    "type": "number"
+                },
+                "playbackToVisualGain": {
+                    "default": 0,
+                    "description": "playback source --> visual stimulus motion gain",
+                    "type": "number"
+                },
+                "playbackToMotorGain": {
+                    "default": 0,
+                    "description": "playback source --> motor motion gain",
+                    "type": "number"
                 },
                 "blockGainModifier": {
                     "default": 1,
@@ -66,6 +106,26 @@
                     "default": "",
                     "description": "Path to texture or video if required",
                     "type": "string"
+                },
+                "offset1": {
+                    "default": -90,
+                    "description": "Offset (in degrees) for primary visual stimulus",
+                    "type": "number"
+                },
+                "extent1": {
+                    "default": 180,
+                    "description": "X screen extent (in degrees) for primary visual stimulus",
+                    "type": "number"
+                },
+                "offset2": {
+                    "default": 90,
+                    "description": "Offset (in degrees) for secondary visual stimulus",
+                    "type": "number"
+                },
+                "extent2": {
+                    "default": 180,
+                    "description": "X screen extent (in degrees) for secondary visual stimulus",
+                    "type": "number"
                 }
             }
         },
@@ -114,6 +174,26 @@
                 "$ref": "#/definitions/block"
             },
             "type": "array"
+        },
+        "motorSettings": {
+            "properties": {
+                "nominalPulseInterval": {
+                    "default": 200,
+                    "type": "integer"
+                },
+                "initialPulseInterval": {
+                    "default": 200,
+                    "type": "integer"
+                },
+                "pulseStepInterval": {
+                    "default": 2,
+                    "type": "integer"
+                },
+                "pulsePeriod": {
+                    "default": 10,
+                    "type": "integer"
+                }
+            }
         }
     },
     "title": "VestibularVrSession",
