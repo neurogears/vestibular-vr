@@ -167,7 +167,7 @@
       </Location>
       <Size>
         <Width>1506</Width>
-        <Height>1010</Height>
+        <Height>1023</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -605,6 +605,22 @@
               <Height>0</Height>
             </Size>
             <WindowState>Normal</WindowState>
+          </DialogSettings>
+          <DialogSettings>
+            <Visible>true</Visible>
+            <Location>
+              <X>260</X>
+              <Y>260</Y>
+            </Location>
+            <Size>
+              <Width>336</Width>
+              <Height>65</Height>
+            </Size>
+            <WindowState>Normal</WindowState>
+            <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+            <VisualizerSettings>
+              <ObjectTextVisualizer />
+            </VisualizerSettings>
           </DialogSettings>
           <DialogSettings>
             <Visible>false</Visible>
@@ -1269,8 +1285,8 @@
               <DialogSettings>
                 <Visible>true</Visible>
                 <Location>
-                  <X>260</X>
-                  <Y>260</Y>
+                  <X>210</X>
+                  <Y>364</Y>
                 </Location>
                 <Size>
                   <Width>416</Width>
@@ -1282,7 +1298,7 @@
                   <TimeSeriesVisualizer>
                     <Capacity>640</Capacity>
                     <Min>0</Min>
-                    <Max>120</Max>
+                    <Max>80</Max>
                     <AutoScale>true</AutoScale>
                   </TimeSeriesVisualizer>
                 </VisualizerSettings>
@@ -2328,7 +2344,7 @@
       </Location>
       <Size>
         <Width>1506</Width>
-        <Height>1010</Height>
+        <Height>1023</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -2810,7 +2826,7 @@
       </Location>
       <Size>
         <Width>1506</Width>
-        <Height>1010</Height>
+        <Height>1023</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
