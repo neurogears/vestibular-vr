@@ -4,6 +4,11 @@
     "definitions": {
         "block": {
             "properties": {
+                "alias": {
+                    "default": "unnamed",
+                    "description": "The user-defined name of this block.",
+                    "type": "string"
+                },
                 "stimulus": {
                     "$ref": "#/definitions/stimulusProtocol",
                     "description": "The visual stimulus to use"
