@@ -26,11 +26,20 @@ blocks: [
       randomDelay: 1.5,
       haltTime: 2,
       haltGain: 0
-    }
+    },
+    totalRuntime: 30
   },
   &LinearClosedLoop
   {
     <<: *Linear,
+    stimulus: {
+      type: grating,
+      spatialFrequency: 0.5,
+      offset1: -90,
+      extent1: 180,
+      offset2: 90,
+      extent2: 180,
+    },
     runThreshold: 100,
     decayTimestep: 0.1,
     runThresholdDecay: -1,

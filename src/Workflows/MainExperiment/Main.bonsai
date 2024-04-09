@@ -58,7 +58,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:LoadSettings">
-                <p1:Path>C:\Users\ONIX\source\ae-dev\vestibular-vr\src\vrDemo.yml</p1:Path>
+                <p1:Path>C:\Users\ONIX\source\ae-dev\vestibular-vr\src\blockTypesDemo.yml</p1:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -568,7 +568,7 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>-90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <ExtentX>180</ExtentX>
@@ -626,7 +626,7 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>90</LocationX>
+                          <LocationX>180</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <ExtentX>180</ExtentX>
@@ -782,7 +782,7 @@
                           <TextureName />
                           <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>-90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -837,7 +837,7 @@
                           <TextureName />
                           <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>90</LocationX>
+                          <LocationX>180</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -952,7 +952,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="FloatProperty">
-                            <Value>0.08</Value>
+                            <Value>0.0008</Value>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -1029,7 +1029,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="gl:Timer">
-                      <gl:DueTime>PT30S</gl:DueTime>
+                      <gl:DueTime>PT2M</gl:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -1276,7 +1276,7 @@
                               </Expression>
                               <Expression xsi:type="LessThan">
                                 <Operand xsi:type="DoubleProperty">
-                                  <Value>0.7</Value>
+                                  <Value>0</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
@@ -1353,7 +1353,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="gl:Timer">
-                                  <gl:DueTime>PT0.311S</gl:DueTime>
+                                  <gl:DueTime>PT1.31S</gl:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -1468,7 +1468,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="gl:Timer">
-                                  <gl:DueTime>PT0.5S</gl:DueTime>
+                                  <gl:DueTime>PT2S</gl:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
@@ -2009,7 +2009,7 @@
             <Expression xsi:type="vh2:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh2:CreateNominalPulseIntervalPayload">
-                <vh2:NominalPulseInterval>0</vh2:NominalPulseInterval>
+                <vh2:NominalPulseInterval>200</vh2:NominalPulseInterval>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="MemberSelector">
@@ -2023,7 +2023,7 @@
             <Expression xsi:type="vh2:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh2:CreateInitialPulseIntervalPayload">
-                <vh2:InitialPulseInterval>0</vh2:InitialPulseInterval>
+                <vh2:InitialPulseInterval>200</vh2:InitialPulseInterval>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="MemberSelector">
@@ -2037,7 +2037,7 @@
             <Expression xsi:type="vh2:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh2:CreatePulseStepIntervalPayload">
-                <vh2:PulseStepInterval>0</vh2:PulseStepInterval>
+                <vh2:PulseStepInterval>2</vh2:PulseStepInterval>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="MemberSelector">
@@ -2051,7 +2051,7 @@
             <Expression xsi:type="vh2:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh2:CreatePulsePeriodPayload">
-                <vh2:PulsePeriod>0</vh2:PulsePeriod>
+                <vh2:PulsePeriod>10</vh2:PulsePeriod>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2075,6 +2075,10 @@
             <Edge From="12" To="13" Label="Source1" />
             <Edge From="14" To="15" Label="Source1" />
             <Edge From="14" To="20" Label="Source1" />
+            <Edge From="14" To="24" Label="Source1" />
+            <Edge From="14" To="27" Label="Source1" />
+            <Edge From="14" To="30" Label="Source1" />
+            <Edge From="14" To="33" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
             <Edge From="15" To="17" Label="Source1" />
             <Edge From="15" To="18" Label="Source1" />
@@ -2086,10 +2090,10 @@
             <Edge From="20" To="21" Label="Source1" />
             <Edge From="20" To="22" Label="Source1" />
             <Edge From="20" To="23" Label="Source1" />
-            <Edge From="20" To="24" Label="Source1" />
-            <Edge From="20" To="27" Label="Source1" />
-            <Edge From="20" To="30" Label="Source1" />
-            <Edge From="20" To="33" Label="Source1" />
+            <Edge From="20" To="26" Label="Source2" />
+            <Edge From="20" To="29" Label="Source2" />
+            <Edge From="20" To="32" Label="Source2" />
+            <Edge From="20" To="35" Label="Source2" />
             <Edge From="21" To="36" Label="Source5" />
             <Edge From="22" To="36" Label="Source6" />
             <Edge From="23" To="36" Label="Source7" />
@@ -2487,11 +2491,28 @@
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:MouseWheel" />
+      </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>FlowSensor1</Name>
       </Expression>
       <Expression xsi:type="MemberSelector">
         <Selector>X</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:MouseWheel" />
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>Convert.ToInt16(it)</scr:Expression>
+      </Expression>
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
+          <Value>50</Value>
+        </Operand>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Merge" />
       </Expression>
       <Expression xsi:type="rx:PublishSubject">
         <Name>MovementDelta</Name>
@@ -2509,8 +2530,12 @@
       <Edge From="9" To="10" Label="Source1" />
       <Edge From="15" To="16" Label="Source1" />
       <Edge From="17" To="18" Label="Source1" />
-      <Edge From="19" To="20" Label="Source1" />
       <Edge From="20" To="21" Label="Source1" />
+      <Edge From="21" To="25" Label="Source1" />
+      <Edge From="22" To="23" Label="Source1" />
+      <Edge From="23" To="24" Label="Source1" />
+      <Edge From="24" To="25" Label="Source2" />
+      <Edge From="25" To="26" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
