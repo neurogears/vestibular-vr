@@ -589,14 +589,14 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>-90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>-7425.535</Phase>
+                          <Phase>-0</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -647,14 +647,14 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>90</LocationX>
+                          <LocationX>180</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>17738.7754</Phase>
+                          <Phase>10313.24</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -774,7 +774,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>3966</gl:Index>
+                            <gl:Index>0</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -803,7 +803,7 @@
                           <TextureName />
                           <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>-90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -829,7 +829,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>310</gl:Index>
+                            <gl:Index>180</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -858,7 +858,7 @@
                           <TextureName />
                           <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>90</LocationX>
+                          <LocationX>180</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -953,7 +953,7 @@
                           <rx:Name>MovementDeltaSwitch</rx:Name>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
-                          <Name>MovementDelta</Name>
+                          <Name>PhaseDelta</Name>
                         </Expression>
                         <Expression xsi:type="ExternalizedMapping">
                           <Property Name="Value" DisplayName="Gain" />
@@ -1001,6 +1001,70 @@
                         <Expression xsi:type="rx:PublishSubject">
                           <Name>RightPhaseProcession</Name>
                         </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>MovementDelta</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>X</Selector>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>FlowXToVisualGain</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        </Expression>
+                        <Expression xsi:type="Multiply" />
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>MovementDelta</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>Y</Selector>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>FlowYToVisualGain</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        </Expression>
+                        <Expression xsi:type="Multiply" />
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>AnalogInput</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>PlaybackToVisualGain</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        </Expression>
+                        <Expression xsi:type="Multiply" />
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>RotaryEncoder</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>RotaryToVisualGain</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        </Expression>
+                        <Expression xsi:type="Multiply" />
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Merge" />
+                        </Expression>
+                        <Expression xsi:type="rx:PublishSubject">
+                          <Name>PhaseDelta</Name>
+                        </Expression>
                       </Nodes>
                       <Edges>
                         <Edge From="0" To="1" Label="Source1" />
@@ -1018,6 +1082,29 @@
                         <Edge From="12" To="13" Label="Source1" />
                         <Edge From="14" To="15" Label="Source1" />
                         <Edge From="15" To="16" Label="Source1" />
+                        <Edge From="17" To="18" Label="Source1" />
+                        <Edge From="18" To="21" Label="Source1" />
+                        <Edge From="19" To="20" Label="Source1" />
+                        <Edge From="20" To="21" Label="Source2" />
+                        <Edge From="21" To="22" Label="Source1" />
+                        <Edge From="22" To="39" Label="Source1" />
+                        <Edge From="23" To="24" Label="Source1" />
+                        <Edge From="24" To="27" Label="Source1" />
+                        <Edge From="25" To="26" Label="Source1" />
+                        <Edge From="26" To="27" Label="Source2" />
+                        <Edge From="27" To="28" Label="Source1" />
+                        <Edge From="28" To="39" Label="Source2" />
+                        <Edge From="29" To="32" Label="Source1" />
+                        <Edge From="30" To="31" Label="Source1" />
+                        <Edge From="31" To="32" Label="Source2" />
+                        <Edge From="32" To="33" Label="Source1" />
+                        <Edge From="33" To="39" Label="Source3" />
+                        <Edge From="34" To="37" Label="Source1" />
+                        <Edge From="35" To="36" Label="Source1" />
+                        <Edge From="36" To="37" Label="Source2" />
+                        <Edge From="37" To="38" Label="Source1" />
+                        <Edge From="38" To="39" Label="Source4" />
+                        <Edge From="39" To="40" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -1037,7 +1124,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="gl:Timer">
-                      <gl:DueTime>PT10S</gl:DueTime>
+                      <gl:DueTime>PT2M</gl:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -1090,6 +1177,9 @@
                         <Expression xsi:type="SubscribeSubject">
                           <Name>MovementDelta</Name>
                         </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>X</Selector>
+                        </Expression>
                         <Expression xsi:type="SubscribeSubject">
                           <Name>BlockGain</Name>
                         </Expression>
@@ -1133,7 +1223,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="DoubleProperty">
-                            <Value>0</Value>
+                            <Value>-1</Value>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -1348,7 +1438,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="gl:Timer">
-                                  <gl:DueTime>PT1.141S</gl:DueTime>
+                                  <gl:DueTime>PT0.542S</gl:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -1667,38 +1757,39 @@
                         <Expression xsi:type="WorkflowOutput" />
                       </Nodes>
                       <Edges>
-                        <Edge From="0" To="2" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source2" />
-                        <Edge From="2" To="3" Label="Source1" />
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="3" Label="Source1" />
+                        <Edge From="2" To="3" Label="Source2" />
                         <Edge From="3" To="4" Label="Source1" />
-                        <Edge From="4" To="14" Label="Source1" />
-                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="15" Label="Source1" />
                         <Edge From="6" To="7" Label="Source1" />
                         <Edge From="7" To="8" Label="Source1" />
                         <Edge From="8" To="9" Label="Source1" />
-                        <Edge From="9" To="13" Label="Source1" />
-                        <Edge From="10" To="11" Label="Source1" />
+                        <Edge From="9" To="10" Label="Source1" />
+                        <Edge From="10" To="14" Label="Source1" />
                         <Edge From="11" To="12" Label="Source1" />
-                        <Edge From="12" To="13" Label="Source2" />
+                        <Edge From="12" To="13" Label="Source1" />
                         <Edge From="13" To="14" Label="Source2" />
-                        <Edge From="14" To="16" Label="Source1" />
-                        <Edge From="15" To="16" Label="Source2" />
-                        <Edge From="16" To="17" Label="Source1" />
-                        <Edge From="18" To="19" Label="Source1" />
+                        <Edge From="14" To="15" Label="Source2" />
+                        <Edge From="15" To="17" Label="Source1" />
+                        <Edge From="16" To="17" Label="Source2" />
+                        <Edge From="17" To="18" Label="Source1" />
                         <Edge From="19" To="20" Label="Source1" />
                         <Edge From="20" To="21" Label="Source1" />
-                        <Edge From="20" To="27" Label="Source1" />
                         <Edge From="21" To="22" Label="Source1" />
+                        <Edge From="21" To="28" Label="Source1" />
                         <Edge From="22" To="23" Label="Source1" />
-                        <Edge From="22" To="25" Label="Source1" />
                         <Edge From="23" To="24" Label="Source1" />
-                        <Edge From="24" To="29" Label="Source1" />
-                        <Edge From="25" To="26" Label="Source1" />
-                        <Edge From="26" To="29" Label="Source2" />
-                        <Edge From="27" To="28" Label="Source1" />
-                        <Edge From="28" To="29" Label="Source3" />
-                        <Edge From="29" To="30" Label="Source1" />
+                        <Edge From="23" To="26" Label="Source1" />
+                        <Edge From="24" To="25" Label="Source1" />
+                        <Edge From="25" To="30" Label="Source1" />
+                        <Edge From="26" To="27" Label="Source1" />
+                        <Edge From="27" To="30" Label="Source2" />
+                        <Edge From="28" To="29" Label="Source1" />
+                        <Edge From="29" To="30" Label="Source3" />
                         <Edge From="30" To="31" Label="Source1" />
+                        <Edge From="31" To="32" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -2494,6 +2585,18 @@
       <Expression xsi:type="MemberSelector">
         <Selector>X</Selector>
       </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Y</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>new (
+  it.Item1 as X,
+  it.Item2 as Y
+)</scr:Expression>
+      </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="wie:MouseWheel" />
       </Expression>
@@ -2504,6 +2607,20 @@
         <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
           <Value>50</Value>
         </Operand>
+      </Expression>
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
+          <Value>50</Value>
+        </Operand>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>new (
+  it.Item1 as X,
+  it.Item2 as Y
+)</scr:Expression>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Merge" />
@@ -2525,11 +2642,19 @@
       <Edge From="15" To="16" Label="Source1" />
       <Edge From="17" To="18" Label="Source1" />
       <Edge From="20" To="21" Label="Source1" />
-      <Edge From="21" To="25" Label="Source1" />
-      <Edge From="22" To="23" Label="Source1" />
+      <Edge From="20" To="22" Label="Source1" />
+      <Edge From="21" To="23" Label="Source1" />
+      <Edge From="22" To="23" Label="Source2" />
       <Edge From="23" To="24" Label="Source1" />
-      <Edge From="24" To="25" Label="Source2" />
+      <Edge From="24" To="31" Label="Source1" />
       <Edge From="25" To="26" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="26" To="28" Label="Source1" />
+      <Edge From="27" To="29" Label="Source1" />
+      <Edge From="28" To="29" Label="Source2" />
+      <Edge From="29" To="30" Label="Source1" />
+      <Edge From="30" To="31" Label="Source2" />
+      <Edge From="31" To="32" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
