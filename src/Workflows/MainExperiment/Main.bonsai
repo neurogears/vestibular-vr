@@ -1191,6 +1191,22 @@
                           <Name>MovementDelta</Name>
                         </Expression>
                         <Expression xsi:type="MemberSelector">
+                          <Selector>X</Selector>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>FlowXToMotorGain</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        </Expression>
+                        <Expression xsi:type="Multiply" />
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>MovementDelta</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
                           <Selector>Y</Selector>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1203,6 +1219,22 @@
                           <Combinator xsi:type="rx:WithLatestFrom" />
                         </Expression>
                         <Expression xsi:type="Multiply" />
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>AnalogInput</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>PlaybackToMotorGain</Selector>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:WithLatestFrom" />
+                        </Expression>
+                        <Expression xsi:type="Multiply" />
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Merge" />
+                        </Expression>
                         <Expression xsi:type="rx:PublishSubject">
                           <Name>MotorDelta</Name>
                         </Expression>
@@ -1221,7 +1253,19 @@
                         <Edge From="12" To="13" Label="Source1" />
                         <Edge From="13" To="14" Label="Source2" />
                         <Edge From="14" To="15" Label="Source1" />
-                        <Edge From="15" To="16" Label="Source1" />
+                        <Edge From="15" To="27" Label="Source1" />
+                        <Edge From="16" To="17" Label="Source1" />
+                        <Edge From="17" To="20" Label="Source1" />
+                        <Edge From="18" To="19" Label="Source1" />
+                        <Edge From="19" To="20" Label="Source2" />
+                        <Edge From="20" To="21" Label="Source1" />
+                        <Edge From="21" To="27" Label="Source2" />
+                        <Edge From="22" To="25" Label="Source1" />
+                        <Edge From="23" To="24" Label="Source1" />
+                        <Edge From="24" To="25" Label="Source2" />
+                        <Edge From="25" To="26" Label="Source1" />
+                        <Edge From="26" To="27" Label="Source3" />
+                        <Edge From="27" To="28" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
