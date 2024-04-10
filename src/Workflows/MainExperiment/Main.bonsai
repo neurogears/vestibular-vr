@@ -479,7 +479,7 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:CreateContinuousUniform">
                       <p2:Lower>0</p2:Lower>
-                      <p2:Upper>1.5</p2:Upper>
+                      <p2:Upper>0.5</p2:Upper>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:AsyncSubject">
@@ -605,14 +605,14 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>0</LocationX>
+                          <LocationX>-90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
-                          <ExtentX>360</ExtentX>
+                          <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <SpatialFrequency>0.1</SpatialFrequency>
+                          <SpatialFrequency>0.5</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>-0</Phase>
+                          <Phase>632.224548</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -663,14 +663,14 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>0</LocationX>
+                          <LocationX>90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
-                          <ExtentX>0</ExtentX>
+                          <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <SpatialFrequency>0.1</SpatialFrequency>
+                          <SpatialFrequency>0.5</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>10313.24</Phase>
+                          <Phase>9681.017</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -790,7 +790,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>0</gl:Index>
+                            <gl:Index>11</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -817,9 +817,9 @@
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                           <TextureName />
-                          <ExtentX>360</ExtentX>
+                          <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>0</LocationX>
+                          <LocationX>-90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -845,7 +845,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>180</gl:Index>
+                            <gl:Index>169</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -872,9 +872,9 @@
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                           <TextureName />
-                          <ExtentX>0</ExtentX>
+                          <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>0</LocationX>
+                          <LocationX>90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -974,7 +974,7 @@
                         <Expression xsi:type="vh2:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
                           <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
-                            <vh2:ImmediatePulses>-20000</vh2:ImmediatePulses>
+                            <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
@@ -1621,7 +1621,7 @@
                               </Expression>
                               <Expression xsi:type="LessThan">
                                 <Operand xsi:type="DoubleProperty">
-                                  <Value>0</Value>
+                                  <Value>0.8</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
