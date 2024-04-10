@@ -9,13 +9,13 @@
                  xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
                  xmlns:p2="clr-namespace:Bonsai.Numerics.Distributions;assembly=Bonsai.Numerics"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:p3="clr-namespace:DataSchema;assembly=Extensions"
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
                  xmlns:vh2="clr-namespace:Harp.VestibularH2;assembly=Harp.VestibularH2"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:vh1="clr-namespace:Harp.VestibularH1;assembly=Harp.VestibularH1"
-                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:aeon="clr-namespace:Aeon.Acquisition;assembly=Aeon.Acquisition"
                  xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
                  xmlns="https://bonsai-rx.org/2018/workflow">
@@ -400,12 +400,27 @@
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="StartTrialLogicKey" />
+      </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>Trial Logic</Name>
         <Workflow>
           <Nodes>
             <Expression xsi:type="SubscribeSubject">
               <Name>SessionSettings</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Filter" DisplayName="StartTrialLogicKey" Category="TrialControl" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="wie:KeyDown">
+                <wie:Filter>Space Shift</wie:Filter>
+                <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
             </Expression>
             <Expression xsi:type="GroupWorkflow">
               <Name>UnwrapTrialSequence</Name>
@@ -958,7 +973,7 @@
                         <Expression xsi:type="vh2:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
                           <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
-                            <vh2:ImmediatePulses>-20000</vh2:ImmediatePulses>
+                            <vh2:ImmediatePulses>20000</vh2:ImmediatePulses>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
@@ -2030,10 +2045,13 @@
             <Expression xsi:type="WorkflowOutput" />
           </Nodes>
           <Edges>
-            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="0" To="3" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
-            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="2" To="3" Label="Source2" />
             <Edge From="3" To="4" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -2212,6 +2230,27 @@
               <Name>AnalogInput</Name>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
+              <Name>H2Events</Name>
+            </Expression>
+            <Expression xsi:type="harp:FilterRegister">
+              <harp:FilterType>Include</harp:FilterType>
+              <harp:Register xsi:type="harp:FilterRegisterAddress">
+                <harp:Address>39</harp:Address>
+              </harp:Register>
+            </Expression>
+            <Expression xsi:type="harp:Parse">
+              <harp:Register xsi:type="harp:ParseMessagePayload">
+                <harp:PayloadType>TimestampedS16</harp:PayloadType>
+                <harp:IsArray>false</harp:IsArray>
+              </harp:Register>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value</Selector>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>HallSensor</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
               <Name>SessionSettings</Name>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2342,42 +2381,46 @@
             <Edge From="11" To="12" Label="Source1" />
             <Edge From="12" To="13" Label="Source1" />
             <Edge From="14" To="15" Label="Source1" />
-            <Edge From="14" To="20" Label="Source1" />
-            <Edge From="14" To="24" Label="Source1" />
-            <Edge From="14" To="27" Label="Source1" />
-            <Edge From="14" To="30" Label="Source1" />
-            <Edge From="14" To="33" Label="Source1" />
             <Edge From="15" To="16" Label="Source1" />
-            <Edge From="15" To="17" Label="Source1" />
-            <Edge From="15" To="18" Label="Source1" />
-            <Edge From="15" To="19" Label="Source1" />
-            <Edge From="16" To="36" Label="Source1" />
-            <Edge From="17" To="36" Label="Source2" />
-            <Edge From="18" To="36" Label="Source3" />
-            <Edge From="19" To="36" Label="Source4" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
+            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="19" To="25" Label="Source1" />
+            <Edge From="19" To="29" Label="Source1" />
+            <Edge From="19" To="32" Label="Source1" />
+            <Edge From="19" To="35" Label="Source1" />
+            <Edge From="19" To="38" Label="Source1" />
             <Edge From="20" To="21" Label="Source1" />
             <Edge From="20" To="22" Label="Source1" />
             <Edge From="20" To="23" Label="Source1" />
-            <Edge From="20" To="26" Label="Source2" />
-            <Edge From="20" To="29" Label="Source2" />
-            <Edge From="20" To="32" Label="Source2" />
-            <Edge From="20" To="35" Label="Source2" />
-            <Edge From="21" To="36" Label="Source5" />
-            <Edge From="22" To="36" Label="Source6" />
-            <Edge From="23" To="36" Label="Source7" />
-            <Edge From="24" To="25" Label="Source1" />
+            <Edge From="20" To="24" Label="Source1" />
+            <Edge From="21" To="41" Label="Source1" />
+            <Edge From="22" To="41" Label="Source2" />
+            <Edge From="23" To="41" Label="Source3" />
+            <Edge From="24" To="41" Label="Source4" />
             <Edge From="25" To="26" Label="Source1" />
-            <Edge From="26" To="36" Label="Source8" />
-            <Edge From="27" To="28" Label="Source1" />
-            <Edge From="28" To="29" Label="Source1" />
-            <Edge From="29" To="36" Label="Source9" />
+            <Edge From="25" To="27" Label="Source1" />
+            <Edge From="25" To="28" Label="Source1" />
+            <Edge From="25" To="31" Label="Source2" />
+            <Edge From="25" To="34" Label="Source2" />
+            <Edge From="25" To="37" Label="Source2" />
+            <Edge From="25" To="40" Label="Source2" />
+            <Edge From="26" To="41" Label="Source5" />
+            <Edge From="27" To="41" Label="Source6" />
+            <Edge From="28" To="41" Label="Source7" />
+            <Edge From="29" To="30" Label="Source1" />
             <Edge From="30" To="31" Label="Source1" />
-            <Edge From="31" To="32" Label="Source1" />
-            <Edge From="32" To="36" Label="Source10" />
+            <Edge From="31" To="41" Label="Source8" />
+            <Edge From="32" To="33" Label="Source1" />
             <Edge From="33" To="34" Label="Source1" />
-            <Edge From="34" To="35" Label="Source1" />
-            <Edge From="35" To="36" Label="Source11" />
+            <Edge From="34" To="41" Label="Source9" />
+            <Edge From="35" To="36" Label="Source1" />
             <Edge From="36" To="37" Label="Source1" />
+            <Edge From="37" To="41" Label="Source10" />
+            <Edge From="38" To="39" Label="Source1" />
+            <Edge From="39" To="40" Label="Source1" />
+            <Edge From="40" To="41" Label="Source11" />
+            <Edge From="41" To="42" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -2828,20 +2871,21 @@
       <Edge From="6" To="7" Label="Source1" />
       <Edge From="7" To="8" Label="Source3" />
       <Edge From="9" To="10" Label="Source1" />
-      <Edge From="15" To="16" Label="Source1" />
-      <Edge From="17" To="18" Label="Source1" />
-      <Edge From="19" To="20" Label="Source1" />
-      <Edge From="19" To="21" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="20" To="21" Label="Source1" />
       <Edge From="20" To="22" Label="Source1" />
-      <Edge From="21" To="22" Label="Source2" />
-      <Edge From="22" To="23" Label="Source1" />
+      <Edge From="21" To="23" Label="Source1" />
+      <Edge From="22" To="23" Label="Source2" />
       <Edge From="23" To="24" Label="Source1" />
-      <Edge From="25" To="26" Label="Source1" />
+      <Edge From="24" To="25" Label="Source1" />
       <Edge From="26" To="27" Label="Source1" />
-      <Edge From="26" To="28" Label="Source1" />
+      <Edge From="27" To="28" Label="Source1" />
       <Edge From="27" To="29" Label="Source1" />
-      <Edge From="28" To="29" Label="Source2" />
-      <Edge From="29" To="30" Label="Source1" />
+      <Edge From="28" To="30" Label="Source1" />
+      <Edge From="29" To="30" Label="Source2" />
+      <Edge From="30" To="31" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
