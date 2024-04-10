@@ -36,51 +36,27 @@ blocks: [
   },
   &LinearClosedLoopMismatch
   {
-    <<: *LinearClosedLoop,
     alias: LinearClosedLoopMismatch,
-    haltProbability: 0.8,
-    totalRuntime: 120
-  },
-  &Linear
-  {
-    alias: BaseLinear,
-    stimulus: {
-      type: "grating",
-      offset1: -90,
-      offset2: 90
-    },
     haltProtocol: {
       minumumDelay: 0.1,
-      randomDelay: 1.5,
+      randomDelay: 0.5,
       haltTime: 2,
-      haltGain: 0
+      haltGain: 0,
     },
-    totalRuntime: 10
-  },
-  &LinearClosedLoopMismatch
-  {
-    <<: *LinearClosedLoop,
-    alias: LinearClosedLoopMismatch,
-    haltProbability: 0.5,
-  },
-  &LinearClosedLoop
-  {
-    <<: *Linear,
-    alias: LinearClosedLoop,
     stimulus: {
       type: grating,
       spatialFrequency: 0.5
     },
-    runThreshold: 100,
-    decayTimestep: 0.1,
-    runThresholdDecay: -1,
+    haltProbability: 0.8,
+    totalRuntime: 30,
     flowXToVisualGain: 1
   },
-  &LinearClosedLoopPlayback
-  {
-    <<: *LinearClosedLoop,
-    alias: LinearClosedLoopPlayback,
-    flowXToVisualGain: 0,
-    playbackToVisualGain: 1
-  }
+  {<<: *DrumClosedLoop},
+  {<<: *LinearClosedLoopMismatch},
+  {<<: *DrumClosedLoop},
+  {<<: *LinearClosedLoopMismatch},
+  {<<: *DrumClosedLoop},
+  {<<: *LinearClosedLoopMismatch},
+  {<<: *DrumClosedLoop},
+  {<<: *LinearClosedLoopMismatch}
 ]
