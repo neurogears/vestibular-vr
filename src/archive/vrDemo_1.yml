@@ -1,0 +1,45 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+
+metadata:
+  animalId: tlx3cre_eartag
+  rootPath: D:/TrialLogicTestData/
+  runGain: 0.08
+
+blocks: [
+  &blockA
+  {
+    stimulus: {type: "grating"},
+    totalRuntime: 100,
+    runThreshold: 200,
+    decayTimestep: 0.1,
+    runThresholdDecay: -1,
+    haltProbability: 0,
+    blockGainModifier: 0.05,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 1.5,
+      haltTime: 1,
+      haltGain: 1
+    }
+  },
+  &blockB
+  {
+    stimulus: {type: "cloud"},
+    totalRuntime: 300,
+    runThreshold: 200,
+    decayTimestep: 0.1,
+    runThresholdDecay: -1,
+    haltProbability: 0,
+    blockGainModifier: 0.08,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 1.5,
+      haltTime: 1,
+      haltGain: 1
+    }
+  },
+  {<<: *blockA},
+  {<<: *blockB}
+]

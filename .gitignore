@@ -25,3 +25,9 @@ __pycache__/
 .venv
 winpython
 Firmware/
+src/archive/vrDemo.yml
+src/archive/vrDemo_1.yml
+src/archive/vrDemo.yml
+src/Workflows/InsertionWorkflow/InsertionWorkflow.bonsai
+src/Workflows/InsertionWorkflow/InsertionWorkflow.bonsai.layout
+src/blockTypesDemo_main_experiment.yml
