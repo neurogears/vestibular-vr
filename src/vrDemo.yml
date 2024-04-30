@@ -5,17 +5,18 @@
 metadata:
   animalId: plimbo
   rootPath: D:/TrialLogicTestData/
-  runGain: 0.0005
+  runGain: 0.0008
 
 blocks: [
   &blockA
   {
-    stimulus: {type: "grating"},
-    totalRuntime: 20,
+    stimulus: {type: "cloud"},
+    totalRuntime: 30,
     runThreshold: 100,
     decayTimestep: 0.1,
     runThresholdDecay: -1,
     haltProbability: 0.5,
+    blockGainModifier: 100,
     haltProtocol: {
       minumumDelay: 0.1,
       randomDelay: 1.5,
@@ -25,12 +26,13 @@ blocks: [
   },
   &blockB
   {
-    stimulus: {type: "cloud"},
-    totalRuntime: 140,
+    stimulus: {type: "grating"},
+    totalRuntime: 30,
     runThreshold: 200,
     decayTimestep: 0.1,
     runThresholdDecay: -1,
     haltProbability: 0.7,
+    blockGainModifier: 1,
     haltProtocol: {
       minumumDelay: 0.1,
       randomDelay: 0.5,
@@ -41,3 +43,9 @@ blocks: [
   {<<: *blockA},
   {<<: *blockB}
 ]
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10

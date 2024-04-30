@@ -14,6 +14,8 @@ namespace DataSchema
     public partial class Block
     {
     
+        private string _alias = "unnamed";
+    
         private StimulusProtocol _stimulus;
     
         private double _totalRuntime = 120D;
@@ -24,11 +26,42 @@ namespace DataSchema
     
         private double _runThresholdDecay = -1D;
     
-        private double _haltProbability = 0.5D;
+        private double _haltProbability = 0D;
     
         private HaltProtocol _haltProtocol;
     
+        private double _flowXToVisualGain = 0D;
+    
+        private double _flowYToVisualGain = 0D;
+    
+        private double _flowXToMotorGain = 0D;
+    
+        private double _flowYToMotorGain = 0D;
+    
+        private double _rotaryToVisualGain = 0D;
+    
+        private double _playbackToVisualGain = 0D;
+    
+        private double _playbackToMotorGain = 0D;
+    
         private double _blockGainModifier = 1D;
+    
+        /// <summary>
+        /// The user-defined name of this block.
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="alias")]
+        [System.ComponentModel.DescriptionAttribute("The user-defined name of this block.")]
+        public string Alias
+        {
+            get
+            {
+                return _alias;
+            }
+            set
+            {
+                _alias = value;
+            }
+        }
     
         /// <summary>
         /// The visual stimulus to use
@@ -154,6 +187,125 @@ namespace DataSchema
         }
     
         /// <summary>
+        /// flow --> visual stimulus motion gain (X dimension)
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="flowXToVisualGain")]
+        [System.ComponentModel.DescriptionAttribute("flow --> visual stimulus motion gain (X dimension)")]
+        public double FlowXToVisualGain
+        {
+            get
+            {
+                return _flowXToVisualGain;
+            }
+            set
+            {
+                _flowXToVisualGain = value;
+            }
+        }
+    
+        /// <summary>
+        /// flow --> visual stimulus motion gain (Y dimension)
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="flowYToVisualGain")]
+        [System.ComponentModel.DescriptionAttribute("flow --> visual stimulus motion gain (Y dimension)")]
+        public double FlowYToVisualGain
+        {
+            get
+            {
+                return _flowYToVisualGain;
+            }
+            set
+            {
+                _flowYToVisualGain = value;
+            }
+        }
+    
+        /// <summary>
+        /// flow --> motor motion gain (X dimension)
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="flowXToMotorGain")]
+        [System.ComponentModel.DescriptionAttribute("flow --> motor motion gain (X dimension)")]
+        public double FlowXToMotorGain
+        {
+            get
+            {
+                return _flowXToMotorGain;
+            }
+            set
+            {
+                _flowXToMotorGain = value;
+            }
+        }
+    
+        /// <summary>
+        /// flow --> motor motion gain (Y dimension)
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="flowYToMotorGain")]
+        [System.ComponentModel.DescriptionAttribute("flow --> motor motion gain (Y dimension)")]
+        public double FlowYToMotorGain
+        {
+            get
+            {
+                return _flowYToMotorGain;
+            }
+            set
+            {
+                _flowYToMotorGain = value;
+            }
+        }
+    
+        /// <summary>
+        /// rotary --> visual stimulus motion gain
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="rotaryToVisualGain")]
+        [System.ComponentModel.DescriptionAttribute("rotary --> visual stimulus motion gain")]
+        public double RotaryToVisualGain
+        {
+            get
+            {
+                return _rotaryToVisualGain;
+            }
+            set
+            {
+                _rotaryToVisualGain = value;
+            }
+        }
+    
+        /// <summary>
+        /// playback source --> visual stimulus motion gain
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="playbackToVisualGain")]
+        [System.ComponentModel.DescriptionAttribute("playback source --> visual stimulus motion gain")]
+        public double PlaybackToVisualGain
+        {
+            get
+            {
+                return _playbackToVisualGain;
+            }
+            set
+            {
+                _playbackToVisualGain = value;
+            }
+        }
+    
+        /// <summary>
+        /// playback source --> motor motion gain
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="playbackToMotorGain")]
+        [System.ComponentModel.DescriptionAttribute("playback source --> motor motion gain")]
+        public double PlaybackToMotorGain
+        {
+            get
+            {
+                return _playbackToMotorGain;
+            }
+            set
+            {
+                _playbackToMotorGain = value;
+            }
+        }
+    
+        /// <summary>
         /// Block specific gain coefficient to apply
         /// </summary>
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="blockGainModifier")]
@@ -175,6 +327,7 @@ namespace DataSchema
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
                 new Block
                 {
+                    Alias = _alias,
                     Stimulus = _stimulus,
                     TotalRuntime = _totalRuntime,
                     RunThreshold = _runThreshold,
@@ -182,6 +335,13 @@ namespace DataSchema
                     RunThresholdDecay = _runThresholdDecay,
                     HaltProbability = _haltProbability,
                     HaltProtocol = _haltProtocol,
+                    FlowXToVisualGain = _flowXToVisualGain,
+                    FlowYToVisualGain = _flowYToVisualGain,
+                    FlowXToMotorGain = _flowXToMotorGain,
+                    FlowYToMotorGain = _flowYToMotorGain,
+                    RotaryToVisualGain = _rotaryToVisualGain,
+                    PlaybackToVisualGain = _playbackToVisualGain,
+                    PlaybackToMotorGain = _playbackToMotorGain,
                     BlockGainModifier = _blockGainModifier
                 }));
         }
@@ -198,6 +358,14 @@ namespace DataSchema
         private double _spatialFrequency = 0.1D;
     
         private string _path = "";
+    
+        private double _offset1 = -90D;
+    
+        private double _extent1 = 180D;
+    
+        private double _offset2 = 90D;
+    
+        private double _extent2 = 180D;
     
         /// <summary>
         /// The type and parameters of the visual stimulus to use
@@ -251,6 +419,74 @@ namespace DataSchema
             }
         }
     
+        /// <summary>
+        /// Offset (in degrees) for primary visual stimulus
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="offset1")]
+        [System.ComponentModel.DescriptionAttribute("Offset (in degrees) for primary visual stimulus")]
+        public double Offset1
+        {
+            get
+            {
+                return _offset1;
+            }
+            set
+            {
+                _offset1 = value;
+            }
+        }
+    
+        /// <summary>
+        /// X screen extent (in degrees) for primary visual stimulus
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="extent1")]
+        [System.ComponentModel.DescriptionAttribute("X screen extent (in degrees) for primary visual stimulus")]
+        public double Extent1
+        {
+            get
+            {
+                return _extent1;
+            }
+            set
+            {
+                _extent1 = value;
+            }
+        }
+    
+        /// <summary>
+        /// Offset (in degrees) for secondary visual stimulus
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="offset2")]
+        [System.ComponentModel.DescriptionAttribute("Offset (in degrees) for secondary visual stimulus")]
+        public double Offset2
+        {
+            get
+            {
+                return _offset2;
+            }
+            set
+            {
+                _offset2 = value;
+            }
+        }
+    
+        /// <summary>
+        /// X screen extent (in degrees) for secondary visual stimulus
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="extent2")]
+        [System.ComponentModel.DescriptionAttribute("X screen extent (in degrees) for secondary visual stimulus")]
+        public double Extent2
+        {
+            get
+            {
+                return _extent2;
+            }
+            set
+            {
+                _extent2 = value;
+            }
+        }
+    
         public System.IObservable<StimulusProtocol> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
@@ -258,7 +494,11 @@ namespace DataSchema
                 {
                     Type = _type,
                     SpatialFrequency = _spatialFrequency,
-                    Path = _path
+                    Path = _path,
+                    Offset1 = _offset1,
+                    Extent1 = _extent1,
+                    Offset2 = _offset2,
+                    Extent2 = _extent2
                 }));
         }
     }
@@ -352,6 +592,8 @@ namespace DataSchema
     
         private System.Collections.Generic.List<Block> _blocks = new System.Collections.Generic.List<Block>();
     
+        private MotorSettings _motorSettings;
+    
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="metadata")]
         public Metadata Metadata
@@ -380,13 +622,28 @@ namespace DataSchema
             }
         }
     
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="motorSettings")]
+        public MotorSettings MotorSettings
+        {
+            get
+            {
+                return _motorSettings;
+            }
+            set
+            {
+                _motorSettings = value;
+            }
+        }
+    
         public System.IObservable<VestibularVrSession> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
                 new VestibularVrSession
                 {
                     Metadata = _metadata,
-                    Blocks = _blocks
+                    Blocks = _blocks,
+                    MotorSettings = _motorSettings
                 }));
         }
     }
@@ -474,6 +731,85 @@ namespace DataSchema
     }
 
 
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class MotorSettings
+    {
+    
+        private int _nominalPulseInterval = 200;
+    
+        private int _initialPulseInterval = 200;
+    
+        private int _pulseStepInterval = 2;
+    
+        private int _pulsePeriod = 10;
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="nominalPulseInterval")]
+        public int NominalPulseInterval
+        {
+            get
+            {
+                return _nominalPulseInterval;
+            }
+            set
+            {
+                _nominalPulseInterval = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="initialPulseInterval")]
+        public int InitialPulseInterval
+        {
+            get
+            {
+                return _initialPulseInterval;
+            }
+            set
+            {
+                _initialPulseInterval = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="pulseStepInterval")]
+        public int PulseStepInterval
+        {
+            get
+            {
+                return _pulseStepInterval;
+            }
+            set
+            {
+                _pulseStepInterval = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="pulsePeriod")]
+        public int PulsePeriod
+        {
+            get
+            {
+                return _pulsePeriod;
+            }
+            set
+            {
+                _pulsePeriod = value;
+            }
+        }
+    
+        public System.IObservable<MotorSettings> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
+                new MotorSettings
+                {
+                    NominalPulseInterval = _nominalPulseInterval,
+                    InitialPulseInterval = _initialPulseInterval,
+                    PulseStepInterval = _pulseStepInterval,
+                    PulsePeriod = _pulsePeriod
+                }));
+        }
+    }
+
+
     /// <summary>
     /// Serializes a sequence of data model objects into YAML strings.
     /// </summary>
@@ -516,6 +852,11 @@ namespace DataSchema
         {
             return Process<Metadata>(source);
         }
+
+        public System.IObservable<string> Process(System.IObservable<MotorSettings> source)
+        {
+            return Process<MotorSettings>(source);
+        }
     }
 
 
@@ -529,6 +870,7 @@ namespace DataSchema
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<HaltProtocol>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<VestibularVrSession>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Metadata>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<MotorSettings>))]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]
     public partial class DeserializeFromYaml : Bonsai.Expressions.SingleArgumentExpressionBuilder
     {

@@ -4,69 +4,133 @@
     "definitions": {
         "block": {
             "properties": {
-                "trials": {
-                    "items": {
-                        "$ref": "#/definitions/trial"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "trial": {
-            "properties": {
-                "reward": {
-                    "$ref": "#/definitions/rewardProtocol"
+                "alias": {
+                    "default": "unnamed",
+                    "description": "The user-defined name of this block.",
+                    "type": "string"
                 },
-                "gratingsProtocol": {
-                    "$ref": "#/definitions/gratingsProtocol"
+                "stimulus": {
+                    "$ref": "#/definitions/stimulusProtocol",
+                    "description": "The visual stimulus to use"
                 },
-                "runGainModifier": {
-                    "default": 1,
+                "totalRuntime": {
+                    "default": 120,
+                    "description": "How long (in seconds) this block should run for",
                     "type": "number"
                 },
-                "runThresholdModifier": {
-                    "default": 1,
+                "runThreshold": {
+                    "default": 100,
+                    "description": "The value (in position units) to reach before a halt decision is applied",
+                    "type": "number"
+                },
+                "decayTimestep": {
+                    "default": 0.1,
+                    "description": "On each timestep (in seconds) the runThresholdDecay is applied",
+                    "type": "number"
+                },
+                "runThresholdDecay": {
+                    "default": -1,
+                    "description": "Distance to threshold is decayed by this amount (in position units) per decayTimestep",
+                    "type": "number"
+                },
+                "haltProbability": {
+                    "default": 0.0,
+                    "description": "The probability that a halt decision is made after a running threshold has been reached",
                     "type": "number"
                 },
                 "haltProtocol": {
-                    "$ref": "#/definitions/haltProtocol"
-                }
-            }
-        },
-        "stimulusProtocol": {
-            "default": "grating",
-            "enum": [
-                "grating", 
-                "texture",
-                "cloud"
-            ],
-            "type": "string"
-        },
-        "rewardProtocol": {
-            "properties": {
-                "amountHigh": {
+                    "$ref": "#/definitions/haltProtocol",
+                    "description": "The halt protocol to use on a positive halt decision"
+                },
+                "flowXToVisualGain": {
                     "default": 0,
+                    "description": "flow --> visual stimulus motion gain (X dimension)",
                     "type": "number"
                 },
-                "amountLow": {
+                "flowYToVisualGain": {
                     "default": 0,
+                    "description": "flow --> visual stimulus motion gain (Y dimension)",
                     "type": "number"
                 },
-                "delay": {
+                "flowXToMotorGain": {
                     "default": 0,
-                    "minimum": 0,
+                    "description": "flow --> motor motion gain (X dimension)",
+                    "type": "number"
+                },
+                "flowYToMotorGain": {
+                    "default": 0,
+                    "description": "flow --> motor motion gain (Y dimension)",
+                    "type": "number"
+                },
+                "rotaryToVisualGain": {
+                    "default": 0,
+                    "description": "rotary --> visual stimulus motion gain",
+                    "type": "number"
+                },
+                "playbackToVisualGain": {
+                    "default": 0,
+                    "description": "playback source --> visual stimulus motion gain",
+                    "type": "number"
+                },
+                "playbackToMotorGain": {
+                    "default": 0,
+                    "description": "playback source --> motor motion gain",
+                    "type": "number"
+                },
+                "blockGainModifier": {
+                    "default": 1,
+                    "description": "Block specific gain coefficient to apply",
                     "type": "number"
                 }
             },
             "type": "object"
         },
-        "haltProtocol": {
+        "stimulusProtocol": {
             "properties": {
-                "haltProbability": {
-                    "default": 0.5,
+                "type": {
+                    "default": "grating",
+                    "description": "The type and parameters of the visual stimulus to use",
+                    "enum": [
+                        "grating", 
+                        "texture",
+                        "cloud"
+                    ],
+                    "type": "string"
+                },
+                "spatialFrequency": {
+                    "default": 0.1,
+                    "description": "Spatial frequency for stimuli where this is a parameter",
                     "type": "number"
                 },
+                "path": {
+                    "default": "",
+                    "description": "Path to texture or video if required",
+                    "type": "string"
+                },
+                "offset1": {
+                    "default": -90,
+                    "description": "Offset (in degrees) for primary visual stimulus",
+                    "type": "number"
+                },
+                "extent1": {
+                    "default": 180,
+                    "description": "X screen extent (in degrees) for primary visual stimulus",
+                    "type": "number"
+                },
+                "offset2": {
+                    "default": 90,
+                    "description": "Offset (in degrees) for secondary visual stimulus",
+                    "type": "number"
+                },
+                "extent2": {
+                    "default": 180,
+                    "description": "X screen extent (in degrees) for secondary visual stimulus",
+                    "type": "number"
+                }
+            }
+        },
+        "haltProtocol": {
+            "properties": {
                 "minumumDelay": {
                     "default": 0.1,
                     "type": "number"
@@ -78,17 +142,13 @@
                 "haltTime": {
                     "default": 2,
                     "type": "number"
+                },
+                "haltGain": {
+                    "default": 0,
+                    "type": "number"
                 }
             },
             "type": "object"
-        },
-        "gratingsProtocol": {
-            "properties": {
-                "spatialFrequency": {
-                    "default": 0.5,
-                    "type": "number"
-                }
-            }
         }
     },
     "properties": {
@@ -103,15 +163,8 @@
                     "type": "string"
                 },
                 "runGain": {
+                    "description": "Coefficient applied to movement delta (e.g. from flow sensor) to calculate running speed in visual environment.",
                     "default": 1,
-                    "type": "number"
-                },
-                "runThreshold": {
-                    "default": 100,
-                    "type": "number"
-                },
-                "runThresholdDecay": {
-                    "default": -1,
                     "type": "number"
                 }
             }
@@ -121,6 +174,26 @@
                 "$ref": "#/definitions/block"
             },
             "type": "array"
+        },
+        "motorSettings": {
+            "properties": {
+                "nominalPulseInterval": {
+                    "default": 200,
+                    "type": "integer"
+                },
+                "initialPulseInterval": {
+                    "default": 200,
+                    "type": "integer"
+                },
+                "pulseStepInterval": {
+                    "default": 2,
+                    "type": "integer"
+                },
+                "pulsePeriod": {
+                    "default": 10,
+                    "type": "integer"
+                }
+            }
         }
     },
     "title": "VestibularVrSession",
