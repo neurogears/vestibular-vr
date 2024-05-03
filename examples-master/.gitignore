@@ -1,0 +1,11 @@
+bin
+obj
+calibration
+displays*
+images*
+Packages
+*.yml
+*.exe
+*.exe.settings
+GratingSeries
+WIP

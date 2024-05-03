@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 14.7 20.79"
+   width="210mm"
+   height="297mm"
+   version="1.1"
+   id="svg54"
+   sodipodi:docname="aruco-grid-48.svg"
+   inkscape:export-filename="D:\Backup\Surface_2020-02-25\Documents\Projects\neurogears\Aman\BonVision-package\Examples\Calibration\aruco-345.png"
+   inkscape:export-xdpi="299.96188"
+   inkscape:export-ydpi="299.96188"
+   style="shape-rendering:crispEdges"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata60">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs58" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview56"
+     showgrid="false"
+     inkscape:zoom="0.44152926"
+     inkscape:cx="-158.6963"
+     inkscape:cy="386.89252"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg54" />
+  <g
+     style="shape-rendering:crispEdges"
+     id="g864-9"
+     transform="matrix(0.49999999,0,0,0.49999999,9.1654961,2.0525584)">
+    <rect
+       style="fill:#000000"
+       id="rect2-0-8"
+       height="7"
+       width="7"
+       y="0"
+       x="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect4-4-1"
+       transform="scale(0.01852083)"
+       d="m 53.994141,53.994141 v 53.992189 53.99414 H 107.98633 V 107.98633 53.994141 Z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect6-72-9"
+       y="1"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect8-5-0"
+       y="1"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect10-71-4"
+       y="1"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect12-33-0"
+       y="1"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect16-03-5"
+       y="2"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect18-41-9"
+       y="2"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect20-08-3"
+       y="2"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect22-00-5"
+       y="2"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect24-9-1"
+       y="3"
+       x="1"
+       height="1"
+       width="1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect26-62-4"
+       transform="scale(0.01852083)"
+       d="m 107.98633,161.98047 v 53.99219 h 53.99414 53.99219 53.99414 v -53.99219 h -53.99414 -53.99219 z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect32-34-0"
+       y="3"
+       x="5"
+       height="1"
+       width="1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect34-74-9"
+       transform="scale(0.01852083)"
+       d="m 53.994141,215.97266 v 53.99414 53.99218 H 107.98633 V 269.9668 215.97266 Z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect36-8-6"
+       y="4"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect38-9-7"
+       y="4"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect40-2-2"
+       y="4"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect42-29-8"
+       y="4"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect46-8-9"
+       y="5"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect48-1-6"
+       y="5"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect50-1-5"
+       y="5"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect52-1-8"
+       y="5"
+       x="5"
+       height="1"
+       width="1" />
+  </g>
+  <g
+     style="shape-rendering:crispEdges"
+     id="g864-7"
+     transform="matrix(0.49999999,0,0,0.49999999,2.034504,8.645)">
+    <rect
+       style="fill:#000000"
+       id="rect2-0-87"
+       height="7"
+       width="7"
+       y="0"
+       x="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect4-4-3"
+       transform="scale(0.01852083)"
+       d="m 53.994141,53.994141 v 53.992189 53.99414 H 107.98633 V 107.98633 53.994141 Z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect6-72-0"
+       y="1"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect8-5-4"
+       y="1"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect10-71-9"
+       y="1"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect12-33-3"
+       y="1"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect16-03-4"
+       y="2"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect18-41-0"
+       y="2"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect20-08-4"
+       y="2"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect22-00-3"
+       y="2"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect24-9-10"
+       y="3"
+       x="1"
+       height="1"
+       width="1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect26-62-44"
+       transform="scale(0.01852083)"
+       d="m 107.98633,161.98047 v 53.99219 h 53.99414 53.99219 53.99414 v -53.99219 h -53.99414 -53.99219 z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect32-34-2"
+       y="3"
+       x="5"
+       height="1"
+       width="1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect34-74-2"
+       transform="scale(0.01852083)"
+       d="m 53.994141,215.97266 v 53.99414 53.99218 H 107.98633 V 269.9668 215.97266 Z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect36-8-9"
+       y="4"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect38-9-5"
+       y="4"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect40-2-5"
+       y="4"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect42-29-0"
+       y="4"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect46-8-2"
+       y="5"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect48-1-9"
+       y="5"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect50-1-3"
+       y="5"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect52-1-1"
+       y="5"
+       x="5"
+       height="1"
+       width="1" />
+  </g>
+  <g
+     style="shape-rendering:crispEdges"
+     id="g864-1"
+     transform="matrix(0.49999999,0,0,0.49999999,9.1654961,8.645)">
+    <rect
+       style="fill:#000000"
+       id="rect2-0-4"
+       height="7"
+       width="7"
+       y="0"
+       x="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect4-4-2"
+       transform="scale(0.01852083)"
+       d="m 53.994141,53.994141 v 53.992189 53.99414 H 107.98633 V 107.98633 53.994141 Z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect6-72-8"
+       y="1"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect8-5-05"
+       y="1"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect10-71-6"
+       y="1"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect12-33-07"
+       y="1"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect16-03-46"
+       y="2"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect18-41-8"
+       y="2"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect20-08-7"
+       y="2"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect22-00-0"
+       y="2"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect24-9-8"
+       y="3"
+       x="1"
+       height="1"
+       width="1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect26-62-3"
+       transform="scale(0.01852083)"
+       d="m 107.98633,161.98047 v 53.99219 h 53.99414 53.99219 53.99414 v -53.99219 h -53.99414 -53.99219 z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect32-34-6"
+       y="3"
+       x="5"
+       height="1"
+       width="1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect34-74-4"
+       transform="scale(0.01852083)"
+       d="m 53.994141,215.97266 v 53.99414 53.99218 H 107.98633 V 269.9668 215.97266 Z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect36-8-65"
+       y="4"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect38-9-2"
+       y="4"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect40-2-9"
+       y="4"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect42-29-2"
+       y="4"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect46-8-94"
+       y="5"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect48-1-8"
+       y="5"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect50-1-8"
+       y="5"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect52-1-2"
+       y="5"
+       x="5"
+       height="1"
+       width="1" />
+  </g>
+  <g
+     style="shape-rendering:crispEdges"
+     id="g864-2"
+     transform="matrix(0.49999999,0,0,0.49999999,2.034504,15.237442)">
+    <rect
+       style="fill:#000000"
+       id="rect2-0-7"
+       height="7"
+       width="7"
+       y="0"
+       x="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect4-4-26"
+       transform="scale(0.01852083)"
+       d="m 53.994141,53.994141 v 53.992189 53.99414 H 107.98633 V 107.98633 53.994141 Z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect6-72-5"
+       y="1"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect8-5-8"
+       y="1"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect10-71-8"
+       y="1"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect12-33-1"
+       y="1"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect16-03-3"
+       y="2"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect18-41-5"
+       y="2"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect20-08-1"
+       y="2"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect22-00-1"
+       y="2"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect24-9-4"
+       y="3"
+       x="1"
+       height="1"
+       width="1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect26-62-9"
+       transform="scale(0.01852083)"
+       d="m 107.98633,161.98047 v 53.99219 h 53.99414 53.99219 53.99414 v -53.99219 h -53.99414 -53.99219 z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect32-34-08"
+       y="3"
+       x="5"
+       height="1"
+       width="1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect34-74-0"
+       transform="scale(0.01852083)"
+       d="m 53.994141,215.97266 v 53.99414 53.99218 H 107.98633 V 269.9668 215.97266 Z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect36-8-7"
+       y="4"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect38-9-53"
+       y="4"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect40-2-0"
+       y="4"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect42-29-9"
+       y="4"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect46-8-5"
+       y="5"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect48-1-7"
+       y="5"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect50-1-7"
+       y="5"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect52-1-9"
+       y="5"
+       x="5"
+       height="1"
+       width="1" />
+  </g>
+  <g
+     style="shape-rendering:crispEdges"
+     id="g864-3"
+     transform="matrix(0.49999999,0,0,0.49999999,9.1654961,15.237442)">
+    <rect
+       style="fill:#000000"
+       id="rect2-0-1"
+       height="7"
+       width="7"
+       y="0"
+       x="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect4-4-20"
+       transform="scale(0.01852083)"
+       d="m 53.994141,53.994141 v 53.992189 53.99414 H 107.98633 V 107.98633 53.994141 Z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect6-72-52"
+       y="1"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect8-5-9"
+       y="1"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect10-71-1"
+       y="1"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect12-33-6"
+       y="1"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect16-03-7"
+       y="2"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect18-41-4"
+       y="2"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect20-08-10"
+       y="2"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect22-00-04"
+       y="2"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect24-9-6"
+       y="3"
+       x="1"
+       height="1"
+       width="1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect26-62-8"
+       transform="scale(0.01852083)"
+       d="m 107.98633,161.98047 v 53.99219 h 53.99414 53.99219 53.99414 v -53.99219 h -53.99414 -53.99219 z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect32-34-8"
+       y="3"
+       x="5"
+       height="1"
+       width="1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect34-74-5"
+       transform="scale(0.01852083)"
+       d="m 53.994141,215.97266 v 53.99414 53.99218 H 107.98633 V 269.9668 215.97266 Z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect36-8-98"
+       y="4"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect38-9-3"
+       y="4"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect40-2-6"
+       y="4"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect42-29-5"
+       y="4"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect46-8-6"
+       y="5"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect48-1-0"
+       y="5"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect50-1-4"
+       y="5"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect52-1-11"
+       y="5"
+       x="5"
+       height="1"
+       width="1" />
+  </g>
+  <g
+     style="shape-rendering:crispEdges"
+     id="g864"
+     transform="matrix(0.49999999,0,0,0.49999999,2.0345039,2.0525581)">
+    <rect
+       style="fill:#000000"
+       id="rect2-0"
+       height="7"
+       width="7"
+       y="0"
+       x="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect4-4"
+       transform="scale(0.01852083)"
+       d="m 53.994141,53.994141 v 53.992189 53.99414 H 107.98633 V 107.98633 53.994141 Z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect6-72"
+       y="1"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect8-5"
+       y="1"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect10-71"
+       y="1"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect12-33"
+       y="1"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect16-03"
+       y="2"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect18-41"
+       y="2"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect20-08"
+       y="2"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect22-00"
+       y="2"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect24-9"
+       y="3"
+       x="1"
+       height="1"
+       width="1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect26-62"
+       transform="scale(0.01852083)"
+       d="m 107.98633,161.98047 v 53.99219 h 53.99414 53.99219 53.99414 v -53.99219 h -53.99414 -53.99219 z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect32-34"
+       y="3"
+       x="5"
+       height="1"
+       width="1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="rect34-74"
+       transform="scale(0.01852083)"
+       d="m 53.994141,215.97266 v 53.99414 53.99218 H 107.98633 V 269.9668 215.97266 Z"
+       style="fill:#ffffff;stroke-width:53.9932518" />
+    <rect
+       style="fill:#000000"
+       id="rect36-8"
+       y="4"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect38-9"
+       y="4"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect40-2"
+       y="4"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect42-29"
+       y="4"
+       x="5"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect46-8"
+       y="5"
+       x="2"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect48-1"
+       y="5"
+       x="3"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect50-1"
+       y="5"
+       x="4"
+       height="1"
+       width="1" />
+    <rect
+       style="fill:#000000"
+       id="rect52-1"
+       y="5"
+       x="5"
+       height="1"
+       width="1" />
+  </g>
+</svg>

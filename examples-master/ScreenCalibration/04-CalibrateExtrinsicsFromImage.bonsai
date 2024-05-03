@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.5.0"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:p1="clr-namespace:Bonsai.Aruco;assembly=Bonsai.Aruco"
+                 xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Value" DisplayName="FileName" />
+      </Expression>
+      <Expression xsi:type="PropertySource" TypeArguments="cv:LoadImage,sys:String">
+        <MemberName>FileName</MemberName>
+        <Value />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Take">
+          <rx:Count>1</rx:Count>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="AsyncSubject">
+        <Name>Input</Name>
+      </Expression>
+      <Expression xsi:type="Parse">
+        <Pattern>%s\.%s</Pattern>
+      </Expression>
+      <Expression xsi:type="Format">
+        <Format>{0}.yml</Format>
+        <Selector>Item1</Selector>
+      </Expression>
+      <Expression xsi:type="AsyncSubject">
+        <Name>Output</Name>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="DisplayId" Category="Marker" />
+        <Property Name="ReferenceId" Category="Marker" />
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Position" Category="Offset" />
+        <Property Name="Rotation" Category="Offset" />
+        <Property Name="Scale" Category="Offset" />
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Input</Name>
+      </Expression>
+      <Expression xsi:type="PropertyMapping">
+        <PropertyMappings>
+          <Property Name="FileName" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:LoadImage">
+          <cv:FileName />
+          <cv:Mode>Unchanged</cv:Mode>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:DetectMarkers">
+          <p1:CameraParameters>camera_intrinsics.yml</p1:CameraParameters>
+          <p1:ThresholdMethod>AdaptiveThreshold</p1:ThresholdMethod>
+          <p1:Param1>7</p1:Param1>
+          <p1:Param2>7</p1:Param2>
+          <p1:MinSize>0.04</p1:MinSize>
+          <p1:MaxSize>0.5</p1:MaxSize>
+          <p1:CornerRefinement>Lines</p1:CornerRefinement>
+          <p1:MarkerSize>5</p1:MarkerSize>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>CalibrateExtrinsics</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Id" DisplayName="ReferenceId" />
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Id" DisplayName="DisplayId" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p1:SelectMarker">
+                <p1:Id>1</p1:Id>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p1:MarkerViewMatrix" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p1:SelectMarker">
+                <p1:Id>48</p1:Id>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p1:MarkerViewMatrix" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:Invert" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Zip" />
+            </Expression>
+            <Expression xsi:type="Multiply" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:Invert" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Last" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Delay">
+                <rx:DueTime>PT5S</rx:DueTime>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="3" Label="Source1" />
+            <Edge From="0" To="5" Label="Source1" />
+            <Edge From="1" To="5" Label="Source2" />
+            <Edge From="2" To="3" Label="Source2" />
+            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="4" To="8" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="8" Label="Source2" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:TransformRelative">
+          <gl:Order>Prepend</gl:Order>
+          <gl:Position>
+            <gl:X>0</gl:X>
+            <gl:Y>15</gl:Y>
+            <gl:Z>0</gl:Z>
+          </gl:Position>
+          <gl:Rotation>
+            <gl:Xyz>
+              <gl:X>0</gl:X>
+              <gl:Y>0</gl:Y>
+              <gl:Z>0</gl:Z>
+            </gl:Xyz>
+            <gl:W>1</gl:W>
+          </gl:Rotation>
+          <gl:Scale>
+            <gl:X>1</gl:X>
+            <gl:Y>1</gl:Y>
+            <gl:Z>1</gl:Z>
+          </gl:Scale>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:RotateY">
+          <gl:Order>Prepend</gl:Order>
+          <gl:Angle>-1.57079637</gl:Angle>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:RotateZ">
+          <gl:Order>Prepend</gl:Order>
+          <gl:Angle>-1.57079637</gl:Angle>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:ExtrinsicsTransform">
+          <gl:Scale>
+            <gl:X>1</gl:X>
+            <gl:Y>-1</gl:Y>
+            <gl:Z>1</gl:Z>
+          </gl:Scale>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="InputMapping">
+        <PropertyMappings>
+          <Property Name="Rotation" Selector="Item1.Z,Item1.X,Item1.Y" />
+          <Property Name="Translation" Selector="Item2.Z,Item2.X,Item2.Y" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:CreateExtrinsics">
+          <cv:Rotation>
+            <cv:X>0</cv:X>
+            <cv:Y>0</cv:Y>
+            <cv:Z>0</cv:Z>
+          </cv:Rotation>
+          <cv:Translation>
+            <cv:X>0</cv:X>
+            <cv:Y>0</cv:Y>
+            <cv:Z>-10</cv:Z>
+          </cv:Translation>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>Output</Name>
+      </Expression>
+      <Expression xsi:type="PropertyMapping">
+        <PropertyMappings>
+          <Property Name="FileName" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="cv:SaveExtrinsics">
+          <cv:FileName />
+          <cv:Suffix>None</cv:Suffix>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="WorkflowOutput" />
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="7" To="13" Label="Source2" />
+      <Edge From="8" To="14" Label="Source2" />
+      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="13" To="14" Label="Source1" />
+      <Edge From="14" To="15" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="19" To="22" Label="Source1" />
+      <Edge From="20" To="21" Label="Source1" />
+      <Edge From="21" To="22" Label="Source2" />
+      <Edge From="22" To="23" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

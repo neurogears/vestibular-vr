@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 7 7"
+   shape-rendering="crispEdges"
+   width="100mm"
+   height="100mm"
+   version="1.1"
+   id="svg54"
+   sodipodi:docname="aruco-1.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:export-filename="C:\Users\gonca\Documents\Projects\github\bonvision\examples\ScreenCalibration\aruco-1.png"
+   inkscape:export-xdpi="260.09601"
+   inkscape:export-ydpi="260.09601">
+  <metadata
+     id="metadata60">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs58" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview56"
+     showgrid="false"
+     inkscape:zoom="1.2488333"
+     inkscape:cx="188.97638"
+     inkscape:cy="188.97638"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg54" />
+  <rect
+     x="0"
+     y="0"
+     width="7"
+     height="7"
+     fill="black"
+     id="rect2" />
+  <path
+     style="fill:#ffffff;stroke-width:53.9932518"
+     d="M 53.994141 53.994141 L 53.994141 107.98633 L 53.994141 161.98047 L 53.994141 215.97266 L 53.994141 269.9668 L 53.994141 323.95898 L 107.98633 323.95898 L 107.98633 269.9668 L 107.98633 215.97266 L 107.98633 161.98047 L 107.98633 107.98633 L 107.98633 53.994141 L 53.994141 53.994141 z "
+     transform="scale(0.01852083)"
+     id="rect4" />
+  <rect
+     width="1"
+     height="1"
+     x="2"
+     y="1"
+     fill="black"
+     id="rect6" />
+  <rect
+     width="1"
+     height="1"
+     x="3"
+     y="1"
+     fill="black"
+     id="rect8" />
+  <rect
+     width="1"
+     height="1"
+     x="4"
+     y="1"
+     fill="black"
+     id="rect10" />
+  <rect
+     width="1"
+     height="1"
+     x="5"
+     y="1"
+     fill="black"
+     id="rect12" />
+  <rect
+     width="1"
+     height="1"
+     x="2"
+     y="2"
+     fill="black"
+     id="rect16" />
+  <rect
+     width="1"
+     height="1"
+     x="3"
+     y="2"
+     fill="black"
+     id="rect18" />
+  <rect
+     width="1"
+     height="1"
+     x="4"
+     y="2"
+     fill="black"
+     id="rect20" />
+  <rect
+     width="1"
+     height="1"
+     x="5"
+     y="2"
+     fill="black"
+     id="rect22" />
+  <rect
+     width="1"
+     height="1"
+     x="2"
+     y="3"
+     fill="black"
+     id="rect26" />
+  <rect
+     width="1"
+     height="1"
+     x="3"
+     y="3"
+     fill="black"
+     id="rect28" />
+  <rect
+     width="1"
+     height="1"
+     x="4"
+     y="3"
+     fill="black"
+     id="rect30" />
+  <rect
+     width="1"
+     height="1"
+     x="5"
+     y="3"
+     fill="black"
+     id="rect32" />
+  <rect
+     width="1"
+     height="1"
+     x="2"
+     y="4"
+     fill="black"
+     id="rect36" />
+  <rect
+     width="1"
+     height="1"
+     x="3"
+     y="4"
+     fill="black"
+     id="rect38" />
+  <rect
+     width="1"
+     height="1"
+     x="4"
+     y="4"
+     fill="black"
+     id="rect40" />
+  <rect
+     width="1"
+     height="1"
+     x="5"
+     y="4"
+     fill="black"
+     id="rect42" />
+  <rect
+     width="1"
+     height="1"
+     x="2"
+     y="5"
+     fill="black"
+     id="rect46" />
+  <path
+     style="fill:#ffffff;stroke-width:53.9932518"
+     d="M 161.98047 269.9668 L 161.98047 323.95898 L 215.97266 323.95898 L 269.9668 323.95898 L 323.95898 323.95898 L 323.95898 269.9668 L 269.9668 269.9668 L 215.97266 269.9668 L 161.98047 269.9668 z "
+     transform="scale(0.01852083)"
+     id="rect48" />
+</svg>
