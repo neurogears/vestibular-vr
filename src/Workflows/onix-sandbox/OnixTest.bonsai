@@ -12,29 +12,44 @@
               <p1:Driver>riffa</p1:Driver>
               <p1:Index>0</p1:Index>
             </p1:Slot>
-            <p1:ReadSize>2584</p1:ReadSize>
+            <p1:ReadSize>2048</p1:ReadSize>
             <p1:WriteSize>2048</p1:WriteSize>
           </p1:ContextConfiguration>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p1:NeuropixelsV1eDevice">
+        <Combinator xsi:type="p1:MemoryUsageDevice">
           <p1:DeviceAddress>
             <p1:HardwareSlot>
-              <p1:Driver />
+              <p1:Driver>riffa</p1:Driver>
               <p1:Index>0</p1:Index>
             </p1:HardwareSlot>
-            <p1:Address xsi:nil="true" />
+            <p1:Address>10</p1:Address>
           </p1:DeviceAddress>
-          <p1:BlockSize>30</p1:BlockSize>
+          <p1:EnableStream>true</p1:EnableStream>
+          <p1:UpdateHz>100</p1:UpdateHz>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>MemoryUsagePercentage</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:NeuropixelsV1Device">
+          <p1:DeviceAddress>
+            <p1:HardwareSlot>
+              <p1:Driver>riffa</p1:Driver>
+              <p1:Index>0</p1:Index>
+            </p1:HardwareSlot>
+            <p1:Address>257</p1:Address>
+          </p1:DeviceAddress>
           <p1:EnableStream>false</p1:EnableStream>
           <p1:Configuration>
             <p1:DeviceAddress>
               <p1:HardwareSlot>
-                <p1:Driver />
+                <p1:Driver>riffa</p1:Driver>
                 <p1:Index>0</p1:Index>
               </p1:HardwareSlot>
-              <p1:Address xsi:nil="true" />
+              <p1:Address>257</p1:Address>
             </p1:DeviceAddress>
             <p1:ConfigProbeSN xsi:nil="true" />
             <p1:PerformReadCheck>false</p1:PerformReadCheck>
@@ -25324,10 +25339,17 @@
               </p1:NeuropixelsV1ADC>
             </p1:ADCs>
           </p1:Configuration>
-          <p1:RequireSNMatch>true</p1:RequireSNMatch>
+          <p1:RequireSNMatch>false</p1:RequireSNMatch>
+          <p1:BlockSize>1</p1:BlockSize>
         </Combinator>
       </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>LFPData</Selector>
+      </Expression>
     </Nodes>
-    <Edges />
+    <Edges>
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+    </Edges>
   </Workflow>
 </WorkflowBuilder>
