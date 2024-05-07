@@ -80,7 +80,7 @@
         <ExtentX>100</ExtentX>
         <ExtentY>100</ExtentY>
         <SpatialFrequency>2</SpatialFrequency>
-        <TemporalFrequency>0</TemporalFrequency>
+        <TemporalFrequency>2</TemporalFrequency>
         <Phase>0</Phase>
         <Angle>0</Angle>
         <SquareWave>true</SquareWave>
@@ -116,11 +116,13 @@
       <Expression xsi:type="ExternalizedMapping">
         <Property Name="Filter" DisplayName="start moving" />
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="wie:KeyDown">
-          <wie:Filter>LButton A Control</wie:Filter>
-          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="wie:KeyDown">
+            <wie:Filter>LButton A Control</wie:Filter>
+            <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+          </Combinator>
+        </Builder>
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="Combinator">
@@ -178,130 +180,127 @@
           </Combinator>
         </Builder>
       </Expression>
-      <Expression xsi:type="rx:SelectMany">
-        <Workflow>
-          <Nodes>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="gl:RenderFrame" />
-            </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.NormalizedView.bonsai" />
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Filter" DisplayName="grating stop" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="wie:KeyDown">
-                <wie:Filter>LButton RButton Cancel A B C Control</wie:Filter>
-                <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:TakeUntil" />
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="rx:SubscribeWhen" />
-              </Builder>
-            </Expression>
-            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-              <LocationX>0</LocationX>
-              <LocationY>0</LocationY>
-              <Layer>0</Layer>
-              <ExtentX>100</ExtentX>
-              <ExtentY>100</ExtentY>
-              <SpatialFrequency>2</SpatialFrequency>
-              <TemporalFrequency>2</TemporalFrequency>
-              <Phase>0</Phase>
-              <Angle>0</Angle>
-              <SquareWave>true</SquareWave>
-              <Contrast>1</Contrast>
-              <DutyCycle>0.5</DutyCycle>
-              <Radius>1</Radius>
-              <Aperture>0</Aperture>
-              <Opacity>1</Opacity>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Timer">
-                <rx:DueTime>PT0S</rx:DueTime>
-                <rx:Period>PT0S</rx:Period>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="IntProperty">
-                <Value>0</Value>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Timer">
-                <rx:DueTime>PT0S</rx:DueTime>
-                <rx:Period>PT0S</rx:Period>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:TakeUntil" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="dsp:FunctionGenerator">
-                <dsp:BufferLength>100</dsp:BufferLength>
-                <dsp:Frequency>0</dsp:Frequency>
-                <dsp:Waveform>Square</dsp:Waveform>
-                <dsp:SampleRate>1</dsp:SampleRate>
-                <dsp:Depth>U16</dsp:Depth>
-                <dsp:Amplitude>0</dsp:Amplitude>
-                <dsp:Offset>0</dsp:Offset>
-                <dsp:Phase>0</dsp:Phase>
-              </Combinator>
-            </Expression>
-            <Expression xsi:type="Index">
-              <Operand xsi:type="IntProperty">
-                <Value>0</Value>
-              </Operand>
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Val0</Selector>
-            </Expression>
-            <Expression xsi:type="scr:ExpressionTransform">
-              <scr:Expression>Convert.ToByte(0)</scr:Expression>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:WithLatestFrom" />
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>Item2</Selector>
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p1:DigitalIODevice">
-                <p1:DeviceAddress>
-                  <p1:HardwareSlot>
-                    <p1:Driver>riffa</p1:Driver>
-                    <p1:Index>0</p1:Index>
-                  </p1:HardwareSlot>
-                  <p1:Address>7</p1:Address>
-                </p1:DeviceAddress>
-                <p1:LEDBrightness>40</p1:LEDBrightness>
-                <p1:EnableStream>true</p1:EnableStream>
-              </Combinator>
-            </Expression>
-          </Nodes>
-          <Edges>
-            <Edge From="0" To="1" Label="Source1" />
-            <Edge From="1" To="4" Label="Source1" />
-            <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="4" Label="Source2" />
-            <Edge From="3" To="10" Label="Source1" />
-            <Edge From="4" To="5" Label="Source1" />
-            <Edge From="5" To="6" Label="Source1" />
-            <Edge From="7" To="8" Label="Source1" />
-            <Edge From="8" To="15" Label="Source1" />
-            <Edge From="9" To="10" Label="Source2" />
-            <Edge From="10" To="11" Label="Source1" />
-            <Edge From="11" To="12" Label="Source1" />
-            <Edge From="12" To="13" Label="Source1" />
-            <Edge From="13" To="14" Label="Source1" />
-            <Edge From="14" To="15" Label="Source2" />
-            <Edge From="15" To="16" Label="Source1" />
-            <Edge From="16" To="17" Label="Source1" />
-          </Edges>
-        </Workflow>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="rx:SelectMany">
+          <Workflow>
+            <Nodes>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="gl:RenderFrame" />
+              </Expression>
+              <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.NormalizedView.bonsai" />
+              <Expression xsi:type="ExternalizedMapping">
+                <Property Name="Filter" DisplayName="grating stop" />
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="wie:KeyDown">
+                  <wie:Filter>LButton RButton Cancel A B C Control</wie:Filter>
+                  <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:TakeUntil" />
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="rx:SubscribeWhen" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
+                <LocationX>0</LocationX>
+                <LocationY>0</LocationY>
+                <Layer>0</Layer>
+                <ExtentX>100</ExtentX>
+                <ExtentY>100</ExtentY>
+                <SpatialFrequency>2</SpatialFrequency>
+                <TemporalFrequency>2</TemporalFrequency>
+                <Phase>0</Phase>
+                <Angle>0</Angle>
+                <SquareWave>true</SquareWave>
+                <Contrast>1</Contrast>
+                <DutyCycle>0.5</DutyCycle>
+                <Radius>1</Radius>
+                <Aperture>0</Aperture>
+                <Opacity>1</Opacity>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:Timer">
+                  <rx:DueTime>PT0S</rx:DueTime>
+                  <rx:Period>PT0.1000001S</rx:Period>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="IntProperty">
+                  <Value>1</Value>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:Timer">
+                  <rx:DueTime>PT0S</rx:DueTime>
+                  <rx:Period>PT0S</rx:Period>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="dsp:FunctionGenerator">
+                  <dsp:BufferLength>1</dsp:BufferLength>
+                  <dsp:Frequency>0</dsp:Frequency>
+                  <dsp:Waveform>Square</dsp:Waveform>
+                  <dsp:SampleRate>100</dsp:SampleRate>
+                  <dsp:Depth>U16</dsp:Depth>
+                  <dsp:Amplitude>1</dsp:Amplitude>
+                  <dsp:Offset>1</dsp:Offset>
+                  <dsp:Phase>0</dsp:Phase>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="Index">
+                <Operand xsi:type="IntProperty">
+                  <Value>0</Value>
+                </Operand>
+              </Expression>
+              <Expression xsi:type="MemberSelector">
+                <Selector>Val0</Selector>
+              </Expression>
+              <Expression xsi:type="scr:ExpressionTransform">
+                <scr:Expression>Convert.ToByte(it)</scr:Expression>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="rx:WithLatestFrom" />
+              </Expression>
+              <Expression xsi:type="MemberSelector">
+                <Selector>Item2</Selector>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="p1:DigitalIODevice">
+                  <p1:DeviceAddress>
+                    <p1:HardwareSlot>
+                      <p1:Driver>riffa</p1:Driver>
+                      <p1:Index>0</p1:Index>
+                    </p1:HardwareSlot>
+                    <p1:Address>7</p1:Address>
+                  </p1:DeviceAddress>
+                  <p1:LEDBrightness>40</p1:LEDBrightness>
+                  <p1:EnableStream>true</p1:EnableStream>
+                </Combinator>
+              </Expression>
+            </Nodes>
+            <Edges>
+              <Edge From="0" To="1" Label="Source1" />
+              <Edge From="1" To="4" Label="Source1" />
+              <Edge From="2" To="3" Label="Source1" />
+              <Edge From="3" To="4" Label="Source2" />
+              <Edge From="4" To="5" Label="Source1" />
+              <Edge From="5" To="6" Label="Source1" />
+              <Edge From="7" To="8" Label="Source1" />
+              <Edge From="8" To="14" Label="Source1" />
+              <Edge From="9" To="10" Label="Source1" />
+              <Edge From="10" To="11" Label="Source1" />
+              <Edge From="11" To="12" Label="Source1" />
+              <Edge From="12" To="13" Label="Source1" />
+              <Edge From="13" To="14" Label="Source2" />
+              <Edge From="14" To="15" Label="Source1" />
+              <Edge From="15" To="16" Label="Source1" />
+            </Edges>
+          </Workflow>
+        </Builder>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
