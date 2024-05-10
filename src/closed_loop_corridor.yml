@@ -1,0 +1,34 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+
+metadata:
+  animalId: plimbo
+  rootPath: D:/TrialLogicTestData/
+  runGain: 0.0008
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
+blocks: [
+  {
+    alias: LinearClosedLoopMismatch,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 2,
+      haltGain: 0,
+    },
+    stimulus: {
+      type: grating,
+      spatialFrequency: 0.5
+    },
+    haltProbability: 0,
+    totalRuntime: 30,
+    flowXToVisualGain: 1
+  },
+  {<<: *LinearClosedLoopMismatch}
+]
