@@ -79,8 +79,8 @@
         <Layer>0</Layer>
         <ExtentX>100</ExtentX>
         <ExtentY>100</ExtentY>
-        <SpatialFrequency>2</SpatialFrequency>
-        <TemporalFrequency>2</TemporalFrequency>
+        <SpatialFrequency>1</SpatialFrequency>
+        <TemporalFrequency>-2</TemporalFrequency>
         <Phase>0</Phase>
         <Angle>0</Angle>
         <SquareWave>true</SquareWave>
