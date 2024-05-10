@@ -31,7 +31,7 @@ blocks: [
       haltGain: 0
     },
     totalRuntime: 30,
-    flowYToVisualGain: 0,
+    flowYToVisualGain: 1,
     flowYToMotorGain: 5000
   },
   &LinearClosedLoopMismatch

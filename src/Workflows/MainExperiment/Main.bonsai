@@ -59,7 +59,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:LoadSettings">
-                <p1:Path>C:\Users\ONIX\source\ae-dev\vestibular-vr\src\blockTypesDemo.yml</p1:Path>
+                <p1:Path>C:\Users\ONIX\source\nora-dev\vestibular-vr\src\blockTypesDemo.yml</p1:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
