@@ -1,0 +1,110 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/harp-tech/reflex-generator/main/schema/device.json
+device: VestibularH1
+whoAmI: 1224
+firmwareVersion: "0.1"
+hardwareTargets: "1.0"
+registers:
+  Cam0Event:
+    address: 32
+    type: U8
+    description: Signals when a frame was triggered on camera 0.
+    access: Event
+    maskType: bool
+  Cam1Event:
+    address: 33
+    type: U8
+    description: Signals when a frame was triggered on camera 1.
+    access: Event
+    maskType: bool
+  Cam0TriggerFrequency:
+    address: 34
+    access: Write
+    type: U16
+    description: Sets the trigger frequency for camera 0 between 1 and 1000.
+  Cam0TriggerDuration:
+    address: 35
+    access: Write
+    type: U16
+    description: Sets the duration of the trigger pulse (in microseconds, minimum is 100) for camera 0.
+  Cam1TriggerFrequency:
+    address: 36
+    access: Write
+    type: U16
+    description: Sets the trigger frequency for camera 1 between 1 and 1000.
+  Cam1TriggerDuration:
+    address: 37
+    access: Write
+    type: U16
+    description: Sets the duration of the trigger pulse (in microseconds, minimum is 100) for camera 1.
+  StartAndStop:
+    address: 38
+    access: Write
+    type: U8
+    description: Starts or stops the cameras immediately.
+    maskType: StartStopFlags
+  InState:
+    address: 39
+    access: Event
+    type: U8
+    maskType: PortState
+    description: Contains the state of the lick ports.
+  Valve0Pulse:
+    address: 40
+    access: Write
+    type: U8
+    description: Configures the valve 0 open time in milliseconds.
+  Valve1Pulse:
+    address: 41
+    access: Write
+    type: U8
+    description: Configures the valve 1 open time in milliseconds.
+  OutSet:
+    address: 42
+    access: Write
+    type: U8
+    description: Bitmask to set the available outputs.
+  OutClear:
+    address: 43
+    access: Write
+    type: U8
+    description: Bitmask to clear the available outputs.
+  OutToggle:
+    address: 44
+    access: Write
+    type: U8
+    description: Bitmask to toggle the available outputs.
+  OutWrite:
+    address: 45
+    access: Write
+    type: U8
+    maskType: DO
+    description: Bitmask to write the available outputs.
+  OpticalTrackingRead:
+    address: 46
+    access: Event
+    type: S16
+    length: 6
+bitMasks:
+  StartStopFlags:
+    description: Bitmask describing the enable or disable commands to send to the cameras.
+    bits:
+      StartCam0: 0x1
+      StartCam1: 0x2
+      StopCam0:  0x4
+      StopCam1:  0x8
+  PortState:
+    description: "Bitmask describing the state of the lick ports."
+    bits:
+      Lick0:        0x1
+      Lick1:        0x2
+      Lick0Changed: 0x10
+      Lick1Changed: 0x20
+  DO:
+    description: Bitmask used to control the available digital outputs.
+    bits:
+      TriggerCam0: 0x1
+      TriggerCam1: 0x2
+      Valve0:      0x4
+      Valve1:      0x8
+      PulseValve0: 0x10
+      PulseValve1: 0x2A
