@@ -252,7 +252,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:CreatePoint3d">
-          <cv:X>-4.8578028678894043</cv:X>
+          <cv:X>-4.9947853088378906</cv:X>
           <cv:Y>1</cv:Y>
           <cv:Z>-5</cv:Z>
         </Combinator>
@@ -313,7 +313,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
           <Z>0</Z>
         </Rotation>
         <Translation>
-          <X>-4.8578028678894043</X>
+          <X>-4.9947853088378906</X>
           <Y>1</Y>
           <Z>-5</Z>
         </Translation>
@@ -367,7 +367,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>5.99</TranslationY>
-                    <TranslationZ>-45.5662079</TranslationZ>
+                    <TranslationZ>-55.5484</TranslationZ>
                     <RotationZ>0</RotationZ>
                     <RotationY>90</RotationY>
                     <RotationX>-90</RotationX>
@@ -439,7 +439,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>4</TranslationX>
                     <TranslationY>2</TranslationY>
-                    <TranslationZ>-58.1229019</TranslationZ>
+                    <TranslationZ>-55.5484</TranslationZ>
                     <RotationZ>0</RotationZ>
                     <RotationY>90</RotationY>
                     <RotationX>0</RotationX>
@@ -511,7 +511,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>-4</TranslationX>
                     <TranslationY>2</TranslationY>
-                    <TranslationZ>-58.1229019</TranslationZ>
+                    <TranslationZ>-55.5484</TranslationZ>
                     <RotationZ>0</RotationZ>
                     <RotationY>90</RotationY>
                     <RotationX>0</RotationX>
@@ -583,7 +583,7 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
                     <TranslationX>0</TranslationX>
                     <TranslationY>-1.99</TranslationY>
-                    <TranslationZ>-50</TranslationZ>
+                    <TranslationZ>-55.5484</TranslationZ>
                     <RotationZ>0</RotationZ>
                     <RotationY>90</RotationY>
                     <RotationX>-90</RotationX>
@@ -1937,10 +1937,8 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>MousePos</Name>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="rx:BehaviorSubject">
-          <Name>z pos</Name>
-        </Builder>
+      <Expression xsi:type="rx:BehaviorSubject">
+        <Name>z pos</Name>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Workflow>
@@ -2080,8 +2078,10 @@ ViewMatrix.Row3.Yzw as Light)</scr:Expression>
           <Value>1</Value>
         </Operand>
       </Expression>
-      <Expression xsi:type="rx:BehaviorSubject">
-        <Name>z pos</Name>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="rx:BehaviorSubject">
+          <Name>z pos</Name>
+        </Builder>
       </Expression>
     </Nodes>
     <Edges>
