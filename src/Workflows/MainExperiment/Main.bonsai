@@ -2783,7 +2783,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam0TriggerFrequencyPayload">
-                <vh1:Cam0TriggerFrequency>30</vh1:Cam0TriggerFrequency>
+                <vh1:Cam0TriggerFrequency>160</vh1:Cam0TriggerFrequency>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2794,7 +2794,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam0TriggerDurationPayload">
-                <vh1:Cam0TriggerDuration>500</vh1:Cam0TriggerDuration>
+                <vh1:Cam0TriggerDuration>1000</vh1:Cam0TriggerDuration>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2805,7 +2805,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam1TriggerFrequencyPayload">
-                <vh1:Cam1TriggerFrequency>30</vh1:Cam1TriggerFrequency>
+                <vh1:Cam1TriggerFrequency>160</vh1:Cam1TriggerFrequency>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2816,7 +2816,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam1TriggerDurationPayload">
-                <vh1:Cam1TriggerDuration>500</vh1:Cam1TriggerDuration>
+                <vh1:Cam1TriggerDuration>1000</vh1:Cam1TriggerDuration>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
