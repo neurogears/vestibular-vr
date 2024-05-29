@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.1"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:onix="clr-namespace:OpenEphys.Onix;assembly=OpenEphys.Onix"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="onix:CreateContext">
+          <onix:Driver>riffa</onix:Driver>
+          <onix:Index>0</onix:Index>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="onix:ConfigureNeuropixelsV1eHeadstage">
+          <onix:Name>NeuropixelsV1eHeadstage</onix:Name>
+          <onix:NeuropixelsV1>
+            <onix:DeviceName>NeuropixelsV1eHeadstage.NeuropixelsV1e</onix:DeviceName>
+            <onix:DeviceAddress>512</onix:DeviceAddress>
+            <onix:Enable>true</onix:Enable>
+            <onix:LedEnabled>true</onix:LedEnabled>
+            <onix:SpikeAmplifierGain>x1000</onix:SpikeAmplifierGain>
+            <onix:LfpAmplifierGain>x50</onix:LfpAmplifierGain>
+            <onix:Reference>Ext</onix:Reference>
+            <onix:SpikeFilter>true</onix:SpikeFilter>
+            <onix:GainCalibrationFile>C:\Users\ONIX\Desktop\19454412862\19454412862_gainCalValues.csv</onix:GainCalibrationFile>
+            <onix:AdcCalibrationFile>C:\Users\ONIX\Desktop\19454412862\19454412862_ADCCalibration.csv</onix:AdcCalibrationFile>
+          </onix:NeuropixelsV1>
+          <onix:Bno055>
+            <onix:DeviceName>NeuropixelsV1eHeadstage.NeuropixelsV1eBno055</onix:DeviceName>
+            <onix:DeviceAddress>513</onix:DeviceAddress>
+            <onix:Enable>true</onix:Enable>
+          </onix:Bno055>
+          <onix:Port>PortB</onix:Port>
+          <onix:PortVoltage xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="onix:StartAcquisition">
+          <onix:ReadSize>2048</onix:ReadSize>
+          <onix:WriteSize>2048</onix:WriteSize>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="onix:NeuropixelsV1eBno055Data">
+          <onix:DeviceName>NeuropixelsV1eHeadstage.NeuropixelsV1eBno055</onix:DeviceName>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="onix:NeuropixelsV1eData">
+          <onix:DeviceName>NeuropixelsV1eHeadstage.NeuropixelsV1e</onix:DeviceName>
+          <onix:BufferSize>36</onix:BufferSize>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>SpikeData</Selector>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="0" To="1" Label="Source1" />
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>
