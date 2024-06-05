@@ -87,13 +87,23 @@
         },
         "stimulusProtocol": {
             "properties": {
+                "mode": {
+                    "default": "closed-loop",
+                    "description": "The mode of the visual stimulus: closed-loop or open-loop.",
+                    "enum": [
+                        "closed-loop",
+                        "open-loop"
+                    ],
+                    "type": "string"
+                },
                 "type": {
                     "default": "grating",
                     "description": "The type and parameters of the visual stimulus to use",
                     "enum": [
                         "grating", 
                         "texture",
-                        "cloud"
+                        "cloud",
+                        "corridor"
                     ],
                     "type": "string"
                 },
