@@ -438,52 +438,68 @@
                     <Combinator xsi:type="rx:Merge" />
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="IntProperty">
-                      <Value>1</Value>
-                    </Combinator>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="IntProperty">
+                        <Value>1</Value>
+                      </Combinator>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="dsp:FunctionGenerator">
-                      <dsp:BufferLength>1</dsp:BufferLength>
-                      <dsp:Frequency>0</dsp:Frequency>
-                      <dsp:Waveform>Square</dsp:Waveform>
-                      <dsp:SampleRate>100</dsp:SampleRate>
-                      <dsp:Depth>U16</dsp:Depth>
-                      <dsp:Amplitude>1</dsp:Amplitude>
-                      <dsp:Offset>1</dsp:Offset>
-                      <dsp:Phase>0</dsp:Phase>
-                    </Combinator>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="dsp:FunctionGenerator">
+                        <dsp:BufferLength>1</dsp:BufferLength>
+                        <dsp:Frequency>0</dsp:Frequency>
+                        <dsp:Waveform>Square</dsp:Waveform>
+                        <dsp:SampleRate>100</dsp:SampleRate>
+                        <dsp:Depth>U16</dsp:Depth>
+                        <dsp:Amplitude>1</dsp:Amplitude>
+                        <dsp:Offset>1</dsp:Offset>
+                        <dsp:Phase>0</dsp:Phase>
+                      </Combinator>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Index">
-                    <Operand xsi:type="IntProperty">
-                      <Value>0</Value>
-                    </Operand>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Index">
+                      <Operand xsi:type="IntProperty">
+                        <Value>0</Value>
+                      </Operand>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Val0</Selector>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="MemberSelector">
+                      <Selector>Val0</Selector>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="scr:ExpressionTransform">
-                    <scr:Expression>Convert.ToByte(it)</scr:Expression>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="scr:ExpressionTransform">
+                      <scr:Expression>Convert.ToByte(it)</scr:Expression>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:WithLatestFrom" />
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="rx:WithLatestFrom" />
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="MemberSelector">
-                    <Selector>Item2</Selector>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="MemberSelector">
+                      <Selector>Item2</Selector>
+                    </Builder>
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="p3:DigitalIODevice">
-                      <p3:DeviceAddress>
-                        <p3:HardwareSlot>
-                          <p3:Driver>riffa</p3:Driver>
-                          <p3:Index>0</p3:Index>
-                        </p3:HardwareSlot>
-                        <p3:Address>7</p3:Address>
-                      </p3:DeviceAddress>
-                      <p3:LEDBrightness>40</p3:LEDBrightness>
-                      <p3:EnableStream>true</p3:EnableStream>
-                    </Combinator>
+                  <Expression xsi:type="Disable">
+                    <Builder xsi:type="Combinator">
+                      <Combinator xsi:type="p3:DigitalIODevice">
+                        <p3:DeviceAddress>
+                          <p3:HardwareSlot>
+                            <p3:Driver>riffa</p3:Driver>
+                            <p3:Index>0</p3:Index>
+                          </p3:HardwareSlot>
+                          <p3:Address>7</p3:Address>
+                        </p3:DeviceAddress>
+                        <p3:LEDBrightness>40</p3:LEDBrightness>
+                        <p3:EnableStream>true</p3:EnableStream>
+                      </Combinator>
+                    </Builder>
                   </Expression>
                 </Nodes>
                 <Edges>
@@ -2852,7 +2868,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam0TriggerFrequencyPayload">
-                <vh1:Cam0TriggerFrequency>160</vh1:Cam0TriggerFrequency>
+                <vh1:Cam0TriggerFrequency>100</vh1:Cam0TriggerFrequency>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2863,7 +2879,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam0TriggerDurationPayload">
-                <vh1:Cam0TriggerDuration>1000</vh1:Cam0TriggerDuration>
+                <vh1:Cam0TriggerDuration>5000</vh1:Cam0TriggerDuration>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2874,7 +2890,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam1TriggerFrequencyPayload">
-                <vh1:Cam1TriggerFrequency>160</vh1:Cam1TriggerFrequency>
+                <vh1:Cam1TriggerFrequency>100</vh1:Cam1TriggerFrequency>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -2885,7 +2901,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam1TriggerDurationPayload">
-                <vh1:Cam1TriggerDuration>1000</vh1:Cam1TriggerDuration>
+                <vh1:Cam1TriggerDuration>5000</vh1:Cam1TriggerDuration>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
