@@ -10,13 +10,14 @@
                  xmlns:p2="clr-namespace:Bonsai.Numerics.Distributions;assembly=Bonsai.Numerics"
                  xmlns:sys="clr-namespace:System;assembly=mscorlib"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
-                 xmlns:p3="clr-namespace:DataSchema;assembly=Extensions"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
+                 xmlns:p3="clr-namespace:Bonsai.ONIX;assembly=Bonsai.ONIX"
+                 xmlns:p4="clr-namespace:DataSchema;assembly=Extensions"
                  xmlns:vh2="clr-namespace:Harp.VestibularH2;assembly=Harp.VestibularH2"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
-                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:vh1="clr-namespace:Harp.VestibularH1;assembly=Harp.VestibularH1"
-                 xmlns:p4="clr-namespace:System.Reactive;assembly=System.Reactive.Core"
+                 xmlns:p5="clr-namespace:System.Reactive;assembly=System.Reactive.Core"
                  xmlns:aeon="clr-namespace:Aeon.Acquisition;assembly=Aeon.Acquisition"
                  xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
                  xmlns="https://bonsai-rx.org/2018/workflow">
@@ -437,11 +438,67 @@
                     <Combinator xsi:type="rx:Merge" />
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="IntProperty">
+                      <Value>1</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="dsp:FunctionGenerator">
+                      <dsp:BufferLength>1</dsp:BufferLength>
+                      <dsp:Frequency>0</dsp:Frequency>
+                      <dsp:Waveform>Square</dsp:Waveform>
+                      <dsp:SampleRate>100</dsp:SampleRate>
+                      <dsp:Depth>U16</dsp:Depth>
+                      <dsp:Amplitude>1</dsp:Amplitude>
+                      <dsp:Offset>1</dsp:Offset>
+                      <dsp:Phase>0</dsp:Phase>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Index">
+                    <Operand xsi:type="IntProperty">
+                      <Value>0</Value>
+                    </Operand>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Val0</Selector>
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>Convert.ToByte(it)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:WithLatestFrom" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Item2</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="p3:DigitalIODevice">
+                      <p3:DeviceAddress>
+                        <p3:HardwareSlot>
+                          <p3:Driver>riffa</p3:Driver>
+                          <p3:Index>0</p3:Index>
+                        </p3:HardwareSlot>
+                        <p3:Address>7</p3:Address>
+                      </p3:DeviceAddress>
+                      <p3:LEDBrightness>40</p3:LEDBrightness>
+                      <p3:EnableStream>true</p3:EnableStream>
+                    </Combinator>
+                  </Expression>
                 </Nodes>
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="0" To="4" Label="Source1" />
+                  <Edge From="0" To="5" Label="Source1" />
                   <Edge From="1" To="2" Label="Source1" />
                   <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="4" To="9" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="7" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source2" />
+                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -479,7 +536,7 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:CreateContinuousUniform">
                       <p2:Lower>0</p2:Lower>
-                      <p2:Upper>0.5</p2:Upper>
+                      <p2:Upper>1.5</p2:Upper>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:AsyncSubject">
@@ -543,7 +600,7 @@
                           <Selector>Stimulus.Type</Selector>
                         </Expression>
                         <Expression xsi:type="Equal">
-                          <Operand xsi:type="WorkflowProperty" TypeArguments="p3:StimulusProtocolType">
+                          <Operand xsi:type="WorkflowProperty" TypeArguments="p4:StimulusProtocolType">
                             <Value>Grating</Value>
                           </Operand>
                         </Expression>
@@ -605,14 +662,14 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>-90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
-                          <ExtentX>180</ExtentX>
+                          <ExtentX>360</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <SpatialFrequency>0.5</SpatialFrequency>
+                          <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>632.224548</Phase>
+                          <Phase>-0</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -663,14 +720,14 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
-                          <ExtentX>180</ExtentX>
+                          <ExtentX>0</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <SpatialFrequency>0.5</SpatialFrequency>
+                          <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>9681.017</Phase>
+                          <Phase>10313.24</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -730,7 +787,7 @@
                           <Selector>Stimulus.Type</Selector>
                         </Expression>
                         <Expression xsi:type="Equal">
-                          <Operand xsi:type="WorkflowProperty" TypeArguments="p3:StimulusProtocolType">
+                          <Operand xsi:type="WorkflowProperty" TypeArguments="p4:StimulusProtocolType">
                             <Value>Cloud</Value>
                           </Operand>
                         </Expression>
@@ -790,7 +847,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>11</gl:Index>
+                            <gl:Index>0</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -817,9 +874,9 @@
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                           <TextureName />
-                          <ExtentX>180</ExtentX>
+                          <ExtentX>360</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>-90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -845,7 +902,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>169</gl:Index>
+                            <gl:Index>180</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -872,9 +929,9 @@
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                           <TextureName />
-                          <ExtentX>180</ExtentX>
+                          <ExtentX>0</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -2135,6 +2192,18 @@
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p3:ONIContext">
+          <p3:ContextConfiguration>
+            <p3:Slot>
+              <p3:Driver>riffa</p3:Driver>
+              <p3:Index>0</p3:Index>
+            </p3:Slot>
+            <p3:ReadSize>2048</p3:ReadSize>
+            <p3:WriteSize>2048</p3:WriteSize>
+          </p3:ContextConfiguration>
+        </Combinator>
+      </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>H1Hardware</Name>
         <Workflow>
@@ -2346,7 +2415,7 @@
             <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Boolean">
               <rx:Name>PlatformHomed</rx:Name>
             </Expression>
-            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="p4:Unit">
+            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="p5:Unit">
               <rx:Name>HomePlatform</rx:Name>
             </Expression>
             <Expression xsi:type="rx:CreateObservable">
@@ -3190,21 +3259,21 @@
       <Edge From="7" To="8" Label="Source3" />
       <Edge From="9" To="10" Label="Source1" />
       <Edge From="12" To="13" Label="Source1" />
-      <Edge From="15" To="16" Label="Source1" />
-      <Edge From="17" To="18" Label="Source1" />
-      <Edge From="19" To="20" Label="Source1" />
-      <Edge From="21" To="22" Label="Source1" />
-      <Edge From="21" To="23" Label="Source1" />
+      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="20" To="21" Label="Source1" />
+      <Edge From="22" To="23" Label="Source1" />
       <Edge From="22" To="24" Label="Source1" />
-      <Edge From="23" To="24" Label="Source2" />
-      <Edge From="24" To="25" Label="Source1" />
+      <Edge From="23" To="25" Label="Source1" />
+      <Edge From="24" To="25" Label="Source2" />
       <Edge From="25" To="26" Label="Source1" />
-      <Edge From="27" To="28" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
       <Edge From="28" To="29" Label="Source1" />
-      <Edge From="28" To="30" Label="Source1" />
+      <Edge From="29" To="30" Label="Source1" />
       <Edge From="29" To="31" Label="Source1" />
-      <Edge From="30" To="31" Label="Source2" />
-      <Edge From="31" To="32" Label="Source1" />
+      <Edge From="30" To="32" Label="Source1" />
+      <Edge From="31" To="32" Label="Source2" />
+      <Edge From="32" To="33" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
