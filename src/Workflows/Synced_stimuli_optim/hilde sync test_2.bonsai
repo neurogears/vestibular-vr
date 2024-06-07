@@ -26,8 +26,8 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:CreateWindow">
-          <gl:Width>640</gl:Width>
-          <gl:Height>480</gl:Height>
+          <gl:Width>1920</gl:Width>
+          <gl:Height>300</gl:Height>
           <gl:VSync>On</gl:VSync>
           <gl:SwapSync>false</gl:SwapSync>
           <gl:ClearColor>Black</gl:ClearColor>
@@ -35,7 +35,7 @@
           <gl:CursorVisible>true</gl:CursorVisible>
           <gl:Location xsi:nil="true" />
           <gl:WindowBorder>Resizable</gl:WindowBorder>
-          <gl:WindowState>Maximized</gl:WindowState>
+          <gl:WindowState>Fullscreen</gl:WindowState>
           <gl:DisplayDevice>Third</gl:DisplayDevice>
           <gl:TargetRenderFrequency>60</gl:TargetRenderFrequency>
           <gl:TargetUpdateFrequency xsi:nil="true" />
@@ -73,7 +73,15 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:RenderFrame" />
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.NormalizedView.bonsai" />
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.OrthographicView.bonsai">
+        <Left>0</Left>
+        <Right>1</Right>
+        <Bottom>-45</Bottom>
+        <Top>45</Top>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="IncludeWorkflow" Path="BonVision:Environment.NormalizedView.bonsai" />
+      </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>BoolStartStop</Name>
       </Expression>
@@ -93,7 +101,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="DoubleProperty">
-          <Value>-2</Value>
+          <Value>-1</Value>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -120,15 +128,15 @@
         <Layer>0</Layer>
         <ExtentX>100</ExtentX>
         <ExtentY>100</ExtentY>
-        <SpatialFrequency>1</SpatialFrequency>
-        <TemporalFrequency>-0</TemporalFrequency>
-        <Phase>0</Phase>
+        <SpatialFrequency>7</SpatialFrequency>
+        <TemporalFrequency>-1</TemporalFrequency>
+        <Phase>-138.139542</Phase>
         <Angle>0</Angle>
-        <SquareWave>true</SquareWave>
+        <SquareWave>false</SquareWave>
         <Contrast>1</Contrast>
-        <DutyCycle>0.5</DutyCycle>
+        <DutyCycle xsi:nil="true" />
         <Radius>1</Radius>
-        <Aperture>0</Aperture>
+        <Aperture>1</Aperture>
         <Opacity>1</Opacity>
       </Expression>
       <Expression xsi:type="Disable">
@@ -373,7 +381,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="wie:KeyDown">
-                <wie:Filter>LButton A Control</wie:Filter>
+                <wie:Filter>A</wie:Filter>
                 <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
               </Combinator>
             </Expression>
@@ -489,7 +497,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="wie:KeyDown">
-                <wie:Filter>LButton RButton Cancel A B C Control</wie:Filter>
+                <wie:Filter>S</wie:Filter>
                 <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
               </Combinator>
             </Expression>
@@ -572,29 +580,30 @@
       <Edge From="2" To="3" Label="Source1" />
       <Edge From="3" To="4" Label="Source1" />
       <Edge From="5" To="6" Label="Source1" />
-      <Edge From="6" To="17" Label="Source1" />
-      <Edge From="7" To="8" Label="Source1" />
-      <Edge From="8" To="12" Label="Source1" />
-      <Edge From="9" To="11" Label="Source1" />
-      <Edge From="10" To="11" Label="Source2" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="18" Label="Source1" />
+      <Edge From="8" To="9" Label="Source1" />
+      <Edge From="9" To="13" Label="Source1" />
+      <Edge From="10" To="12" Label="Source1" />
       <Edge From="11" To="12" Label="Source2" />
-      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="12" To="13" Label="Source2" />
       <Edge From="13" To="14" Label="Source1" />
       <Edge From="14" To="15" Label="Source1" />
-      <Edge From="15" To="17" Label="Source2" />
-      <Edge From="16" To="17" Label="Source3" />
-      <Edge From="18" To="19" Label="Source1" />
-      <Edge From="19" To="27" Label="Source1" />
-      <Edge From="20" To="23" Label="Source1" />
-      <Edge From="21" To="22" Label="Source1" />
-      <Edge From="22" To="23" Label="Source2" />
-      <Edge From="22" To="30" Label="Source1" />
-      <Edge From="23" To="24" Label="Source1" />
+      <Edge From="15" To="16" Label="Source1" />
+      <Edge From="16" To="18" Label="Source2" />
+      <Edge From="17" To="18" Label="Source3" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="20" To="28" Label="Source1" />
+      <Edge From="21" To="24" Label="Source1" />
+      <Edge From="22" To="23" Label="Source1" />
+      <Edge From="23" To="24" Label="Source2" />
+      <Edge From="23" To="31" Label="Source1" />
       <Edge From="24" To="25" Label="Source1" />
       <Edge From="25" To="26" Label="Source1" />
-      <Edge From="26" To="27" Label="Source2" />
-      <Edge From="27" To="28" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="27" To="28" Label="Source2" />
       <Edge From="28" To="29" Label="Source1" />
+      <Edge From="29" To="30" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
