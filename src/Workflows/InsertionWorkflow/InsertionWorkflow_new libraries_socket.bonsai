@@ -1,0 +1,780 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkflowBuilder Version="2.8.1"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                 xmlns:p1="clr-namespace:NewScale;assembly=NewScale"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
+                 xmlns:onix="clr-namespace:OpenEphys.Onix;assembly=OpenEphys.Onix"
+                 xmlns:p2="clr-namespace:OpenEphys.Sockets.Bonsai;assembly=OpenEphys.Sockets.Bonsai"
+                 xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
+                 xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
+                 xmlns:p3="clr-namespace:Bonsai.ONIX;assembly=Bonsai.ONIX"
+                 xmlns:p4="clr-namespace:Bonsai.ONIX.Design;assembly=Bonsai.ONIX.Design"
+                 xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
+                 xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns="https://bonsai-rx.org/2018/workflow">
+  <Workflow>
+    <Nodes>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>NewScaleControl</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Boolean">
+              <rx:Name>MotorRunning</rx:Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="BooleanProperty">
+                <Value>false</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>MotorRunning</Name>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject" TypeArguments="sys:Double">
+              <rx:Name>TargetPosition</rx:Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>TargetPosition</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p1:NstDevice">
+                <p1:Axis>0</p1:Axis>
+                <p1:IgnoreBonsaiCommands>true</p1:IgnoreBonsaiCommands>
+                <p1:ZeroPosition>6886.5</p1:ZeroPosition>
+                <p1:PositioningSpeed>2000</p1:PositioningSpeed>
+                <p1:PositioningAcceleration>10000</p1:PositioningAcceleration>
+                <p1:PositioningCutoffSpeed>2000</p1:PositioningCutoffSpeed>
+                <p1:PositioningAbsoluteTarget>15000</p1:PositioningAbsoluteTarget>
+                <p1:UpHotkey>Up</p1:UpHotkey>
+                <p1:DownHotkey>Down</p1:DownHotkey>
+                <p1:ControlSpeed>400</p1:ControlSpeed>
+                <p1:ControlAcceleration>10000</p1:ControlAcceleration>
+                <p1:ControlCutoffSpeed>400</p1:ControlCutoffSpeed>
+                <p1:ControlSteps>100</p1:ControlSteps>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Position</Selector>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>CurrentPosition</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>MotorStatus</Selector>
+            </Expression>
+            <Expression xsi:type="HasFlag">
+              <Operand xsi:type="WorkflowProperty" TypeArguments="p1:MotorStatus">
+                <Value>MotorRunning</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>MotorRunning</Name>
+            </Expression>
+            <Expression xsi:type="HasFlag">
+              <Operand xsi:type="WorkflowProperty" TypeArguments="p1:MotorStatus">
+                <Value>Stalled</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="rx:PublishSubject" TypeArguments="sys:Double">
+              <rx:Name>CurrentPosition</rx:Name>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="wie:KeyDown">
+                  <wie:Filter>Left</wie:Filter>
+                  <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="DoubleProperty">
+                  <Value>-500</Value>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="wie:KeyDown">
+                  <wie:Filter>Right</wie:Filter>
+                  <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="DoubleProperty">
+                  <Value>500</Value>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="rx:Merge" />
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="rx:Accumulate" />
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MulticastSubject">
+                <Name>TargetPosition</Name>
+              </Builder>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="5" To="8" Label="Source1" />
+            <Edge From="5" To="12" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="8" To="11" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="18" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="17" To="18" Label="Source2" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="19" To="20" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="ExternalizedMapping">
+          <Property Name="SpikeChannelIndex" />
+          <Property Name="LfpChannelIndex" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>ONIX Control</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="onix:NeuropixelsV1eData">
+                <onix:DeviceName>NeuropixelsV1eHeadstage.NeuropixelsV1e</onix:DeviceName>
+                <onix:BufferSize>36</onix:BufferSize>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>FrameCount</Selector>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>FrameCounter</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>SpikeData</Selector>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>SpikeData</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>CurrentPosition</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Clock</Selector>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>Clock</Name>
+            </Expression>
+            <Expression xsi:type="Index">
+              <Operand xsi:type="IntProperty">
+                <Value>0</Value>
+              </Operand>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>TimestampedCurrentPosition</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>LfpData</Selector>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p2:SendMatOverSocket">
+                <p2:Connection>tcp</p2:Connection>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>LFPData</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:CreateWindow">
+                <gl:Width>640</gl:Width>
+                <gl:Height>480</gl:Height>
+                <gl:Title>Spike Data</gl:Title>
+                <gl:VSync>Off</gl:VSync>
+                <gl:SwapSync>false</gl:SwapSync>
+                <gl:ClearColor>Transparent</gl:ClearColor>
+                <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
+                <gl:CursorVisible>true</gl:CursorVisible>
+                <gl:Location xsi:nil="true" />
+                <gl:WindowBorder>Resizable</gl:WindowBorder>
+                <gl:WindowState>Normal</gl:WindowState>
+                <gl:DisplayDevice>Primary</gl:DisplayDevice>
+                <gl:TargetRenderFrequency>60</gl:TargetRenderFrequency>
+                <gl:TargetUpdateFrequency xsi:nil="true" />
+                <gl:RenderState />
+                <gl:GraphicsMode>
+                  <gl:ColorFormat>
+                    <gl:Red>8</gl:Red>
+                    <gl:Green>8</gl:Green>
+                    <gl:Blue>8</gl:Blue>
+                    <gl:Alpha>8</gl:Alpha>
+                  </gl:ColorFormat>
+                  <gl:Depth>16</gl:Depth>
+                  <gl:Stencil>0</gl:Stencil>
+                  <gl:Samples>0</gl:Samples>
+                  <gl:AccumulatorFormat>
+                    <gl:Red>0</gl:Red>
+                    <gl:Green>0</gl:Green>
+                    <gl:Blue>0</gl:Blue>
+                    <gl:Alpha>0</gl:Alpha>
+                  </gl:AccumulatorFormat>
+                  <gl:Buffers>2</gl:Buffers>
+                  <gl:Stereo>false</gl:Stereo>
+                </gl:GraphicsMode>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.BonVisionResources.bonsai" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:ShaderResources">
+                <gl:Shaders>
+                  <gl:ShaderConfiguration xsi:type="gl:Material">
+                    <gl:Name>lfp_material</gl:Name>
+                    <gl:RenderState />
+                    <gl:ShaderUniforms />
+                    <gl:BufferBindings />
+                    <gl:FramebufferAttachments />
+                    <gl:VertexShader>quad.vert</gl:VertexShader>
+                    <gl:FragmentShader>probe_image.frag</gl:FragmentShader>
+                  </gl:ShaderConfiguration>
+                  <gl:ShaderConfiguration xsi:type="gl:Material">
+                    <gl:Name>spike_material</gl:Name>
+                    <gl:RenderState />
+                    <gl:ShaderUniforms />
+                    <gl:BufferBindings />
+                    <gl:FramebufferAttachments />
+                    <gl:VertexShader>quad.vert</gl:VertexShader>
+                    <gl:FragmentShader>probe_image.frag</gl:FragmentShader>
+                  </gl:ShaderConfiguration>
+                </gl:Shaders>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="res:LoadResources" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p3:MemoryUsageDevice">
+                <p3:DeviceAddress>
+                  <p3:HardwareSlot>
+                    <p3:Driver>riffa</p3:Driver>
+                    <p3:Index>0</p3:Index>
+                  </p3:HardwareSlot>
+                  <p3:Address>10</p3:Address>
+                </p3:DeviceAddress>
+                <p3:EnableStream>true</p3:EnableStream>
+                <p3:UpdateHz>100</p3:UpdateHz>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>MemoryUsagePercentage</Selector>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="onix:CreateContext">
+                <onix:Driver>riffa</onix:Driver>
+                <onix:Index>0</onix:Index>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="onix:ConfigureNeuropixelsV1eHeadstage">
+                <onix:Name>NeuropixelsV1eHeadstage</onix:Name>
+                <onix:NeuropixelsV1>
+                  <onix:DeviceName>NeuropixelsV1eHeadstage.NeuropixelsV1e</onix:DeviceName>
+                  <onix:DeviceAddress>512</onix:DeviceAddress>
+                  <onix:Enable>true</onix:Enable>
+                  <onix:LedEnabled>true</onix:LedEnabled>
+                  <onix:SpikeAmplifierGain>x1000</onix:SpikeAmplifierGain>
+                  <onix:LfpAmplifierGain>x50</onix:LfpAmplifierGain>
+                  <onix:Reference>Ext</onix:Reference>
+                  <onix:SpikeFilter>true</onix:SpikeFilter>
+                  <onix:GainCalibrationFile>C:\Users\ONIX\Desktop\19454412812-20240313T142403Z-001\19454412812\19454412812_gainCalValues.csv</onix:GainCalibrationFile>
+                  <onix:AdcCalibrationFile>C:\Users\ONIX\Desktop\19454412812-20240313T142403Z-001\19454412812\19454412812_ADCCalibration.csv</onix:AdcCalibrationFile>
+                </onix:NeuropixelsV1>
+                <onix:Bno055>
+                  <onix:DeviceName>NeuropixelsV1eHeadstage.NeuropixelsV1eBno055</onix:DeviceName>
+                  <onix:DeviceAddress>513</onix:DeviceAddress>
+                  <onix:Enable>true</onix:Enable>
+                </onix:Bno055>
+                <onix:Port>PortB</onix:Port>
+                <onix:PortVoltage xsi:nil="true" />
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="onix:StartAcquisition">
+                <onix:ReadSize>2048</onix:ReadSize>
+                <onix:WriteSize>2048</onix:WriteSize>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:RenderFrame" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.OrthographicView.bonsai">
+              <Left>0</Left>
+              <Right>1</Right>
+              <Bottom>0</Bottom>
+              <Top>1</Top>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>LFPData</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Item2</Selector>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p4:CreateGraphicsDataModel">
+                <p4:BufferLength>250</p4:BufferLength>
+                <p4:InternalFormat>R16</p4:InternalFormat>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p4:DrawGraphicsDataModel">
+                <p4:ShaderName>lfp_material</p4:ShaderName>
+                <p4:TextureUniformName>uTexture</p4:TextureUniformName>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
+              <X>0</X>
+              <Y>0</Y>
+              <Width>1</Width>
+              <Height>0.5</Height>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SpikeData</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WithLatestFrom" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Item2</Selector>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p4:CreateGraphicsDataModel">
+                <p4:BufferLength>250</p4:BufferLength>
+                <p4:InternalFormat>R16</p4:InternalFormat>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p4:DrawGraphicsDataModel">
+                <p4:ShaderName>spike_material</p4:ShaderName>
+                <p4:TextureUniformName>uTexture</p4:TextureUniformName>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
+              <X>0</X>
+              <Y>0.5</Y>
+              <Width>1</Width>
+              <Height>0.5</Height>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p2:TcpServer">
+                <p2:Name>tcp</p2:Name>
+                <p2:Port>9001</p2:Port>
+                <p2:Address>localhost</p2:Address>
+              </Combinator>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="0" To="3" Label="Source1" />
+            <Edge From="0" To="6" Label="Source1" />
+            <Edge From="0" To="11" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="5" To="9" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="8" To="9" Label="Source2" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="21" To="22" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="26" Label="Source1" />
+            <Edge From="24" To="32" Label="Source1" />
+            <Edge From="25" To="26" Label="Source2" />
+            <Edge From="26" To="27" Label="Source1" />
+            <Edge From="27" To="28" Label="Source1" />
+            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="29" To="30" Label="Source1" />
+            <Edge From="31" To="32" Label="Source2" />
+            <Edge From="32" To="33" Label="Source1" />
+            <Edge From="33" To="34" Label="Source1" />
+            <Edge From="34" To="35" Label="Source1" />
+            <Edge From="35" To="36" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="ExternalizedMapping">
+          <Property Name="Path" DisplayName="LoggingDirectory" Category="LoggingDirectory" />
+          <Property Name="SpikeDataLogName" />
+          <Property Name="LfpDataLogName" />
+          <Property Name="FrameCounterLogName" />
+          <Property Name="ClockLogName" />
+          <Property Name="ManipulatorPositionLogName" />
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="GroupWorkflow">
+          <Name>Logging</Name>
+          <Workflow>
+            <Nodes>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="ExternalizedMapping">
+                  <Property Name="Value" DisplayName="Path" Category="Logging" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="PropertySource" TypeArguments="io:GetDirectories,sys:String">
+                  <MemberName>Path</MemberName>
+                  <Value>D:\ONIX TEST DATA</Value>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="rx:Timestamp" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="scr:ExpressionTransform">
+                  <scr:Expression>Value + "_" + TimeStamp.UtcDateTime.ToString("yyyy-MM-ddTHHmmssZ") + "\"</scr:Expression>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="rx:Take">
+                    <rx:Count>1</rx:Count>
+                  </Combinator>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="rx:AsyncSubject">
+                  <Name>LoggingPath</Name>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="SubscribeSubject">
+                  <Name>SpikeData</Name>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="SubscribeSubject">
+                  <Name>LoggingPath</Name>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="ExternalizedMapping">
+                  <Property Name="Value" DisplayName="SpikeDataLogName" Category="Logging" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="StringProperty">
+                    <Value>SpikeData.bin</Value>
+                  </Combinator>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="rx:Zip" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Format">
+                  <Format>{0}\{1}</Format>
+                  <Selector>Item1,Item2</Selector>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="PropertyMapping">
+                  <PropertyMappings>
+                    <Property Name="Path" />
+                  </PropertyMappings>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="dsp:MatrixWriter">
+                    <dsp:Path>D:\ONIX TEST DATA_2024-02-13T170706Z\\SpikeData.bin</dsp:Path>
+                    <dsp:Suffix>None</dsp:Suffix>
+                    <dsp:Overwrite>false</dsp:Overwrite>
+                    <dsp:Layout>ColumnMajor</dsp:Layout>
+                  </Combinator>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="SubscribeSubject">
+                  <Name>LFPData</Name>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="SubscribeSubject">
+                  <Name>LoggingPath</Name>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="ExternalizedMapping">
+                  <Property Name="Value" DisplayName="LfpDataLogName" Category="Logging" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="StringProperty">
+                    <Value>LFP.bin</Value>
+                  </Combinator>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="rx:Zip" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Format">
+                  <Format>{0}\{1}</Format>
+                  <Selector>Item1,Item2</Selector>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="PropertyMapping">
+                  <PropertyMappings>
+                    <Property Name="Path" />
+                  </PropertyMappings>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="dsp:MatrixWriter">
+                    <dsp:Path>D:\ONIX TEST DATA_2024-02-13T170706Z\\LFP.bin</dsp:Path>
+                    <dsp:Suffix>None</dsp:Suffix>
+                    <dsp:Overwrite>false</dsp:Overwrite>
+                    <dsp:Layout>ColumnMajor</dsp:Layout>
+                  </Combinator>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="SubscribeSubject">
+                  <Name>FrameCounter</Name>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="SubscribeSubject">
+                  <Name>LoggingPath</Name>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="ExternalizedMapping">
+                  <Property Name="Value" DisplayName="FrameCounterLogName" Category="Logging" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="StringProperty">
+                    <Value>FrameCounter.bin</Value>
+                  </Combinator>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="rx:Zip" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Format">
+                  <Format>{0}\{1}</Format>
+                  <Selector>Item1,Item2</Selector>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="PropertyMapping">
+                  <PropertyMappings>
+                    <Property Name="Path" />
+                  </PropertyMappings>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="dsp:MatrixWriter">
+                    <dsp:Path>D:\ONIX TEST DATA_2024-02-13T170706Z\\FrameCounter.bin</dsp:Path>
+                    <dsp:Suffix>None</dsp:Suffix>
+                    <dsp:Overwrite>false</dsp:Overwrite>
+                    <dsp:Layout>ColumnMajor</dsp:Layout>
+                  </Combinator>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="SubscribeSubject">
+                  <Name>Clock</Name>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="SubscribeSubject">
+                  <Name>LoggingPath</Name>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="ExternalizedMapping">
+                  <Property Name="Value" DisplayName="ClockLogName" Category="Logging" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="StringProperty">
+                    <Value>Clock.bin</Value>
+                  </Combinator>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="rx:Zip" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Format">
+                  <Format>{0}\{1}</Format>
+                  <Selector>Item1,Item2</Selector>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="PropertyMapping">
+                  <PropertyMappings>
+                    <Property Name="Path" />
+                  </PropertyMappings>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="dsp:MatrixWriter">
+                    <dsp:Path>D:\ONIX TEST DATA_2024-02-13T170706Z\\Clock.bin</dsp:Path>
+                    <dsp:Suffix>None</dsp:Suffix>
+                    <dsp:Overwrite>false</dsp:Overwrite>
+                    <dsp:Layout>ColumnMajor</dsp:Layout>
+                  </Combinator>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="SubscribeSubject">
+                  <Name>TimestampedCurrentPosition</Name>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="SubscribeSubject">
+                  <Name>LoggingPath</Name>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="ExternalizedMapping">
+                  <Property Name="Value" DisplayName="ManipulatorPositionLogName" Category="Logging" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="StringProperty">
+                    <Value>CurrentPosition.csv</Value>
+                  </Combinator>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Combinator">
+                  <Combinator xsi:type="rx:Zip" />
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="Format">
+                  <Format>{0}\{1}</Format>
+                  <Selector>Item1,Item2</Selector>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="PropertyMapping">
+                  <PropertyMappings>
+                    <Property Name="FileName" />
+                  </PropertyMappings>
+                </Builder>
+              </Expression>
+              <Expression xsi:type="Disable">
+                <Builder xsi:type="io:CsvWriter">
+                  <io:FileName>D:\ONIX TEST DATA_2024-02-13T170706Z\\CurrentPosition.csv</io:FileName>
+                  <io:Append>false</io:Append>
+                  <io:Overwrite>false</io:Overwrite>
+                  <io:Suffix>None</io:Suffix>
+                  <io:IncludeHeader>false</io:IncludeHeader>
+                </Builder>
+              </Expression>
+            </Nodes>
+            <Edges>
+              <Edge From="0" To="1" Label="Source1" />
+              <Edge From="1" To="2" Label="Source1" />
+              <Edge From="2" To="3" Label="Source1" />
+              <Edge From="3" To="4" Label="Source1" />
+              <Edge From="4" To="5" Label="Source1" />
+              <Edge From="6" To="13" Label="Source1" />
+              <Edge From="7" To="10" Label="Source1" />
+              <Edge From="8" To="9" Label="Source1" />
+              <Edge From="9" To="10" Label="Source2" />
+              <Edge From="10" To="11" Label="Source1" />
+              <Edge From="11" To="12" Label="Source1" />
+              <Edge From="12" To="13" Label="Source2" />
+              <Edge From="14" To="21" Label="Source1" />
+              <Edge From="15" To="18" Label="Source1" />
+              <Edge From="16" To="17" Label="Source1" />
+              <Edge From="17" To="18" Label="Source2" />
+              <Edge From="18" To="19" Label="Source1" />
+              <Edge From="19" To="20" Label="Source1" />
+              <Edge From="20" To="21" Label="Source2" />
+              <Edge From="22" To="29" Label="Source1" />
+              <Edge From="23" To="26" Label="Source1" />
+              <Edge From="24" To="25" Label="Source1" />
+              <Edge From="25" To="26" Label="Source2" />
+              <Edge From="26" To="27" Label="Source1" />
+              <Edge From="27" To="28" Label="Source1" />
+              <Edge From="28" To="29" Label="Source2" />
+              <Edge From="30" To="37" Label="Source1" />
+              <Edge From="31" To="34" Label="Source1" />
+              <Edge From="32" To="33" Label="Source1" />
+              <Edge From="33" To="34" Label="Source2" />
+              <Edge From="34" To="35" Label="Source1" />
+              <Edge From="35" To="36" Label="Source1" />
+              <Edge From="36" To="37" Label="Source2" />
+              <Edge From="38" To="45" Label="Source1" />
+              <Edge From="39" To="42" Label="Source1" />
+              <Edge From="40" To="41" Label="Source1" />
+              <Edge From="41" To="42" Label="Source2" />
+              <Edge From="42" To="43" Label="Source1" />
+              <Edge From="43" To="44" Label="Source1" />
+              <Edge From="44" To="45" Label="Source2" />
+            </Edges>
+          </Workflow>
+        </Builder>
+      </Expression>
+    </Nodes>
+    <Edges>
+      <Edge From="1" To="2" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
+    </Edges>
+  </Workflow>
+</WorkflowBuilder>

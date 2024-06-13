@@ -41,7 +41,7 @@
               <Combinator xsi:type="p1:NstDevice">
                 <p1:Axis>0</p1:Axis>
                 <p1:IgnoreBonsaiCommands>true</p1:IgnoreBonsaiCommands>
-                <p1:ZeroPosition>6886.5</p1:ZeroPosition>
+                <p1:ZeroPosition>12694</p1:ZeroPosition>
                 <p1:PositioningSpeed>2000</p1:PositioningSpeed>
                 <p1:PositioningAcceleration>10000</p1:PositioningAcceleration>
                 <p1:PositioningCutoffSpeed>2000</p1:PositioningCutoffSpeed>
@@ -51,7 +51,7 @@
                 <p1:ControlSpeed>400</p1:ControlSpeed>
                 <p1:ControlAcceleration>10000</p1:ControlAcceleration>
                 <p1:ControlCutoffSpeed>400</p1:ControlCutoffSpeed>
-                <p1:ControlSteps>100</p1:ControlSteps>
+                <p1:ControlSteps>2</p1:ControlSteps>
               </Combinator>
             </Expression>
             <Expression xsi:type="MemberSelector">
@@ -142,12 +142,6 @@
             <Edge From="19" To="20" Label="Source1" />
           </Edges>
         </Workflow>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="ExternalizedMapping">
-          <Property Name="SpikeChannelIndex" />
-          <Property Name="LfpChannelIndex" />
-        </Builder>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>ONIX Control</Name>
@@ -294,7 +288,7 @@
                   <onix:Enable>true</onix:Enable>
                   <onix:LedEnabled>true</onix:LedEnabled>
                   <onix:SpikeAmplifierGain>x1000</onix:SpikeAmplifierGain>
-                  <onix:LfpAmplifierGain>x50</onix:LfpAmplifierGain>
+                  <onix:LfpAmplifierGain>x250</onix:LfpAmplifierGain>
                   <onix:Reference>Ext</onix:Reference>
                   <onix:SpikeFilter>true</onix:SpikeFilter>
                   <onix:GainCalibrationFile>C:\Users\ONIX\Desktop\19454412812-20240313T142403Z-001\19454412812\19454412812_gainCalValues.csv</onix:GainCalibrationFile>
@@ -431,7 +425,7 @@
             </Expression>
             <Expression xsi:type="PropertySource" TypeArguments="io:GetDirectories,sys:String">
               <MemberName>Path</MemberName>
-              <Value>D:\ONIX TEST DATA</Value>
+              <Value>D:\mouse_343</Value>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:Timestamp" />
@@ -475,7 +469,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\ONIX TEST DATA_2024-02-13T170706Z\\SpikeData.bin</dsp:Path>
+                <dsp:Path>D:\mouse_343_2024-06-13T131502Z\\SpikeData.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -509,7 +503,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\ONIX TEST DATA_2024-02-13T170706Z\\LFP.bin</dsp:Path>
+                <dsp:Path>D:\mouse_343_2024-06-13T131502Z\\LFP.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -543,7 +537,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\ONIX TEST DATA_2024-02-13T170706Z\\FrameCounter.bin</dsp:Path>
+                <dsp:Path>D:\mouse_343_2024-06-13T131502Z\\FrameCounter.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -577,7 +571,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:MatrixWriter">
-                <dsp:Path>D:\ONIX TEST DATA_2024-02-13T170706Z\\Clock.bin</dsp:Path>
+                <dsp:Path>D:\mouse_343_2024-06-13T131502Z\\Clock.bin</dsp:Path>
                 <dsp:Suffix>None</dsp:Suffix>
                 <dsp:Overwrite>false</dsp:Overwrite>
                 <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -610,7 +604,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>D:\ONIX TEST DATA_2024-02-13T170706Z\\CurrentPosition.csv</io:FileName>
+              <io:FileName>D:\mouse_343_2024-06-13T131502Z\\CurrentPosition.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>None</io:Suffix>
@@ -663,8 +657,7 @@
       </Expression>
     </Nodes>
     <Edges>
-      <Edge From="1" To="2" Label="Source1" />
-      <Edge From="3" To="4" Label="Source1" />
+      <Edge From="2" To="3" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
