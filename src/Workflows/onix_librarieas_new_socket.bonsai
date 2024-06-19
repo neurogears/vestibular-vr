@@ -2,7 +2,9 @@
 <WorkflowBuilder Version="2.8.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:onix="clr-namespace:OpenEphys.Onix;assembly=OpenEphys.Onix"
-                 xmlns:p1="clr-namespace:OpenEphys.Sockets.Bonsai;assembly=OpenEphys.Sockets.Bonsai"
+                 xmlns:p1="clr-namespace:OpenCV.Net;assembly=OpenCV.Net"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
+                 xmlns:p2="clr-namespace:OpenEphys.Sockets.Bonsai;assembly=OpenEphys.Sockets.Bonsai"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -24,8 +26,8 @@
             <onix:LfpAmplifierGain>x50</onix:LfpAmplifierGain>
             <onix:Reference>Ext</onix:Reference>
             <onix:SpikeFilter>true</onix:SpikeFilter>
-            <onix:GainCalibrationFile>C:\Users\ONIX\Desktop\19454412862\19454412862_gainCalValues.csv</onix:GainCalibrationFile>
-            <onix:AdcCalibrationFile>C:\Users\ONIX\Desktop\19454412862\19454412862_ADCCalibration.csv</onix:AdcCalibrationFile>
+            <onix:GainCalibrationFile>C:\Users\ONIX\Desktop\19454412812-20240313T142403Z-001\19454412812\19454412812_gainCalValues.csv</onix:GainCalibrationFile>
+            <onix:AdcCalibrationFile>C:\Users\ONIX\Desktop\19454412812-20240313T142403Z-001\19454412812\19454412812_ADCCalibration.csv</onix:AdcCalibrationFile>
           </onix:NeuropixelsV1>
           <onix:Bno055>
             <onix:DeviceName>NeuropixelsV1eHeadstage.NeuropixelsV1eBno055</onix:DeviceName>
@@ -56,16 +58,46 @@
       <Expression xsi:type="MemberSelector">
         <Selector>SpikeData</Selector>
       </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector />
+        <TypeMapping xsi:type="TypeMapping" TypeArguments="p1:Mat" />
+      </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p1:SendMatOverSocket">
-          <p1:Connection>tcp</p1:Connection>
+        <Combinator xsi:type="dsp:SelectChannels">
+          <dsp:Channels>
+            <dsp:int>1</dsp:int>
+            <dsp:int>2</dsp:int>
+          </dsp:Channels>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p1:TcpServer">
-          <p1:Name>tcp</p1:Name>
-          <p1:Port>9001</p1:Port>
-          <p1:Address>localhost</p1:Address>
+        <Combinator xsi:type="dsp:ConvertScale">
+          <dsp:Depth>U16</dsp:Depth>
+          <dsp:Scale>1</dsp:Scale>
+          <dsp:Shift>512</dsp:Shift>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p2:SendMatOverSocket">
+          <p2:Connection>tcp</p2:Connection>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>LfpData</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:MatrixWriter">
+          <dsp:Path>C:\Users\ONIX\Desktop\testlfp</dsp:Path>
+          <dsp:Suffix>None</dsp:Suffix>
+          <dsp:Overwrite>false</dsp:Overwrite>
+          <dsp:Layout>ColumnMajor</dsp:Layout>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p2:TcpServer">
+          <p2:Name>tcp</p2:Name>
+          <p2:Port>9001</p2:Port>
+          <p2:Address>localhost</p2:Address>
         </Combinator>
       </Expression>
     </Nodes>
@@ -73,7 +105,12 @@
       <Edge From="0" To="1" Label="Source1" />
       <Edge From="1" To="2" Label="Source1" />
       <Edge From="4" To="5" Label="Source1" />
+      <Edge From="4" To="10" Label="Source1" />
       <Edge From="5" To="6" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="8" To="9" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
