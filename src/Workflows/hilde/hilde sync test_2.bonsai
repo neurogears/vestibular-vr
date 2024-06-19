@@ -360,22 +360,24 @@
                 <Value>1</Value>
               </Combinator>
             </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Timer">
+                <rx:DueTime>PT0S</rx:DueTime>
+                <rx:Period>PT0S</rx:Period>
+              </Combinator>
+            </Expression>
             <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="rx:Timer">
-                  <rx:DueTime>PT0S</rx:DueTime>
-                  <rx:Period>PT0S</rx:Period>
-                </Combinator>
+              <Builder xsi:type="ExternalizedMapping">
+                <Property Name="Filter" DisplayName="start moving" />
               </Builder>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="Filter" DisplayName="start moving" />
-            </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="wie:KeyDown">
-                <wie:Filter>LButton A Control</wie:Filter>
-                <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-              </Combinator>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="wie:KeyDown">
+                  <wie:Filter>LButton A Control</wie:Filter>
+                  <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+                </Combinator>
+              </Builder>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="dsp:FunctionGenerator">
