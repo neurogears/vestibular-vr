@@ -60,7 +60,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:LoadSettings">
-                <p1:Path>C:\Users\ONIX\source\nora-dev\vestibular-vr\src\blockTypesDemo.yml</p1:Path>
+                <p1:Path>C:\Users\ONIX\source\nora-dev\vestibular-vr\src\motor_gain_test_I.yml</p1:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -685,7 +685,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>-0</Phase>
+                          <Phase>-34039.97</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -743,7 +743,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>10313.24</Phase>
+                          <Phase>44353.21</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -863,7 +863,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>0</gl:Index>
+                            <gl:Index>3502</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -918,7 +918,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>180</gl:Index>
+                            <gl:Index>774</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1047,7 +1047,7 @@
                         <Expression xsi:type="vh2:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
                           <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
-                            <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
+                            <vh2:ImmediatePulses>429</vh2:ImmediatePulses>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
@@ -1380,7 +1380,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="gl:Timer">
-                      <gl:DueTime>PT30S</gl:DueTime>
+                      <gl:DueTime>PT5M</gl:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -1694,7 +1694,7 @@
                               </Expression>
                               <Expression xsi:type="LessThan">
                                 <Operand xsi:type="DoubleProperty">
-                                  <Value>0.8</Value>
+                                  <Value>0</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
