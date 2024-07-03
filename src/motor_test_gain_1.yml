@@ -26,36 +26,12 @@ blocks: [
     haltProtocol: {
       minumumDelay: 0.1,
       randomDelay: 1.5,
-      haltTime: 2,
+      haltTime: 0,
       haltGain: 0
     },
     totalRuntime: 30,
     flowYToVisualGain: 1,
     flowYToMotorGain: 0.4
   },
-  &LinearClosedLoopMismatch
-  {
-    alias: LinearClosedLoopMismatch,
-    haltProtocol: {
-      minumumDelay: 0.1,
-      randomDelay: 0.5,
-      haltTime: 2,
-      haltGain: 0,
-    },
-    stimulus: {
-      type: grating,
-      spatialFrequency: 0.5
-    },
-    haltProbability: 0.8,
-    totalRuntime: 30,
-    flowXToVisualGain: 1
-  },
-  {<<: *DrumClosedLoop},
-  {<<: *LinearClosedLoopMismatch},
-  {<<: *DrumClosedLoop},
-  {<<: *LinearClosedLoopMismatch},
-  {<<: *DrumClosedLoop},
-  {<<: *LinearClosedLoopMismatch},
-  {<<: *DrumClosedLoop},
-  {<<: *LinearClosedLoopMismatch}
+
 ]

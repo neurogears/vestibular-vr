@@ -34,7 +34,7 @@
                 <harp:VisualIndicators>On</harp:VisualIndicators>
                 <harp:Heartbeat>Disabled</harp:Heartbeat>
                 <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                <harp:PortName>COM10</harp:PortName>
+                <harp:PortName>COM12</harp:PortName>
               </Combinator>
             </Expression>
             <Expression xsi:type="GroupWorkflow">
@@ -883,7 +883,7 @@ def process(value):
             <Expression xsi:type="vh2:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
-                <vh2:ImmediatePulses>14285</vh2:ImmediatePulses>
+                <vh2:ImmediatePulses>20000</vh2:ImmediatePulses>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="MulticastSubject">
