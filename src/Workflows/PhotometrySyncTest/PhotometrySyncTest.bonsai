@@ -2,8 +2,11 @@
 <WorkflowBuilder Version="2.8.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:p1="clr-namespace:Bonsai.ONIX;assembly=Bonsai.ONIX"
-                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                 xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
+                 xmlns:p2="clr-namespace:Bonsai.Numerics.Distributions;assembly=Bonsai.Numerics"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -31,68 +34,8 @@
           </p1:ContextConfiguration>
         </Combinator>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p1:AnalogIODevice">
-          <p1:DeviceAddress>
-            <p1:HardwareSlot>
-              <p1:Driver>riffa</p1:Driver>
-              <p1:Index>0</p1:Index>
-            </p1:HardwareSlot>
-            <p1:Address>6</p1:Address>
-          </p1:DeviceAddress>
-          <p1:BlockSize>100</p1:BlockSize>
-          <p1:DataType>S16</p1:DataType>
-          <p1:EnableStream>true</p1:EnableStream>
-          <p1:InputRange00>TenVolts</p1:InputRange00>
-          <p1:InputRange01>TenVolts</p1:InputRange01>
-          <p1:InputRange02>TenVolts</p1:InputRange02>
-          <p1:InputRange03>TenVolts</p1:InputRange03>
-          <p1:InputRange04>TenVolts</p1:InputRange04>
-          <p1:InputRange05>TenVolts</p1:InputRange05>
-          <p1:InputRange06>TenVolts</p1:InputRange06>
-          <p1:InputRange07>TenVolts</p1:InputRange07>
-          <p1:InputRange08>TenVolts</p1:InputRange08>
-          <p1:InputRange09>TenVolts</p1:InputRange09>
-          <p1:InputRange10>TenVolts</p1:InputRange10>
-          <p1:InputRange11>TenVolts</p1:InputRange11>
-          <p1:Direction00>Input</p1:Direction00>
-          <p1:Direction01>Input</p1:Direction01>
-          <p1:Direction02>Input</p1:Direction02>
-          <p1:Direction03>Input</p1:Direction03>
-          <p1:Direction04>Input</p1:Direction04>
-          <p1:Direction05>Input</p1:Direction05>
-          <p1:Direction06>Input</p1:Direction06>
-          <p1:Direction07>Input</p1:Direction07>
-          <p1:Direction08>Input</p1:Direction08>
-          <p1:Direction09>Input</p1:Direction09>
-          <p1:Direction10>Input</p1:Direction10>
-          <p1:Direction11>Input</p1:Direction11>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="wie:KeyDown">
-          <wie:Filter>A</wie:Filter>
-          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="IntProperty">
-          <Value>0</Value>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="wie:KeyDown">
-          <wie:Filter>S</wie:Filter>
-          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="IntProperty">
-          <Value>1</Value>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Merge" />
+      <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Int32">
+        <rx:Name>DigitalCommands</rx:Name>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:DigitalIODevice">
@@ -110,14 +53,60 @@
       <Expression xsi:type="MemberSelector">
         <Selector>Port</Selector>
       </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="num:CreateRandom">
+          <num:Seed xsi:nil="true" />
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p2:CreateContinuousUniform">
+          <p2:Lower>0.6</p2:Lower>
+          <p2:Upper>1</p2:Upper>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="rx:BehaviorSubject">
+        <Name>SyncDistribution</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>SyncDistribution</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p2:Sample" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Delay">
+          <rx:DueTime>PT0.5S</rx:DueTime>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Take">
+          <rx:Count>1</rx:Count>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Repeat" />
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:KeyDown">
+          <wie:Filter>None</wie:Filter>
+          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:TakeUntil" />
+      </Expression>
     </Nodes>
     <Edges>
+      <Edge From="2" To="3" Label="Source1" />
       <Edge From="3" To="4" Label="Source1" />
-      <Edge From="4" To="7" Label="Source1" />
       <Edge From="5" To="6" Label="Source1" />
-      <Edge From="6" To="7" Label="Source2" />
-      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="6" To="7" Label="Source1" />
       <Edge From="8" To="9" Label="Source1" />
+      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="12" To="14" Label="Source1" />
+      <Edge From="13" To="14" Label="Source2" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
