@@ -16,7 +16,8 @@
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:vh1="clr-namespace:Harp.VestibularH1;assembly=Harp.VestibularH1"
-                 xmlns:p4="clr-namespace:System.Reactive;assembly=System.Reactive.Core"
+                 xmlns:p4="clr-namespace:Bonsai.ONIX;assembly=Bonsai.ONIX"
+                 xmlns:p5="clr-namespace:System.Reactive;assembly=System.Reactive.Core"
                  xmlns:aeon="clr-namespace:Aeon.Acquisition;assembly=Aeon.Acquisition"
                  xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
                  xmlns="https://bonsai-rx.org/2018/workflow">
@@ -2256,6 +2257,270 @@
         </Workflow>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
+        <Property Name="AnalogDeviceAddress" />
+        <Property Name="DigitalDeviceAddress" />
+        <Property Name="HarpDeviceAddress" />
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>OnixHardware</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p4:ONIContext">
+                <p4:ContextConfiguration>
+                  <p4:Slot>
+                    <p4:Driver>riffa</p4:Driver>
+                    <p4:Index>0</p4:Index>
+                  </p4:Slot>
+                  <p4:ReadSize>2048</p4:ReadSize>
+                  <p4:WriteSize>2048</p4:WriteSize>
+                </p4:ContextConfiguration>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="DeviceAddress" DisplayName="AnalogDeviceAddress" Category="ONIX" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p4:AnalogIODevice">
+                <p4:DeviceAddress>
+                  <p4:HardwareSlot>
+                    <p4:Driver>riffa</p4:Driver>
+                    <p4:Index>0</p4:Index>
+                  </p4:HardwareSlot>
+                  <p4:Address>6</p4:Address>
+                </p4:DeviceAddress>
+                <p4:BlockSize>100</p4:BlockSize>
+                <p4:DataType>S16</p4:DataType>
+                <p4:EnableStream>true</p4:EnableStream>
+                <p4:InputRange00>TenVolts</p4:InputRange00>
+                <p4:InputRange01>TenVolts</p4:InputRange01>
+                <p4:InputRange02>TenVolts</p4:InputRange02>
+                <p4:InputRange03>TenVolts</p4:InputRange03>
+                <p4:InputRange04>TenVolts</p4:InputRange04>
+                <p4:InputRange05>TenVolts</p4:InputRange05>
+                <p4:InputRange06>TenVolts</p4:InputRange06>
+                <p4:InputRange07>TenVolts</p4:InputRange07>
+                <p4:InputRange08>TenVolts</p4:InputRange08>
+                <p4:InputRange09>TenVolts</p4:InputRange09>
+                <p4:InputRange10>TenVolts</p4:InputRange10>
+                <p4:InputRange11>TenVolts</p4:InputRange11>
+                <p4:Direction00>Input</p4:Direction00>
+                <p4:Direction01>Input</p4:Direction01>
+                <p4:Direction02>Input</p4:Direction02>
+                <p4:Direction03>Input</p4:Direction03>
+                <p4:Direction04>Input</p4:Direction04>
+                <p4:Direction05>Input</p4:Direction05>
+                <p4:Direction06>Input</p4:Direction06>
+                <p4:Direction07>Input</p4:Direction07>
+                <p4:Direction08>Input</p4:Direction08>
+                <p4:Direction09>Input</p4:Direction09>
+                <p4:Direction10>Input</p4:Direction10>
+                <p4:Direction11>Input</p4:Direction11>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>OnixAnalog</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="DeviceAddress" DisplayName="DigitalDeviceAddress" Category="ONIX" />
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Int32">
+              <rx:Name>OnixDigitalCommands</rx:Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p4:DigitalIODevice">
+                <p4:DeviceAddress>
+                  <p4:HardwareSlot>
+                    <p4:Driver>riffa</p4:Driver>
+                    <p4:Index>0</p4:Index>
+                  </p4:HardwareSlot>
+                  <p4:Address>7</p4:Address>
+                </p4:DeviceAddress>
+                <p4:LEDBrightness>40</p4:LEDBrightness>
+                <p4:EnableStream>true</p4:EnableStream>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>OnixDigital</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="DeviceAddress" DisplayName="HarpDeviceAddress" Category="ONIX" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p4:HARPSyncInputDevice">
+                <p4:DeviceAddress>
+                  <p4:HardwareSlot>
+                    <p4:Driver>riffa</p4:Driver>
+                    <p4:Index>0</p4:Index>
+                  </p4:HardwareSlot>
+                  <p4:Address>12</p4:Address>
+                </p4:DeviceAddress>
+                <p4:EnableStream>true</p4:EnableStream>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>OnixHarp</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>0</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>OnixDigitalCommands</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="num:CreateRandom">
+                <num:Seed xsi:nil="true" />
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="p2:CreateContinuousUniform">
+                <p2:Lower>1</p2:Lower>
+                <p2:Upper>5</p2:Upper>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>SyncDistribution</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="BooleanProperty">
+                <Value>false</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>SyncPulseState</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Filter" DisplayName="StartSyncKey" Category="ONIX" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="wie:KeyDown">
+                <wie:Filter>LButton RButton Cancel ShiftKey ControlKey Menu Pause A B C P Q R S Shift</wie:Filter>
+                <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Unit" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Take">
+                <rx:Count>1</rx:Count>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:AsyncSubject">
+              <Name>InitSync</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>InitSync</Name>
+            </Expression>
+            <Expression xsi:type="rx:SelectMany">
+              <Name>DoSyncPulse</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Take">
+                      <rx:Count>1</rx:Count>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="rx:AsyncSubject">
+                    <Name>Trigger</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>Trigger</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>SyncDistribution</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="p2:Sample" />
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>TimeSpan.FromSeconds(it)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="DueTime" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Delay">
+                      <rx:DueTime>PT3.459S</rx:DueTime>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>SyncPulseState</Name>
+                  </Expression>
+                  <Expression xsi:type="BitwiseNot" />
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:WithLatestFrom" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Item2</Selector>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>SyncPulseState</Name>
+                  </Expression>
+                  <Expression xsi:type="scr:ExpressionTransform">
+                    <scr:Expression>Convert.ToInt32(it)</scr:Expression>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>OnixDigitalCommands</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="3" To="8" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="7" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source2" />
+                  <Edge From="8" To="11" Label="Source1" />
+                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source2" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                  <Edge From="13" To="14" Label="Source1" />
+                  <Edge From="14" To="15" Label="Source1" />
+                  <Edge From="15" To="16" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Take">
+                <rx:Count>1</rx:Count>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Repeat" />
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="4" To="6" Label="Source1" />
+            <Edge From="5" To="6" Label="Source2" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="13" To="14" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="21" To="22" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="25" Label="Source1" />
+            <Edge From="25" To="26" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
         <Property Name="HomePlatform" />
         <Property Name="StepCCW" />
         <Property Name="StepCW" />
@@ -2346,7 +2611,7 @@
             <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Boolean">
               <rx:Name>PlatformHomed</rx:Name>
             </Expression>
-            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="p4:Unit">
+            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="p5:Unit">
               <rx:Name>HomePlatform</rx:Name>
             </Expression>
             <Expression xsi:type="rx:CreateObservable">
@@ -3194,17 +3459,18 @@
       <Edge From="17" To="18" Label="Source1" />
       <Edge From="19" To="20" Label="Source1" />
       <Edge From="21" To="22" Label="Source1" />
-      <Edge From="21" To="23" Label="Source1" />
-      <Edge From="22" To="24" Label="Source1" />
-      <Edge From="23" To="24" Label="Source2" />
-      <Edge From="24" To="25" Label="Source1" />
-      <Edge From="25" To="26" Label="Source1" />
+      <Edge From="23" To="24" Label="Source1" />
+      <Edge From="23" To="25" Label="Source1" />
+      <Edge From="24" To="26" Label="Source1" />
+      <Edge From="25" To="26" Label="Source2" />
+      <Edge From="26" To="27" Label="Source1" />
       <Edge From="27" To="28" Label="Source1" />
-      <Edge From="28" To="29" Label="Source1" />
-      <Edge From="28" To="30" Label="Source1" />
-      <Edge From="29" To="31" Label="Source1" />
-      <Edge From="30" To="31" Label="Source2" />
-      <Edge From="31" To="32" Label="Source1" />
+      <Edge From="29" To="30" Label="Source1" />
+      <Edge From="30" To="31" Label="Source1" />
+      <Edge From="30" To="32" Label="Source1" />
+      <Edge From="31" To="33" Label="Source1" />
+      <Edge From="32" To="33" Label="Source2" />
+      <Edge From="33" To="34" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
