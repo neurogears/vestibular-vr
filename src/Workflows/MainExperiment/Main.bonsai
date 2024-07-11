@@ -527,8 +527,8 @@
                   <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawQuad.bonsai">
                     <ExtentX>90</ExtentX>
                     <ExtentY>45</ExtentY>
-                    <LocationX>-180</LocationX>
-                    <LocationY>-90</LocationY>
+                    <LocationX>-45</LocationX>
+                    <LocationY>-45</LocationY>
                     <Layer>0</Layer>
                     <Angle>0</Angle>
                     <ColorR>1</ColorR>
@@ -797,7 +797,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.5</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>632.224548</Phase>
+                          <Phase>-13475.9668</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -855,7 +855,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.5</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>9681.017</Phase>
+                          <Phase>23789.207</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -975,7 +975,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>11</gl:Index>
+                            <gl:Index>3861</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1030,7 +1030,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>169</gl:Index>
+                            <gl:Index>415</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1830,7 +1830,7 @@
                               </Expression>
                               <Expression xsi:type="LessThan">
                                 <Operand xsi:type="DoubleProperty">
-                                  <Value>0.8</Value>
+                                  <Value>1</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
@@ -1907,7 +1907,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="gl:Timer">
-                                  <gl:DueTime>PT1.2S</gl:DueTime>
+                                  <gl:DueTime>PT0.465S</gl:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -2006,6 +2006,14 @@
                               <Expression xsi:type="MulticastSubject">
                                 <Name>MovementDeltaSwitch</Name>
                               </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="StringProperty">
+                                  <Value>Halt</Value>
+                                </Combinator>
+                              </Expression>
+                              <Expression xsi:type="MulticastSubject">
+                                <Name>ScreenSyncEvents</Name>
+                              </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Block</Name>
                               </Expression>
@@ -2024,14 +2032,6 @@
                                 <Combinator xsi:type="gl:Timer">
                                   <gl:DueTime>PT2S</gl:DueTime>
                                 </Combinator>
-                              </Expression>
-                              <Expression xsi:type="Combinator">
-                                <Combinator xsi:type="StringProperty">
-                                  <Value>Halt</Value>
-                                </Combinator>
-                              </Expression>
-                              <Expression xsi:type="MulticastSubject">
-                                <Name>ScreenSyncEvents</Name>
                               </Expression>
                               <Expression xsi:type="SubscribeSubject">
                                 <Name>Block</Name>
@@ -2083,8 +2083,8 @@
                             <Edges>
                               <Edge From="0" To="1" Label="Source1" />
                               <Edge From="1" To="2" Label="Source1" />
+                              <Edge From="2" To="3" Label="Source1" />
                               <Edge From="3" To="4" Label="Source1" />
-                              <Edge From="4" To="5" Label="Source1" />
                               <Edge From="5" To="6" Label="Source1" />
                               <Edge From="6" To="7" Label="Source1" />
                               <Edge From="7" To="8" Label="Source1" />
@@ -2395,7 +2395,7 @@
                 <harp:VisualIndicators>On</harp:VisualIndicators>
                 <harp:Heartbeat>Disabled</harp:Heartbeat>
                 <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                <harp:PortName>COM10</harp:PortName>
+                <harp:PortName>COM12</harp:PortName>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
@@ -3365,49 +3365,19 @@
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="SubscribeSubject">
-        <Name>FlowSensor1</Name>
-      </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>X</Selector>
-      </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Y</Selector>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Zip" />
-      </Expression>
-      <Expression xsi:type="scr:ExpressionTransform">
-        <scr:Expression>new (
-  it.Item1 as X,
-  it.Item2 as Y
-)</scr:Expression>
-      </Expression>
-      <Expression xsi:type="rx:PublishSubject">
-        <Name>MovementDelta</Name>
-      </Expression>
       <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="wie:MouseWheel" />
+        <Builder xsi:type="SubscribeSubject">
+          <Name>FlowSensor1</Name>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
-        <Builder xsi:type="scr:ExpressionTransform">
-          <scr:Expression>Convert.ToInt16(it)</scr:Expression>
+        <Builder xsi:type="MemberSelector">
+          <Selector>X</Selector>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
-        <Builder xsi:type="Multiply">
-          <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
-            <Value>50</Value>
-          </Operand>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Multiply">
-          <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
-            <Value>50</Value>
-          </Operand>
+        <Builder xsi:type="MemberSelector">
+          <Selector>Y</Selector>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
@@ -3422,6 +3392,39 @@
   it.Item2 as Y
 )</scr:Expression>
         </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="rx:PublishSubject">
+          <Name>MovementDelta</Name>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:MouseWheel" />
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>Convert.ToInt16(it)</scr:Expression>
+      </Expression>
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
+          <Value>50</Value>
+        </Operand>
+      </Expression>
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
+          <Value>50</Value>
+        </Operand>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>new (
+  it.Item1 as X,
+  it.Item2 as Y
+)</scr:Expression>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>MovementDelta</Name>
       </Expression>
     </Nodes>
     <Edges>
@@ -3450,6 +3453,7 @@
       <Edge From="29" To="31" Label="Source1" />
       <Edge From="30" To="31" Label="Source2" />
       <Edge From="31" To="32" Label="Source1" />
+      <Edge From="32" To="33" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

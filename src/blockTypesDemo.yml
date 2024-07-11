@@ -28,8 +28,9 @@ blocks: [
       minumumDelay: 0.1,
       randomDelay: 1.5,
       haltTime: 2,
-      haltGain: 0
+      haltGain: 0,
     },
+    haltProbability: 1,
     totalRuntime: 30,
     flowYToVisualGain: 0,
     flowYToMotorGain: 5000
@@ -47,7 +48,7 @@ blocks: [
       type: grating,
       spatialFrequency: 0.5
     },
-    haltProbability: 0.8,
+    haltProbability: 1,
     totalRuntime: 30,
     flowXToVisualGain: 1
   },
