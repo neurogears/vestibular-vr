@@ -3365,19 +3365,49 @@
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>FlowSensor1</Name>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>X</Selector>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Y</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>new (
+  it.Item1 as X,
+  it.Item2 as Y
+)</scr:Expression>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>MovementDelta</Name>
+      </Expression>
       <Expression xsi:type="Disable">
-        <Builder xsi:type="SubscribeSubject">
-          <Name>FlowSensor1</Name>
+        <Builder xsi:type="Combinator">
+          <Combinator xsi:type="wie:MouseWheel" />
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
-        <Builder xsi:type="MemberSelector">
-          <Selector>X</Selector>
+        <Builder xsi:type="scr:ExpressionTransform">
+          <scr:Expression>Convert.ToInt16(it)</scr:Expression>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
-        <Builder xsi:type="MemberSelector">
-          <Selector>Y</Selector>
+        <Builder xsi:type="Multiply">
+          <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
+            <Value>50</Value>
+          </Operand>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Multiply">
+          <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
+            <Value>50</Value>
+          </Operand>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
@@ -3397,34 +3427,6 @@
         <Builder xsi:type="rx:PublishSubject">
           <Name>MovementDelta</Name>
         </Builder>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="wie:MouseWheel" />
-      </Expression>
-      <Expression xsi:type="scr:ExpressionTransform">
-        <scr:Expression>Convert.ToInt16(it)</scr:Expression>
-      </Expression>
-      <Expression xsi:type="Multiply">
-        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
-          <Value>50</Value>
-        </Operand>
-      </Expression>
-      <Expression xsi:type="Multiply">
-        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
-          <Value>50</Value>
-        </Operand>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Zip" />
-      </Expression>
-      <Expression xsi:type="scr:ExpressionTransform">
-        <scr:Expression>new (
-  it.Item1 as X,
-  it.Item2 as Y
-)</scr:Expression>
-      </Expression>
-      <Expression xsi:type="rx:PublishSubject">
-        <Name>MovementDelta</Name>
       </Expression>
     </Nodes>
     <Edges>
