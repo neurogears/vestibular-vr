@@ -613,7 +613,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.5</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>632.224548</Phase>
+                          <Phase>-0</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -671,7 +671,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.5</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>9681.017</Phase>
+                          <Phase>10313.24</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -791,7 +791,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>11</gl:Index>
+                            <gl:Index>0</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -846,7 +846,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>169</gl:Index>
+                            <gl:Index>180</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -2151,7 +2151,7 @@
                 <harp:VisualIndicators>On</harp:VisualIndicators>
                 <harp:Heartbeat>Disabled</harp:Heartbeat>
                 <harp:IgnoreErrors>false</harp:IgnoreErrors>
-                <harp:PortName>COM10</harp:PortName>
+                <harp:PortName>COM12</harp:PortName>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
@@ -2260,6 +2260,7 @@
         <Property Name="AnalogDeviceAddress" />
         <Property Name="DigitalDeviceAddress" />
         <Property Name="HarpDeviceAddress" />
+        <Property Name="StartSyncKey" />
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>OnixHardware</Name>
@@ -2446,7 +2447,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT3.459S</rx:DueTime>
+                      <rx:DueTime>PT1.588S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -3337,6 +3338,12 @@
             <Expression xsi:type="SubscribeSubject">
               <Name>OnixAnalog</Name>
             </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WindowCount">
+                <rx:Count>360000</rx:Count>
+                <rx:Skip xsi:nil="true" />
+              </Combinator>
+            </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>StartLoggingKey</Name>
             </Expression>
@@ -3486,26 +3493,27 @@
             <Edge From="24" To="25" Label="Source1" />
             <Edge From="25" To="26" Label="Source1" />
             <Edge From="26" To="27" Label="Source1" />
-            <Edge From="28" To="30" Label="Source1" />
-            <Edge From="29" To="30" Label="Source2" />
-            <Edge From="30" To="31" Label="Source1" />
-            <Edge From="30" To="33" Label="Source1" />
-            <Edge From="30" To="35" Label="Source1" />
+            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="29" To="31" Label="Source1" />
+            <Edge From="30" To="31" Label="Source2" />
             <Edge From="31" To="32" Label="Source1" />
-            <Edge From="33" To="34" Label="Source1" />
-            <Edge From="35" To="36" Label="Source1" />
-            <Edge From="37" To="38" Label="Source1" />
-            <Edge From="38" To="40" Label="Source1" />
-            <Edge From="39" To="40" Label="Source2" />
-            <Edge From="40" To="41" Label="Source1" />
-            <Edge From="42" To="43" Label="Source1" />
-            <Edge From="43" To="45" Label="Source1" />
-            <Edge From="44" To="45" Label="Source2" />
-            <Edge From="45" To="46" Label="Source1" />
-            <Edge From="47" To="48" Label="Source1" />
+            <Edge From="31" To="34" Label="Source1" />
+            <Edge From="31" To="36" Label="Source1" />
+            <Edge From="32" To="33" Label="Source1" />
+            <Edge From="34" To="35" Label="Source1" />
+            <Edge From="36" To="37" Label="Source1" />
+            <Edge From="38" To="39" Label="Source1" />
+            <Edge From="39" To="41" Label="Source1" />
+            <Edge From="40" To="41" Label="Source2" />
+            <Edge From="41" To="42" Label="Source1" />
+            <Edge From="43" To="44" Label="Source1" />
+            <Edge From="44" To="46" Label="Source1" />
+            <Edge From="45" To="46" Label="Source2" />
+            <Edge From="46" To="47" Label="Source1" />
             <Edge From="48" To="49" Label="Source1" />
             <Edge From="49" To="50" Label="Source1" />
             <Edge From="50" To="51" Label="Source1" />
+            <Edge From="51" To="52" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -3567,6 +3575,11 @@
 )</scr:Expression>
         </Builder>
       </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="rx:PublishSubject">
+          <Name>MovementDelta</Name>
+        </Builder>
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
@@ -3595,6 +3608,7 @@
       <Edge From="31" To="33" Label="Source1" />
       <Edge From="32" To="33" Label="Source2" />
       <Edge From="33" To="34" Label="Source1" />
+      <Edge From="34" To="35" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
