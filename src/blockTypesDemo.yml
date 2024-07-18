@@ -30,7 +30,7 @@ blocks: [
       haltTime: 2,
       haltGain: 0
     },
-    totalRuntime: 30,
+    totalRuntime: 20,
     flowYToVisualGain: 0,
     flowYToMotorGain: 5000
   },
