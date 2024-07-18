@@ -26,11 +26,11 @@
       <Expression xsi:type="scr:ExpressionTransform">
         <scr:Expression>Convert.ToInt16(it)</scr:Expression>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Timer">
-          <rx:DueTime>PT0S</rx:DueTime>
-          <rx:Period>PT0.1S</rx:Period>
-        </Combinator>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="Name" />
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>TimingSource</Name>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Zip" />
@@ -38,13 +38,24 @@
       <Expression xsi:type="MemberSelector">
         <Selector>Item1</Selector>
       </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Timer">
+          <rx:DueTime>PT0S</rx:DueTime>
+          <rx:Period>PT0.01S</rx:Period>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>TimingSource</Name>
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="1" To="2" Label="Source1" />
       <Edge From="2" To="3" Label="Source1" />
-      <Edge From="3" To="5" Label="Source1" />
-      <Edge From="4" To="5" Label="Source2" />
-      <Edge From="5" To="6" Label="Source1" />
+      <Edge From="3" To="6" Label="Source1" />
+      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="5" To="6" Label="Source2" />
+      <Edge From="6" To="7" Label="Source1" />
+      <Edge From="8" To="9" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
