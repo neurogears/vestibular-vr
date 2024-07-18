@@ -81,6 +81,11 @@
                     "default": 1,
                     "description": "Block specific gain coefficient to apply",
                     "type": "number"
+                },
+                "playbackFilePath": {
+                    "default": "",
+                    "description": "Path to the playback file to be used in this block",
+                    "type": "string"
                 }
             },
             "type": "object"
