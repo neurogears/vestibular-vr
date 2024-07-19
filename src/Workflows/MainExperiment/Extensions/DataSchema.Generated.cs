@@ -31,6 +31,12 @@ namespace DataSchema
     
         private HaltProtocol _haltProtocol;
     
+        private double _flowXToRunGain = 0D;
+    
+        private double _flowYToRunGain = 0D;
+    
+        private double _playbackToRunGain = 0D;
+    
         private double _flowXToVisualGain = 0D;
     
         private double _flowYToVisualGain = 0D;
@@ -63,6 +69,9 @@ namespace DataSchema
             _runThresholdDecay = other._runThresholdDecay;
             _haltProbability = other._haltProbability;
             _haltProtocol = other._haltProtocol;
+            _flowXToRunGain = other._flowXToRunGain;
+            _flowYToRunGain = other._flowYToRunGain;
+            _playbackToRunGain = other._playbackToRunGain;
             _flowXToVisualGain = other._flowXToVisualGain;
             _flowYToVisualGain = other._flowYToVisualGain;
             _flowXToMotorGain = other._flowXToMotorGain;
@@ -211,6 +220,57 @@ namespace DataSchema
             set
             {
                 _haltProtocol = value;
+            }
+        }
+    
+        /// <summary>
+        /// flow --> run distance traveled gain (X dimension)
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="flowXToRunGain")]
+        [System.ComponentModel.DescriptionAttribute("flow --> run distance traveled gain (X dimension)")]
+        public double FlowXToRunGain
+        {
+            get
+            {
+                return _flowXToRunGain;
+            }
+            set
+            {
+                _flowXToRunGain = value;
+            }
+        }
+    
+        /// <summary>
+        /// flow --> run distance traveled gain (Y dimension)
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="flowYToRunGain")]
+        [System.ComponentModel.DescriptionAttribute("flow --> run distance traveled gain (Y dimension)")]
+        public double FlowYToRunGain
+        {
+            get
+            {
+                return _flowYToRunGain;
+            }
+            set
+            {
+                _flowYToRunGain = value;
+            }
+        }
+    
+        /// <summary>
+        /// playback --> run distance traveled gain
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="playbackToRunGain")]
+        [System.ComponentModel.DescriptionAttribute("playback --> run distance traveled gain")]
+        public double PlaybackToRunGain
+        {
+            get
+            {
+                return _playbackToRunGain;
+            }
+            set
+            {
+                _playbackToRunGain = value;
             }
         }
     
@@ -387,6 +447,9 @@ namespace DataSchema
             stringBuilder.Append("runThresholdDecay = " + _runThresholdDecay + ", ");
             stringBuilder.Append("haltProbability = " + _haltProbability + ", ");
             stringBuilder.Append("haltProtocol = " + _haltProtocol + ", ");
+            stringBuilder.Append("flowXToRunGain = " + _flowXToRunGain + ", ");
+            stringBuilder.Append("flowYToRunGain = " + _flowYToRunGain + ", ");
+            stringBuilder.Append("playbackToRunGain = " + _playbackToRunGain + ", ");
             stringBuilder.Append("flowXToVisualGain = " + _flowXToVisualGain + ", ");
             stringBuilder.Append("flowYToVisualGain = " + _flowYToVisualGain + ", ");
             stringBuilder.Append("flowXToMotorGain = " + _flowXToMotorGain + ", ");
