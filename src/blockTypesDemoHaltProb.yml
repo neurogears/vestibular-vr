@@ -28,11 +28,12 @@ blocks: [
       minumumDelay: 0.1,
       randomDelay: 1.5,
       haltTime: 2,
-      haltGain: 0,
+      haltGain: 1
     },
+    runThreshold: 1,
     haltProbability: 1,
-    totalRuntime: 120,
-    flowYToVisualGain: 0,
+    totalRuntime: 2,
+    flowYToVisualGain: 1,
     flowYToMotorGain: 5000
   },
   &LinearClosedLoopMismatch
@@ -42,14 +43,14 @@ blocks: [
       minumumDelay: 0.1,
       randomDelay: 0.5,
       haltTime: 2,
-      haltGain: 0,
+      haltGain: 1,
     },
     stimulus: {
       type: grating,
       spatialFrequency: 0.5
     },
     haltProbability: 1,
-    totalRuntime: 30,
+    totalRuntime: 120,
     flowXToVisualGain: 1
   },
   {<<: *DrumClosedLoop},
