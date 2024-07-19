@@ -31,7 +31,7 @@ blocks: [
       haltGain: 0,
     },
     haltProbability: 1,
-    totalRuntime: 30,
+    totalRuntime: 120,
     flowYToVisualGain: 0,
     flowYToMotorGain: 5000
   },
