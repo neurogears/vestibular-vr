@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <WorkflowBuilder Version="2.8.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:viz="clr-namespace:Bonsai.Design.Visualizers;assembly=Bonsai.Design.Visualizers"
@@ -1575,6 +1575,8 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="io:CsvReader">
+                          <io:ListSeparator>,</io:ListSeparator>
+                          <io:ScanPattern>%s</io:ScanPattern>
                           <io:SkipRows>0</io:SkipRows>
                         </Expression>
                         <Expression xsi:type="Index">
@@ -2455,11 +2457,13 @@
                   <Edge From="50" To="51" Label="Source1" />
                   <Edge From="51" To="52" Label="Source1" />
                   <Edge From="53" To="54" Label="Source1" />
-                  <Edge From="54" To="59" Label="Source1" />
+                  <Edge From="54" To="61" Label="Source1" />
                   <Edge From="55" To="56" Label="Source1" />
                   <Edge From="56" To="57" Label="Source1" />
                   <Edge From="57" To="58" Label="Source1" />
-                  <Edge From="58" To="59" Label="Source2" />
+                  <Edge From="58" To="59" Label="Source1" />
+                  <Edge From="59" To="60" Label="Source1" />
+                  <Edge From="60" To="61" Label="Source2" />
                 </Edges>
               </Workflow>
             </Expression>

@@ -30,7 +30,7 @@ blocks: [
     haltProbability: 0.8,
     totalRuntime: 30,
     playbackToVisualGain: 1,
-    playbackFilePath: "C:/Users/neurogears/source/repos/vestibular-vr/analysis/playback_file.csv"
+    playbackFilePath: "C:/Users/ONIX/source/ae-dev/vestibular-vr/analysis/playback_file.csv"
   },
   &DrumClosedLoop
   {
