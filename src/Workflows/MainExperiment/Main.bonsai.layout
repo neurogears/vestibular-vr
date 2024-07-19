@@ -166,7 +166,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>537</Width>
+        <Width>675</Width>
         <Height>485</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -420,7 +420,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>537</Width>
+        <Width>675</Width>
         <Height>485</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -540,7 +540,7 @@
             <Y>3</Y>
           </Location>
           <Size>
-            <Width>537</Width>
+            <Width>675</Width>
             <Height>485</Height>
           </Size>
           <WindowState>Normal</WindowState>
@@ -884,8 +884,8 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>537</Width>
-        <Height>485</Height>
+        <Width>544</Width>
+        <Height>894</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -980,8 +980,8 @@
             <Y>156</Y>
           </Location>
           <Size>
-            <Width>316</Width>
-            <Height>239</Height>
+            <Width>795</Width>
+            <Height>845</Height>
           </Size>
           <WindowState>Normal</WindowState>
         </EditorDialogSettings>
@@ -1030,7 +1030,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>537</Width>
+        <Width>675</Width>
         <Height>485</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -1320,7 +1320,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>537</Width>
+        <Width>675</Width>
         <Height>485</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -1722,7 +1722,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>537</Width>
+        <Width>675</Width>
         <Height>485</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -2480,7 +2480,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>537</Width>
+        <Width>675</Width>
         <Height>485</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -2962,7 +2962,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>537</Width>
+        <Width>675</Width>
         <Height>485</Height>
       </Size>
       <WindowState>Normal</WindowState>
