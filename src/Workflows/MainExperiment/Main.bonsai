@@ -533,9 +533,9 @@
                     <LocationY>-45</LocationY>
                     <Layer>0</Layer>
                     <Angle>0</Angle>
-                    <ColorR>0</ColorR>
-                    <ColorG>0</ColorG>
-                    <ColorB>0</ColorB>
+                    <ColorR>1</ColorR>
+                    <ColorG>1</ColorG>
+                    <ColorB>1</ColorB>
                     <ColorA>1</ColorA>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -666,7 +666,7 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:CreateContinuousUniform">
                       <p2:Lower>0</p2:Lower>
-                      <p2:Upper>1.5</p2:Upper>
+                      <p2:Upper>0.5</p2:Upper>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:AsyncSubject">
@@ -792,14 +792,14 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>0</LocationX>
+                          <LocationX>-90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
-                          <ExtentX>360</ExtentX>
+                          <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <SpatialFrequency>0.1</SpatialFrequency>
+                          <SpatialFrequency>0.5</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>-0</Phase>
+                          <Phase>19239.7832</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -850,14 +850,14 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>0</LocationX>
+                          <LocationX>90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
-                          <ExtentX>0</ExtentX>
+                          <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <SpatialFrequency>0.1</SpatialFrequency>
+                          <SpatialFrequency>0.5</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>10313.24</Phase>
+                          <Phase>-8926.545</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -977,7 +977,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>0</gl:Index>
+                            <gl:Index>336</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1004,9 +1004,9 @@
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                           <TextureName />
-                          <ExtentX>360</ExtentX>
+                          <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>0</LocationX>
+                          <LocationX>-90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -1032,7 +1032,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>MotionCloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>180</gl:Index>
+                            <gl:Index>3940</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1059,9 +1059,9 @@
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                           <TextureName />
-                          <ExtentX>0</ExtentX>
+                          <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>0</LocationX>
+                          <LocationX>90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -1160,7 +1160,7 @@
                         <Expression xsi:type="vh2:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
                           <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
-                            <vh2:ImmediatePulses>-13157</vh2:ImmediatePulses>
+                            <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
@@ -1525,7 +1525,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="gl:Timer">
-                      <gl:DueTime>PT2M</gl:DueTime>
+                      <gl:DueTime>PT30S</gl:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -1551,6 +1551,23 @@
                   <Expression xsi:type="MemberSelector">
                     <Selector>PlaybackFilePath</Selector>
                   </Expression>
+                  <Expression xsi:type="rx:Condition">
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="WorkflowInput">
+                          <Name>Source1</Name>
+                        </Expression>
+                        <Expression xsi:type="scr:ExpressionTransform">
+                          <scr:Expression>it != ""</scr:Expression>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="1" To="2" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
                   <Expression xsi:type="rx:CreateObservable">
                     <Name>LoadPlayback</Name>
                     <Workflow>
@@ -1575,6 +1592,7 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="io:CsvReader">
+                          <io:FileName>C:/Users/ONIX/source/ae-dev/vestibular-vr/analysis/playback_file.csv</io:FileName>
                           <io:ListSeparator>,</io:ListSeparator>
                           <io:ScanPattern>%s</io:ScanPattern>
                           <io:SkipRows>0</io:SkipRows>
@@ -2007,7 +2025,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="gl:Timer">
-                                  <gl:DueTime>PT1.006S</gl:DueTime>
+                                  <gl:DueTime>PT0.223S</gl:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -2456,14 +2474,15 @@
                   <Edge From="49" To="50" Label="Source1" />
                   <Edge From="50" To="51" Label="Source1" />
                   <Edge From="51" To="52" Label="Source1" />
-                  <Edge From="53" To="54" Label="Source1" />
-                  <Edge From="54" To="61" Label="Source1" />
-                  <Edge From="55" To="56" Label="Source1" />
+                  <Edge From="52" To="53" Label="Source1" />
+                  <Edge From="54" To="55" Label="Source1" />
+                  <Edge From="55" To="62" Label="Source1" />
                   <Edge From="56" To="57" Label="Source1" />
                   <Edge From="57" To="58" Label="Source1" />
                   <Edge From="58" To="59" Label="Source1" />
                   <Edge From="59" To="60" Label="Source1" />
-                  <Edge From="60" To="61" Label="Source2" />
+                  <Edge From="60" To="61" Label="Source1" />
+                  <Edge From="61" To="62" Label="Source2" />
                 </Edges>
               </Workflow>
             </Expression>
