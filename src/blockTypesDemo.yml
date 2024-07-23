@@ -14,6 +14,25 @@ motorSettings:
   pulsePeriod: 10
 
 blocks: [
+  &LinearClosedLoopMismatch
+  {
+    alias: LinearPlaybackMismatch,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 2,
+      haltGain: 0,
+    },
+    stimulus: {
+      type: grating,
+      spatialFrequency: 0.5
+    },
+    haltProbability: 0.8,
+    totalRuntime: 30,
+    playbackToVisualGain: 1,
+    playbackToRunGain: 1,
+    playbackFilePath: "C:/Users/ONIX/source/ae-dev/vestibular-vr/analysis/playback_file.csv"
+  },
   &DrumClosedLoop
   {
     alias: DrumBase,
@@ -33,7 +52,8 @@ blocks: [
     haltProbability: 1,
     totalRuntime: 120,
     flowYToVisualGain: 0,
-    flowYToMotorGain: 5000
+    flowYToMotorGain: 5000,
+    flowYToRunGain: 1
   },
   &LinearClosedLoopMismatch
   {
@@ -50,7 +70,8 @@ blocks: [
     },
     haltProbability: 1,
     totalRuntime: 30,
-    flowXToVisualGain: 1
+    flowXToVisualGain: 1,
+    flowXToRunGain: 1
   },
   {<<: *DrumClosedLoop},
   {<<: *LinearClosedLoopMismatch},

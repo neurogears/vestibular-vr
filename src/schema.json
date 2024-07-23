@@ -42,6 +42,21 @@
                     "$ref": "#/definitions/haltProtocol",
                     "description": "The halt protocol to use on a positive halt decision"
                 },
+                "flowXToRunGain": {
+                    "default": 0,
+                    "description": "flow --> run distance traveled gain (X dimension)",
+                    "type": "number"
+                },
+                "flowYToRunGain": {
+                    "default": 0,
+                    "description": "flow --> run distance traveled gain (Y dimension)",
+                    "type": "number"
+                },
+                "playbackToRunGain": {
+                    "default": 0,
+                    "description": "playback --> run distance traveled gain",
+                    "type": "number"
+                },
                 "flowXToVisualGain": {
                     "default": 0,
                     "description": "flow --> visual stimulus motion gain (X dimension)",
@@ -81,6 +96,11 @@
                     "default": 1,
                     "description": "Block specific gain coefficient to apply",
                     "type": "number"
+                },
+                "playbackFilePath": {
+                    "default": "",
+                    "description": "Path to the playback file to be used in this block",
+                    "type": "string"
                 }
             },
             "type": "object"
