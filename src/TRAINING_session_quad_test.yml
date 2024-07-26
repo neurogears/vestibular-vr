@@ -27,7 +27,7 @@ blocks: [
       type: grating,
       spatialFrequency: 28.8
     },
-    haltProbability: 0,
+    haltProbability: 0.5,
     flowXToVisualGain: 0.0008,
     flowXToRunGain: 0.0008,
     totalRuntime: 1800
