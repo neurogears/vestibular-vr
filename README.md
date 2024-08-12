@@ -44,3 +44,47 @@ To create an experiment parameter file based on the `schema`, create a new `.yml
 ---
 # yaml-language-server: $schema=schema.json
 ```
+
+The `schema` has two main groups of properties that define global experiment parameters, and block-specific parameters respectively, e.g.:
+
+```
+metadata:
+  animalId: plimbo
+  rootPath: D:/TrialLogicTestData/
+  runGain: 0.0005
+
+blocks: [
+  &blockA
+  {
+    stimulus: {type: "grating"},
+    totalRuntime: 20,
+    runThreshold: 100,
+    decayTimestep: 0.1,
+    runThresholdDecay: -1,
+    haltProbability: 0.5,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 1.5,
+      haltTime: 2,
+      haltGain: 0
+    }
+  },
+  &blockB
+  {
+    stimulus: {type: "cloud"},
+    totalRuntime: 140,
+    runThreshold: 200,
+    decayTimestep: 0.1,
+    runThresholdDecay: -1,
+    haltProbability: 0.7,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 0.5,
+      haltGain: 0
+    }
+  },
+  {<<: *blockA},
+  {<<: *blockB}
+]
+```
