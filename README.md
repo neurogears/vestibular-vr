@@ -88,3 +88,8 @@ blocks: [
   {<<: *blockB}
 ]
 ```
+
+The description of each parameter's effect on the Bonsai workflow, along with its type and default values are defined within `schema.json` itself. Note that where a parameter is not specifically set in the `.yml` the value will revert the default.
+
+### Running an experiment
+To run an experiment, run the Bonsai application from the local environment and open Main.bonsai. Use the property grid to select the desired experiment parameter `.yml` file.
