@@ -103,12 +103,22 @@
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="Combinator">
+        <Combinator xsi:type="StringProperty">
+          <Value>test-cloud-2</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="PropertyMapping">
+        <PropertyMappings>
+          <Property Name="TextureName" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:BindTexture">
           <gl:TextureSlot>Texture0</gl:TextureSlot>
           <gl:ShaderName>Image</gl:ShaderName>
-          <gl:TextureName>test-cloud</gl:TextureName>
+          <gl:TextureName>test-cloud-2</gl:TextureName>
           <gl:TextureTarget>Texture2D</gl:TextureTarget>
-          <gl:Index>2968</gl:Index>
+          <gl:Index>1416</gl:Index>
         </Combinator>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
@@ -138,10 +148,12 @@
       <Edge From="11" To="12" Label="Source1" />
       <Edge From="12" To="13" Label="Source1" />
       <Edge From="13" To="14" Label="Source1" />
-      <Edge From="15" To="18" Label="Source1" />
+      <Edge From="15" To="20" Label="Source1" />
       <Edge From="16" To="17" Label="Source1" />
-      <Edge From="17" To="18" Label="Source2" />
+      <Edge From="17" To="20" Label="Source2" />
       <Edge From="18" To="19" Label="Source1" />
+      <Edge From="19" To="20" Label="Source3" />
+      <Edge From="20" To="21" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
