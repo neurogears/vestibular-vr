@@ -122,9 +122,9 @@
                     "description": "Spatial frequency for stimuli where this is a parameter",
                     "type": "number"
                 },
-                "path": {
+                "textureName": {
                     "default": "",
-                    "description": "Path to texture or video if required",
+                    "description": "Name of texture resource to load if required",
                     "type": "string"
                 },
                 "offset1": {
