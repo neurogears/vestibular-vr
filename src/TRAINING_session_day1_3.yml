@@ -1,0 +1,35 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+
+metadata:
+  animalId: B3M2
+  rootPath: D:/TrialLogicTestData/
+  runGain: 1
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
+blocks: [
+  &LinearFeedback
+  {
+    alias: LinearFeedback,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 1,
+      haltGain: 0,
+    },
+    stimulus: {
+      type: grating,
+      spatialFrequency: 28.8
+    },
+    haltProbability: 0,
+    flowXToVisualGain: 0.0008,
+    flowXToRunGain: 0.0008,
+    totalRuntime: 1200
+  }
+]

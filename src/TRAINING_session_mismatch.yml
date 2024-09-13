@@ -1,0 +1,37 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+
+metadata:
+  animalId: B2M4_mismatch
+  rootPath: D:/TrialLogicTestData/
+  runGain: 1
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
+blocks: [
+
+  &LinearMismatch
+  {
+    alias: LinearMismatch,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 1,
+      haltGain: 1,
+    },
+    stimulus: {
+      type: grating,
+      spatialFrequency: 28.8
+    },
+    flowXToVisualGain: 0.0008,
+    flowXToRunGain: 0.0008,
+    haltProbability: 0.8,
+    totalRuntime: 180,
+    runThreshold: 10
+  }
+]

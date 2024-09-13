@@ -3,7 +3,11 @@
 # yaml-language-server: $schema=schema.json
 
 metadata:
+<<<<<<< Updated upstream:src/MISMATCH_session.yml
   animalId: B2M6 #mouse specific
+=======
+  animalId: B3M2
+>>>>>>> Stashed changes:src/TRAINING_session.yml
   rootPath: D:/TrialLogicTestData/
   runGain: 1
 
@@ -14,6 +18,27 @@ motorSettings:
   pulsePeriod: 10
 
 blocks: [
+<<<<<<< Updated upstream:src/MISMATCH_session.yml
+=======
+  &LinearFeedback
+  {
+    alias: LinearFeedback,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 1,
+      haltGain: 0,
+    },
+    stimulus: {
+      type: grating,
+      spatialFrequency: 28.8
+    },
+    haltProbability: 0,
+    flowXToVisualGain: 0.0008,
+    flowXToRunGain: 0.0008,
+    totalRuntime: 1200
+  },
+>>>>>>> Stashed changes:src/TRAINING_session.yml
   &LinearMismatch
   {
     alias: LinearMismatch,
@@ -33,6 +58,7 @@ blocks: [
     runThresholdDecay: 0,
     flowXToVisualGain: 0.0008,
     flowXToRunGain: 0.0008,
+<<<<<<< Updated upstream:src/MISMATCH_session.yml
     totalRuntime: 900
   },
    &LinearPlaybackMismatch
@@ -56,5 +82,10 @@ blocks: [
     decayTimestep: 0,
     runThresholdDecay: 0, 
     playbackFilePath: "Z:/data/ONIX/20240730_Mismatch_Experiment/playback_trainday5/playback_file_B2M4_5.csv"
+=======
+    haltProbability: 0.8,
+    totalRuntime: 180,
+    runThreshold: 10
+>>>>>>> Stashed changes:src/TRAINING_session.yml
   }
 ]

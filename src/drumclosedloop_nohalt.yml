@@ -33,7 +33,11 @@ blocks: [
     blockGainModifier: 1,
     haltProbability: 0,
     totalRuntime: 20,
+<<<<<<< Updated upstream
     flowYToVisualGain: 0,
+=======
+    flowYToVisualGain: 1,
+>>>>>>> Stashed changes
     flowYToMotorGain: 8000,
     flowYToRunGain: 0
   }
