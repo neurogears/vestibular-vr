@@ -1,0 +1,60 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+
+metadata:
+  animalId: B2M6 #mouse specific
+  rootPath: D:/TrialLogicTestData/
+  runGain: 1
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
+blocks: [
+  &LinearMismatch
+  {
+    alias: LinearMismatch,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 1,
+      haltGain: 1,
+    },
+    stimulus: {
+      type: grating,
+      spatialFrequency: 28.8
+    },
+    haltProbability: 0.4,
+    runThreshold: 210, #mouse specific
+    decayTimestep: 0,
+    runThresholdDecay: 0,
+    flowXToVisualGain: 0.0008,
+    flowXToRunGain: 0.0008,
+    totalRuntime: 900
+  },
+   &LinearPlaybackMismatch
+  {
+    alias: LinearPlaybackMismatch,
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 1,
+      haltGain: 1,
+    },
+    stimulus: {
+      type: grating,
+      spatialFrequency: 28.8
+    },
+    haltProbability: 0.4,
+    totalRuntime: 900,
+    playbackToVisualGain: 0.0008,
+    playbackToRunGain: 0.0008,
+    runThreshold: 110,
+    decayTimestep: 0,
+    runThresholdDecay: 0, 
+    playbackFilePath: "Z:/data/ONIX/20240730_Mismatch_Experiment/playback_trainday5/playback_file_B2M4_5.csv"
+  }
+]

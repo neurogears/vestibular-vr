@@ -1,0 +1,80 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+
+metadata:
+  animalId: B3M4 #Mouse specific
+  rootPath: D:/TrialLogicTestData/
+  runGain: 1
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
+blocks: [
+  &LinearNormal
+  {
+    alias: LinearNormal,
+    haltProtocol: {
+      minumumDelay: 1,
+      randomDelay: 0,
+      haltTime: 1,
+      haltGain: 1,
+    },
+    stimulus: {
+      type: grating,
+      spatialFrequency: 28.8
+    },
+    haltProbability: 0,
+    runThreshold: 295,
+    decayTimestep: 0,
+    runThresholdDecay: 0,
+    flowXToVisualGain: 0.0008,
+    flowXToRunGain: 0.0008,
+    totalRuntime:  600
+  },
+   &LinearRegularMismatch
+  {
+    alias: LinearRegularMismatch,
+    haltProtocol: {
+      minumumDelay: 1,
+      randomDelay: 0,
+      haltTime: 1,
+      haltGain: 1,
+    },
+    stimulus: {
+      type: grating,
+      spatialFrequency: 28.8
+    },
+    haltProbability: 1,
+    totalRuntime: 600,
+    flowXToVisualGain: 0.0008,
+    flowXToRunGain: 0.0008,
+    runThreshold: 10,
+    decayTimestep: 0.1,
+    runThresholdDecay: -0.1
+  },
+  &LinearMismatch
+  {
+    alias: LinearMismatch,
+    haltProtocol: {
+      minumumDelay: 1,
+      randomDelay: 0,
+      haltTime: 1,
+      haltGain: 1,
+    },
+    stimulus: {
+      type: grating,
+      spatialFrequency: 28.8
+    },
+    haltProbability: 0.4,
+    runThreshold: 210, #mouse specific
+    decayTimestep: 0,
+    runThresholdDecay: 0,
+    flowXToVisualGain: 0.0008,
+    flowXToRunGain: 0.0008,
+    totalRuntime: 600
+  }
+]
