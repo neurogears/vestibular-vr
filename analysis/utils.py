@@ -5,7 +5,7 @@ from pathlib import Path
 import os
 import json
 from dotmap import DotMap
-from aeon.io.reader import Reader, Csv
+from aeon.io.reader import Reader, Csv, Harp
 import aeon.io.api as api
 
 
@@ -34,7 +34,13 @@ def load_json(reader: SessionData, root: Path) -> pd.DataFrame:
     data = [reader.read(Path(file)) for file in glob(pattern)]
     return pd.concat(data)
 
-def load(reader: Reader, root: Path) -> pd.DataFrame:
+def load_csv(reader: Csv, root: Path) -> pd.DataFrame:
+    root = Path(root)
+    pattern = f"{root.joinpath(root.name)}_*.csv"
+    data = [reader.read(Path(file)) for file in glob(pattern)]
+    return pd.concat(data)
+
+def load_harp(reader: Harp, root: Path) -> pd.DataFrame:
     root = Path(root)
     pattern = f"{root.joinpath(root.name)}_{reader.register.address}_*.bin"
     data = [reader.read(file) for file in glob(pattern)]
