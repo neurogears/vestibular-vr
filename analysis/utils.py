@@ -42,8 +42,15 @@ class TimestampedCsvReader(Csv):
         return data
     
 
-# class PhotometryReader(Csv):
-#     def __init__(self, )
+class PhotometryReader(Csv):
+    def __init__(self, pattern):
+        super().__init__(pattern, columns=["Time", "Events", "CH1-410", "CH1-470", "CH1-560", "U"], extension="csv")
+        self._rawcolumns = self.columns
+
+    def read(self, file):
+        data = pd.read_csv(file, header=1, names=self._rawcolumns)
+        data.set_index("Time", inplace=True)
+        return data
     
 
 class Video(Csv):
@@ -89,6 +96,12 @@ def load_harp(reader: Harp, root: Path) -> pd.DataFrame:
     pattern = f"{root.joinpath(root.name)}_{reader.register.address}_*.bin"
     data = [reader.read(file) for file in glob(pattern)]
     return pd.concat(data)
+
+def load_photometry(reader: PhotometryReader, root: Path) -> pd.DataFrame:
+    root = Path(root)
+    pattern = f"{root.joinpath(reader.pattern)}.{reader.extension}"
+    data = [reader.read(Path(file)) for file in glob(pattern)]
+    return data
 
 def read_onix_analog_data(root: Path, pattern: str, dtype: np.dtype):
     root = Path(root)
