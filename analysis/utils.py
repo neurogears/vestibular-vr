@@ -7,6 +7,7 @@ import json
 from dotmap import DotMap
 from aeon.io.reader import Reader, Csv, Harp
 import aeon.io.api as api
+import numpy as np
 
 
 class SessionData(Reader):
@@ -35,9 +36,14 @@ class TimestampedCsvReader(Csv):
 
     def read(self, file):
         data = pd.read_csv(file, header=0, names=self._rawcolumns)
+        data["Seconds"] = data["Time"]
         data["Time"] = data["Time"].transform(lambda x: api.aeon(x))
         data.set_index("Time", inplace=True)
         return data
+    
+
+# class PhotometryReader(Csv):
+#     def __init__(self, )
     
 
 class Video(Csv):
@@ -83,3 +89,15 @@ def load_harp(reader: Harp, root: Path) -> pd.DataFrame:
     pattern = f"{root.joinpath(root.name)}_{reader.register.address}_*.bin"
     data = [reader.read(file) for file in glob(pattern)]
     return pd.concat(data)
+
+def read_onix_analog_data(root: Path, pattern: str, dtype: np.dtype):
+    root = Path(root)
+    search_pattern = f"{root.joinpath(pattern).joinpath(pattern)}_*.bin"
+    data = [np.reshape(np.fromfile(file, dtype=dtype), (-1, 12)) for file in glob(search_pattern)]
+    return np.concatenate(data, axis=0)
+
+def read_onix_analog_clock(root: Path, pattern: str, dtype: np.dtype):
+    root = Path(root)
+    search_pattern = f"{root.joinpath(pattern).joinpath(pattern)}_*.bin"
+    data = [np.fromfile(file, dtype=dtype) for file in glob(search_pattern)]
+    return np.concatenate(data, axis=0)
