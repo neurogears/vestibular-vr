@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.8.1"
+<WorkflowBuilder Version="2.8.5"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:viz="clr-namespace:Bonsai.Design.Visualizers;assembly=Bonsai.Design.Visualizers"
                  xmlns:p1="clr-namespace:;assembly=Extensions"
@@ -17,8 +17,8 @@
                  xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:vh1="clr-namespace:Harp.VestibularH1;assembly=Harp.VestibularH1"
-                 xmlns:p4="clr-namespace:Bonsai.ONIX;assembly=Bonsai.ONIX"
-                 xmlns:p5="clr-namespace:System.Reactive;assembly=System.Reactive.Core"
+                 xmlns:onix1="clr-namespace:OpenEphys.Onix1;assembly=OpenEphys.Onix1"
+                 xmlns:p4="clr-namespace:System.Reactive;assembly=System.Reactive.Core"
                  xmlns:aeon="clr-namespace:Aeon.Acquisition;assembly=Aeon.Acquisition"
                  xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
                  xmlns="https://bonsai-rx.org/2018/workflow">
@@ -61,7 +61,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:LoadSettings">
-                <p1:Path>C:\Users\ONIX\source\nora-dev\vestibular-vr\src\drumclosedloop_nohalt.yml</p1:Path>
+                <p1:Path>C:\Users\ONIX\source\nora-dev\vestibular-vr\src\drum_closedloop_nohalt.yml</p1:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -533,9 +533,9 @@
                     <LocationY>-33</LocationY>
                     <Layer>0</Layer>
                     <Angle>0</Angle>
-                    <ColorR>1</ColorR>
-                    <ColorG>1</ColorG>
-                    <ColorB>1</ColorB>
+                    <ColorR>0.5</ColorR>
+                    <ColorG>0.5</ColorG>
+                    <ColorB>0.5</ColorB>
                     <ColorA>1</ColorA>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -2687,9 +2687,6 @@
         </Workflow>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
-        <Property Name="AnalogDeviceAddress" />
-        <Property Name="DigitalDeviceAddress" />
-        <Property Name="HarpDeviceAddress" />
         <Property Name="StartSyncKey" />
       </Expression>
       <Expression xsi:type="GroupWorkflow">
@@ -2697,96 +2694,111 @@
         <Workflow>
           <Nodes>
             <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p4:ONIContext">
-                <p4:ContextConfiguration>
-                  <p4:Slot>
-                    <p4:Driver>riffa</p4:Driver>
-                    <p4:Index>0</p4:Index>
-                  </p4:Slot>
-                  <p4:ReadSize>2048</p4:ReadSize>
-                  <p4:WriteSize>2048</p4:WriteSize>
-                </p4:ContextConfiguration>
+              <Combinator xsi:type="onix1:CreateContext">
+                <onix1:Driver>riffa</onix1:Driver>
+                <onix1:Index>0</onix1:Index>
               </Combinator>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="DeviceAddress" DisplayName="AnalogDeviceAddress" Category="ONIX" />
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="onix1:ConfigureBreakoutBoard">
+                <onix1:Name>BreakoutBoard</onix1:Name>
+                <onix1:Heartbeat>
+                  <onix1:DeviceName>BreakoutBoard/Heartbeat</onix1:DeviceName>
+                  <onix1:DeviceAddress>0</onix1:DeviceAddress>
+                  <onix1:Enable>true</onix1:Enable>
+                  <onix1:BeatsPerSecond>10</onix1:BeatsPerSecond>
+                </onix1:Heartbeat>
+                <onix1:AnalogIO>
+                  <onix1:DeviceName>BreakoutBoard/AnalogIO</onix1:DeviceName>
+                  <onix1:DeviceAddress>6</onix1:DeviceAddress>
+                  <onix1:Enable>true</onix1:Enable>
+                  <onix1:InputRange0>TenVolts</onix1:InputRange0>
+                  <onix1:InputRange1>TenVolts</onix1:InputRange1>
+                  <onix1:InputRange2>TenVolts</onix1:InputRange2>
+                  <onix1:InputRange3>TenVolts</onix1:InputRange3>
+                  <onix1:InputRange4>TenVolts</onix1:InputRange4>
+                  <onix1:InputRange5>TenVolts</onix1:InputRange5>
+                  <onix1:InputRange6>TenVolts</onix1:InputRange6>
+                  <onix1:InputRange7>TenVolts</onix1:InputRange7>
+                  <onix1:InputRange8>TenVolts</onix1:InputRange8>
+                  <onix1:InputRange9>TenVolts</onix1:InputRange9>
+                  <onix1:InputRange10>TenVolts</onix1:InputRange10>
+                  <onix1:InputRange11>TenVolts</onix1:InputRange11>
+                  <onix1:Direction0>Input</onix1:Direction0>
+                  <onix1:Direction1>Input</onix1:Direction1>
+                  <onix1:Direction2>Input</onix1:Direction2>
+                  <onix1:Direction3>Input</onix1:Direction3>
+                  <onix1:Direction4>Input</onix1:Direction4>
+                  <onix1:Direction5>Input</onix1:Direction5>
+                  <onix1:Direction6>Input</onix1:Direction6>
+                  <onix1:Direction7>Input</onix1:Direction7>
+                  <onix1:Direction8>Input</onix1:Direction8>
+                  <onix1:Direction9>Input</onix1:Direction9>
+                  <onix1:Direction10>Input</onix1:Direction10>
+                  <onix1:Direction11>Input</onix1:Direction11>
+                </onix1:AnalogIO>
+                <onix1:DigitalIO>
+                  <onix1:DeviceName>BreakoutBoard/DigitalIO</onix1:DeviceName>
+                  <onix1:DeviceAddress>7</onix1:DeviceAddress>
+                  <onix1:Enable>true</onix1:Enable>
+                </onix1:DigitalIO>
+                <onix1:ClockOutput>
+                  <onix1:DeviceName>BreakoutBoard/OutputClock</onix1:DeviceName>
+                  <onix1:DeviceAddress>5</onix1:DeviceAddress>
+                  <onix1:ClockGate>false</onix1:ClockGate>
+                  <onix1:Frequency>1000000</onix1:Frequency>
+                  <onix1:DutyCycle>50</onix1:DutyCycle>
+                  <onix1:Delay>0</onix1:Delay>
+                </onix1:ClockOutput>
+                <onix1:HarpInput>
+                  <onix1:DeviceName>BreakoutBoard/HarpSyncInput</onix1:DeviceName>
+                  <onix1:DeviceAddress>12</onix1:DeviceAddress>
+                  <onix1:Enable>true</onix1:Enable>
+                  <onix1:Source>ClockAdapter</onix1:Source>
+                </onix1:HarpInput>
+                <onix1:MemoryMonitor>
+                  <onix1:DeviceName>BreakoutBoard/MemoryMonitor</onix1:DeviceName>
+                  <onix1:DeviceAddress>10</onix1:DeviceAddress>
+                  <onix1:Enable>true</onix1:Enable>
+                  <onix1:SamplesPerSecond>10</onix1:SamplesPerSecond>
+                </onix1:MemoryMonitor>
+              </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p4:AnalogIODevice">
-                <p4:DeviceAddress>
-                  <p4:HardwareSlot>
-                    <p4:Driver>riffa</p4:Driver>
-                    <p4:Index>0</p4:Index>
-                  </p4:HardwareSlot>
-                  <p4:Address>6</p4:Address>
-                </p4:DeviceAddress>
-                <p4:BlockSize>100</p4:BlockSize>
-                <p4:DataType>S16</p4:DataType>
-                <p4:EnableStream>true</p4:EnableStream>
-                <p4:InputRange00>TenVolts</p4:InputRange00>
-                <p4:InputRange01>TenVolts</p4:InputRange01>
-                <p4:InputRange02>TenVolts</p4:InputRange02>
-                <p4:InputRange03>TenVolts</p4:InputRange03>
-                <p4:InputRange04>TenVolts</p4:InputRange04>
-                <p4:InputRange05>TenVolts</p4:InputRange05>
-                <p4:InputRange06>TenVolts</p4:InputRange06>
-                <p4:InputRange07>TenVolts</p4:InputRange07>
-                <p4:InputRange08>TenVolts</p4:InputRange08>
-                <p4:InputRange09>TenVolts</p4:InputRange09>
-                <p4:InputRange10>TenVolts</p4:InputRange10>
-                <p4:InputRange11>TenVolts</p4:InputRange11>
-                <p4:Direction00>Input</p4:Direction00>
-                <p4:Direction01>Input</p4:Direction01>
-                <p4:Direction02>Input</p4:Direction02>
-                <p4:Direction03>Input</p4:Direction03>
-                <p4:Direction04>Input</p4:Direction04>
-                <p4:Direction05>Input</p4:Direction05>
-                <p4:Direction06>Input</p4:Direction06>
-                <p4:Direction07>Input</p4:Direction07>
-                <p4:Direction08>Input</p4:Direction08>
-                <p4:Direction09>Input</p4:Direction09>
-                <p4:Direction10>Input</p4:Direction10>
-                <p4:Direction11>Input</p4:Direction11>
+              <Combinator xsi:type="onix1:StartAcquisition">
+                <onix1:ReadSize>2048</onix1:ReadSize>
+                <onix1:WriteSize>2048</onix1:WriteSize>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="onix1:AnalogInput">
+                <onix1:DeviceName>BreakoutBoard/AnalogIO</onix1:DeviceName>
+                <onix1:BufferSize>100</onix1:BufferSize>
+                <onix1:DataType>S16</onix1:DataType>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
               <Name>OnixAnalog</Name>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="DeviceAddress" DisplayName="DigitalDeviceAddress" Category="ONIX" />
-            </Expression>
             <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Int32">
               <rx:Name>OnixDigitalCommands</rx:Name>
             </Expression>
             <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p4:DigitalIODevice">
-                <p4:DeviceAddress>
-                  <p4:HardwareSlot>
-                    <p4:Driver>riffa</p4:Driver>
-                    <p4:Index>0</p4:Index>
-                  </p4:HardwareSlot>
-                  <p4:Address>7</p4:Address>
-                </p4:DeviceAddress>
-                <p4:LEDBrightness>40</p4:LEDBrightness>
-                <p4:EnableStream>true</p4:EnableStream>
+              <Combinator xsi:type="onix1:DigitalOutput">
+                <onix1:DeviceName>BreakoutBoard/DigitalIO</onix1:DeviceName>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="onix1:DigitalInput">
+                <onix1:DeviceName>BreakoutBoard/DigitalIO</onix1:DeviceName>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
               <Name>OnixDigital</Name>
             </Expression>
-            <Expression xsi:type="ExternalizedMapping">
-              <Property Name="DeviceAddress" DisplayName="HarpDeviceAddress" Category="ONIX" />
-            </Expression>
             <Expression xsi:type="Combinator">
-              <Combinator xsi:type="p4:HARPSyncInputDevice">
-                <p4:DeviceAddress>
-                  <p4:HardwareSlot>
-                    <p4:Driver>riffa</p4:Driver>
-                    <p4:Index>0</p4:Index>
-                  </p4:HardwareSlot>
-                  <p4:Address>12</p4:Address>
-                </p4:DeviceAddress>
-                <p4:EnableStream>true</p4:EnableStream>
+              <Combinator xsi:type="onix1:HarpSyncInputData">
+                <onix1:DeviceName>BreakoutBoard/HarpSyncInput</onix1:DeviceName>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
@@ -2885,7 +2897,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT1.066S</rx:DueTime>
+                      <rx:DueTime>PT4.78S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -2938,12 +2950,11 @@
             </Expression>
           </Nodes>
           <Edges>
+            <Edge From="0" To="1" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
-            <Edge From="2" To="3" Label="Source1" />
-            <Edge From="4" To="6" Label="Source1" />
-            <Edge From="5" To="6" Label="Source2" />
-            <Edge From="6" To="7" Label="Source1" />
-            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
             <Edge From="9" To="10" Label="Source1" />
             <Edge From="11" To="12" Label="Source1" />
             <Edge From="13" To="14" Label="Source1" />
@@ -3036,7 +3047,7 @@
             <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Boolean">
               <rx:Name>PlatformHomed</rx:Name>
             </Expression>
-            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="p5:Unit">
+            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="p4:Unit">
               <rx:Name>HomePlatform</rx:Name>
             </Expression>
             <Expression xsi:type="rx:CreateObservable">
@@ -3666,7 +3677,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogController.bonsai">
-              <Path>D:/TrialLogicTestData/</Path>
+              <Path>D:/rotation_exp/B3M7/</Path>
               <ChunkSize>1</ChunkSize>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -3778,7 +3789,7 @@
                     <Name>Source1</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>Data</Selector>
+                    <Selector>AnalogData</Selector>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
                 </Nodes>
@@ -3820,7 +3831,7 @@
                     <Name>Source1</Name>
                   </Expression>
                   <Expression xsi:type="MemberSelector">
-                    <Selector>HubSyncCounter</Selector>
+                    <Selector>HubClock</Selector>
                   </Expression>
                   <Expression xsi:type="WorkflowOutput" />
                 </Nodes>
@@ -3867,7 +3878,7 @@
               <Heartbeats>H1Events</Heartbeats>
               <ClosingDuration xsi:nil="true" />
               <LogName>OnixHarp</LogName>
-              <Selector>Seconds,Value.HARPTime,Value.Clock,Value.HubSyncCounter</Selector>
+              <Selector>Seconds,Value.Clock,Value.HubClock,Value.HarpTime</Selector>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>OnixDigital</Name>
@@ -3885,7 +3896,7 @@
               <Heartbeats>H1Events</Heartbeats>
               <ClosingDuration xsi:nil="true" />
               <LogName>OnixDigital</LogName>
-              <Selector>Seconds,Value.Buttons,Value.Links,Value.Port,Value.Clock,Value.HubSyncCounter</Selector>
+              <Selector>Seconds,Value.Clock,Value.HubClock,Value.DigitalInputs,Value.Buttons</Selector>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>ExperimentEvents</Name>
