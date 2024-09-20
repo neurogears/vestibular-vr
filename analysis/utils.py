@@ -66,11 +66,6 @@ class Video(Csv):
         data["Time"] = data["Time"].transform(lambda x: api.aeon(x))
         data.set_index("Time", inplace=True)
         return data
-
-
-class OnixAnalogData(Reader):
-    def __init__(self, pattern="OnixAnalogData"):
-        super().__init__(pattern, columns=["metadata"], extension="bin")
     
 
 def load(reader: Reader, root: Path) -> pd.DataFrame:
