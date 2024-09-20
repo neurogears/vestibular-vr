@@ -1,0 +1,85 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/harp-tech/reflex-generator/main/schema/device.json
+device: VestibularH2
+whoAmI: 1225
+firmwareVersion: "0.5"
+hardwareTargets: "1.0"
+registers:
+  Control:
+    address: 32
+    type: U8
+    description: Control the device modules.
+    access: Write
+    maskType: ControlFlags
+  Pulses:
+    address: 33
+    type: S32
+    description: Sends the number of pulses written in this register and set the direction according to the number's sign.
+    access: Write
+  NominalPulseInterval:
+    address: 34
+    type: U16
+    description: Sets the motor pulse interval when running at nominal speed.
+    access: Write
+  InitialPulseInterval:
+    address: 35
+    type: U16
+    description: Sets the motor's maximum pulse interval, used as the first and last pulse interval of a rotation.
+    access: Write
+  PulseStepInterval:
+    address: 36
+    type: U16
+    description: Sets the acceleration. The pulse's interval is decreased by this value when accelerating and increased when de-accelerating.
+    access: Write
+  PulsePeriod:
+    address: 37
+    type: U16
+    description: Sets the period of the pulse.
+    access: Write
+  Encoder:
+    address: 38
+    type: S16
+    description: Contains the reading of the quadrature encoder.
+    access: Event
+  AnalogInput:
+    address: 39
+    type: S16
+    description: Contains the reading of the analog input.
+    access: Event
+  StopSwitch:
+    address: 40
+    type: U8
+    description: Contains the state of the stop switch.
+    access: Write
+    maskType: StopSwitchFlags
+  MotorState:
+    address: 41
+    type: U8
+    description: Contains the state of the motor.
+    access: Event
+    maskType: MotorStateFlags
+  ImmediatePulses:
+    address: 42
+    type: S16
+    description: Sets immediately the motor pulse interval. The value's sign defines the direction.
+    access: Write
+bitMasks:
+  ControlFlags:
+    description: Available device module configuration flags.
+    bits:
+      EnableMotor: 0x1
+      DisableMotor: 0x2
+      EnableAnalogInput: 0x4
+      DisableAnalogInput: 0x8
+      EnableEncoder: 0x10
+      DisableEncoder: 0x20
+      ResetEncoder: 0x40
+  StopSwitchFlags:
+    description: Flags describing the state of the motor stop switch.
+    bits:
+      StopSwitch: 0x1
+  MotorStateFlags:
+    description: Flags describing the movement state of the motor.
+    bits:
+      IsMoving: 0x1
