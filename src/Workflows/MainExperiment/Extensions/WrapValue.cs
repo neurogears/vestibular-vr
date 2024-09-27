@@ -11,6 +11,12 @@ public class WrapValue : Transform<int, int>
 
     public override IObservable<int> Process(IObservable<int> source)
     {
-        return source.Select(x => x >= 0 ? (x % MaxValue) : (MaxValue - Math.Abs(x % MaxValue)));
+        return source.Select(x => {
+            if (MaxValue <= 0) {
+                return 0;
+            } else {
+                return (x >= 0) ? (x % MaxValue) : (MaxValue - Math.Abs(x % MaxValue));
+            }
+        });
     }
 }
