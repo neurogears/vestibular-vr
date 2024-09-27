@@ -151,7 +151,7 @@
               <Combinator xsi:type="gl:TextureResources">
                 <gl:Textures>
                   <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                    <gl:Name>MotionCloud</gl:Name>
+                    <gl:Name>test-cloud</gl:Name>
                     <gl:Width xsi:nil="true" />
                     <gl:Height xsi:nil="true" />
                     <gl:InternalFormat>Rgba</gl:InternalFormat>
@@ -159,7 +159,21 @@
                     <gl:WrapT>Repeat</gl:WrapT>
                     <gl:MinFilter>Linear</gl:MinFilter>
                     <gl:MagFilter>Linear</gl:MagFilter>
-                    <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Python\vestibular-vr\test-cloud.mp4</gl:FileName>
+                    <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Textures\test-cloud.mp4</gl:FileName>
+                    <gl:FlipMode>Vertical</gl:FlipMode>
+                    <gl:FrameCount xsi:nil="true" />
+                    <gl:StartPosition>0</gl:StartPosition>
+                  </gl:TextureConfiguration>
+                  <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+                    <gl:Name>test-cloud-2</gl:Name>
+                    <gl:Width xsi:nil="true" />
+                    <gl:Height xsi:nil="true" />
+                    <gl:InternalFormat>Rgba</gl:InternalFormat>
+                    <gl:WrapS>Repeat</gl:WrapS>
+                    <gl:WrapT>Repeat</gl:WrapT>
+                    <gl:MinFilter>Linear</gl:MinFilter>
+                    <gl:MagFilter>Linear</gl:MagFilter>
+                    <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Textures\test-cloud-2.mp4</gl:FileName>
                     <gl:FlipMode>Vertical</gl:FlipMode>
                     <gl:FrameCount xsi:nil="true" />
                     <gl:StartPosition>0</gl:StartPosition>
