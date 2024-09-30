@@ -98,7 +98,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:LoadSettings">
-                <p1:Path>C:\Users\ONIX\source\nora-dev\vestibular-vr\src\drum_closedloop_nohalt.yml</p1:Path>
+                <p1:Path>C:\Users\ONIX\source\ae-dev\vestibular-vr\src\motionCloudsTest.yml</p1:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -159,7 +159,7 @@
                     <gl:WrapT>Repeat</gl:WrapT>
                     <gl:MinFilter>Linear</gl:MinFilter>
                     <gl:MagFilter>Linear</gl:MagFilter>
-                    <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Textures\test-cloud.mp4</gl:FileName>
+                    <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Textures\test-cloud.mp4</gl:FileName>
                     <gl:FlipMode>Vertical</gl:FlipMode>
                     <gl:FrameCount xsi:nil="true" />
                     <gl:StartPosition>0</gl:StartPosition>
@@ -173,7 +173,7 @@
                     <gl:WrapT>Repeat</gl:WrapT>
                     <gl:MinFilter>Linear</gl:MinFilter>
                     <gl:MagFilter>Linear</gl:MagFilter>
-                    <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Textures\test-cloud-2.mp4</gl:FileName>
+                    <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Textures\test-cloud-2.mp4</gl:FileName>
                     <gl:FlipMode>Vertical</gl:FlipMode>
                     <gl:FrameCount xsi:nil="true" />
                     <gl:StartPosition>0</gl:StartPosition>
@@ -739,13 +739,26 @@
                         <Expression xsi:type="WorkflowInput">
                           <Name>Source1</Name>
                         </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Take">
+                            <rx:Count>1</rx:Count>
+                          </Combinator>
+                        </Expression>
+                        <Expression xsi:type="rx:AsyncSubject">
+                          <Name>TextureName</Name>
+                        </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>TextureName</Name>
+                        </Expression>
                         <Expression xsi:type="PropertyMapping">
                           <PropertyMappings>
                             <Property Name="TextureName" />
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="p1:GetTextureData" />
+                          <Combinator xsi:type="p1:GetTextureData">
+                            <p1:TextureName />
+                          </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Zip" />
@@ -759,11 +772,13 @@
                       </Nodes>
                       <Edges>
                         <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="0" To="3" Label="Source2" />
                         <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
                         <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="3" To="6" Label="Source2" />
                         <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="6" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="7" To="8" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -789,7 +804,7 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:CreateContinuousUniform">
                       <p2:Lower>0</p2:Lower>
-                      <p2:Upper>1.5</p2:Upper>
+                      <p2:Upper>0.5</p2:Upper>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:AsyncSubject">
@@ -915,10 +930,10 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>0</LocationX>
+                          <LocationX>-90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
-                          <ExtentX>360</ExtentX>
+                          <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
@@ -973,10 +988,10 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>0</LocationX>
+                          <LocationX>90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
-                          <ExtentX>0</ExtentX>
+                          <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
@@ -1076,7 +1091,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="p1:WrapValue">
-                            <p1:MaxValue>0</p1:MaxValue>
+                            <p1:MaxValue>4096</p1:MaxValue>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="rx:PublishSubject">
@@ -1095,7 +1110,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="p1:WrapValue">
-                            <p1:MaxValue>0</p1:MaxValue>
+                            <p1:MaxValue>4096</p1:MaxValue>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="rx:PublishSubject">
@@ -1127,7 +1142,7 @@
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>Image</gl:ShaderName>
-                            <gl:TextureName>test-cloud</gl:TextureName>
+                            <gl:TextureName>test-cloud-2</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                             <gl:Index>0</gl:Index>
                           </Combinator>
@@ -1156,9 +1171,9 @@
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                           <TextureName />
-                          <ExtentX>360</ExtentX>
+                          <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>0</LocationX>
+                          <LocationX>-90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -1193,7 +1208,7 @@
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>Image</gl:ShaderName>
-                            <gl:TextureName>MotionCloud</gl:TextureName>
+                            <gl:TextureName>test-cloud-2</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
                             <gl:Index>180</gl:Index>
                           </Combinator>
@@ -1222,9 +1237,9 @@
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                           <TextureName />
-                          <ExtentX>0</ExtentX>
+                          <ExtentX>180</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>0</LocationX>
+                          <LocationX>90</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -1705,7 +1720,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="gl:Timer">
-                      <gl:DueTime>PT5M</gl:DueTime>
+                      <gl:DueTime>PT20S</gl:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -3855,7 +3870,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogController.bonsai">
-              <Path>D:/rotation_exp/B3M7/</Path>
+              <Path>D:/SandboxData/</Path>
               <ChunkSize>1</ChunkSize>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
