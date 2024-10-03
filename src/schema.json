@@ -42,6 +42,12 @@
                     "$ref": "#/definitions/haltProtocol",
                     "description": "The halt protocol to use on a positive halt decision"
                 },
+                "flowSmoothing": {
+                    "default": 1,
+                    "description": "Size of the buffer used to produce rolling average of flow values. Minimum 1 = no smoothing, n>1 = rolling average of n values",
+                    "type": "integer",
+                    "minimum": 1
+                },
                 "flowXToRunGain": {
                     "default": 0,
                     "description": "flow --> run distance traveled gain (X dimension)",

@@ -31,6 +31,8 @@ namespace DataSchema
     
         private HaltProtocol _haltProtocol;
     
+        private int _flowSmoothing = 1;
+    
         private double _flowXToRunGain = 0D;
     
         private double _flowYToRunGain = 0D;
@@ -69,6 +71,7 @@ namespace DataSchema
             _runThresholdDecay = other._runThresholdDecay;
             _haltProbability = other._haltProbability;
             _haltProtocol = other._haltProtocol;
+            _flowSmoothing = other._flowSmoothing;
             _flowXToRunGain = other._flowXToRunGain;
             _flowYToRunGain = other._flowYToRunGain;
             _playbackToRunGain = other._playbackToRunGain;
@@ -220,6 +223,24 @@ namespace DataSchema
             set
             {
                 _haltProtocol = value;
+            }
+        }
+    
+        /// <summary>
+        /// Size of the buffer used to produce rolling average of flow values. Minimum 1 = no smoothing, n>1 = rolling average of n values
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="flowSmoothing")]
+        [System.ComponentModel.DescriptionAttribute("Size of the buffer used to produce rolling average of flow values. Minimum 1 = no" +
+            " smoothing, n>1 = rolling average of n values")]
+        public int FlowSmoothing
+        {
+            get
+            {
+                return _flowSmoothing;
+            }
+            set
+            {
+                _flowSmoothing = value;
             }
         }
     
@@ -447,6 +468,7 @@ namespace DataSchema
             stringBuilder.Append("runThresholdDecay = " + _runThresholdDecay + ", ");
             stringBuilder.Append("haltProbability = " + _haltProbability + ", ");
             stringBuilder.Append("haltProtocol = " + _haltProtocol + ", ");
+            stringBuilder.Append("flowSmoothing = " + _flowSmoothing + ", ");
             stringBuilder.Append("flowXToRunGain = " + _flowXToRunGain + ", ");
             stringBuilder.Append("flowYToRunGain = " + _flowYToRunGain + ", ");
             stringBuilder.Append("playbackToRunGain = " + _playbackToRunGain + ", ");
