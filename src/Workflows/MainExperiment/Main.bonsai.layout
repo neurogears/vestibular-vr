@@ -224,7 +224,7 @@
             <TimeSeriesVisualizer>
               <Capacity>640</Capacity>
               <Min>0</Min>
-              <Max>8</Max>
+              <Max>6</Max>
               <AutoScale>true</AutoScale>
             </TimeSeriesVisualizer>
           </VisualizerSettings>
@@ -1068,8 +1068,8 @@
         <EditorDialogSettings>
           <Visible>false</Visible>
           <Location>
-            <X>387</X>
-            <Y>295</Y>
+            <X>570</X>
+            <Y>103</Y>
           </Location>
           <Size>
             <Width>1130</Width>
