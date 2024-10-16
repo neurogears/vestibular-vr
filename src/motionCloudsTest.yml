@@ -1,0 +1,55 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+
+metadata:
+  animalId: plimbo
+  rootPath: D:/SandboxData/
+  runGain: 0.0008
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
+blocks: [
+  &MotionCloudVisualClosedLoop1
+  {
+    alias: MotionCloudVisualClosedLoop1,
+    stimulus: {
+      type: cloud,
+      spatialFrequency: 0.1,
+      textureName: short-cloud
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 2,
+      haltGain: 0
+    },
+    haltProbability: 0.5,
+    totalRuntime: 20,
+    flowXToVisualGain: 1,
+    flowXToRunGain: 1
+  },
+  &MotionCloudVisualClosedLoop2
+  {
+    alias: MotionCloudVisualClosedLoop2,
+    stimulus: {
+      type: cloud,
+      spatialFrequency: 0.1,
+      textureName: test-cloud-2
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 2,
+      haltGain: 0
+    },
+    haltProbability: 0.5,
+    totalRuntime: 20,
+    flowXToVisualGain: 1,
+    flowXToRunGain: 1
+  }
+]

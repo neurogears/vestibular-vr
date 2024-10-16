@@ -5,8 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bonsai.Core" Version="2.8.1" />
+    <PackageReference Include="Bonsai.Core" Version="2.8.5" />
     <PackageReference Include="YamlDotNet" Version="12.0.2" />
+    <PackageReference Include="Bonsai.Shaders" Version="2.8.5-dev0" />
   </ItemGroup>
 
 </Project>

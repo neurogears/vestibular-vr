@@ -2,6 +2,7 @@
 <WorkflowBuilder Version="2.8.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
+                 xmlns:p1="clr-namespace:;assembly=Extensions"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
@@ -48,23 +49,8 @@
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.BonVisionResources.bonsai" />
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="gl:TextureResources">
-          <gl:Textures>
-            <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-              <gl:Name>MotionCloud</gl:Name>
-              <gl:Width xsi:nil="true" />
-              <gl:Height xsi:nil="true" />
-              <gl:InternalFormat>Rgba</gl:InternalFormat>
-              <gl:WrapS>Repeat</gl:WrapS>
-              <gl:WrapT>Repeat</gl:WrapT>
-              <gl:MinFilter>Linear</gl:MinFilter>
-              <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Python\vestibular-vr\test-cloud.mp4</gl:FileName>
-              <gl:FlipMode>Vertical</gl:FlipMode>
-              <gl:FrameCount xsi:nil="true" />
-              <gl:StartPosition>0</gl:StartPosition>
-            </gl:TextureConfiguration>
-          </gl:Textures>
+        <Combinator xsi:type="p1:TextureFolder">
+          <p1:Path>C:\Users\neurogears\source\repos\vestibular-vr\Textures</p1:Path>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -117,12 +103,22 @@
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="Combinator">
+        <Combinator xsi:type="StringProperty">
+          <Value>test-cloud-2</Value>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="PropertyMapping">
+        <PropertyMappings>
+          <Property Name="TextureName" />
+        </PropertyMappings>
+      </Expression>
+      <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:BindTexture">
           <gl:TextureSlot>Texture0</gl:TextureSlot>
           <gl:ShaderName>Image</gl:ShaderName>
-          <gl:TextureName>MotionCloud</gl:TextureName>
+          <gl:TextureName>test-cloud-2</gl:TextureName>
           <gl:TextureTarget>Texture2D</gl:TextureTarget>
-          <gl:Index>880</gl:Index>
+          <gl:Index>1416</gl:Index>
         </Combinator>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
@@ -152,10 +148,12 @@
       <Edge From="11" To="12" Label="Source1" />
       <Edge From="12" To="13" Label="Source1" />
       <Edge From="13" To="14" Label="Source1" />
-      <Edge From="15" To="18" Label="Source1" />
+      <Edge From="15" To="20" Label="Source1" />
       <Edge From="16" To="17" Label="Source1" />
-      <Edge From="17" To="18" Label="Source2" />
+      <Edge From="17" To="20" Label="Source2" />
       <Edge From="18" To="19" Label="Source1" />
+      <Edge From="19" To="20" Label="Source3" />
+      <Edge From="20" To="21" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

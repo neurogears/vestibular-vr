@@ -487,7 +487,7 @@ namespace DataSchema
     
         private double _spatialFrequency = 0.1D;
     
-        private string _path = "";
+        private string _textureName = "";
     
         private double _offset1 = -90D;
     
@@ -505,7 +505,7 @@ namespace DataSchema
         {
             _type = other._type;
             _spatialFrequency = other._spatialFrequency;
-            _path = other._path;
+            _textureName = other._textureName;
             _offset1 = other._offset1;
             _extent1 = other._extent1;
             _offset2 = other._offset2;
@@ -548,19 +548,19 @@ namespace DataSchema
         }
     
         /// <summary>
-        /// Path to texture or video if required
+        /// Name of texture resource to load if required
         /// </summary>
-        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="path")]
-        [System.ComponentModel.DescriptionAttribute("Path to texture or video if required")]
-        public string Path
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="textureName")]
+        [System.ComponentModel.DescriptionAttribute("Name of texture resource to load if required")]
+        public string TextureName
         {
             get
             {
-                return _path;
+                return _textureName;
             }
             set
             {
-                _path = value;
+                _textureName = value;
             }
         }
     
@@ -646,7 +646,7 @@ namespace DataSchema
         {
             stringBuilder.Append("type = " + _type + ", ");
             stringBuilder.Append("spatialFrequency = " + _spatialFrequency + ", ");
-            stringBuilder.Append("path = " + _path + ", ");
+            stringBuilder.Append("textureName = " + _textureName + ", ");
             stringBuilder.Append("offset1 = " + _offset1 + ", ");
             stringBuilder.Append("extent1 = " + _extent1 + ", ");
             stringBuilder.Append("offset2 = " + _offset2 + ", ");
