@@ -21,7 +21,6 @@ blocks: [
       type: cloud,
       spatialFrequency: 0.1,
       textureName: short-cloud,
-      playbackFilePath: C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv
     },
     haltProtocol: {
       minumumDelay: 0.1,
@@ -29,10 +28,12 @@ blocks: [
       haltTime: 2,
       haltGain: 0
     },
+    playbackFilePath: C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv,
     haltProbability: 0.5,
     totalRuntime: 20,
-    flowXToVisualGain: 1,
-    flowXToRunGain: 1
+    flowXToVisualGain: 0,
+    flowXToRunGain: 1,
+    playbackToVisualGain: 1,
   },
   &MotionCloudVisualClosedLoop2
   {
