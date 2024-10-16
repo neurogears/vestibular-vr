@@ -20,7 +20,8 @@ blocks: [
     stimulus: {
       type: cloud,
       spatialFrequency: 0.1,
-      textureName: short-cloud
+      textureName: short-cloud,
+      playbackFilePath: C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv
     },
     haltProtocol: {
       minumumDelay: 0.1,
