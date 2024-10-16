@@ -178,6 +178,20 @@
                     <gl:FrameCount xsi:nil="true" />
                     <gl:StartPosition>0</gl:StartPosition>
                   </gl:TextureConfiguration>
+                  <gl:TextureConfiguration xsi:type="gl:ImageSequence">
+                    <gl:Name>short-cloud</gl:Name>
+                    <gl:Width xsi:nil="true" />
+                    <gl:Height xsi:nil="true" />
+                    <gl:InternalFormat>Rgba</gl:InternalFormat>
+                    <gl:WrapS>Repeat</gl:WrapS>
+                    <gl:WrapT>Repeat</gl:WrapT>
+                    <gl:MinFilter>Linear</gl:MinFilter>
+                    <gl:MagFilter>Linear</gl:MagFilter>
+                    <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Textures\sf_0=0.01-B_sf=0.06-theta=0-B_theta=0.25-alpha=0-seed=1.mp4</gl:FileName>
+                    <gl:FlipMode>Vertical</gl:FlipMode>
+                    <gl:FrameCount xsi:nil="true" />
+                    <gl:StartPosition>0</gl:StartPosition>
+                  </gl:TextureConfiguration>
                 </gl:Textures>
               </Combinator>
             </Expression>
@@ -746,7 +760,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="p1:GetTextureData">
-                            <p1:TextureName>test-cloud-2</p1:TextureName>
+                            <p1:TextureName>short-cloud</p1:TextureName>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -927,7 +941,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>-0</Phase>
+                          <Phase>-15676.126</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -985,7 +999,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>10313.24</Phase>
+                          <Phase>25989.3652</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -1081,7 +1095,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="p1:WrapValue">
-                            <p1:MaxValue>4096</p1:MaxValue>
+                            <p1:MaxValue>256</p1:MaxValue>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="rx:PublishSubject">
@@ -1100,7 +1114,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="p1:WrapValue">
-                            <p1:MaxValue>4096</p1:MaxValue>
+                            <p1:MaxValue>256</p1:MaxValue>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="rx:PublishSubject">
@@ -1109,8 +1123,16 @@
                         <Expression xsi:type="WorkflowInput">
                           <Name>Source1</Name>
                         </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="IntProperty">
+                            <Value>0</Value>
+                          </Combinator>
+                        </Expression>
                         <Expression xsi:type="SubscribeSubject">
                           <Name>MotionCloudIndexPositionLeft</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Merge" />
                         </Expression>
                         <Expression xsi:type="PropertyMapping">
                           <PropertyMappings>
@@ -1132,9 +1154,9 @@
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>Image</gl:ShaderName>
-                            <gl:TextureName>test-cloud-2</gl:TextureName>
+                            <gl:TextureName>short-cloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>0</gl:Index>
+                            <gl:Index>238</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1175,8 +1197,16 @@
                         <Expression xsi:type="MemberSelector">
                           <Selector>X</Selector>
                         </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="IntProperty">
+                            <Value>0</Value>
+                          </Combinator>
+                        </Expression>
                         <Expression xsi:type="SubscribeSubject">
                           <Name>MotionCloudIndexPositionRight</Name>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="rx:Merge" />
                         </Expression>
                         <Expression xsi:type="PropertyMapping">
                           <PropertyMappings>
@@ -1198,9 +1228,9 @@
                           <Combinator xsi:type="gl:BindTexture">
                             <gl:TextureSlot>Texture0</gl:TextureSlot>
                             <gl:ShaderName>Image</gl:ShaderName>
-                            <gl:TextureName>test-cloud-2</gl:TextureName>
+                            <gl:TextureName>short-cloud</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>180</gl:Index>
+                            <gl:Index>198</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1258,37 +1288,41 @@
                         <Edge From="8" To="10" Label="Source1" />
                         <Edge From="9" To="10" Label="Source2" />
                         <Edge From="10" To="11" Label="Source1" />
-                        <Edge From="12" To="18" Label="Source1" />
-                        <Edge From="12" To="32" Label="Source1" />
-                        <Edge From="13" To="14" Label="Source1" />
-                        <Edge From="14" To="18" Label="Source2" />
+                        <Edge From="12" To="20" Label="Source1" />
+                        <Edge From="12" To="36" Label="Source1" />
+                        <Edge From="13" To="15" Label="Source1" />
+                        <Edge From="14" To="15" Label="Source2" />
                         <Edge From="15" To="16" Label="Source1" />
-                        <Edge From="16" To="17" Label="Source1" />
-                        <Edge From="17" To="18" Label="Source3" />
-                        <Edge From="18" To="25" Label="Source1" />
-                        <Edge From="19" To="20" Label="Source1" />
-                        <Edge From="20" To="21" Label="Source1" />
-                        <Edge From="21" To="25" Label="Source2" />
+                        <Edge From="16" To="20" Label="Source2" />
+                        <Edge From="17" To="18" Label="Source1" />
+                        <Edge From="18" To="19" Label="Source1" />
+                        <Edge From="19" To="20" Label="Source3" />
+                        <Edge From="20" To="27" Label="Source1" />
+                        <Edge From="21" To="22" Label="Source1" />
                         <Edge From="22" To="23" Label="Source1" />
-                        <Edge From="23" To="24" Label="Source1" />
-                        <Edge From="24" To="25" Label="Source3" />
+                        <Edge From="23" To="27" Label="Source2" />
+                        <Edge From="24" To="25" Label="Source1" />
                         <Edge From="25" To="26" Label="Source1" />
-                        <Edge From="26" To="41" Label="Source1" />
+                        <Edge From="26" To="27" Label="Source3" />
                         <Edge From="27" To="28" Label="Source1" />
-                        <Edge From="28" To="32" Label="Source2" />
-                        <Edge From="29" To="30" Label="Source1" />
-                        <Edge From="30" To="31" Label="Source1" />
-                        <Edge From="31" To="32" Label="Source3" />
-                        <Edge From="32" To="39" Label="Source1" />
+                        <Edge From="28" To="45" Label="Source1" />
+                        <Edge From="29" To="31" Label="Source1" />
+                        <Edge From="30" To="31" Label="Source2" />
+                        <Edge From="31" To="32" Label="Source1" />
+                        <Edge From="32" To="36" Label="Source2" />
                         <Edge From="33" To="34" Label="Source1" />
                         <Edge From="34" To="35" Label="Source1" />
-                        <Edge From="35" To="39" Label="Source2" />
-                        <Edge From="36" To="37" Label="Source1" />
+                        <Edge From="35" To="36" Label="Source3" />
+                        <Edge From="36" To="43" Label="Source1" />
                         <Edge From="37" To="38" Label="Source1" />
-                        <Edge From="38" To="39" Label="Source3" />
-                        <Edge From="39" To="40" Label="Source1" />
-                        <Edge From="40" To="41" Label="Source2" />
+                        <Edge From="38" To="39" Label="Source1" />
+                        <Edge From="39" To="43" Label="Source2" />
+                        <Edge From="40" To="41" Label="Source1" />
                         <Edge From="41" To="42" Label="Source1" />
+                        <Edge From="42" To="43" Label="Source3" />
+                        <Edge From="43" To="44" Label="Source1" />
+                        <Edge From="44" To="45" Label="Source2" />
+                        <Edge From="45" To="46" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -2172,7 +2206,7 @@
                               </Expression>
                               <Expression xsi:type="LessThan">
                                 <Operand xsi:type="DoubleProperty">
-                                  <Value>0.8</Value>
+                                  <Value>0.5</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
@@ -2249,7 +2283,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="gl:Timer">
-                                  <gl:DueTime>PT0.16S</gl:DueTime>
+                                  <gl:DueTime>PT0.187S</gl:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -4179,49 +4213,19 @@
           </Edges>
         </Workflow>
       </Expression>
-      <Expression xsi:type="SubscribeSubject">
-        <Name>FlowSensor1</Name>
-      </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>X</Selector>
-      </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Y</Selector>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Zip" />
-      </Expression>
-      <Expression xsi:type="scr:ExpressionTransform">
-        <scr:Expression>new (
-  it.Item1 as X,
-  it.Item2 as Y
-)</scr:Expression>
-      </Expression>
-      <Expression xsi:type="rx:PublishSubject">
-        <Name>MovementDelta</Name>
-      </Expression>
       <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="wie:MouseWheel" />
+        <Builder xsi:type="SubscribeSubject">
+          <Name>FlowSensor1</Name>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
-        <Builder xsi:type="scr:ExpressionTransform">
-          <scr:Expression>Convert.ToInt16(it)</scr:Expression>
+        <Builder xsi:type="MemberSelector">
+          <Selector>X</Selector>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
-        <Builder xsi:type="Multiply">
-          <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
-            <Value>50</Value>
-          </Operand>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Multiply">
-          <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
-            <Value>50</Value>
-          </Operand>
+        <Builder xsi:type="MemberSelector">
+          <Selector>Y</Selector>
         </Builder>
       </Expression>
       <Expression xsi:type="Disable">
@@ -4241,6 +4245,34 @@
         <Builder xsi:type="rx:PublishSubject">
           <Name>MovementDelta</Name>
         </Builder>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:MouseWheel" />
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>Convert.ToInt16(it)</scr:Expression>
+      </Expression>
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
+          <Value>50</Value>
+        </Operand>
+      </Expression>
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
+          <Value>50</Value>
+        </Operand>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>new (
+  it.Item1 as X,
+  it.Item2 as Y
+)</scr:Expression>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>MovementDelta</Name>
       </Expression>
     </Nodes>
     <Edges>

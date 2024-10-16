@@ -20,7 +20,7 @@ blocks: [
     stimulus: {
       type: cloud,
       spatialFrequency: 0.1,
-      textureName: test-cloud
+      textureName: short-cloud
     },
     haltProtocol: {
       minumumDelay: 0.1,
