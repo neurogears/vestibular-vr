@@ -1,0 +1,42 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+
+metadata:
+  animalId: plimbo
+  rootPath: D:/rotation_exp/B3M7/
+  runGain: 0.0008
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
+blocks: [
+  &DrumClosedLoop
+  {
+    alias: DrumBase,
+    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv",
+    stimulus: {
+      type: "grating",
+      spatialFrequency: 0.5,
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 1.5,
+      haltTime: 2,
+      haltGain: 4
+    },
+    runThreshold: 10,
+    totalRuntime: 250,
+    flowYToVisualGain: 0,
+    flowYToMotorGain: 5000,
+    playbackToMotorGain: 0,
+    haltProbability: 1,
+    runThresholdDecay: 0,
+  }]
