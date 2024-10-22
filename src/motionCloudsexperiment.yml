@@ -1,0 +1,67 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+
+metadata:
+  animalId: plimbo
+  rootPath: D:/SandboxData/
+  runGain: 0.0008
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
+blocks: [
+  &MotionCloud_static
+  {
+    alias: MotionCloud_static,
+    stimulus: {
+      type: cloud,
+      spatialFrequency: 0.1,
+      textureName: short_cloud_1,
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 0,
+      haltGain: 0
+    },
+    playbackFilePath: C:/Users/ONIX/Desktop/_playback.csv,
+    haltProbability: 0,
+    totalRuntime: 10,
+    flowXToVisualGain: 0,
+    flowXToRunGain: 0,
+    playbackToVisualGain: 0,
+  },
+  &MotionCloud_openloop
+ {
+    alias: MotionCloud_openloop,
+    stimulus: {
+      type: cloud,
+      spatialFrequency: 0.1,
+      textureName: short_cloud_1,
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 0.5,
+      haltTime: 0,
+      haltGain: 0
+    },
+    playbackFilePath: C:/Users/ONIX/Desktop/_playback.csv,
+    haltProbability: 0,
+    totalRuntime: 10,
+    flowXToVisualGain: 0,
+    flowXToRunGain: 0,
+    playbackToVisualGain: 1,
+  },
+  {<<: *MotionCloud_static},
+  {<<: *MotionCloud_openloop},
+  {<<: *MotionCloud_static},
+  {<<: *MotionCloud_openloop},
+  {<<: *MotionCloud_static},
+  {<<: *MotionCloud_openloop},
+  {<<: *MotionCloud_static},
+  {<<: *MotionCloud_openloop}
+]
