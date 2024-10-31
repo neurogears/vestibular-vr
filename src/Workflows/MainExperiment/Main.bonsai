@@ -941,7 +941,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>825.0592</Phase>
+                          <Phase>-25943.5273</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -999,7 +999,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>9488.182</Phase>
+                          <Phase>36256.77</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -1163,7 +1163,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>test-cloud-2</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>0</gl:Index>
+                            <gl:Index>3643</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1237,7 +1237,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>test-cloud-2</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>0</gl:Index>
+                            <gl:Index>453</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1819,7 +1819,7 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="io:CsvReader">
-                          <io:FileName>C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv</io:FileName>
+                          <io:FileName>C:/Users/ONIX/Desktop/_playback.csv</io:FileName>
                           <io:ListSeparator>,</io:ListSeparator>
                           <io:ScanPattern>%s</io:ScanPattern>
                           <io:SkipRows>0</io:SkipRows>
@@ -2214,7 +2214,7 @@
                               </Expression>
                               <Expression xsi:type="LessThan">
                                 <Operand xsi:type="DoubleProperty">
-                                  <Value>0.5</Value>
+                                  <Value>1</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
@@ -2291,7 +2291,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="gl:Timer">
-                                  <gl:DueTime>PT0.524S</gl:DueTime>
+                                  <gl:DueTime>PT0.46S</gl:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
