@@ -8,6 +8,7 @@ using System.Reactive.Linq;
 public class WrapValue : Transform<int, int>
 {
     public int MaxValue {get; set;}
+    public int StartWrap {get; set;}
 
     public override IObservable<int> Process(IObservable<int> source)
     {
@@ -15,8 +16,12 @@ public class WrapValue : Transform<int, int>
             if (MaxValue <= 0) {
                 return 0;
             } else {
-                return (x >= 0) ? (x % MaxValue) : (MaxValue - Math.Abs(x % MaxValue));
+                return StartWrap + Modulo(x - StartWrap, MaxValue - StartWrap);
             }
         });
+    }
+
+    private int Modulo(int a, int b) {
+        return (a%b + b)%b;
     }
 }
