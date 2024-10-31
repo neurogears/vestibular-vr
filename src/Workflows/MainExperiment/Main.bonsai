@@ -941,7 +941,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>-25943.5273</Phase>
+                          <Phase>-0</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -999,7 +999,7 @@
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>36256.77</Phase>
+                          <Phase>10313.24</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -1163,7 +1163,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>test-cloud-2</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>3643</gl:Index>
+                            <gl:Index>0</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1237,7 +1237,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>test-cloud-2</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>453</gl:Index>
+                            <gl:Index>0</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1752,7 +1752,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="gl:Timer">
-                      <gl:DueTime>PT20S</gl:DueTime>
+                      <gl:DueTime>PT4M</gl:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -1936,6 +1936,17 @@
                         <Expression xsi:type="WorkflowInput">
                           <Name>Source1</Name>
                         </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>InitialMotorMovementDelta</Selector>
+                        </Expression>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="Value" />
+                          </PropertyMappings>
+                        </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="FloatProperty">
                             <Value>1</Value>
@@ -1944,16 +1955,39 @@
                         <Expression xsi:type="MulticastSubject">
                           <Name>MotorDeltaSwitch</Name>
                         </Expression>
+                        <Expression xsi:type="SubscribeSubject">
+                          <Name>Block</Name>
+                        </Expression>
+                        <Expression xsi:type="MemberSelector">
+                          <Selector>InitialVisualMovementDelta</Selector>
+                        </Expression>
+                        <Expression xsi:type="PropertyMapping">
+                          <PropertyMappings>
+                            <Property Name="Value" />
+                          </PropertyMappings>
+                        </Expression>
+                        <Expression xsi:type="Combinator">
+                          <Combinator xsi:type="FloatProperty">
+                            <Value>0</Value>
+                          </Combinator>
+                        </Expression>
                         <Expression xsi:type="MulticastSubject">
                           <Name>MovementDeltaSwitch</Name>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
                       </Nodes>
                       <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
+                        <Edge From="0" To="4" Label="Source1" />
                         <Edge From="1" To="2" Label="Source1" />
                         <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="3" To="4" Label="Source1" />
+                        <Edge From="3" To="4" Label="Source2" />
+                        <Edge From="4" To="5" Label="Source1" />
+                        <Edge From="5" To="9" Label="Source1" />
+                        <Edge From="6" To="7" Label="Source1" />
+                        <Edge From="7" To="8" Label="Source1" />
+                        <Edge From="8" To="9" Label="Source2" />
+                        <Edge From="9" To="10" Label="Source1" />
+                        <Edge From="10" To="11" Label="Source1" />
                       </Edges>
                     </Workflow>
                   </Expression>
@@ -2291,7 +2325,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="gl:Timer">
-                                  <gl:DueTime>PT0.46S</gl:DueTime>
+                                  <gl:DueTime>PT0.408S</gl:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -2430,11 +2464,30 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="FloatProperty">
-                                  <Value>0</Value>
+                                  <Value>1</Value>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="MulticastSubject">
                                 <Name>MovementDeltaSwitch</Name>
+                              </Expression>
+                              <Expression xsi:type="SubscribeSubject">
+                                <Name>Block</Name>
+                              </Expression>
+                              <Expression xsi:type="MemberSelector">
+                                <Selector>HaltProtocol.HaltMotorGain</Selector>
+                              </Expression>
+                              <Expression xsi:type="PropertyMapping">
+                                <PropertyMappings>
+                                  <Property Name="Value" />
+                                </PropertyMappings>
+                              </Expression>
+                              <Expression xsi:type="Combinator">
+                                <Combinator xsi:type="FloatProperty">
+                                  <Value>1</Value>
+                                </Combinator>
+                              </Expression>
+                              <Expression xsi:type="MulticastSubject">
+                                <Name>MotorDeltaSwitch</Name>
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="rx:Take">
@@ -2478,13 +2531,18 @@
                               <Edge From="11" To="12" Label="Source1" />
                               <Edge From="12" To="13" Label="Source2" />
                               <Edge From="13" To="14" Label="Source1" />
-                              <Edge From="14" To="15" Label="Source1" />
+                              <Edge From="14" To="18" Label="Source1" />
                               <Edge From="15" To="16" Label="Source1" />
-                              <Edge From="17" To="20" Label="Source1" />
+                              <Edge From="16" To="17" Label="Source1" />
+                              <Edge From="17" To="18" Label="Source2" />
                               <Edge From="18" To="19" Label="Source1" />
-                              <Edge From="19" To="20" Label="Source2" />
+                              <Edge From="19" To="20" Label="Source1" />
                               <Edge From="20" To="21" Label="Source1" />
-                              <Edge From="21" To="22" Label="Source1" />
+                              <Edge From="22" To="25" Label="Source1" />
+                              <Edge From="23" To="24" Label="Source1" />
+                              <Edge From="24" To="25" Label="Source2" />
+                              <Edge From="25" To="26" Label="Source1" />
+                              <Edge From="26" To="27" Label="Source1" />
                             </Edges>
                           </Workflow>
                         </Expression>

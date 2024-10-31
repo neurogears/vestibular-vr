@@ -30,11 +30,12 @@ blocks: [
       haltTime: 2,
       haltGain: 1,
     },
-    haltProbability: 0,
-    totalRuntime: 20,
+    haltProbability: 1,
+    totalRuntime: 240,
     flowYToVisualGain: 1,
     flowYToMotorGain: 0,
-    flowYToRunGain: 1
+    flowYToRunGain: 1,
+    initialVisualMovementDelta: 0
   },
   &DrumWithPlaybackCloud
   {
