@@ -52,6 +52,10 @@ namespace DataSchema
     
         private double _blockGainModifier = 1D;
     
+        private double _initialVisualMovementDelta = 1D;
+    
+        private double _initialMotorMovementDelta = 1D;
+    
         private string _playbackFilePath = "";
     
         /// <summary>
@@ -382,6 +386,42 @@ namespace DataSchema
         }
     
         /// <summary>
+        /// Global visual gain to apply when a block's closed-loop period begins. Can be updated during halt period.
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="initialVisualMovementDelta")]
+        [System.ComponentModel.DescriptionAttribute("Global visual gain to apply when a block\'s closed-loop period begins. Can be upda" +
+            "ted during halt period.")]
+        public double InitialVisualMovementDelta
+        {
+            get
+            {
+                return _initialVisualMovementDelta;
+            }
+            set
+            {
+                _initialVisualMovementDelta = value;
+            }
+        }
+    
+        /// <summary>
+        /// Global motor gain to apply when a block's closed-loop period begins. Can be updated during halt period.
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="initialMotorMovementDelta")]
+        [System.ComponentModel.DescriptionAttribute("Global motor gain to apply when a block\'s closed-loop period begins. Can be updat" +
+            "ed during halt period.")]
+        public double InitialMotorMovementDelta
+        {
+            get
+            {
+                return _initialMotorMovementDelta;
+            }
+            set
+            {
+                _initialMotorMovementDelta = value;
+            }
+        }
+    
+        /// <summary>
         /// Path to the playback file to be used in this block
         /// </summary>
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="playbackFilePath")]
@@ -422,6 +462,8 @@ namespace DataSchema
                     PlaybackToVisualGain = _playbackToVisualGain,
                     PlaybackToMotorGain = _playbackToMotorGain,
                     BlockGainModifier = _blockGainModifier,
+                    InitialVisualMovementDelta = _initialVisualMovementDelta,
+                    InitialMotorMovementDelta = _initialMotorMovementDelta,
                     PlaybackFilePath = _playbackFilePath
                 }));
         }
@@ -597,6 +639,8 @@ namespace DataSchema
     
         private double _haltGain = 0D;
     
+        private double _haltMotorGain = 1D;
+    
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="minumumDelay")]
         public double MinumumDelay
         {
@@ -636,7 +680,11 @@ namespace DataSchema
             }
         }
     
+        /// <summary>
+        /// Gain applied to visual closed-loop during halt
+        /// </summary>
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="haltGain")]
+        [System.ComponentModel.DescriptionAttribute("Gain applied to visual closed-loop during halt")]
         public double HaltGain
         {
             get
@@ -649,6 +697,23 @@ namespace DataSchema
             }
         }
     
+        /// <summary>
+        /// Gain applied to motor closed-loop during halt
+        /// </summary>
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="haltMotorGain")]
+        [System.ComponentModel.DescriptionAttribute("Gain applied to motor closed-loop during halt")]
+        public double HaltMotorGain
+        {
+            get
+            {
+                return _haltMotorGain;
+            }
+            set
+            {
+                _haltMotorGain = value;
+            }
+        }
+    
         public System.IObservable<HaltProtocol> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
@@ -657,7 +722,8 @@ namespace DataSchema
                     MinumumDelay = _minumumDelay,
                     RandomDelay = _randomDelay,
                     HaltTime = _haltTime,
-                    HaltGain = _haltGain
+                    HaltGain = _haltGain,
+                    HaltMotorGain = _haltMotorGain
                 }));
         }
     }
