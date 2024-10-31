@@ -97,6 +97,16 @@
                     "description": "Block specific gain coefficient to apply",
                     "type": "number"
                 },
+                "initialVisualMovementDelta": {
+                    "default": 1,
+                    "description": "Global visual gain to apply when a block's closed-loop period begins. Can be updated during halt period.",
+                    "type": "number"
+                },
+                "initialMotorMovementDelta": {
+                    "default": 1,
+                    "description": "Global motor gain to apply when a block's closed-loop period begins. Can be updated during halt period.",
+                    "type": "number"
+                },
                 "playbackFilePath": {
                     "default": "",
                     "description": "Path to the playback file to be used in this block",
@@ -165,6 +175,12 @@
                 },
                 "haltGain": {
                     "default": 0,
+                    "description": "Gain applied to visual closed-loop during halt",
+                    "type": "number"
+                },
+                "haltMotorGain": {
+                    "default": 1,
+                    "description": "Gain applied to motor closed-loop during halt",
                     "type": "number"
                 }
             },

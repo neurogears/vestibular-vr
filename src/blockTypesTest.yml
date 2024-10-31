@@ -1,0 +1,113 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+
+metadata:
+  animalId: plimbo
+  rootPath: D:/TrialLogicTestData/
+  runGain: 0.0008
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
+blocks: [
+  &DrumWithMotion
+  {
+    alias: DrumWithMotion,
+    stimulus: {
+      type: "grating",
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 1.5,
+      haltTime: 2,
+      haltGain: 0,
+    },
+    haltProbability: 1,
+    totalRuntime: 40,
+    flowYToVisualGain: 1,
+    flowYToMotorGain: 0,
+    flowYToRunGain: 1
+  },
+  &DrumWithReversHalt
+  {
+    alias: DrumWithReverseHalt,
+    stimulus: {
+      type: "grating",
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 1.5,
+      haltTime: 2,
+      haltGain: 1,
+    },
+    haltProbability: 1,
+    totalRuntime: 240,
+    flowYToVisualGain: 1,
+    flowYToMotorGain: 0,
+    flowYToRunGain: 1,
+    initialVisualMovementDelta: 0
+  },
+  &DrumWithPlaybackCloud
+  {
+  alias: DrumWithPlaybackCloud,
+    stimulus: {
+      type: "cloud",
+      textureName: test-cloud-2,
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 1.5,
+      haltTime: 2,
+      haltGain: 0,
+    },
+    playbackFilePath: C:/Users/ONIX/Desktop/_playback.csv,
+    haltProbability: 1,
+    totalRuntime: 20,
+    flowYToVisualGain: 0,
+    flowYToMotorGain: 0,
+    flowYToRunGain: 0,
+    playbackToVisualGain: 1,
+    playbackToRunGain: 1,
+  },
+  &DrumWithPlayback
+  {
+    alias: DrumWithPlayback,
+    stimulus: {
+      type: "grating",
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 1.5,
+      haltTime: 2,
+      haltGain: 0,
+    },
+    playbackFilePath: C:/Users/ONIX/Desktop/_playback.csv,
+    haltProbability: 1,
+    totalRuntime: 20,
+    flowYToVisualGain: 0,
+    flowYToMotorGain: 0,
+    flowYToRunGain: 0,
+    playbackToVisualGain: 1,
+    playbackToRunGain: 1,
+  },
+]
