@@ -761,6 +761,8 @@ namespace DataSchema
     
         private MotorSettings _motorSettings;
     
+        private CameraSettings _cameraSettings;
+    
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="metadata")]
         public Metadata Metadata
@@ -803,6 +805,20 @@ namespace DataSchema
             }
         }
     
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cameraSettings")]
+        public CameraSettings CameraSettings
+        {
+            get
+            {
+                return _cameraSettings;
+            }
+            set
+            {
+                _cameraSettings = value;
+            }
+        }
+    
         public System.IObservable<VestibularVrSession> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
@@ -810,7 +826,8 @@ namespace DataSchema
                 {
                     Metadata = _metadata,
                     Blocks = _blocks,
-                    MotorSettings = _motorSettings
+                    MotorSettings = _motorSettings,
+                    CameraSettings = _cameraSettings
                 }));
         }
     }
@@ -977,6 +994,117 @@ namespace DataSchema
     }
 
 
+    [Bonsai.CombinatorAttribute()]
+    [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
+    public partial class CameraSettings
+    {
+    
+        private double _cameraFrequency1 = 100D;
+    
+        private double _cameraFrequency2 = 100D;
+    
+        private int _cameraExposure1 = 5000;
+    
+        private int _cameraExposure2 = 5000;
+    
+        private double _cameraGain1 = 1D;
+    
+        private double _cameraGain2 = 1D;
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cameraFrequency1")]
+        public double CameraFrequency1
+        {
+            get
+            {
+                return _cameraFrequency1;
+            }
+            set
+            {
+                _cameraFrequency1 = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cameraFrequency2")]
+        public double CameraFrequency2
+        {
+            get
+            {
+                return _cameraFrequency2;
+            }
+            set
+            {
+                _cameraFrequency2 = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cameraExposure1")]
+        public int CameraExposure1
+        {
+            get
+            {
+                return _cameraExposure1;
+            }
+            set
+            {
+                _cameraExposure1 = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cameraExposure2")]
+        public int CameraExposure2
+        {
+            get
+            {
+                return _cameraExposure2;
+            }
+            set
+            {
+                _cameraExposure2 = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cameraGain1")]
+        public double CameraGain1
+        {
+            get
+            {
+                return _cameraGain1;
+            }
+            set
+            {
+                _cameraGain1 = value;
+            }
+        }
+    
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="cameraGain2")]
+        public double CameraGain2
+        {
+            get
+            {
+                return _cameraGain2;
+            }
+            set
+            {
+                _cameraGain2 = value;
+            }
+        }
+    
+        public System.IObservable<CameraSettings> Process()
+        {
+            return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(
+                new CameraSettings
+                {
+                    CameraFrequency1 = _cameraFrequency1,
+                    CameraFrequency2 = _cameraFrequency2,
+                    CameraExposure1 = _cameraExposure1,
+                    CameraExposure2 = _cameraExposure2,
+                    CameraGain1 = _cameraGain1,
+                    CameraGain2 = _cameraGain2
+                }));
+        }
+    }
+
+
     /// <summary>
     /// Serializes a sequence of data model objects into YAML strings.
     /// </summary>
@@ -1024,6 +1152,11 @@ namespace DataSchema
         {
             return Process<MotorSettings>(source);
         }
+
+        public System.IObservable<string> Process(System.IObservable<CameraSettings> source)
+        {
+            return Process<CameraSettings>(source);
+        }
     }
 
 
@@ -1038,6 +1171,7 @@ namespace DataSchema
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<VestibularVrSession>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<Metadata>))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<MotorSettings>))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Bonsai.Expressions.TypeMapping<CameraSettings>))]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]
     public partial class DeserializeFromYaml : Bonsai.Expressions.SingleArgumentExpressionBuilder
     {

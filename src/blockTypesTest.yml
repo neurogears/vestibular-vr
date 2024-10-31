@@ -13,6 +13,14 @@ motorSettings:
   pulseStepInterval: 2
   pulsePeriod: 10
 
+cameraSettings:
+  cameraFrequency1: 100
+  cameraFrequency2: 100
+  cameraExposure1: 5000
+  cameraExposure2: 5000
+  cameraGain1: 1
+  cameraGain2: 1
+
 blocks: [
   &DrumWithMotion
   {

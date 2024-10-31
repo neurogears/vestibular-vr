@@ -3848,6 +3848,17 @@
                 <rx:DueTime>PT1S</rx:DueTime>
               </Combinator>
             </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SessionSettings</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>CameraSettings.CameraFrequency1</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Cam0TriggerFrequency" />
+              </PropertyMappings>
+            </Expression>
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam0TriggerFrequencyPayload">
@@ -3858,6 +3869,17 @@
               <Combinator xsi:type="rx:Delay">
                 <rx:DueTime>PT1S</rx:DueTime>
               </Combinator>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SessionSettings</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>CameraSettings.CameraExposure1</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Cam0TriggerDuration" />
+              </PropertyMappings>
             </Expression>
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
@@ -3870,6 +3892,17 @@
                 <rx:DueTime>PT1S</rx:DueTime>
               </Combinator>
             </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SessionSettings</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>CameraSettings.CameraFrequency1</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Cam1TriggerFrequency" />
+              </PropertyMappings>
+            </Expression>
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam1TriggerFrequencyPayload">
@@ -3880,6 +3913,17 @@
               <Combinator xsi:type="rx:Delay">
                 <rx:DueTime>PT1S</rx:DueTime>
               </Combinator>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SessionSettings</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>CameraSettings.CameraExposure2</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Cam1TriggerDuration" />
+              </PropertyMappings>
             </Expression>
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
@@ -3956,11 +4000,25 @@
             <Expression xsi:type="ExternalizedMapping">
               <Property Name="SerialNumber" DisplayName="Camera1SerialNumber" Category="CameraControl" />
             </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SessionSettings</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>CameraSettings.CameraGain1</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Gain" />
+              </PropertyMappings>
+            </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="aeon:SpinnakerCapture">
                 <spk:Index xsi:nil="true" />
                 <spk:SerialNumber>21205223</spk:SerialNumber>
                 <spk:ColorProcessing>Default</spk:ColorProcessing>
+                <aeon:ExposureTime>19000</aeon:ExposureTime>
+                <aeon:Gain>0</aeon:Gain>
+                <aeon:Binning>1</aeon:Binning>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
@@ -3975,11 +4033,25 @@
             <Expression xsi:type="ExternalizedMapping">
               <Property Name="SerialNumber" DisplayName="Camera2SerialNumber" Category="CameraControl" />
             </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SessionSettings</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>CameraSettings.CameraGain2</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Gain" />
+              </PropertyMappings>
+            </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="aeon:SpinnakerCapture">
                 <spk:Index xsi:nil="true" />
                 <spk:SerialNumber>22085343</spk:SerialNumber>
                 <spk:ColorProcessing>Default</spk:ColorProcessing>
+                <aeon:ExposureTime>19000</aeon:ExposureTime>
+                <aeon:Gain>0</aeon:Gain>
+                <aeon:Binning>1</aeon:Binning>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
@@ -3990,42 +4062,60 @@
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="0" To="3" Label="Source1" />
             <Edge From="0" To="5" Label="Source1" />
-            <Edge From="0" To="7" Label="Source1" />
-            <Edge From="0" To="9" Label="Source1" />
-            <Edge From="0" To="11" Label="Source1" />
+            <Edge From="0" To="10" Label="Source1" />
+            <Edge From="0" To="15" Label="Source1" />
+            <Edge From="0" To="20" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
-            <Edge From="2" To="13" Label="Source1" />
+            <Edge From="2" To="25" Label="Source1" />
             <Edge From="3" To="4" Label="Source1" />
-            <Edge From="4" To="13" Label="Source2" />
-            <Edge From="5" To="6" Label="Source1" />
-            <Edge From="6" To="13" Label="Source3" />
+            <Edge From="4" To="25" Label="Source2" />
+            <Edge From="5" To="9" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
             <Edge From="7" To="8" Label="Source1" />
-            <Edge From="8" To="13" Label="Source4" />
-            <Edge From="9" To="10" Label="Source1" />
-            <Edge From="10" To="13" Label="Source5" />
+            <Edge From="8" To="9" Label="Source2" />
+            <Edge From="9" To="25" Label="Source3" />
+            <Edge From="10" To="14" Label="Source1" />
             <Edge From="11" To="12" Label="Source1" />
-            <Edge From="12" To="13" Label="Source6" />
-            <Edge From="13" To="14" Label="Source1" />
-            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="13" To="14" Label="Source2" />
+            <Edge From="14" To="25" Label="Source4" />
+            <Edge From="15" To="19" Label="Source1" />
             <Edge From="16" To="17" Label="Source1" />
-            <Edge From="16" To="18" Label="Source1" />
-            <Edge From="17" To="19" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
             <Edge From="18" To="19" Label="Source2" />
-            <Edge From="19" To="20" Label="Source1" />
+            <Edge From="19" To="25" Label="Source5" />
+            <Edge From="20" To="24" Label="Source1" />
             <Edge From="21" To="22" Label="Source1" />
             <Edge From="22" To="23" Label="Source1" />
-            <Edge From="22" To="24" Label="Source1" />
-            <Edge From="23" To="25" Label="Source1" />
-            <Edge From="24" To="25" Label="Source2" />
+            <Edge From="23" To="24" Label="Source2" />
+            <Edge From="24" To="25" Label="Source6" />
             <Edge From="25" To="26" Label="Source1" />
             <Edge From="27" To="28" Label="Source1" />
+            <Edge From="28" To="29" Label="Source1" />
             <Edge From="28" To="30" Label="Source1" />
-            <Edge From="29" To="30" Label="Source2" />
-            <Edge From="30" To="31" Label="Source1" />
-            <Edge From="32" To="33" Label="Source1" />
-            <Edge From="33" To="35" Label="Source1" />
-            <Edge From="34" To="35" Label="Source2" />
-            <Edge From="35" To="36" Label="Source1" />
+            <Edge From="29" To="31" Label="Source1" />
+            <Edge From="30" To="31" Label="Source2" />
+            <Edge From="31" To="32" Label="Source1" />
+            <Edge From="33" To="34" Label="Source1" />
+            <Edge From="34" To="35" Label="Source1" />
+            <Edge From="34" To="36" Label="Source1" />
+            <Edge From="35" To="37" Label="Source1" />
+            <Edge From="36" To="37" Label="Source2" />
+            <Edge From="37" To="38" Label="Source1" />
+            <Edge From="39" To="40" Label="Source1" />
+            <Edge From="40" To="45" Label="Source1" />
+            <Edge From="41" To="45" Label="Source2" />
+            <Edge From="42" To="43" Label="Source1" />
+            <Edge From="43" To="44" Label="Source1" />
+            <Edge From="44" To="45" Label="Source3" />
+            <Edge From="45" To="46" Label="Source1" />
+            <Edge From="47" To="48" Label="Source1" />
+            <Edge From="48" To="53" Label="Source1" />
+            <Edge From="49" To="53" Label="Source2" />
+            <Edge From="50" To="51" Label="Source1" />
+            <Edge From="51" To="52" Label="Source1" />
+            <Edge From="52" To="53" Label="Source3" />
+            <Edge From="53" To="54" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
