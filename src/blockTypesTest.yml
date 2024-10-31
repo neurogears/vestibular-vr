@@ -14,6 +14,28 @@ motorSettings:
   pulsePeriod: 10
 
 blocks: [
+  &DrumWithMotion
+  {
+    alias: DrumWithMotion,
+    stimulus: {
+      type: "grating",
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 1.5,
+      haltTime: 2,
+      haltGain: 0,
+    },
+    haltProbability: 1,
+    totalRuntime: 40,
+    flowYToVisualGain: 1,
+    flowYToMotorGain: 0,
+    flowYToRunGain: 1
+  },
   &DrumWithReversHalt
   {
     alias: DrumWithReverseHalt,
@@ -87,27 +109,5 @@ blocks: [
     flowYToRunGain: 0,
     playbackToVisualGain: 1,
     playbackToRunGain: 1,
-  },
-  &DrumWithMotion
-  {
-    alias: DrumWithMotion,
-    stimulus: {
-      type: "grating",
-      offset1: 0,
-      offset2: 0,
-      extent1: 360,
-      extent2: 0
-    },
-    haltProtocol: {
-      minumumDelay: 0.1,
-      randomDelay: 1.5,
-      haltTime: 2,
-      haltGain: 0,
-    },
-    haltProbability: 0,
-    totalRuntime: 20,
-    flowYToVisualGain: 1,
-    flowYToMotorGain: 0,
-    flowYToRunGain: 1
   },
 ]
