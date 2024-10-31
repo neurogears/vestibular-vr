@@ -98,7 +98,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:LoadSettings">
-                <p1:Path>C:\Users\ONIX\source\ae-dev\vestibular-vr\src\motionCloudsTest.yml</p1:Path>
+                <p1:Path>C:\Users\ONIX\source\ae-dev\vestibular-vr\src\blockTypesTest.yml</p1:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -808,7 +808,7 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:CreateContinuousUniform">
                       <p2:Lower>0</p2:Lower>
-                      <p2:Upper>0.5</p2:Upper>
+                      <p2:Upper>1.5</p2:Upper>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="rx:AsyncSubject">
@@ -934,14 +934,14 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>-90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
-                          <ExtentX>180</ExtentX>
+                          <ExtentX>360</ExtentX>
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>-23175.2246</Phase>
+                          <Phase>825.0592</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -992,14 +992,14 @@
                           </PropertyMappings>
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawGratings.bonsai">
-                          <LocationX>90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
-                          <ExtentX>180</ExtentX>
+                          <ExtentX>0</ExtentX>
                           <ExtentY>60</ExtentY>
                           <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>33488.47</Phase>
+                          <Phase>9488.182</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -1190,9 +1190,9 @@
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                           <TextureName />
-                          <ExtentX>180</ExtentX>
+                          <ExtentX>360</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>-90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -1264,9 +1264,9 @@
                         </Expression>
                         <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawImage.bonsai">
                           <TextureName />
-                          <ExtentX>180</ExtentX>
+                          <ExtentX>0</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <LocationX>90</LocationX>
+                          <LocationX>0</LocationX>
                           <LocationY>0</LocationY>
                           <Layer>0</Layer>
                           <Angle>0</Angle>
@@ -3905,7 +3905,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogController.bonsai">
-              <Path>D:/SandboxData/</Path>
+              <Path>D:/TrialLogicTestData/</Path>
               <ChunkSize>1</ChunkSize>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
