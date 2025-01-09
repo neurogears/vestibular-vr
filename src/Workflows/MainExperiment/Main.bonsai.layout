@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <VisualizerLayout xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  >
@@ -258,8 +258,8 @@
     <EditorDialogSettings>
       <Visible>true</Visible>
       <Location>
-        <X>3</X>
-        <Y>3</Y>
+        <X>4</X>
+        <Y>4</Y>
       </Location>
       <Size>
         <Width>2146</Width>
@@ -512,8 +512,8 @@
     <EditorDialogSettings>
       <Visible>true</Visible>
       <Location>
-        <X>3</X>
-        <Y>3</Y>
+        <X>4</X>
+        <Y>4</Y>
       </Location>
       <Size>
         <Width>2146</Width>
@@ -632,8 +632,8 @@
         <EditorDialogSettings>
           <Visible>true</Visible>
           <Location>
-            <X>3</X>
-            <Y>3</Y>
+            <X>4</X>
+            <Y>4</Y>
           </Location>
           <Size>
             <Width>2146</Width>
@@ -972,8 +972,8 @@
     <EditorDialogSettings>
       <Visible>true</Visible>
       <Location>
-        <X>3</X>
-        <Y>3</Y>
+        <X>4</X>
+        <Y>4</Y>
       </Location>
       <Size>
         <Width>2146</Width>
@@ -1068,8 +1068,8 @@
         <EditorDialogSettings>
           <Visible>false</Visible>
           <Location>
-            <X>562</X>
-            <Y>151</Y>
+            <X>10</X>
+            <Y>73</Y>
           </Location>
           <Size>
             <Width>1130</Width>
@@ -1118,8 +1118,8 @@
     <EditorDialogSettings>
       <Visible>true</Visible>
       <Location>
-        <X>3</X>
-        <Y>3</Y>
+        <X>4</X>
+        <Y>4</Y>
       </Location>
       <Size>
         <Width>2146</Width>
@@ -1408,8 +1408,8 @@
     <EditorDialogSettings>
       <Visible>true</Visible>
       <Location>
-        <X>3</X>
-        <Y>3</Y>
+        <X>4</X>
+        <Y>4</Y>
       </Location>
       <Size>
         <Width>2146</Width>
@@ -1806,8 +1806,8 @@
     <EditorDialogSettings>
       <Visible>true</Visible>
       <Location>
-        <X>3</X>
-        <Y>3</Y>
+        <X>4</X>
+        <Y>4</Y>
       </Location>
       <Size>
         <Width>2146</Width>
@@ -2564,8 +2564,8 @@
     <EditorDialogSettings>
       <Visible>true</Visible>
       <Location>
-        <X>3</X>
-        <Y>3</Y>
+        <X>4</X>
+        <Y>4</Y>
       </Location>
       <Size>
         <Width>2146</Width>
@@ -3262,8 +3262,8 @@
     <EditorDialogSettings>
       <Visible>true</Visible>
       <Location>
-        <X>3</X>
-        <Y>3</Y>
+        <X>4</X>
+        <Y>4</Y>
       </Location>
       <Size>
         <Width>2146</Width>

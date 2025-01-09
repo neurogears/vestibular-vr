@@ -2688,7 +2688,7 @@
                               <Expression xsi:type="WorkflowOutput" />
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="StringProperty">
-                                  <Value>Not running, skipping halt</Value>
+                                  <Value>Not running - skipping halt</Value>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="MulticastSubject">
