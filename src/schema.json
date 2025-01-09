@@ -236,6 +236,34 @@
                     "type": "integer"
                 }
             }
+        },
+        "cameraSettings": {
+            "properties": {
+                "cameraFrequency1": {
+                    "default": 100,
+                    "type": "number"
+                },
+                "cameraFrequency2": {
+                    "default": 100,
+                    "type": "number"
+                },
+                "cameraExposure1": {
+                    "default": 5000,
+                    "type": "integer"
+                },
+                "cameraExposure2": {
+                    "default": 5000,
+                    "type": "integer"
+                },
+                "cameraGain1": {
+                    "default": 1,
+                    "type": "number"
+                },
+                "cameraGain2": {
+                    "default": 1,
+                    "type": "number"
+                }
+            }
         }
     },
     "title": "VestibularVrSession",
