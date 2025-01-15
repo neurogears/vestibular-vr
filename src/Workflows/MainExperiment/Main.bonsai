@@ -4000,25 +4000,11 @@
             <Expression xsi:type="ExternalizedMapping">
               <Property Name="SerialNumber" DisplayName="Camera1SerialNumber" Category="CameraControl" />
             </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>SessionSettings</Name>
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>CameraSettings.CameraGain1</Selector>
-            </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="Gain" />
-              </PropertyMappings>
-            </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="aeon:SpinnakerCapture">
                 <spk:Index xsi:nil="true" />
                 <spk:SerialNumber>21205223</spk:SerialNumber>
                 <spk:ColorProcessing>Default</spk:ColorProcessing>
-                <aeon:ExposureTime>19000</aeon:ExposureTime>
-                <aeon:Gain>0</aeon:Gain>
-                <aeon:Binning>1</aeon:Binning>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
@@ -4033,25 +4019,11 @@
             <Expression xsi:type="ExternalizedMapping">
               <Property Name="SerialNumber" DisplayName="Camera2SerialNumber" Category="CameraControl" />
             </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>SessionSettings</Name>
-            </Expression>
-            <Expression xsi:type="MemberSelector">
-              <Selector>CameraSettings.CameraGain2</Selector>
-            </Expression>
-            <Expression xsi:type="PropertyMapping">
-              <PropertyMappings>
-                <Property Name="Gain" />
-              </PropertyMappings>
-            </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="aeon:SpinnakerCapture">
                 <spk:Index xsi:nil="true" />
                 <spk:SerialNumber>22085343</spk:SerialNumber>
                 <spk:ColorProcessing>Default</spk:ColorProcessing>
-                <aeon:ExposureTime>19000</aeon:ExposureTime>
-                <aeon:Gain>0</aeon:Gain>
-                <aeon:Binning>1</aeon:Binning>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
@@ -4103,19 +4075,13 @@
             <Edge From="36" To="37" Label="Source2" />
             <Edge From="37" To="38" Label="Source1" />
             <Edge From="39" To="40" Label="Source1" />
-            <Edge From="40" To="45" Label="Source1" />
-            <Edge From="41" To="45" Label="Source2" />
+            <Edge From="40" To="42" Label="Source1" />
+            <Edge From="41" To="42" Label="Source2" />
             <Edge From="42" To="43" Label="Source1" />
-            <Edge From="43" To="44" Label="Source1" />
-            <Edge From="44" To="45" Label="Source3" />
-            <Edge From="45" To="46" Label="Source1" />
+            <Edge From="44" To="45" Label="Source1" />
+            <Edge From="45" To="47" Label="Source1" />
+            <Edge From="46" To="47" Label="Source2" />
             <Edge From="47" To="48" Label="Source1" />
-            <Edge From="48" To="53" Label="Source1" />
-            <Edge From="49" To="53" Label="Source2" />
-            <Edge From="50" To="51" Label="Source1" />
-            <Edge From="51" To="52" Label="Source1" />
-            <Edge From="52" To="53" Label="Source3" />
-            <Edge From="53" To="54" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
