@@ -93,3 +93,32 @@ The description of each parameter's effect on the Bonsai workflow, along with it
 
 ### Running an experiment
 To run an experiment, run the Bonsai application from the local environment and open Main.bonsai. Use the property grid to select the desired experiment parameter `.yml` file.
+
+### Python environment
+
+The following need to be installed once on a fresh new system in order to analyze data:
+
+ * [Visual Studio Code](https://code.visualstudio.com/) (recommended for editing code scripts and git commits)
+ * A Conda distribution such as [Miniconda](https://docs.anaconda.com/free/miniconda/index.html)
+ * [Python Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+   * This extension needs to be made aware of the Conda installation. To do so, navigate to the extension settings. Under the section **Python: Conda Path**, enter the full path to the conda.bat executable. ([more info](https://stackoverflow.com/a/77615160/3312269).)
+ * [Jupyter Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
+
+#### Create local Environment
+1. Open the Delphi folder in VS Code
+2. `Ctrl+Shift+P` in VS Code > Python: Create Environment
+   * Select Conda
+   * Select Python 3.11 kernel
+3. Ensure pip is upgraded:
+ ```
+ pip install --upgrade pip
+ ```
+4. From the terminal run `pip install -r requirements.txt`
+5. Clone aeon_mecha into a separate directory 
+ ```
+ git clone https://github.com/SainsburyWellcomeCentre/aeon_mecha.git 
+ ```
+6. From the VS Code terminal, `cd` into the aeon_mecha directory and run:
+ ```
+ python -m pip install -e .
+ ```
