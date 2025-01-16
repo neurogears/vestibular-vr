@@ -105,7 +105,7 @@ The following need to be installed once on a fresh new system in order to analyz
  * [Jupyter Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 
 #### Create local Environment
-1. Open the Delphi folder in VS Code
+1. Open the vestibular-vr folder in VS Code
 2. `Ctrl+Shift+P` in VS Code > Python: Create Environment
    * Select Conda
    * Select Python 3.11 kernel
