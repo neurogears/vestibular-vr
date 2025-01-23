@@ -221,15 +221,10 @@
           <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
         </Combinator>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="IntProperty">
-          <Value>6400</Value>
-        </Combinator>
-      </Expression>
       <Expression xsi:type="vh2:CreateMessage">
         <harp:MessageType>Write</harp:MessageType>
         <harp:Payload xsi:type="vh2:CreatePulsesPayload">
-          <vh2:Pulses>0</vh2:Pulses>
+          <vh2:Pulses>6400</vh2:Pulses>
         </harp:Payload>
       </Expression>
       <Expression xsi:type="MulticastSubject">
@@ -253,8 +248,7 @@
       <Edge From="1" To="2" Label="Source1" />
       <Edge From="4" To="5" Label="Source1" />
       <Edge From="5" To="6" Label="Source1" />
-      <Edge From="6" To="7" Label="Source1" />
-      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="8" To="9" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
