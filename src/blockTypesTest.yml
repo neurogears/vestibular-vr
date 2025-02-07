@@ -4,7 +4,7 @@
 
 metadata:
   animalId: plimbo
-  rootPath: D:/TrialLogicTestData/
+  rootPath: D:/Cohort2_test_longer/
   runGain: 0.0008
 
 motorSettings:
