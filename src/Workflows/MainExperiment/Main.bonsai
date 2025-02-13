@@ -98,7 +98,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:LoadSettings">
-                <p1:Path>C:\Users\ONIX\source\ae-dev\vestibular-vr\src\blockTypesTest.yml</p1:Path>
+                <p1:Path>C:\Users\ONIX\source\nora-dev\vestibular-vr\src\rotation_visual_mismatch.yml</p1:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -111,8 +111,8 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="gl:CreateWindow">
-                <gl:Width>7680</gl:Width>
-                <gl:Height>1080</gl:Height>
+                <gl:Width>1920</gl:Width>
+                <gl:Height>720</gl:Height>
                 <gl:VSync>On</gl:VSync>
                 <gl:SwapSync>false</gl:SwapSync>
                 <gl:ClearColor>Black</gl:ClearColor>
@@ -3268,7 +3268,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT2.337S</rx:DueTime>
+                      <rx:DueTime>PT4.328S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -3862,7 +3862,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam0TriggerFrequencyPayload">
-                <vh1:Cam0TriggerFrequency>100</vh1:Cam0TriggerFrequency>
+                <vh1:Cam0TriggerFrequency>60</vh1:Cam0TriggerFrequency>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -3906,7 +3906,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam1TriggerFrequencyPayload">
-                <vh1:Cam1TriggerFrequency>100</vh1:Cam1TriggerFrequency>
+                <vh1:Cam1TriggerFrequency>60</vh1:Cam1TriggerFrequency>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">

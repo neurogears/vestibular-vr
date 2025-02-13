@@ -1,0 +1,51 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+
+metadata:
+  animalId: plimbo
+  rootPath: D:/TrialLogicTestData/
+  runGain: 0.0008
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
+cameraSettings:
+  cameraFrequency1: 60
+  cameraFrequency2: 60
+  cameraExposure1: 5000
+  cameraExposure2: 5000
+  cameraGain1: 1
+  cameraGain2: 1
+
+blocks: [
+  &DrumClosedLoop
+  {
+    alias: DrumBase,
+    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv",
+    stimulus: {
+      type: "cloud",
+      textureName: training_cloud_1,
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0.1,
+      randomDelay: 1.5,
+      haltTime: 2,
+      haltGain: 0
+    },
+    totalRuntime: 1200,
+    flowYToVisualGain: 0,
+    flowYToMotorGain: -5000,
+    flowYToRunGain: 1,
+    playbackToMotorGain: 0,
+    flowSmoothing: 20,
+    haltProbability: 0
+   }
+]
