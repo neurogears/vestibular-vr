@@ -185,8 +185,8 @@
   <DialogSettings>
     <Visible>true</Visible>
     <Location>
-      <X>391</X>
-      <Y>832</Y>
+      <X>583</X>
+      <Y>529</Y>
     </Location>
     <Size>
       <Width>1296</Width>
@@ -262,7 +262,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>919</Width>
+        <Width>1214</Width>
         <Height>976</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -516,7 +516,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>919</Width>
+        <Width>1214</Width>
         <Height>976</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -636,7 +636,7 @@
             <Y>3</Y>
           </Location>
           <Size>
-            <Width>919</Width>
+            <Width>1214</Width>
             <Height>976</Height>
           </Size>
           <WindowState>Normal</WindowState>
@@ -976,7 +976,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>919</Width>
+        <Width>1214</Width>
         <Height>976</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -1122,7 +1122,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>919</Width>
+        <Width>1214</Width>
         <Height>976</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -1412,7 +1412,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>919</Width>
+        <Width>1214</Width>
         <Height>976</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -1482,7 +1482,7 @@
         <Visible>true</Visible>
         <Location>
           <X>170</X>
-          <Y>-590</Y>
+          <Y>610</Y>
         </Location>
         <Size>
           <Width>416</Width>
@@ -1515,7 +1515,7 @@
         <Visible>true</Visible>
         <Location>
           <X>179</X>
-          <Y>-684</Y>
+          <Y>516</Y>
         </Location>
         <Size>
           <Width>336</Width>
@@ -1811,7 +1811,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>1340</Width>
+        <Width>1214</Width>
         <Height>976</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -2569,7 +2569,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>919</Width>
+        <Width>1214</Width>
         <Height>976</Height>
       </Size>
       <WindowState>Normal</WindowState>
@@ -3195,7 +3195,7 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>1340</Width>
+        <Width>1214</Width>
         <Height>976</Height>
       </Size>
       <WindowState>Normal</WindowState>
