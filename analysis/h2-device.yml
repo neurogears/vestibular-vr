@@ -6,6 +6,12 @@ whoAmI: 1225
 firmwareVersion: "0.5"
 hardwareTargets: "1.0"
 registers:
+  Heartbeat:
+    address: 8
+    type: U32
+    description: Represents the heartbeat signal of the device.
+    access: Event
+    units: beats per minute (BPM)
   Control:
     address: 32
     type: U8
