@@ -4319,7 +4319,7 @@
               <Heartbeats>H1Events</Heartbeats>
               <ClosingDuration xsi:nil="true" />
               <LogName>OnixHarp</LogName>
-              <Selector>Seconds,Value.Clock,Value.HubClock,Value.HarpTime</Selector>
+              <Selector>Seconds,Value.Clock,Value.HarpTime</Selector>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>OnixDigital</Name>
