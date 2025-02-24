@@ -5,6 +5,7 @@
 metadata:
   animalId: plimbo
   rootPath: D:/TrialLogicTestData/
+  gitPath: C:/Users/neurogears/source/repos/vestibular-vr
   runGain: 0.0008
 
 motorSettings:

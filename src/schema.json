@@ -204,6 +204,11 @@
                     "default": "",
                     "type": "string"
                 },
+                "gitPath": {
+                    "default": "",
+                    "type": "string",
+                    "description": "Path to the folder where the git repository for this project is located."
+                },
                 "runGain": {
                     "description": "Coefficient applied to movement delta (e.g. from flow sensor) to calculate running speed in visual environment.",
                     "default": 1,
