@@ -4,13 +4,14 @@
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
+                 xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:CreateWindow">
-          <gl:Width>1920</gl:Width>
-          <gl:Height>720</gl:Height>
+          <gl:Width>640</gl:Width>
+          <gl:Height>480</gl:Height>
           <gl:VSync>On</gl:VSync>
           <gl:SwapSync>false</gl:SwapSync>
           <gl:ClearColor>Black</gl:ClearColor>
@@ -18,7 +19,7 @@
           <gl:CursorVisible>true</gl:CursorVisible>
           <gl:Location xsi:nil="true" />
           <gl:WindowBorder>Resizable</gl:WindowBorder>
-          <gl:WindowState>Fullscreen</gl:WindowState>
+          <gl:WindowState>Normal</gl:WindowState>
           <gl:DisplayDevice>Third</gl:DisplayDevice>
           <gl:TargetRenderFrequency>60</gl:TargetRenderFrequency>
           <gl:TargetUpdateFrequency xsi:nil="true" />
@@ -45,69 +46,50 @@
         </Combinator>
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.BonVisionResources.bonsai" />
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:TextureResources">
-            <gl:Textures>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>test-cloud</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Textures\test-cloud.mp4</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>test-cloud-2</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Textures\test-cloud-2.mp4</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>short-cloud</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Textures\sf_0=0.01-B_sf=0.06-theta=0-B_theta=0.25-alpha=0-seed=1.mp4</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-              <gl:TextureConfiguration xsi:type="gl:ImageSequence">
-                <gl:Name>training_cloud_1</gl:Name>
-                <gl:Width xsi:nil="true" />
-                <gl:Height xsi:nil="true" />
-                <gl:InternalFormat>Rgba</gl:InternalFormat>
-                <gl:WrapS>Repeat</gl:WrapS>
-                <gl:WrapT>Repeat</gl:WrapT>
-                <gl:MinFilter>Linear</gl:MinFilter>
-                <gl:MagFilter>Linear</gl:MagFilter>
-                <gl:FileName>C:\Users\ONIX\source\nora-dev\vestibular-vr\Textures\training_cloud_1_sf_0=0.03-B_sf=0.03-theta=0-B_theta=0.25-alpha=0-seed=1.mp4</gl:FileName>
-                <gl:FlipMode>Vertical</gl:FlipMode>
-                <gl:FrameCount xsi:nil="true" />
-                <gl:StartPosition>0</gl:StartPosition>
-              </gl:TextureConfiguration>
-            </gl:Textures>
-          </Combinator>
-        </Builder>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:TextureResources">
+          <gl:Textures>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>horGrat</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Textures\horGrat.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>plaid</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Textures\plaid.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:ImageTexture">
+              <gl:Name>vertGrat</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+              <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Textures\vertGrat.jpg</gl:FileName>
+              <gl:ColorType>Unchanged</gl:ColorType>
+              <gl:FlipMode>Vertical</gl:FlipMode>
+            </gl:TextureConfiguration>
+          </gl:Textures>
+        </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="res:LoadResources" />
@@ -115,23 +97,51 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:RenderFrame" />
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.OrthographicView.bonsai">
-        <Left>-180</Left>
-        <Right>180</Right>
-        <Bottom>-90</Bottom>
-        <Top>90</Top>
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.CubemapView.bonsai">
+        <Eye>
+          <X>0</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </Eye>
+        <NearClip>0.1</NearClip>
+        <FarClip>1000</FarClip>
+        <Light>
+          <X>0</X>
+          <Y>-20</Y>
+          <Z>-590</Z>
+        </Light>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>ViewMatrix</Selector>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>ProjectionMatrix</Selector>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Light</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Zip" />
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>new(
+it.Item1 as ViewMatrix,
+it.Item2 as ProjectionMatrix,
+it.Item3 as Light)</scr:Expression>
       </Expression>
       <Expression xsi:type="rx:BehaviorSubject">
         <Name>DrawCall</Name>
       </Expression>
-      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.SphereMapping.bonsai">
-        <ClearColor>Gray</ClearColor>
-        <Width>2048</Width>
-        <Height>2048</Height>
-        <RotationZ>0</RotationZ>
-        <RotationY>0</RotationY>
-        <RotationX>0</RotationX>
-        <FaceSize xsi:nil="true" />
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:RenderCubemap">
+          <gl:RenderState />
+          <gl:ClearColor>Gray</gl:ClearColor>
+          <gl:ClearMask>DepthBufferBit ColorBufferBit</gl:ClearMask>
+          <gl:FaceSize xsi:nil="true" />
+          <gl:InternalFormat>Rgb</gl:InternalFormat>
+          <gl:MinFilter>Linear</gl:MinFilter>
+          <gl:MagFilter>Linear</gl:MagFilter>
+        </Combinator>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>FrontView</Name>
@@ -305,6 +315,109 @@
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:CreateQuaternionRotation">
+          <gl:Rotation>
+            <gl:Xyz>
+              <gl:X>0</gl:X>
+              <gl:Y>0</gl:Y>
+              <gl:Z>0</gl:Z>
+            </gl:Xyz>
+            <gl:W>1</gl:W>
+          </gl:Rotation>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="rx:BehaviorSubject">
+        <Name>CurrentRotation</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:CreateVector3">
+          <gl:X>0</gl:X>
+          <gl:Y>0</gl:Y>
+          <gl:Z>0</gl:Z>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="rx:BehaviorSubject">
+        <Name>CurrentPosition</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>DrawCall</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:BindTexture">
+          <gl:TextureSlot>Texture0</gl:TextureSlot>
+          <gl:ShaderName>TexturedModel</gl:ShaderName>
+          <gl:TextureName>horGrat</gl:TextureName>
+          <gl:TextureTarget>Texture2D</gl:TextureTarget>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+        <TranslationX>0</TranslationX>
+        <TranslationY>-1</TranslationY>
+        <TranslationZ>-10</TranslationZ>
+        <RotationZ>0</RotationZ>
+        <RotationY>0</RotationY>
+        <RotationX>90</RotationX>
+        <ScaleX>20</ScaleX>
+        <ScaleY>20</ScaleY>
+        <ScaleZ>1</ScaleZ>
+        <Ambient>
+          <X>0.2</X>
+          <Y>0.2</Y>
+          <Z>0.2</Z>
+        </Ambient>
+        <Diffuse>
+          <X>0.8</X>
+          <Y>0.8</Y>
+          <Z>0.8</Z>
+        </Diffuse>
+        <Specular>
+          <X>0.8</X>
+          <Y>0.8</Y>
+          <Z>0.8</Z>
+        </Specular>
+        <SpecularExponent>10</SpecularExponent>
+        <MeshName>Plane</MeshName>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>DrawCall</Name>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:BindTexture">
+          <gl:TextureSlot>Texture0</gl:TextureSlot>
+          <gl:ShaderName>TexturedModel</gl:ShaderName>
+          <gl:TextureName>plaid</gl:TextureName>
+          <gl:TextureTarget>Texture2D</gl:TextureTarget>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+        <TranslationX>0</TranslationX>
+        <TranslationY>0</TranslationY>
+        <TranslationZ>-10</TranslationZ>
+        <RotationZ>0</RotationZ>
+        <RotationY>0</RotationY>
+        <RotationX>0</RotationX>
+        <ScaleX>5</ScaleX>
+        <ScaleY>20</ScaleY>
+        <ScaleZ>1</ScaleZ>
+        <Ambient>
+          <X>0.2</X>
+          <Y>0.2</Y>
+          <Z>0.2</Z>
+        </Ambient>
+        <Diffuse>
+          <X>0.8</X>
+          <Y>0.8</Y>
+          <Z>0.8</Z>
+        </Diffuse>
+        <Specular>
+          <X>0.8</X>
+          <Y>0.8</Y>
+          <Z>0.8</Z>
+        </Specular>
+        <SpecularExponent>10</SpecularExponent>
+        <MeshName>Plane</MeshName>
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
@@ -312,11 +425,24 @@
       <Edge From="2" To="3" Label="Source1" />
       <Edge From="4" To="5" Label="Source1" />
       <Edge From="5" To="6" Label="Source1" />
-      <Edge From="6" To="7" Label="Source1" />
-      <Edge From="7" To="8" Label="Source1" />
-      <Edge From="7" To="9" Label="Source1" />
-      <Edge From="7" To="10" Label="Source1" />
-      <Edge From="7" To="11" Label="Source1" />
+      <Edge From="5" To="7" Label="Source1" />
+      <Edge From="5" To="8" Label="Source1" />
+      <Edge From="6" To="9" Label="Source1" />
+      <Edge From="7" To="9" Label="Source2" />
+      <Edge From="8" To="9" Label="Source3" />
+      <Edge From="9" To="10" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="12" To="14" Label="Source1" />
+      <Edge From="12" To="15" Label="Source1" />
+      <Edge From="12" To="16" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="22" To="23" Label="Source1" />
+      <Edge From="24" To="25" Label="Source1" />
+      <Edge From="25" To="26" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
