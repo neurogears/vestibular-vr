@@ -555,7 +555,7 @@ it.Item3 as Light)</scr:Expression>
                   <gl:Y>1</gl:Y>
                   <gl:Z>0</gl:Z>
                 </gl:Axis>
-                <gl:Angle>0.120000005</gl:Angle>
+                <gl:Angle>-0.120000005</gl:Angle>
               </Combinator>
             </Expression>
             <Expression xsi:type="MulticastSubject">
