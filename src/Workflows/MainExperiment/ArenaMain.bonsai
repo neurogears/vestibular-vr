@@ -5,7 +5,7 @@
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
-                 xmlns:p1="clr-namespace:OpenTK;assembly=OpenTK"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
@@ -109,9 +109,9 @@
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.CubemapView.bonsai">
         <Eye>
-          <X>-19.4010162</X>
+          <X>0.5252595</X>
           <Y>0</Y>
-          <Z>5.530417</Z>
+          <Z>-43.6884079</Z>
         </Eye>
         <NearClip>0.1</NearClip>
         <FarClip>1000</FarClip>
@@ -162,6 +162,12 @@
                 <Z>0.3</Z>
               </Translation>
             </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="X" />
+              <Property Name="Y" />
+              <Property Name="Width" DisplayName="W" />
+              <Property Name="Height" DisplayName="H" />
+            </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
               <X>0</X>
               <Y>0</Y>
@@ -173,8 +179,59 @@
           <Edges>
             <Edge From="0" To="2" Label="Source1" />
             <Edge From="1" To="2" Label="Source2" />
-            <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="2" To="4" Label="Source1" />
+            <Edge From="3" To="4" Label="Source2" />
+            <Edge From="4" To="5" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>LeftView</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Width" />
+              <Property Name="Height" />
+              <Property Name="Rotation" />
+              <Property Name="Translation" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.ViewWindow.bonsai">
+              <Width>0.54</Width>
+              <Height>0.3</Height>
+              <Rotation>
+                <X>0</X>
+                <Y>90.0000025044782</Y>
+                <Z>0</Z>
+              </Rotation>
+              <Translation>
+                <X>-0.3</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Translation>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="X" />
+              <Property Name="Y" />
+              <Property Name="Width" DisplayName="W" />
+              <Property Name="Height" DisplayName="H" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
+              <X>0.25</X>
+              <Y>0</Y>
+              <Width>0.25</Width>
+              <Height>1</Height>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="2" Label="Source1" />
+            <Edge From="1" To="2" Label="Source2" />
+            <Edge From="2" To="4" Label="Source1" />
+            <Edge From="3" To="4" Label="Source2" />
+            <Edge From="4" To="5" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -205,6 +262,12 @@
                 <Z>-0.3</Z>
               </Translation>
             </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="X" />
+              <Property Name="Y" />
+              <Property Name="Width" DisplayName="W" />
+              <Property Name="Height" DisplayName="H" />
+            </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
               <X>0.5</X>
               <Y>0</Y>
@@ -216,8 +279,59 @@
           <Edges>
             <Edge From="0" To="2" Label="Source1" />
             <Edge From="1" To="2" Label="Source2" />
-            <Edge From="2" To="3" Label="Source1" />
-            <Edge From="3" To="4" Label="Source1" />
+            <Edge From="2" To="4" Label="Source1" />
+            <Edge From="3" To="4" Label="Source2" />
+            <Edge From="4" To="5" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>RightView</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Width" />
+              <Property Name="Height" />
+              <Property Name="Rotation" />
+              <Property Name="Translation" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.ViewWindow.bonsai">
+              <Width>0.54</Width>
+              <Height>0.3</Height>
+              <Rotation>
+                <X>0</X>
+                <Y>-90.000002504478161</Y>
+                <Z>0</Z>
+              </Rotation>
+              <Translation>
+                <X>0.3</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Translation>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="X" />
+              <Property Name="Y" />
+              <Property Name="Width" DisplayName="W" />
+              <Property Name="Height" DisplayName="H" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.DrawViewport.bonsai">
+              <X>0.75</X>
+              <Y>0</Y>
+              <Width>0.25</Width>
+              <Height>1</Height>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="2" Label="Source1" />
+            <Edge From="1" To="2" Label="Source2" />
+            <Edge From="2" To="4" Label="Source1" />
+            <Edge From="3" To="4" Label="Source2" />
+            <Edge From="4" To="5" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -363,192 +477,51 @@
       <Expression xsi:type="rx:BehaviorSubject">
         <Name>CurrentRotation</Name>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="wie:KeyDown">
-            <wie:Filter>W</wie:Filter>
-            <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-          </Combinator>
-        </Builder>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="wie:MouseMove" />
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="FloatProperty">
-            <Value>1</Value>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="wie:KeyDown">
-            <wie:Filter>S</wie:Filter>
-            <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="FloatProperty">
-            <Value>-1</Value>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="rx:Merge" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="rx:Accumulate" />
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="rx:PublishSubject">
-          <Name>ForwardTranslationChange</Name>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="wie:MouseWheel" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="rx:PublishSubject">
-          <Name>RotationDelta</Name>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="wie:KeyDown">
-            <wie:Filter>W</wie:Filter>
-            <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="SubscribeSubject">
-          <Name>CurrentPosition</Name>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="SubscribeSubject">
-          <Name>ForwardVector</Name>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="rx:WithLatestFrom" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="rx:WithLatestFrom" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="MemberSelector">
-          <Selector>Item2.Item1</Selector>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="MemberSelector">
-          <Selector>Item2.Item2</Selector>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="PropertyMapping">
-          <PropertyMappings>
-            <Property Name="Value" />
-          </PropertyMappings>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Add">
-          <Operand xsi:type="WorkflowProperty" TypeArguments="p1:Vector3">
-            <Value>
-              <X>-0.8414711</X>
-              <Y>0</Y>
-              <Z>0.5403022</Z>
-            </Value>
-          </Operand>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="wie:KeyDown">
-            <wie:Filter>S</wie:Filter>
-            <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="SubscribeSubject">
-          <Name>CurrentPosition</Name>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="rx:WithLatestFrom" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="MemberSelector">
-          <Selector>Item2</Selector>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="gl:CreateVector3">
-            <gl:X>0</gl:X>
-            <gl:Y>0</gl:Y>
-            <gl:Z>-1</gl:Z>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="PropertyMapping">
-          <PropertyMappings>
-            <Property Name="Value" />
-          </PropertyMappings>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Add">
-          <Operand xsi:type="WorkflowProperty" TypeArguments="p1:Vector3">
-            <Value>
-              <X>0</X>
-              <Y>0</Y>
-              <Z>-1</Z>
-            </Value>
-          </Operand>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="rx:Merge" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="MulticastSubject">
-          <Name>CurrentPosition</Name>
-        </Builder>
+      <Expression xsi:type="MemberSelector">
+        <Selector>X</Selector>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="wie:KeyDown">
-          <wie:Filter>W</wie:Filter>
-          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+        <Combinator xsi:type="dsp:Difference">
+          <dsp:Order>1</dsp:Order>
         </Combinator>
       </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>RotationDelta</Name>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>Y</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Difference">
+          <dsp:Order>1</dsp:Order>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="scr:ExpressionTransform">
+        <scr:Expression>Convert.ToSingle(it)</scr:Expression>
+      </Expression>
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="FloatProperty">
+          <Value>0.1</Value>
+        </Operand>
+      </Expression>
+      <Expression xsi:type="rx:PublishSubject">
+        <Name>ForwardDelta</Name>
+      </Expression>
       <Expression xsi:type="SubscribeSubject">
-        <Name>CurrentPosition</Name>
+        <Name>ForwardDelta</Name>
+      </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>ForwardVector</Name>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:WithLatestFrom" />
       </Expression>
-      <Expression xsi:type="MemberSelector">
-        <Selector>Item2</Selector>
-      </Expression>
+      <Expression xsi:type="Multiply" />
       <Expression xsi:type="SubscribeSubject">
-        <Name>ForwardVector</Name>
+        <Name>CurrentPosition</Name>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:WithLatestFrom" />
@@ -557,30 +530,13 @@
       <Expression xsi:type="MulticastSubject">
         <Name>CurrentPosition</Name>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="wie:KeyDown">
-          <wie:Filter>A</wie:Filter>
-          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-        </Combinator>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>RotationDelta</Name>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="FloatProperty">
-          <Value>-0.1</Value>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="wie:KeyDown">
-          <wie:Filter>D</wie:Filter>
-          <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="FloatProperty">
-          <Value>1</Value>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="rx:Merge" />
+      <Expression xsi:type="Multiply">
+        <Operand xsi:type="DoubleProperty">
+          <Value>0.001</Value>
+        </Operand>
       </Expression>
       <Expression xsi:type="rx:Accumulate" />
       <Expression xsi:type="Combinator">
@@ -618,7 +574,7 @@
             <gl:Y>1</gl:Y>
             <gl:Z>0</gl:Z>
           </gl:Axis>
-          <gl:Angle>-1.29999542</gl:Angle>
+          <gl:Angle>-0.017</gl:Angle>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -655,214 +611,6 @@
       <Expression xsi:type="rx:BehaviorSubject">
         <Name>ForwardVector</Name>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="ExternalizedMapping">
-          <Property Name="RotationGain" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="GroupWorkflow">
-          <Name>CalculateRotation</Name>
-          <Workflow>
-            <Nodes>
-              <Expression xsi:type="SubscribeSubject">
-                <Name>RotationDelta</Name>
-              </Expression>
-              <Expression xsi:type="scr:ExpressionTransform">
-                <scr:Expression>Convert.ToSingle(it)</scr:Expression>
-              </Expression>
-              <Expression xsi:type="ExternalizedMapping">
-                <Property Name="Value" DisplayName="RotationGain" />
-              </Expression>
-              <Expression xsi:type="Multiply">
-                <Operand xsi:type="FloatProperty">
-                  <Value>0.001</Value>
-                </Operand>
-              </Expression>
-              <Expression xsi:type="rx:Accumulate" />
-              <Expression xsi:type="rx:PublishSubject">
-                <Name>Rotation</Name>
-              </Expression>
-              <Expression xsi:type="WorkflowOutput" />
-              <Expression xsi:type="rx:PublishSubject">
-                <Name>RotationChange</Name>
-              </Expression>
-              <Expression xsi:type="SubscribeSubject">
-                <Name>RotationChange</Name>
-              </Expression>
-              <Expression xsi:type="SubscribeSubject">
-                <Name>CurrentRotation</Name>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="rx:WithLatestFrom" />
-              </Expression>
-              <Expression xsi:type="MemberSelector">
-                <Selector>Item2</Selector>
-              </Expression>
-              <Expression xsi:type="MemberSelector">
-                <Selector>Item1</Selector>
-              </Expression>
-              <Expression xsi:type="PropertyMapping">
-                <PropertyMappings>
-                  <Property Name="Angle" />
-                </PropertyMappings>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="gl:RotateAxisAngle">
-                  <gl:Order>Append</gl:Order>
-                  <gl:Axis>
-                    <gl:X>0</gl:X>
-                    <gl:Y>1</gl:Y>
-                    <gl:Z>0</gl:Z>
-                  </gl:Axis>
-                  <gl:Angle>0.120000005</gl:Angle>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="MulticastSubject">
-                <Name>CurrentRotation</Name>
-              </Expression>
-            </Nodes>
-            <Edges>
-              <Edge From="0" To="1" Label="Source1" />
-              <Edge From="1" To="3" Label="Source1" />
-              <Edge From="2" To="3" Label="Source2" />
-              <Edge From="3" To="4" Label="Source1" />
-              <Edge From="3" To="7" Label="Source1" />
-              <Edge From="4" To="5" Label="Source1" />
-              <Edge From="5" To="6" Label="Source1" />
-              <Edge From="8" To="10" Label="Source1" />
-              <Edge From="9" To="10" Label="Source2" />
-              <Edge From="10" To="11" Label="Source1" />
-              <Edge From="10" To="12" Label="Source1" />
-              <Edge From="11" To="14" Label="Source1" />
-              <Edge From="12" To="13" Label="Source1" />
-              <Edge From="13" To="14" Label="Source2" />
-              <Edge From="14" To="15" Label="Source1" />
-            </Edges>
-          </Workflow>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="ExternalizedMapping">
-          <Property Name="TranslationGain" />
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="GroupWorkflow">
-          <Name>CalculateTranslation</Name>
-          <Workflow>
-            <Nodes>
-              <Expression xsi:type="SubscribeSubject">
-                <Name>TranslationChange</Name>
-              </Expression>
-              <Expression xsi:type="ExternalizedMapping">
-                <Property Name="Value" DisplayName="TranslationGain" />
-              </Expression>
-              <Expression xsi:type="Multiply">
-                <Operand xsi:type="FloatProperty">
-                  <Value>0.5</Value>
-                </Operand>
-              </Expression>
-              <Expression xsi:type="SubscribeSubject">
-                <Name>CurrentPosition</Name>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="rx:WithLatestFrom" />
-              </Expression>
-              <Expression xsi:type="SubscribeSubject">
-                <Name>CurrentRotation</Name>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="rx:WithLatestFrom" />
-              </Expression>
-              <Expression xsi:type="scr:ExpressionTransform">
-                <scr:Expression>new(
-it.Item1.Item1 as TranslationChange,
-it.Item1.Item2 as CurrentPosition,
-it.Item2 as CurrentRotation
-)</scr:Expression>
-              </Expression>
-              <Expression xsi:type="MemberSelector">
-                <Selector>CurrentPosition</Selector>
-              </Expression>
-              <Expression xsi:type="MemberSelector">
-                <Selector>CurrentRotation</Selector>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="gl:ExtractRotation">
-                  <gl:RowNormalize>true</gl:RowNormalize>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="MemberSelector">
-                <Selector>TranslationChange</Selector>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="gl:CreateVector3">
-                  <gl:X>0</gl:X>
-                  <gl:Y>0</gl:Y>
-                  <gl:Z>1</gl:Z>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="rx:Zip" />
-              </Expression>
-              <Expression xsi:type="Multiply" />
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="rx:Zip" />
-              </Expression>
-              <Expression xsi:type="Multiply" />
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="gl:CreateVector3">
-                  <gl:X>-1</gl:X>
-                  <gl:Y>0</gl:Y>
-                  <gl:Z>1</gl:Z>
-                </Combinator>
-              </Expression>
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="rx:Zip" />
-              </Expression>
-              <Expression xsi:type="Multiply" />
-              <Expression xsi:type="Combinator">
-                <Combinator xsi:type="rx:Zip" />
-              </Expression>
-              <Expression xsi:type="Add" />
-              <Expression xsi:type="MulticastSubject">
-                <Name>CurrentPosition</Name>
-              </Expression>
-              <Expression xsi:type="WorkflowOutput" />
-            </Nodes>
-            <Edges>
-              <Edge From="0" To="2" Label="Source1" />
-              <Edge From="1" To="2" Label="Source2" />
-              <Edge From="2" To="4" Label="Source1" />
-              <Edge From="3" To="4" Label="Source2" />
-              <Edge From="4" To="6" Label="Source1" />
-              <Edge From="5" To="6" Label="Source2" />
-              <Edge From="6" To="7" Label="Source1" />
-              <Edge From="7" To="8" Label="Source1" />
-              <Edge From="7" To="9" Label="Source1" />
-              <Edge From="7" To="11" Label="Source1" />
-              <Edge From="8" To="20" Label="Source1" />
-              <Edge From="9" To="10" Label="Source1" />
-              <Edge From="10" To="15" Label="Source1" />
-              <Edge From="11" To="12" Label="Source1" />
-              <Edge From="11" To="13" Label="Source1" />
-              <Edge From="12" To="13" Label="Source2" />
-              <Edge From="13" To="14" Label="Source1" />
-              <Edge From="14" To="15" Label="Source2" />
-              <Edge From="15" To="16" Label="Source1" />
-              <Edge From="16" To="17" Label="Source1" />
-              <Edge From="16" To="18" Label="Source1" />
-              <Edge From="17" To="18" Label="Source2" />
-              <Edge From="18" To="19" Label="Source1" />
-              <Edge From="19" To="20" Label="Source2" />
-              <Edge From="20" To="21" Label="Source1" />
-              <Edge From="21" To="22" Label="Source1" />
-              <Edge From="22" To="23" Label="Source1" />
-            </Edges>
-          </Workflow>
-        </Builder>
-      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
@@ -875,62 +623,42 @@ it.Item2 as CurrentRotation
       <Edge From="8" To="9" Label="Source1" />
       <Edge From="9" To="10" Label="Source1" />
       <Edge From="9" To="11" Label="Source1" />
-      <Edge From="12" To="13" Label="Source1" />
-      <Edge From="13" To="14" Label="Source1" />
+      <Edge From="9" To="12" Label="Source1" />
+      <Edge From="9" To="13" Label="Source1" />
+      <Edge From="14" To="15" Label="Source1" />
       <Edge From="15" To="16" Label="Source1" />
-      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
       <Edge From="18" To="19" Label="Source1" />
-      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="20" To="21" Label="Source1" />
       <Edge From="21" To="22" Label="Source1" />
       <Edge From="23" To="24" Label="Source1" />
       <Edge From="25" To="26" Label="Source1" />
-      <Edge From="26" To="29" Label="Source1" />
       <Edge From="27" To="28" Label="Source1" />
-      <Edge From="28" To="29" Label="Source2" />
+      <Edge From="27" To="31" Label="Source1" />
+      <Edge From="28" To="29" Label="Source1" />
       <Edge From="29" To="30" Label="Source1" />
-      <Edge From="30" To="31" Label="Source1" />
+      <Edge From="31" To="32" Label="Source1" />
       <Edge From="32" To="33" Label="Source1" />
-      <Edge From="34" To="38" Label="Source1" />
-      <Edge From="35" To="37" Label="Source1" />
-      <Edge From="36" To="37" Label="Source2" />
+      <Edge From="33" To="34" Label="Source1" />
+      <Edge From="34" To="35" Label="Source1" />
+      <Edge From="36" To="38" Label="Source1" />
       <Edge From="37" To="38" Label="Source2" />
       <Edge From="38" To="39" Label="Source1" />
-      <Edge From="38" To="40" Label="Source1" />
-      <Edge From="39" To="42" Label="Source1" />
-      <Edge From="40" To="41" Label="Source1" />
-      <Edge From="41" To="42" Label="Source2" />
-      <Edge From="42" To="50" Label="Source1" />
-      <Edge From="43" To="45" Label="Source1" />
-      <Edge From="44" To="45" Label="Source2" />
+      <Edge From="39" To="41" Label="Source1" />
+      <Edge From="40" To="41" Label="Source2" />
+      <Edge From="41" To="42" Label="Source1" />
+      <Edge From="42" To="43" Label="Source1" />
+      <Edge From="44" To="45" Label="Source1" />
       <Edge From="45" To="46" Label="Source1" />
-      <Edge From="46" To="49" Label="Source1" />
-      <Edge From="47" To="48" Label="Source1" />
+      <Edge From="46" To="47" Label="Source1" />
+      <Edge From="46" To="48" Label="Source1" />
+      <Edge From="47" To="49" Label="Source1" />
       <Edge From="48" To="49" Label="Source2" />
-      <Edge From="49" To="50" Label="Source2" />
-      <Edge From="50" To="51" Label="Source1" />
-      <Edge From="52" To="54" Label="Source1" />
-      <Edge From="53" To="54" Label="Source2" />
-      <Edge From="54" To="55" Label="Source1" />
-      <Edge From="55" To="57" Label="Source1" />
-      <Edge From="56" To="57" Label="Source2" />
-      <Edge From="57" To="58" Label="Source1" />
-      <Edge From="58" To="59" Label="Source1" />
-      <Edge From="60" To="61" Label="Source1" />
-      <Edge From="61" To="64" Label="Source1" />
-      <Edge From="62" To="63" Label="Source1" />
-      <Edge From="63" To="64" Label="Source2" />
-      <Edge From="64" To="65" Label="Source1" />
-      <Edge From="65" To="66" Label="Source1" />
-      <Edge From="65" To="67" Label="Source1" />
-      <Edge From="66" To="68" Label="Source1" />
-      <Edge From="67" To="68" Label="Source2" />
-      <Edge From="68" To="69" Label="Source1" />
-      <Edge From="69" To="72" Label="Source1" />
-      <Edge From="70" To="71" Label="Source1" />
-      <Edge From="71" To="72" Label="Source2" />
-      <Edge From="72" To="73" Label="Source1" />
-      <Edge From="74" To="75" Label="Source1" />
-      <Edge From="76" To="77" Label="Source1" />
+      <Edge From="49" To="50" Label="Source1" />
+      <Edge From="50" To="53" Label="Source1" />
+      <Edge From="51" To="52" Label="Source1" />
+      <Edge From="52" To="53" Label="Source2" />
+      <Edge From="53" To="54" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
