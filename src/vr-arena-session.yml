@@ -1,0 +1,44 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=arena-schema.json
+
+metadata:
+  animalId: "plimbo"
+  rootPath: D:/TrialLogicTestData/
+  flowToMotorGain: 1
+  flowToVisualTranslation: 1
+  flowToVisualRotation: 1
+  runGain: 1
+  arenaSize: 40
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
+cameraSettings:
+  cameraFrequency1: 100
+  cameraFrequency2: 100
+  cameraExposure1: 5000
+  cameraExposure2: 5000
+  cameraGain1: 1
+  cameraGain2: 1
+
+objectDefinitions: [
+  {meshName: "cylinder",
+  position: {valX: -5, valY: 0, valZ: 0},
+  rotation: {valX: 0, valY: 0, valZ: 0},
+  scale: {valX: 1, valY: 1, valZ: 1},
+  color: {valX: 1, valY: 0, valZ: 0}},
+  {meshName: "icosphere",
+  position: {valX: 5, valY: 0, valZ: 0},
+  rotation: {valX: 0, valY: 0, valZ: 0},
+  scale: {valX: 1, valY: 1, valZ: 1},
+  color: {valX: 1, valY: 1, valZ: 1}},
+  {meshName: "cylinder",
+  position: {valX: -5, valY: 0, valZ: 0},
+  rotation: {valX: 0, valY: 0, valZ: 0},
+  scale: {valX: 1, valY: 1, valZ: 1},
+  color: {valX: 1, valY: 0, valZ: 0}},
+]
