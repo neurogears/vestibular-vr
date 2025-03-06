@@ -87,7 +87,35 @@
               <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
+            <gl:TextureConfiguration xsi:type="gl:Texture2D">
+              <gl:Name>Blank</gl:Name>
+              <gl:Width xsi:nil="true" />
+              <gl:Height xsi:nil="true" />
+              <gl:InternalFormat>Rgba</gl:InternalFormat>
+              <gl:WrapS>Repeat</gl:WrapS>
+              <gl:WrapT>Repeat</gl:WrapT>
+              <gl:MinFilter>Linear</gl:MinFilter>
+              <gl:MagFilter>Linear</gl:MagFilter>
+            </gl:TextureConfiguration>
           </gl:Textures>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:MeshResources">
+          <gl:Meshes>
+            <gl:MeshConfiguration xsi:type="gl:TexturedModel">
+              <gl:Name>suzanne</gl:Name>
+              <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Models\suzanne.obj</gl:FileName>
+            </gl:MeshConfiguration>
+            <gl:MeshConfiguration xsi:type="gl:TexturedModel">
+              <gl:Name>cylinder</gl:Name>
+              <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Models\cylinder.obj</gl:FileName>
+            </gl:MeshConfiguration>
+            <gl:MeshConfiguration xsi:type="gl:TexturedModel">
+              <gl:Name>icosphere</gl:Name>
+              <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Models\icosphere.obj</gl:FileName>
+            </gl:MeshConfiguration>
+          </gl:Meshes>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -327,26 +355,56 @@
         <SpecularExponent>10</SpecularExponent>
         <MeshName>Plane</MeshName>
       </Expression>
+      <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
+        <TranslationX>2</TranslationX>
+        <TranslationY>2</TranslationY>
+        <TranslationZ>2</TranslationZ>
+        <RotationZ>0</RotationZ>
+        <RotationY>0</RotationY>
+        <RotationX>0</RotationX>
+        <ScaleX>0.5</ScaleX>
+        <ScaleY>0.5</ScaleY>
+        <ScaleZ>0.5</ScaleZ>
+        <Ambient>
+          <X>1</X>
+          <Y>0</Y>
+          <Z>0</Z>
+        </Ambient>
+        <Diffuse>
+          <X>0.8</X>
+          <Y>0.8</Y>
+          <Z>0.8</Z>
+        </Diffuse>
+        <Specular>
+          <X>0.8</X>
+          <Y>0.8</Y>
+          <Z>0.8</Z>
+        </Specular>
+        <SpecularExponent>10</SpecularExponent>
+        <MeshName>cylinder</MeshName>
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
       <Edge From="1" To="2" Label="Source1" />
       <Edge From="2" To="3" Label="Source1" />
-      <Edge From="4" To="5" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
       <Edge From="5" To="6" Label="Source1" />
       <Edge From="6" To="7" Label="Source1" />
       <Edge From="7" To="8" Label="Source1" />
       <Edge From="8" To="9" Label="Source1" />
-      <Edge From="10" To="11" Label="Source1" />
-      <Edge From="10" To="13" Label="Source1" />
-      <Edge From="10" To="15" Label="Source1" />
-      <Edge From="10" To="17" Label="Source1" />
-      <Edge From="10" To="19" Label="Source1" />
+      <Edge From="9" To="10" Label="Source1" />
       <Edge From="11" To="12" Label="Source1" />
-      <Edge From="13" To="14" Label="Source1" />
-      <Edge From="15" To="16" Label="Source1" />
-      <Edge From="17" To="18" Label="Source1" />
-      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="11" To="14" Label="Source1" />
+      <Edge From="11" To="16" Label="Source1" />
+      <Edge From="11" To="18" Label="Source1" />
+      <Edge From="11" To="20" Label="Source1" />
+      <Edge From="11" To="22" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
+      <Edge From="14" To="15" Label="Source1" />
+      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="20" To="21" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
