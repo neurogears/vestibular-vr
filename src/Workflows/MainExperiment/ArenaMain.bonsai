@@ -6,8 +6,13 @@
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
                  xmlns:harp="clr-namespace:Bonsai.Harp;assembly=Bonsai.Harp"
+                 xmlns:vh2="clr-namespace:Harp.VestibularH2;assembly=Harp.VestibularH2"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                 xmlns:p2="clr-namespace:System.Reactive;assembly=System.Reactive.Core"
+                 xmlns:wie="clr-namespace:Bonsai.Windows.Input;assembly=Bonsai.Windows.Input"
                  xmlns:vh1="clr-namespace:Harp.VestibularH1;assembly=Harp.VestibularH1"
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
+                 xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -16,7 +21,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:LoadArenaSettings">
-          <p1:Path>C:\Users\neurogears\source\repos\vestibular-vr\src\vr-arena-session.yml</p1:Path>
+          <p1:Path>C:\Users\ONIX\source\ae-dev\vestibular-vr\src\vr-arena-session.yml</p1:Path>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -29,8 +34,8 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="gl:CreateWindow">
-          <gl:Width>640</gl:Width>
-          <gl:Height>480</gl:Height>
+          <gl:Width>1920</gl:Width>
+          <gl:Height>720</gl:Height>
           <gl:VSync>On</gl:VSync>
           <gl:SwapSync>false</gl:SwapSync>
           <gl:ClearColor>Black</gl:ClearColor>
@@ -38,7 +43,7 @@
           <gl:CursorVisible>true</gl:CursorVisible>
           <gl:Location xsi:nil="true" />
           <gl:WindowBorder>Resizable</gl:WindowBorder>
-          <gl:WindowState>Normal</gl:WindowState>
+          <gl:WindowState>Fullscreen</gl:WindowState>
           <gl:DisplayDevice>Third</gl:DisplayDevice>
           <gl:TargetRenderFrequency>60</gl:TargetRenderFrequency>
           <gl:TargetUpdateFrequency xsi:nil="true" />
@@ -77,7 +82,7 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Textures\horGrat.jpg</gl:FileName>
+              <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Textures\horGrat.jpg</gl:FileName>
               <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
@@ -90,7 +95,7 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Textures\plaid.jpg</gl:FileName>
+              <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Textures\plaid.jpg</gl:FileName>
               <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
@@ -103,7 +108,7 @@
               <gl:WrapT>Repeat</gl:WrapT>
               <gl:MinFilter>Linear</gl:MinFilter>
               <gl:MagFilter>Linear</gl:MagFilter>
-              <gl:FileName>C:\Users\neurogears\source\repos\vestibular-vr\Textures\vertGrat.jpg</gl:FileName>
+              <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Textures\vertGrat.jpg</gl:FileName>
               <gl:ColorType>Unchanged</gl:ColorType>
               <gl:FlipMode>Vertical</gl:FlipMode>
             </gl:TextureConfiguration>
@@ -126,9 +131,9 @@
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.CubemapView.bonsai">
         <Eye>
-          <X>3.66077137</X>
+          <X>0</X>
           <Y>0</Y>
-          <Z>-54.0096474</Z>
+          <Z>450.569977</Z>
         </Eye>
         <NearClip>0.1</NearClip>
         <FarClip>1000</FarClip>
@@ -349,6 +354,473 @@
             <Edge From="2" To="4" Label="Source1" />
             <Edge From="3" To="4" Label="Source2" />
             <Edge From="4" To="5" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
+        <Property Name="HomePlatform" />
+        <Property Name="StepCCW" />
+        <Property Name="StepCW" />
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>H2Hardware</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="harp:HarpMessage">
+              <rx:Name>H2Commands</rx:Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="vh2:Device">
+                <harp:OperationMode>Active</harp:OperationMode>
+                <harp:OperationLed>On</harp:OperationLed>
+                <harp:DumpRegisters>true</harp:DumpRegisters>
+                <harp:VisualIndicators>On</harp:VisualIndicators>
+                <harp:Heartbeat>Enabled</harp:Heartbeat>
+                <harp:IgnoreErrors>false</harp:IgnoreErrors>
+                <harp:PortName>COM11</harp:PortName>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>H2Events</Name>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+            <Expression xsi:type="SubscribeSubject">
+              <Name>H2Events</Name>
+            </Expression>
+            <Expression xsi:type="vh2:FilterRegister">
+              <harp:FilterType>Include</harp:FilterType>
+              <harp:Register xsi:type="vh2:Encoder" />
+            </Expression>
+            <Expression xsi:type="vh2:Parse">
+              <harp:Register xsi:type="vh2:TimestampedEncoder" />
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value</Selector>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>RotaryEncoder</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>H2Events</Name>
+            </Expression>
+            <Expression xsi:type="harp:FilterRegister">
+              <harp:FilterType>Include</harp:FilterType>
+              <harp:Register xsi:type="harp:FilterRegisterAddress">
+                <harp:Address>39</harp:Address>
+              </harp:Register>
+            </Expression>
+            <Expression xsi:type="harp:Parse">
+              <harp:Register xsi:type="harp:ParseMessagePayload">
+                <harp:PayloadType>TimestampedS16</harp:PayloadType>
+                <harp:IsArray>false</harp:IsArray>
+              </harp:Register>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value</Selector>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>HallSensor</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="BooleanProperty">
+                <Value>false</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>PlatformHomed</Name>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Boolean">
+              <rx:Name>PlatformHomed</rx:Name>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="p2:Unit">
+              <rx:Name>HomePlatform</rx:Name>
+            </Expression>
+            <Expression xsi:type="rx:CreateObservable">
+              <Name>HomePlatform</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>HallSensor</Name>
+                  </Expression>
+                  <Expression xsi:type="LessThan">
+                    <Operand xsi:type="WorkflowProperty" TypeArguments="sys:Int16">
+                      <Value>200</Value>
+                    </Operand>
+                  </Expression>
+                  <Expression xsi:type="rx:Condition">
+                    <Name>Home</Name>
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="WorkflowInput">
+                          <Name>Source1</Name>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
+                  <Expression xsi:type="vh2:CreateMessage">
+                    <harp:MessageType>Write</harp:MessageType>
+                    <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
+                      <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
+                    </harp:Payload>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>H2Commands</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Take">
+                      <rx:Count>1</rx:Count>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="BooleanProperty">
+                      <Value>true</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>PlatformHomed</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="BooleanProperty">
+                      <Value>false</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>PlatformHomed</Name>
+                  </Expression>
+                  <Expression xsi:type="vh2:CreateMessage">
+                    <harp:MessageType>Write</harp:MessageType>
+                    <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
+                      <vh2:ImmediatePulses>200</vh2:ImmediatePulses>
+                    </harp:Payload>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>H2Commands</Name>
+                  </Expression>
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="7" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source1" />
+                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="12" To="13" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Switch" />
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject" TypeArguments="sys:Int32">
+              <rx:Name>StepPlatform</rx:Name>
+            </Expression>
+            <Expression xsi:type="rx:SelectMany">
+              <Name>StepPlatform</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Take">
+                      <rx:Count>1</rx:Count>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="rx:AsyncSubject">
+                    <Name>StepPulseInterval</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>StepPulseInterval</Name>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="ImmediatePulses" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="vh2:CreateMessage">
+                    <harp:MessageType>Write</harp:MessageType>
+                    <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
+                      <vh2:ImmediatePulses>1600</vh2:ImmediatePulses>
+                    </harp:Payload>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>H2Commands</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Delay">
+                      <rx:DueTime>PT0.2S</rx:DueTime>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="vh2:CreateMessage">
+                    <harp:MessageType>Write</harp:MessageType>
+                    <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
+                      <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
+                    </harp:Payload>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>H2Commands</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Take">
+                      <rx:Count>1</rx:Count>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source1" />
+                  <Edge From="5" To="6" Label="Source1" />
+                  <Edge From="6" To="7" Label="Source1" />
+                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source1" />
+                  <Edge From="9" To="10" Label="Source1" />
+                  <Edge From="10" To="11" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Filter" DisplayName="HomePlatform" Category="PlatformControl" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="wie:KeyDown">
+                <wie:Filter>Back H Shift</wie:Filter>
+                <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Unit" />
+            <Expression xsi:type="MulticastSubject">
+              <Name>HomePlatform</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Filter" DisplayName="StepCCW" Category="PlatformControl" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="wie:KeyDown">
+                <wie:Filter>LButton MButton XButton1 Space Prior PageUp Home Left Shift</wie:Filter>
+                <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>500</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>StepPlatform</Name>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Filter" DisplayName="StepCW" Category="PlatformControl" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="wie:KeyDown">
+                <wie:Filter>LButton RButton Cancel MButton XButton1 XButton2 Space Prior PageUp Next PageDown End Home Left Up Right Shift</wie:Filter>
+                <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="IntProperty">
+                <Value>-500</Value>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>StepPlatform</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>ArenaSettings</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Delay">
+                <rx:DueTime>PT0.5S</rx:DueTime>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>DisableMotor</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>DisableAnalogInput</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>DisableEncoder</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>ResetEncoder</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Delay">
+                <rx:DueTime>PT1S</rx:DueTime>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>EnableMotor</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>EnableAnalogInput</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateControlPayload">
+                <vh2:Control>EnableEncoder</vh2:Control>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>MotorSettings.NominalPulseInterval</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="NominalPulseInterval" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateNominalPulseIntervalPayload">
+                <vh2:NominalPulseInterval>200</vh2:NominalPulseInterval>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>MotorSettings.InitialPulseInterval</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="InitialPulseInterval" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreateInitialPulseIntervalPayload">
+                <vh2:InitialPulseInterval>200</vh2:InitialPulseInterval>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>MotorSettings.PulseStepInterval</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="PulseStepInterval" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreatePulseStepIntervalPayload">
+                <vh2:PulseStepInterval>2</vh2:PulseStepInterval>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>MotorSettings.PulsePeriod</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="PulsePeriod" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="vh2:CreateMessage">
+              <harp:MessageType>Write</harp:MessageType>
+              <harp:Payload xsi:type="vh2:CreatePulsePeriodPayload">
+                <vh2:PulsePeriod>10</vh2:PulsePeriod>
+              </harp:Payload>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Merge" />
+            </Expression>
+            <Expression xsi:type="MulticastSubject">
+              <Name>H2Commands</Name>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="20" To="21" Label="Source1" />
+            <Edge From="22" To="23" Label="Source1" />
+            <Edge From="23" To="24" Label="Source1" />
+            <Edge From="24" To="25" Label="Source1" />
+            <Edge From="26" To="27" Label="Source1" />
+            <Edge From="27" To="28" Label="Source1" />
+            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="30" To="31" Label="Source1" />
+            <Edge From="31" To="32" Label="Source1" />
+            <Edge From="32" To="33" Label="Source1" />
+            <Edge From="34" To="35" Label="Source1" />
+            <Edge From="34" To="40" Label="Source1" />
+            <Edge From="34" To="44" Label="Source1" />
+            <Edge From="34" To="47" Label="Source1" />
+            <Edge From="34" To="50" Label="Source1" />
+            <Edge From="34" To="53" Label="Source1" />
+            <Edge From="35" To="36" Label="Source1" />
+            <Edge From="35" To="37" Label="Source1" />
+            <Edge From="35" To="38" Label="Source1" />
+            <Edge From="35" To="39" Label="Source1" />
+            <Edge From="36" To="56" Label="Source1" />
+            <Edge From="37" To="56" Label="Source2" />
+            <Edge From="38" To="56" Label="Source3" />
+            <Edge From="39" To="56" Label="Source4" />
+            <Edge From="40" To="41" Label="Source1" />
+            <Edge From="40" To="42" Label="Source1" />
+            <Edge From="40" To="43" Label="Source1" />
+            <Edge From="40" To="46" Label="Source2" />
+            <Edge From="40" To="49" Label="Source2" />
+            <Edge From="40" To="52" Label="Source2" />
+            <Edge From="40" To="55" Label="Source2" />
+            <Edge From="41" To="56" Label="Source5" />
+            <Edge From="42" To="56" Label="Source6" />
+            <Edge From="43" To="56" Label="Source7" />
+            <Edge From="44" To="45" Label="Source1" />
+            <Edge From="45" To="46" Label="Source1" />
+            <Edge From="46" To="56" Label="Source8" />
+            <Edge From="47" To="48" Label="Source1" />
+            <Edge From="48" To="49" Label="Source1" />
+            <Edge From="49" To="56" Label="Source9" />
+            <Edge From="50" To="51" Label="Source1" />
+            <Edge From="51" To="52" Label="Source1" />
+            <Edge From="52" To="56" Label="Source10" />
+            <Edge From="53" To="54" Label="Source1" />
+            <Edge From="54" To="55" Label="Source1" />
+            <Edge From="55" To="56" Label="Source11" />
+            <Edge From="56" To="57" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -849,17 +1321,27 @@
             <Expression xsi:type="rx:BehaviorSubject">
               <Name>CurrentRotation</Name>
             </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:CreateVector3">
+                <gl:X>0</gl:X>
+                <gl:Y>0</gl:Y>
+                <gl:Z>1</gl:Z>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:BehaviorSubject">
+              <Name>ForwardVector</Name>
+            </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>FlowSensor1</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>X</Selector>
+              <Selector>Y</Selector>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
               <Name>RotationDelta</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>Y</Selector>
+              <Selector>X</Selector>
             </Expression>
             <Expression xsi:type="scr:ExpressionTransform">
               <scr:Expression>Convert.ToSingle(it)</scr:Expression>
@@ -883,7 +1365,7 @@
             </Expression>
             <Expression xsi:type="Multiply">
               <Operand xsi:type="FloatProperty">
-                <Value>0.1</Value>
+                <Value>0.0008</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -910,7 +1392,7 @@
               <Name>ArenaSettings</Name>
             </Expression>
             <Expression xsi:type="MemberSelector">
-              <Selector>Metadata.FlowToVisualRotation</Selector>
+              <Selector>Metadata.FlowToMotorGain</Selector>
             </Expression>
             <Expression xsi:type="PropertyMapping">
               <PropertyMappings>
@@ -918,9 +1400,66 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="Multiply">
-              <Operand xsi:type="DoubleProperty">
-                <Value>0.001</Value>
+              <Operand xsi:type="FloatProperty">
+                <Value>-4</Value>
               </Operand>
+            </Expression>
+            <Expression xsi:type="rx:Sink">
+              <Name>ApplyMotorMotion</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="p1:ToPulseInterval">
+                      <p1:ZeroThreshold>1E-06</p1:ZeroThreshold>
+                      <p1:MaxValue>0.02</p1:MaxValue>
+                      <p1:MinValue>2.5E-05</p1:MinValue>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="PropertyMapping">
+                    <PropertyMappings>
+                      <Property Name="ImmediatePulses" />
+                    </PropertyMappings>
+                  </Expression>
+                  <Expression xsi:type="vh2:CreateMessage">
+                    <harp:MessageType>Write</harp:MessageType>
+                    <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
+                      <vh2:ImmediatePulses>12500</vh2:ImmediatePulses>
+                    </harp:Payload>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>H2Commands</Name>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="1" To="3" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source2" />
+                  <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="4" To="5" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>RotaryEncoder</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="dsp:Difference">
+                <dsp:Order>1</dsp:Order>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>(Math.PI / 180) * ((it / 24000) * 360)</scr:Expression>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>EncoderDelta</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>EncoderDelta</Name>
             </Expression>
             <Expression xsi:type="rx:Accumulate" />
             <Expression xsi:type="Combinator">
@@ -958,77 +1497,185 @@
                   <gl:Y>1</gl:Y>
                   <gl:Z>0</gl:Z>
                 </gl:Axis>
-                <gl:Angle>-0.157</gl:Angle>
+                <gl:Angle>0</gl:Angle>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="gl:ExtractTranslation" />
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="gl:CreateTransform">
-                <gl:Position>
-                  <gl:X>0</gl:X>
-                  <gl:Y>0</gl:Y>
-                  <gl:Z>1</gl:Z>
-                </gl:Position>
-                <gl:Rotation>
-                  <gl:Xyz>
+            <Expression xsi:type="MulticastSubject">
+              <Name>ForwardVector</Name>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="SubscribeSubject">
+                <Name>RotationDelta</Name>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="SubscribeSubject">
+                <Name>ArenaSettings</Name>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MemberSelector">
+                <Selector>Metadata.FlowToVisualRotation</Selector>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="Value" />
+                </PropertyMappings>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Multiply">
+                <Operand xsi:type="DoubleProperty">
+                  <Value>1</Value>
+                </Operand>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="rx:Accumulate" />
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="gl:CreateTransform">
+                  <gl:Position>
                     <gl:X>0</gl:X>
                     <gl:Y>0</gl:Y>
+                    <gl:Z>1</gl:Z>
+                  </gl:Position>
+                  <gl:Rotation>
+                    <gl:Xyz>
+                      <gl:X>0</gl:X>
+                      <gl:Y>0</gl:Y>
+                      <gl:Z>0</gl:Z>
+                    </gl:Xyz>
+                    <gl:W>1</gl:W>
+                  </gl:Rotation>
+                  <gl:Scale>
+                    <gl:X>1</gl:X>
+                    <gl:Y>1</gl:Y>
+                    <gl:Z>1</gl:Z>
+                  </gl:Scale>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="Angle" />
+                </PropertyMappings>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="gl:RotateAxisAngle">
+                  <gl:Order>Append</gl:Order>
+                  <gl:Axis>
+                    <gl:X>0</gl:X>
+                    <gl:Y>1</gl:Y>
                     <gl:Z>0</gl:Z>
-                  </gl:Xyz>
-                  <gl:W>1</gl:W>
-                </gl:Rotation>
-                <gl:Scale>
-                  <gl:X>1</gl:X>
-                  <gl:Y>1</gl:Y>
-                  <gl:Z>1</gl:Z>
-                </gl:Scale>
-              </Combinator>
+                  </gl:Axis>
+                  <gl:Angle>0</gl:Angle>
+                </Combinator>
+              </Builder>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="gl:ExtractTranslation" />
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="gl:ExtractTranslation" />
+              </Builder>
             </Expression>
-            <Expression xsi:type="Combinator">
-              <Combinator xsi:type="rx:Merge" />
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="gl:CreateTransform">
+                  <gl:Position>
+                    <gl:X>0</gl:X>
+                    <gl:Y>0</gl:Y>
+                    <gl:Z>1</gl:Z>
+                  </gl:Position>
+                  <gl:Rotation>
+                    <gl:Xyz>
+                      <gl:X>0</gl:X>
+                      <gl:Y>0</gl:Y>
+                      <gl:Z>0</gl:Z>
+                    </gl:Xyz>
+                    <gl:W>1</gl:W>
+                  </gl:Rotation>
+                  <gl:Scale>
+                    <gl:X>1</gl:X>
+                    <gl:Y>1</gl:Y>
+                    <gl:Z>1</gl:Z>
+                  </gl:Scale>
+                </Combinator>
+              </Builder>
             </Expression>
-            <Expression xsi:type="rx:BehaviorSubject">
-              <Name>ForwardVector</Name>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="gl:ExtractTranslation" />
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="rx:Merge" />
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="MulticastSubject">
+                <Name>ForwardVector</Name>
+              </Builder>
             </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
             <Edge From="2" To="3" Label="Source1" />
             <Edge From="4" To="5" Label="Source1" />
-            <Edge From="4" To="7" Label="Source1" />
-            <Edge From="5" To="6" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="6" To="9" Label="Source1" />
             <Edge From="7" To="8" Label="Source1" />
-            <Edge From="8" To="9" Label="Source1" />
-            <Edge From="10" To="14" Label="Source1" />
-            <Edge From="11" To="12" Label="Source1" />
-            <Edge From="12" To="13" Label="Source1" />
-            <Edge From="13" To="14" Label="Source2" />
-            <Edge From="14" To="16" Label="Source1" />
+            <Edge From="9" To="10" Label="Source1" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="12" To="16" Label="Source1" />
+            <Edge From="13" To="14" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
             <Edge From="15" To="16" Label="Source2" />
-            <Edge From="16" To="17" Label="Source1" />
-            <Edge From="17" To="19" Label="Source1" />
-            <Edge From="18" To="19" Label="Source2" />
-            <Edge From="19" To="20" Label="Source1" />
-            <Edge From="20" To="21" Label="Source1" />
-            <Edge From="22" To="26" Label="Source1" />
-            <Edge From="23" To="24" Label="Source1" />
-            <Edge From="24" To="25" Label="Source1" />
-            <Edge From="25" To="26" Label="Source2" />
+            <Edge From="16" To="18" Label="Source1" />
+            <Edge From="17" To="18" Label="Source2" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="19" To="21" Label="Source1" />
+            <Edge From="20" To="21" Label="Source2" />
+            <Edge From="21" To="22" Label="Source1" />
+            <Edge From="22" To="23" Label="Source1" />
+            <Edge From="24" To="28" Label="Source1" />
+            <Edge From="25" To="26" Label="Source1" />
             <Edge From="26" To="27" Label="Source1" />
-            <Edge From="27" To="28" Label="Source1" />
-            <Edge From="27" To="29" Label="Source1" />
-            <Edge From="28" To="30" Label="Source1" />
-            <Edge From="29" To="30" Label="Source2" />
+            <Edge From="27" To="28" Label="Source2" />
+            <Edge From="28" To="29" Label="Source1" />
             <Edge From="30" To="31" Label="Source1" />
-            <Edge From="31" To="34" Label="Source1" />
+            <Edge From="31" To="32" Label="Source1" />
             <Edge From="32" To="33" Label="Source1" />
-            <Edge From="33" To="34" Label="Source2" />
             <Edge From="34" To="35" Label="Source1" />
+            <Edge From="35" To="36" Label="Source1" />
+            <Edge From="35" To="37" Label="Source1" />
+            <Edge From="36" To="38" Label="Source1" />
+            <Edge From="37" To="38" Label="Source2" />
+            <Edge From="38" To="39" Label="Source1" />
+            <Edge From="39" To="40" Label="Source1" />
+            <Edge From="41" To="45" Label="Source1" />
+            <Edge From="42" To="43" Label="Source1" />
+            <Edge From="43" To="44" Label="Source1" />
+            <Edge From="44" To="45" Label="Source2" />
+            <Edge From="45" To="46" Label="Source1" />
+            <Edge From="46" To="47" Label="Source1" />
+            <Edge From="46" To="48" Label="Source1" />
+            <Edge From="47" To="49" Label="Source1" />
+            <Edge From="48" To="49" Label="Source2" />
+            <Edge From="49" To="50" Label="Source1" />
+            <Edge From="50" To="53" Label="Source1" />
+            <Edge From="51" To="52" Label="Source1" />
+            <Edge From="52" To="53" Label="Source2" />
+            <Edge From="53" To="54" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -1050,6 +1697,7 @@
       <Edge From="13" To="16" Label="Source1" />
       <Edge From="13" To="17" Label="Source1" />
       <Edge From="18" To="19" Label="Source1" />
+      <Edge From="20" To="21" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
