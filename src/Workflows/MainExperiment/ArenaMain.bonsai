@@ -131,9 +131,9 @@
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.CubemapView.bonsai">
         <Eye>
-          <X>0</X>
+          <X>-963.5892</X>
           <Y>0</Y>
-          <Z>450.569977</Z>
+          <Z>215.676834</Z>
         </Eye>
         <NearClip>0.1</NearClip>
         <FarClip>1000</FarClip>
@@ -989,8 +989,8 @@
               <RotationZ>0</RotationZ>
               <RotationY>0</RotationY>
               <RotationX>90</RotationX>
-              <ScaleX>40</ScaleX>
-              <ScaleY>40</ScaleY>
+              <ScaleX>80</ScaleX>
+              <ScaleY>80</ScaleY>
               <ScaleZ>1</ScaleZ>
               <Ambient>
                 <X>0.2</X>
@@ -1043,13 +1043,13 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-              <TranslationX>-20</TranslationX>
+              <TranslationX>-40</TranslationX>
               <TranslationY>0</TranslationY>
               <TranslationZ>0</TranslationZ>
               <RotationZ>0</RotationZ>
               <RotationY>90</RotationY>
               <RotationX>0</RotationX>
-              <ScaleX>40</ScaleX>
+              <ScaleX>80</ScaleX>
               <ScaleY>10</ScaleY>
               <ScaleZ>1</ScaleZ>
               <Ambient>
@@ -1105,11 +1105,11 @@
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
               <TranslationX>0</TranslationX>
               <TranslationY>0</TranslationY>
-              <TranslationZ>-20</TranslationZ>
+              <TranslationZ>-40</TranslationZ>
               <RotationZ>0</RotationZ>
               <RotationY>0</RotationY>
               <RotationX>0</RotationX>
-              <ScaleX>40</ScaleX>
+              <ScaleX>80</ScaleX>
               <ScaleY>10</ScaleY>
               <ScaleZ>1</ScaleZ>
               <Ambient>
@@ -1163,13 +1163,13 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-              <TranslationX>20</TranslationX>
+              <TranslationX>40</TranslationX>
               <TranslationY>0</TranslationY>
               <TranslationZ>0</TranslationZ>
               <RotationZ>0</RotationZ>
               <RotationY>90</RotationY>
               <RotationX>0</RotationX>
-              <ScaleX>40</ScaleX>
+              <ScaleX>80</ScaleX>
               <ScaleY>10</ScaleY>
               <ScaleZ>1</ScaleZ>
               <Ambient>
@@ -1225,11 +1225,11 @@
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
               <TranslationX>0</TranslationX>
               <TranslationY>0</TranslationY>
-              <TranslationZ>20</TranslationZ>
+              <TranslationZ>40</TranslationZ>
               <RotationZ>0</RotationZ>
               <RotationY>0</RotationY>
               <RotationX>0</RotationX>
-              <ScaleX>40</ScaleX>
+              <ScaleX>80</ScaleX>
               <ScaleY>10</ScaleY>
               <ScaleZ>1</ScaleZ>
               <Ambient>
@@ -1365,7 +1365,7 @@
             </Expression>
             <Expression xsi:type="Multiply">
               <Operand xsi:type="FloatProperty">
-                <Value>0.0008</Value>
+                <Value>-0.0008</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -1426,7 +1426,7 @@
                   <Expression xsi:type="vh2:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
-                      <vh2:ImmediatePulses>12500</vh2:ImmediatePulses>
+                      <vh2:ImmediatePulses>5319</vh2:ImmediatePulses>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="MulticastSubject">
@@ -1497,7 +1497,7 @@
                   <gl:Y>1</gl:Y>
                   <gl:Z>0</gl:Z>
                 </gl:Axis>
-                <gl:Angle>0</gl:Angle>
+                <gl:Angle>-1.18333328</gl:Angle>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -1505,126 +1505,6 @@
             </Expression>
             <Expression xsi:type="MulticastSubject">
               <Name>ForwardVector</Name>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="SubscribeSubject">
-                <Name>RotationDelta</Name>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="SubscribeSubject">
-                <Name>ArenaSettings</Name>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="MemberSelector">
-                <Selector>Metadata.FlowToVisualRotation</Selector>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="PropertyMapping">
-                <PropertyMappings>
-                  <Property Name="Value" />
-                </PropertyMappings>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Multiply">
-                <Operand xsi:type="DoubleProperty">
-                  <Value>1</Value>
-                </Operand>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="rx:Accumulate" />
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="gl:CreateTransform">
-                  <gl:Position>
-                    <gl:X>0</gl:X>
-                    <gl:Y>0</gl:Y>
-                    <gl:Z>1</gl:Z>
-                  </gl:Position>
-                  <gl:Rotation>
-                    <gl:Xyz>
-                      <gl:X>0</gl:X>
-                      <gl:Y>0</gl:Y>
-                      <gl:Z>0</gl:Z>
-                    </gl:Xyz>
-                    <gl:W>1</gl:W>
-                  </gl:Rotation>
-                  <gl:Scale>
-                    <gl:X>1</gl:X>
-                    <gl:Y>1</gl:Y>
-                    <gl:Z>1</gl:Z>
-                  </gl:Scale>
-                </Combinator>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="PropertyMapping">
-                <PropertyMappings>
-                  <Property Name="Angle" />
-                </PropertyMappings>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="gl:RotateAxisAngle">
-                  <gl:Order>Append</gl:Order>
-                  <gl:Axis>
-                    <gl:X>0</gl:X>
-                    <gl:Y>1</gl:Y>
-                    <gl:Z>0</gl:Z>
-                  </gl:Axis>
-                  <gl:Angle>0</gl:Angle>
-                </Combinator>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="gl:ExtractTranslation" />
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="gl:CreateTransform">
-                  <gl:Position>
-                    <gl:X>0</gl:X>
-                    <gl:Y>0</gl:Y>
-                    <gl:Z>1</gl:Z>
-                  </gl:Position>
-                  <gl:Rotation>
-                    <gl:Xyz>
-                      <gl:X>0</gl:X>
-                      <gl:Y>0</gl:Y>
-                      <gl:Z>0</gl:Z>
-                    </gl:Xyz>
-                    <gl:W>1</gl:W>
-                  </gl:Rotation>
-                  <gl:Scale>
-                    <gl:X>1</gl:X>
-                    <gl:Y>1</gl:Y>
-                    <gl:Z>1</gl:Z>
-                  </gl:Scale>
-                </Combinator>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="gl:ExtractTranslation" />
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="rx:Merge" />
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="MulticastSubject">
-                <Name>ForwardVector</Name>
-              </Builder>
             </Expression>
           </Nodes>
           <Edges>
@@ -1662,20 +1542,6 @@
             <Edge From="37" To="38" Label="Source2" />
             <Edge From="38" To="39" Label="Source1" />
             <Edge From="39" To="40" Label="Source1" />
-            <Edge From="41" To="45" Label="Source1" />
-            <Edge From="42" To="43" Label="Source1" />
-            <Edge From="43" To="44" Label="Source1" />
-            <Edge From="44" To="45" Label="Source2" />
-            <Edge From="45" To="46" Label="Source1" />
-            <Edge From="46" To="47" Label="Source1" />
-            <Edge From="46" To="48" Label="Source1" />
-            <Edge From="47" To="49" Label="Source1" />
-            <Edge From="48" To="49" Label="Source2" />
-            <Edge From="49" To="50" Label="Source1" />
-            <Edge From="50" To="53" Label="Source1" />
-            <Edge From="51" To="52" Label="Source1" />
-            <Edge From="52" To="53" Label="Source2" />
-            <Edge From="53" To="54" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
