@@ -15,9 +15,9 @@
                  xmlns:num="clr-namespace:Bonsai.Numerics;assembly=Bonsai.Numerics"
                  xmlns:p3="clr-namespace:Bonsai.Numerics.Distributions;assembly=Bonsai.Numerics"
                  xmlns:scr="clr-namespace:Bonsai.Scripting.Expressions;assembly=Bonsai.Scripting.Expressions"
+                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
-                 xmlns:cv="clr-namespace:Bonsai.Vision;assembly=Bonsai.Vision"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
@@ -1107,6 +1107,42 @@
               <ClosingDuration xsi:nil="true" />
             </Expression>
             <Expression xsi:type="SubscribeSubject">
+              <Name>ScreenRender</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StartLoggingKey</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>PathPrefix</Name>
+            </Expression>
+            <Expression xsi:type="Format">
+              <Format>{0}/ScreenRender/screen_render.avi</Format>
+              <Selector>it</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="FileName" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="cv:VideoWriter">
+                <cv:FileName>D:/TrialLogicTestData/\2025-03-11T14-52-35/ScreenRender/screen_render.avi</cv:FileName>
+                <cv:Suffix>None</cv:Suffix>
+                <cv:Buffered>true</cv:Buffered>
+                <cv:Overwrite>true</cv:Overwrite>
+                <cv:FourCC>FMP4</cv:FourCC>
+                <cv:FrameRate>30</cv:FrameRate>
+                <cv:FrameSize>
+                  <cv:Width>0</cv:Width>
+                  <cv:Height>0</cv:Height>
+                </cv:FrameSize>
+                <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
               <Name>Camera1</Name>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
@@ -1329,42 +1365,48 @@
             <Edge From="10" To="11" Label="Source1" />
             <Edge From="12" To="14" Label="Source1" />
             <Edge From="13" To="14" Label="Source2" />
-            <Edge From="14" To="15" Label="Source1" />
-            <Edge From="16" To="18" Label="Source1" />
+            <Edge From="14" To="18" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="16" To="17" Label="Source1" />
             <Edge From="17" To="18" Label="Source2" />
-            <Edge From="18" To="19" Label="Source1" />
-            <Edge From="20" To="22" Label="Source1" />
-            <Edge From="21" To="22" Label="Source2" />
-            <Edge From="22" To="24" Label="Source1" />
-            <Edge From="23" To="24" Label="Source2" />
-            <Edge From="24" To="25" Label="Source1" />
+            <Edge From="19" To="21" Label="Source1" />
+            <Edge From="20" To="21" Label="Source2" />
+            <Edge From="21" To="22" Label="Source1" />
+            <Edge From="23" To="25" Label="Source1" />
+            <Edge From="24" To="25" Label="Source2" />
             <Edge From="25" To="26" Label="Source1" />
-            <Edge From="26" To="27" Label="Source1" />
-            <Edge From="28" To="29" Label="Source1" />
-            <Edge From="28" To="38" Label="Source1" />
+            <Edge From="27" To="29" Label="Source1" />
+            <Edge From="28" To="29" Label="Source2" />
             <Edge From="29" To="31" Label="Source1" />
             <Edge From="30" To="31" Label="Source2" />
             <Edge From="31" To="32" Label="Source1" />
-            <Edge From="31" To="34" Label="Source1" />
-            <Edge From="31" To="36" Label="Source1" />
             <Edge From="32" To="33" Label="Source1" />
-            <Edge From="34" To="35" Label="Source1" />
-            <Edge From="36" To="37" Label="Source1" />
-            <Edge From="38" To="40" Label="Source1" />
-            <Edge From="39" To="40" Label="Source2" />
-            <Edge From="40" To="41" Label="Source1" />
+            <Edge From="33" To="34" Label="Source1" />
+            <Edge From="35" To="36" Label="Source1" />
+            <Edge From="35" To="45" Label="Source1" />
+            <Edge From="36" To="38" Label="Source1" />
+            <Edge From="37" To="38" Label="Source2" />
+            <Edge From="38" To="39" Label="Source1" />
+            <Edge From="38" To="41" Label="Source1" />
+            <Edge From="38" To="43" Label="Source1" />
+            <Edge From="39" To="40" Label="Source1" />
             <Edge From="41" To="42" Label="Source1" />
             <Edge From="43" To="44" Label="Source1" />
-            <Edge From="44" To="46" Label="Source1" />
-            <Edge From="45" To="46" Label="Source2" />
-            <Edge From="46" To="47" Label="Source1" />
+            <Edge From="45" To="47" Label="Source1" />
+            <Edge From="46" To="47" Label="Source2" />
+            <Edge From="47" To="48" Label="Source1" />
             <Edge From="48" To="49" Label="Source1" />
-            <Edge From="49" To="50" Label="Source1" />
-            <Edge From="50" To="52" Label="Source1" />
-            <Edge From="51" To="52" Label="Source2" />
-            <Edge From="52" To="53" Label="Source1" />
-            <Edge From="54" To="55" Label="Source1" />
+            <Edge From="50" To="51" Label="Source1" />
+            <Edge From="51" To="53" Label="Source1" />
+            <Edge From="52" To="53" Label="Source2" />
+            <Edge From="53" To="54" Label="Source1" />
             <Edge From="55" To="56" Label="Source1" />
+            <Edge From="56" To="57" Label="Source1" />
+            <Edge From="57" To="59" Label="Source1" />
+            <Edge From="58" To="59" Label="Source2" />
+            <Edge From="59" To="60" Label="Source1" />
+            <Edge From="61" To="62" Label="Source1" />
+            <Edge From="62" To="63" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -1597,6 +1639,10 @@
                     <gl:Name>icosphere</gl:Name>
                     <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Models\icosphere.obj</gl:FileName>
                   </gl:MeshConfiguration>
+                  <gl:MeshConfiguration xsi:type="gl:TexturedModel">
+                    <gl:Name>cube</gl:Name>
+                    <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Models\cube.obj</gl:FileName>
+                  </gl:MeshConfiguration>
                 </gl:Meshes>
               </Combinator>
             </Expression>
@@ -1616,9 +1662,9 @@
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.CubemapView.bonsai">
               <Eye>
-                <X>0</X>
+                <X>59</X>
                 <Y>0</Y>
-                <Z>-18</Z>
+                <Z>59</Z>
               </Eye>
               <NearClip>0.1</NearClip>
               <FarClip>1000</FarClip>
@@ -1845,29 +1891,6 @@
             <Expression xsi:type="rx:PublishSubject">
               <Name>PostDrawing</Name>
             </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="gl:ReadPixels">
-                  <gl:RegionOfInterest xsi:nil="true" />
-                </Combinator>
-              </Builder>
-            </Expression>
-            <Expression xsi:type="Disable">
-              <Builder xsi:type="Combinator">
-                <Combinator xsi:type="cv:VideoWriter">
-                  <cv:Suffix>None</cv:Suffix>
-                  <cv:Buffered>true</cv:Buffered>
-                  <cv:Overwrite>false</cv:Overwrite>
-                  <cv:FourCC>FMP4</cv:FourCC>
-                  <cv:FrameRate>30</cv:FrameRate>
-                  <cv:FrameSize>
-                    <cv:Width>0</cv:Width>
-                    <cv:Height>0</cv:Height>
-                  </cv:FrameSize>
-                  <cv:ResizeInterpolation>NearestNeighbor</cv:ResizeInterpolation>
-                </Combinator>
-              </Builder>
-            </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>PostDrawing</Name>
             </Expression>
@@ -1918,6 +1941,17 @@
               <ColorB>1</ColorB>
               <ColorA>1</ColorA>
             </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:UpdateFrame" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:ReadPixels">
+                <gl:RegionOfInterest xsi:nil="true" />
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>ScreenRender</Name>
+            </Expression>
           </Nodes>
           <Edges>
             <Edge From="0" To="1" Label="Source1" />
@@ -1933,18 +1967,18 @@
             <Edge From="10" To="12" Label="Source1" />
             <Edge From="10" To="13" Label="Source1" />
             <Edge From="10" To="14" Label="Source1" />
-            <Edge From="10" To="16" Label="Source1" />
             <Edge From="14" To="15" Label="Source1" />
             <Edge From="16" To="17" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
             <Edge From="18" To="19" Label="Source1" />
             <Edge From="19" To="20" Label="Source1" />
             <Edge From="20" To="21" Label="Source1" />
             <Edge From="21" To="22" Label="Source1" />
-            <Edge From="22" To="23" Label="Source1" />
-            <Edge From="23" To="24" Label="Source1" />
-            <Edge From="23" To="25" Label="Source1" />
-            <Edge From="24" To="26" Label="Source1" />
-            <Edge From="25" To="26" Label="Source2" />
+            <Edge From="21" To="23" Label="Source1" />
+            <Edge From="22" To="24" Label="Source1" />
+            <Edge From="23" To="24" Label="Source2" />
+            <Edge From="25" To="26" Label="Source1" />
+            <Edge From="26" To="27" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -2497,7 +2531,7 @@
                   <Expression xsi:type="vh2:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
-                      <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
+                      <vh2:ImmediatePulses>7142</vh2:ImmediatePulses>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="MulticastSubject">
@@ -2568,7 +2602,7 @@
                   <gl:Y>1</gl:Y>
                   <gl:Z>0</gl:Z>
                 </gl:Axis>
-                <gl:Angle>0</gl:Angle>
+                <gl:Angle>-3.03975272</gl:Angle>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
