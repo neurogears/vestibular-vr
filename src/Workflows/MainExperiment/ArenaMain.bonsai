@@ -1057,6 +1057,318 @@
         </Workflow>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
+        <Property Name="StartLoggingKey" />
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
+        <Name>Logging</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>ArenaSettings</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Metadata.RootPath</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="Path" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogController.bonsai">
+              <Path>D:/TrialLogicTestData/</Path>
+              <ChunkSize>1</ChunkSize>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>H1Events</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StartLoggingKey</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogHarpState.bonsai">
+              <LogName>HarpDataH1</LogName>
+              <Heartbeats>H1Events</Heartbeats>
+              <ClosingDuration xsi:nil="true" />
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>H2Events</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StartLoggingKey</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogHarpState.bonsai">
+              <LogName>HarpDataH2</LogName>
+              <Heartbeats>H2Events</Heartbeats>
+              <ClosingDuration xsi:nil="true" />
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Camera1</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StartLoggingKey</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogVideo.bonsai">
+              <Heartbeats>H1Events</Heartbeats>
+              <ClosingDuration xsi:nil="true" />
+              <LogName>VideoData1</LogName>
+              <FrameRate>50</FrameRate>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>Camera2</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StartLoggingKey</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogVideo.bonsai">
+              <Heartbeats>H1Events</Heartbeats>
+              <ClosingDuration xsi:nil="true" />
+              <LogName>VideoData2</LogName>
+              <FrameRate>50</FrameRate>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>ArenaSettings</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>H1Events</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StartLoggingKey</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+              <Name>H1Events</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogJson.bonsai">
+              <Heartbeats />
+              <ClosingDuration xsi:nil="true" />
+              <LogName>SessionSettings</LogName>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:Take">
+                <rx:Count>1</rx:Count>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>OnixAnalog</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:WindowCount">
+                <rx:Count>360000</rx:Count>
+                <rx:Skip xsi:nil="true" />
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StartLoggingKey</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="rx:CreateObservable">
+              <Name>AnalogData</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>AnalogData</Selector>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogBinaryData.bonsai">
+              <LogName>OnixAnalogData</LogName>
+            </Expression>
+            <Expression xsi:type="rx:CreateObservable">
+              <Name>AnalogClock</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Clock</Selector>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogBinaryData.bonsai">
+              <LogName>OnixAnalogClock</LogName>
+            </Expression>
+            <Expression xsi:type="rx:CreateObservable">
+              <Name>AnalogHubSyncCounter</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>HubClock</Selector>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogBinaryData.bonsai">
+              <LogName>OnixAnalogHubSyncCounter</LogName>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:ElementIndex" />
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StartLoggingKey</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+              <Name>H1Events</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogData.bonsai">
+              <Heartbeats>H1Events</Heartbeats>
+              <ClosingDuration xsi:nil="true" />
+              <LogName>OnixAnalogFrameCount</LogName>
+              <Selector>Seconds,Value.Index</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>OnixHarp</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+              <Name>H1Events</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StartLoggingKey</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogData.bonsai">
+              <Heartbeats>H1Events</Heartbeats>
+              <ClosingDuration xsi:nil="true" />
+              <LogName>OnixHarp</LogName>
+              <Selector>Seconds,Value.Clock,Value.HarpTime</Selector>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>OnixDigital</Name>
+            </Expression>
+            <Expression xsi:type="scr:ExpressionTransform">
+              <scr:Expression>new (
+  it.Clock as Clock,
+  it.HubClock as HubClock,
+  Convert.ToInt32(it.DigitalInputs) as DigitalInputs,
+  Convert.ToInt32(it.Buttons) as Buttons
+)</scr:Expression>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Bonsai.Harp:WithLatestTimestamp.bonsai">
+              <Name>H1Events</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>StartLoggingKey</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="Aeon.Acquisition:LogData.bonsai">
+              <Heartbeats>H1Events</Heartbeats>
+              <ClosingDuration xsi:nil="true" />
+              <LogName>OnixDigital</LogName>
+              <Selector>Seconds,Value.Clock,Value.HubClock,Value.DigitalInputs,Value.Buttons</Selector>
+            </Expression>
+            <Expression xsi:type="ExternalizedMapping">
+              <Property Name="Filter" DisplayName="StartLoggingKey" Category="LoggingControl" />
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="wie:KeyDown">
+                <wie:Filter>RButton ShiftKey Menu B P R Shift</wie:Filter>
+                <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>StartLoggingKey</Name>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="4" To="6" Label="Source1" />
+            <Edge From="5" To="6" Label="Source2" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="8" To="10" Label="Source1" />
+            <Edge From="9" To="10" Label="Source2" />
+            <Edge From="10" To="11" Label="Source1" />
+            <Edge From="12" To="14" Label="Source1" />
+            <Edge From="13" To="14" Label="Source2" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="16" To="18" Label="Source1" />
+            <Edge From="17" To="18" Label="Source2" />
+            <Edge From="18" To="19" Label="Source1" />
+            <Edge From="20" To="22" Label="Source1" />
+            <Edge From="21" To="22" Label="Source2" />
+            <Edge From="22" To="24" Label="Source1" />
+            <Edge From="23" To="24" Label="Source2" />
+            <Edge From="24" To="25" Label="Source1" />
+            <Edge From="25" To="26" Label="Source1" />
+            <Edge From="26" To="27" Label="Source1" />
+            <Edge From="28" To="29" Label="Source1" />
+            <Edge From="28" To="38" Label="Source1" />
+            <Edge From="29" To="31" Label="Source1" />
+            <Edge From="30" To="31" Label="Source2" />
+            <Edge From="31" To="32" Label="Source1" />
+            <Edge From="31" To="34" Label="Source1" />
+            <Edge From="31" To="36" Label="Source1" />
+            <Edge From="32" To="33" Label="Source1" />
+            <Edge From="34" To="35" Label="Source1" />
+            <Edge From="36" To="37" Label="Source1" />
+            <Edge From="38" To="40" Label="Source1" />
+            <Edge From="39" To="40" Label="Source2" />
+            <Edge From="40" To="41" Label="Source1" />
+            <Edge From="41" To="42" Label="Source1" />
+            <Edge From="43" To="44" Label="Source1" />
+            <Edge From="44" To="46" Label="Source1" />
+            <Edge From="45" To="46" Label="Source2" />
+            <Edge From="46" To="47" Label="Source1" />
+            <Edge From="48" To="49" Label="Source1" />
+            <Edge From="49" To="50" Label="Source1" />
+            <Edge From="50" To="52" Label="Source1" />
+            <Edge From="51" To="52" Label="Source2" />
+            <Edge From="52" To="53" Label="Source1" />
+            <Edge From="54" To="55" Label="Source1" />
+            <Edge From="55" To="56" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="ExternalizedMapping">
         <Property Name="PortName" />
       </Expression>
       <Expression xsi:type="GroupWorkflow">
@@ -2506,24 +2818,25 @@
       <Edge From="6" To="7" Label="Source1" />
       <Edge From="8" To="9" Label="Source1" />
       <Edge From="10" To="11" Label="Source1" />
-      <Edge From="15" To="16" Label="Source1" />
-      <Edge From="16" To="17" Label="Source1" />
+      <Edge From="12" To="13" Label="Source1" />
       <Edge From="17" To="18" Label="Source1" />
-      <Edge From="19" To="31" Label="Source1" />
-      <Edge From="20" To="21" Label="Source1" />
-      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="21" To="33" Label="Source1" />
       <Edge From="22" To="23" Label="Source1" />
-      <Edge From="22" To="25" Label="Source1" />
-      <Edge From="22" To="27" Label="Source1" />
-      <Edge From="22" To="29" Label="Source1" />
       <Edge From="23" To="24" Label="Source1" />
-      <Edge From="24" To="31" Label="Source2" />
+      <Edge From="24" To="25" Label="Source1" />
+      <Edge From="24" To="27" Label="Source1" />
+      <Edge From="24" To="29" Label="Source1" />
+      <Edge From="24" To="31" Label="Source1" />
       <Edge From="25" To="26" Label="Source1" />
-      <Edge From="26" To="31" Label="Source3" />
+      <Edge From="26" To="33" Label="Source2" />
       <Edge From="27" To="28" Label="Source1" />
-      <Edge From="28" To="31" Label="Source4" />
+      <Edge From="28" To="33" Label="Source3" />
       <Edge From="29" To="30" Label="Source1" />
-      <Edge From="30" To="31" Label="Source5" />
+      <Edge From="30" To="33" Label="Source4" />
+      <Edge From="31" To="32" Label="Source1" />
+      <Edge From="32" To="33" Label="Source5" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
