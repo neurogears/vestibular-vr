@@ -116,6 +116,20 @@
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
+        <Combinator xsi:type="gl:MeshResources">
+          <gl:Meshes>
+            <gl:MeshConfiguration xsi:type="gl:TexturedModel">
+              <gl:Name>cylinder</gl:Name>
+              <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Models\cylinder.obj</gl:FileName>
+            </gl:MeshConfiguration>
+            <gl:MeshConfiguration xsi:type="gl:TexturedModel">
+              <gl:Name>icosphere</gl:Name>
+              <gl:FileName>C:\Users\ONIX\source\ae-dev\vestibular-vr\Models\icosphere.obj</gl:FileName>
+            </gl:MeshConfiguration>
+          </gl:Meshes>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
         <Combinator xsi:type="res:LoadResources" />
       </Expression>
       <Expression xsi:type="Combinator">
@@ -131,9 +145,9 @@
       </Expression>
       <Expression xsi:type="IncludeWorkflow" Path="BonVision:Environment.CubemapView.bonsai">
         <Eye>
-          <X>4.7605834</X>
+          <X>0</X>
           <Y>0</Y>
-          <Z>19.0685349</Z>
+          <Z>-18</Z>
         </Eye>
         <NearClip>0.1</NearClip>
         <FarClip>1000</FarClip>
@@ -989,8 +1003,8 @@
               <RotationZ>0</RotationZ>
               <RotationY>0</RotationY>
               <RotationX>90</RotationX>
-              <ScaleX>80</ScaleX>
-              <ScaleY>80</ScaleY>
+              <ScaleX>120</ScaleX>
+              <ScaleY>120</ScaleY>
               <ScaleZ>1</ScaleZ>
               <Ambient>
                 <X>0.2</X>
@@ -1043,13 +1057,13 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-              <TranslationX>-40</TranslationX>
+              <TranslationX>-60</TranslationX>
               <TranslationY>0</TranslationY>
               <TranslationZ>0</TranslationZ>
               <RotationZ>0</RotationZ>
               <RotationY>90</RotationY>
               <RotationX>0</RotationX>
-              <ScaleX>80</ScaleX>
+              <ScaleX>120</ScaleX>
               <ScaleY>10</ScaleY>
               <ScaleZ>1</ScaleZ>
               <Ambient>
@@ -1105,11 +1119,11 @@
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
               <TranslationX>0</TranslationX>
               <TranslationY>0</TranslationY>
-              <TranslationZ>-40</TranslationZ>
+              <TranslationZ>-60</TranslationZ>
               <RotationZ>0</RotationZ>
               <RotationY>0</RotationY>
               <RotationX>0</RotationX>
-              <ScaleX>80</ScaleX>
+              <ScaleX>120</ScaleX>
               <ScaleY>10</ScaleY>
               <ScaleZ>1</ScaleZ>
               <Ambient>
@@ -1163,13 +1177,13 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
-              <TranslationX>40</TranslationX>
+              <TranslationX>60</TranslationX>
               <TranslationY>0</TranslationY>
               <TranslationZ>0</TranslationZ>
               <RotationZ>0</RotationZ>
               <RotationY>90</RotationY>
               <RotationX>0</RotationX>
-              <ScaleX>80</ScaleX>
+              <ScaleX>120</ScaleX>
               <ScaleY>10</ScaleY>
               <ScaleZ>1</ScaleZ>
               <Ambient>
@@ -1225,11 +1239,11 @@
             <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
               <TranslationX>0</TranslationX>
               <TranslationY>0</TranslationY>
-              <TranslationZ>40</TranslationZ>
+              <TranslationZ>60</TranslationZ>
               <RotationZ>0</RotationZ>
               <RotationY>0</RotationY>
               <RotationX>0</RotationX>
-              <ScaleX>80</ScaleX>
+              <ScaleX>120</ScaleX>
               <ScaleY>10</ScaleY>
               <ScaleZ>1</ScaleZ>
               <Ambient>
@@ -1395,7 +1409,7 @@
             </Expression>
             <Expression xsi:type="Subtract">
               <Operand xsi:type="DoubleProperty">
-                <Value>1</Value>
+                <Value>-1</Value>
               </Operand>
             </Expression>
             <Expression xsi:type="InputMapping">
@@ -1407,9 +1421,9 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="gl:CreateVector3">
-                <gl:X>0</gl:X>
-                <gl:Y>0</gl:Y>
-                <gl:Z>0</gl:Z>
+                <gl:X>-59</gl:X>
+                <gl:Y>-59</gl:Y>
+                <gl:Z>-59</gl:Z>
               </Combinator>
             </Expression>
             <Expression xsi:type="PropertyMapping">
@@ -1436,9 +1450,9 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="gl:CreateVector3">
-                <gl:X>0</gl:X>
-                <gl:Y>0</gl:Y>
-                <gl:Z>0</gl:Z>
+                <gl:X>59</gl:X>
+                <gl:Y>59</gl:Y>
+                <gl:Z>59</gl:Z>
               </Combinator>
             </Expression>
             <Expression xsi:type="PropertyMapping">
@@ -1449,14 +1463,14 @@
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:ClampVector">
                 <p1:MinVector>
-                  <p1:X>-39</p1:X>
-                  <p1:Y>0</p1:Y>
-                  <p1:Z>-39</p1:Z>
+                  <p1:X>-59</p1:X>
+                  <p1:Y>-59</p1:Y>
+                  <p1:Z>-59</p1:Z>
                 </p1:MinVector>
                 <p1:MaxVector>
-                  <p1:X>39</p1:X>
-                  <p1:Y>0</p1:Y>
-                  <p1:Z>39</p1:Z>
+                  <p1:X>59</p1:X>
+                  <p1:Y>59</p1:Y>
+                  <p1:Z>59</p1:Z>
                 </p1:MaxVector>
               </Combinator>
             </Expression>
@@ -1504,7 +1518,7 @@
                   <Expression xsi:type="vh2:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
-                      <vh2:ImmediatePulses>-476</vh2:ImmediatePulses>
+                      <vh2:ImmediatePulses>0</vh2:ImmediatePulses>
                     </harp:Payload>
                   </Expression>
                   <Expression xsi:type="MulticastSubject">
@@ -1575,7 +1589,7 @@
                   <gl:Y>1</gl:Y>
                   <gl:Z>0</gl:Z>
                 </gl:Axis>
-                <gl:Angle>-3.826198</gl:Angle>
+                <gl:Angle>0.00811578147</gl:Angle>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -1637,6 +1651,172 @@
           </Edges>
         </Workflow>
       </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>ArenaSettings</Name>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
+        <Selector>ObjectDefinitions</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:Merge" />
+      </Expression>
+      <Expression xsi:type="rx:SelectMany">
+        <Name>DrawObject</Name>
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>DrawCall</Name>
+            </Expression>
+            <Expression xsi:type="WorkflowInput">
+              <Name>Source1</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>MeshName</Selector>
+            </Expression>
+            <Expression xsi:type="PropertyMapping">
+              <PropertyMappings>
+                <Property Name="MeshName" />
+              </PropertyMappings>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
+              <TranslationX>-5</TranslationX>
+              <TranslationY>0</TranslationY>
+              <TranslationZ>0</TranslationZ>
+              <RotationZ>0</RotationZ>
+              <RotationY>0</RotationY>
+              <RotationX>0</RotationX>
+              <ScaleX>1</ScaleX>
+              <ScaleY>1</ScaleY>
+              <ScaleZ>1</ScaleZ>
+              <Ambient>
+                <X>1</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Diffuse>
+              <Specular>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <MeshName>icosphere</MeshName>
+            </Expression>
+            <Expression xsi:type="WorkflowOutput" />
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="4" Label="Source1" />
+            <Edge From="1" To="2" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="3" To="4" Label="Source2" />
+            <Edge From="4" To="5" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="SubscribeSubject">
+          <Name>DrawCall</Name>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="SubscribeSubject">
+          <Name>ArenaSettings</Name>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>ObjectDefinitions</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="Index">
+          <Operand xsi:type="IntProperty">
+            <Value>2</Value>
+          </Operand>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Position.ValX</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="PropertyMapping">
+          <PropertyMappings>
+            <Property Name="TranslationX" />
+          </PropertyMappings>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Position.ValY</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="PropertyMapping">
+          <PropertyMappings>
+            <Property Name="TranslationY" />
+          </PropertyMappings>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>Position.ValZ</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="PropertyMapping">
+          <PropertyMappings>
+            <Property Name="TranslationZ" />
+          </PropertyMappings>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="MemberSelector">
+          <Selector>MeshName</Selector>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="PropertyMapping">
+          <PropertyMappings>
+            <Property Name="MeshName" />
+          </PropertyMappings>
+        </Builder>
+      </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
+          <TranslationX>-5</TranslationX>
+          <TranslationY>0</TranslationY>
+          <TranslationZ>0</TranslationZ>
+          <RotationZ>0</RotationZ>
+          <RotationY>0</RotationY>
+          <RotationX>0</RotationX>
+          <ScaleX>1</ScaleX>
+          <ScaleY>1</ScaleY>
+          <ScaleZ>1</ScaleZ>
+          <Ambient>
+            <X>1</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </Ambient>
+          <Diffuse>
+            <X>0.8</X>
+            <Y>0.8</Y>
+            <Z>0.8</Z>
+          </Diffuse>
+          <Specular>
+            <X>0.8</X>
+            <Y>0.8</Y>
+            <Z>0.8</Z>
+          </Specular>
+          <SpecularExponent>10</SpecularExponent>
+          <MeshName>cylinder</MeshName>
+        </Builder>
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
@@ -1645,17 +1825,36 @@
       <Edge From="4" To="5" Label="Source1" />
       <Edge From="5" To="6" Label="Source1" />
       <Edge From="6" To="7" Label="Source1" />
-      <Edge From="8" To="11" Label="Source1" />
-      <Edge From="9" To="10" Label="Source1" />
-      <Edge From="10" To="11" Label="Source2" />
-      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="9" To="12" Label="Source1" />
+      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="11" To="12" Label="Source2" />
       <Edge From="12" To="13" Label="Source1" />
       <Edge From="13" To="14" Label="Source1" />
-      <Edge From="13" To="15" Label="Source1" />
-      <Edge From="13" To="16" Label="Source1" />
-      <Edge From="13" To="17" Label="Source1" />
-      <Edge From="18" To="19" Label="Source1" />
-      <Edge From="20" To="21" Label="Source1" />
+      <Edge From="14" To="15" Label="Source1" />
+      <Edge From="14" To="16" Label="Source1" />
+      <Edge From="14" To="17" Label="Source1" />
+      <Edge From="14" To="18" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
+      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="25" To="26" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="27" To="28" Label="Source1" />
+      <Edge From="29" To="41" Label="Source1" />
+      <Edge From="30" To="31" Label="Source1" />
+      <Edge From="31" To="32" Label="Source1" />
+      <Edge From="32" To="33" Label="Source1" />
+      <Edge From="32" To="35" Label="Source1" />
+      <Edge From="32" To="37" Label="Source1" />
+      <Edge From="32" To="39" Label="Source1" />
+      <Edge From="33" To="34" Label="Source1" />
+      <Edge From="34" To="41" Label="Source2" />
+      <Edge From="35" To="36" Label="Source1" />
+      <Edge From="36" To="41" Label="Source3" />
+      <Edge From="37" To="38" Label="Source1" />
+      <Edge From="38" To="41" Label="Source4" />
+      <Edge From="39" To="40" Label="Source1" />
+      <Edge From="40" To="41" Label="Source5" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
