@@ -6,9 +6,9 @@ metadata:
   animalId: "plimbo"
   rootPath: D:/TrialLogicTestData/
   flowToMotorGain: -4
-  flowToVisualTranslation: -0.0008
+  flowToVisualTranslation: 0.0008
   flowToVisualRotation: 1
-  arenaSize: 80
+  arenaSize: 120
 
 motorSettings:
   nominalPulseInterval: 200
