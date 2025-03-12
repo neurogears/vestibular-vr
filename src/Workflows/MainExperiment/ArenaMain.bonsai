@@ -1541,6 +1541,302 @@
         </Workflow>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
+        <Name>Objects</Name>
+        <Description />
+        <Workflow>
+          <Nodes>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>DrawCall</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
+              <TranslationX>-5</TranslationX>
+              <TranslationY>10</TranslationY>
+              <TranslationZ>-30</TranslationZ>
+              <RotationZ>0</RotationZ>
+              <RotationY>0</RotationY>
+              <RotationX>0</RotationX>
+              <ScaleX>5</ScaleX>
+              <ScaleY>5</ScaleY>
+              <ScaleZ>5</ScaleZ>
+              <Ambient>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Diffuse>
+              <Specular>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <MeshName>cylinder</MeshName>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>DrawCall</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
+              <TranslationX>-20</TranslationX>
+              <TranslationY>0</TranslationY>
+              <TranslationZ>0</TranslationZ>
+              <RotationZ>0</RotationZ>
+              <RotationY>0</RotationY>
+              <RotationX>0</RotationX>
+              <ScaleX>1</ScaleX>
+              <ScaleY>1</ScaleY>
+              <ScaleZ>1</ScaleZ>
+              <Ambient>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Diffuse>
+              <Specular>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <MeshName>cylinder</MeshName>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>DrawCall</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
+              <TranslationX>15</TranslationX>
+              <TranslationY>3</TranslationY>
+              <TranslationZ>-1</TranslationZ>
+              <RotationZ>0</RotationZ>
+              <RotationY>0</RotationY>
+              <RotationX>0</RotationX>
+              <ScaleX>3</ScaleX>
+              <ScaleY>3</ScaleY>
+              <ScaleZ>3</ScaleZ>
+              <Ambient>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Diffuse>
+              <Specular>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <MeshName>icosphere</MeshName>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>DrawCall</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
+              <TranslationX>40</TranslationX>
+              <TranslationY>10</TranslationY>
+              <TranslationZ>-30</TranslationZ>
+              <RotationZ>0</RotationZ>
+              <RotationY>90</RotationY>
+              <RotationX>0</RotationX>
+              <ScaleX>5</ScaleX>
+              <ScaleY>5</ScaleY>
+              <ScaleZ>0</ScaleZ>
+              <Ambient>
+                <X>0</X>
+                <Y>1</Y>
+                <Z>0</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Diffuse>
+              <Specular>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <MeshName>cube</MeshName>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>DrawCall</Name>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawModel.bonsai">
+              <TranslationX>-40</TranslationX>
+              <TranslationY>0</TranslationY>
+              <TranslationZ>0</TranslationZ>
+              <RotationZ>0</RotationZ>
+              <RotationY>0</RotationY>
+              <RotationX>0</RotationX>
+              <ScaleX>1</ScaleX>
+              <ScaleY>1</ScaleY>
+              <ScaleZ>1</ScaleZ>
+              <Ambient>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Diffuse>
+              <Specular>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <MeshName>cylinder</MeshName>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>DrawCall</Name>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>DrawCall</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:BindTexture">
+                <gl:TextureSlot>Texture0</gl:TextureSlot>
+                <gl:ShaderName>TexturedModel</gl:ShaderName>
+                <gl:TextureName>vertGrat</gl:TextureName>
+                <gl:TextureTarget>Texture2D</gl:TextureTarget>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+              <TranslationX>0</TranslationX>
+              <TranslationY>3</TranslationY>
+              <TranslationZ>-10</TranslationZ>
+              <RotationZ>0</RotationZ>
+              <RotationY>180</RotationY>
+              <RotationX>0</RotationX>
+              <ScaleX>1</ScaleX>
+              <ScaleY>1</ScaleY>
+              <ScaleZ>1</ScaleZ>
+              <Ambient>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Diffuse>
+              <Specular>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <MeshName>cylinder</MeshName>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>DrawCall</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:BindTexture">
+                <gl:TextureSlot>Texture0</gl:TextureSlot>
+                <gl:ShaderName>TexturedModel</gl:ShaderName>
+                <gl:TextureName>vertGrat</gl:TextureName>
+                <gl:TextureTarget>Texture2D</gl:TextureTarget>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+              <TranslationX>40</TranslationX>
+              <TranslationY>5</TranslationY>
+              <TranslationZ>0</TranslationZ>
+              <RotationZ>0</RotationZ>
+              <RotationY>180</RotationY>
+              <RotationX>0</RotationX>
+              <ScaleX>5</ScaleX>
+              <ScaleY>5</ScaleY>
+              <ScaleZ>5</ScaleZ>
+              <Ambient>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Diffuse>
+              <Specular>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <MeshName>suzanne</MeshName>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>DrawCall</Name>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="gl:BindTexture">
+                <gl:TextureSlot>Texture0</gl:TextureSlot>
+                <gl:ShaderName>TexturedModel</gl:ShaderName>
+                <gl:TextureName>vertGrat</gl:TextureName>
+                <gl:TextureTarget>Texture2D</gl:TextureTarget>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="IncludeWorkflow" Path="BonVision:Primitives.DrawTexturedModel.bonsai">
+              <TranslationX>-20</TranslationX>
+              <TranslationY>10</TranslationY>
+              <TranslationZ>-10</TranslationZ>
+              <RotationZ>0</RotationZ>
+              <RotationY>180</RotationY>
+              <RotationX>0</RotationX>
+              <ScaleX>5</ScaleX>
+              <ScaleY>5</ScaleY>
+              <ScaleZ>5</ScaleZ>
+              <Ambient>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+              </Ambient>
+              <Diffuse>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Diffuse>
+              <Specular>
+                <X>0.8</X>
+                <Y>0.8</Y>
+                <Z>0.8</Z>
+              </Specular>
+              <SpecularExponent>10</SpecularExponent>
+              <MeshName>cylinder</MeshName>
+            </Expression>
+          </Nodes>
+          <Edges>
+            <Edge From="0" To="1" Label="Source1" />
+            <Edge From="2" To="3" Label="Source1" />
+            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="6" To="7" Label="Source1" />
+            <Edge From="8" To="9" Label="Source1" />
+            <Edge From="11" To="12" Label="Source1" />
+            <Edge From="12" To="13" Label="Source1" />
+            <Edge From="14" To="15" Label="Source1" />
+            <Edge From="15" To="16" Label="Source1" />
+            <Edge From="17" To="18" Label="Source1" />
+            <Edge From="18" To="19" Label="Source1" />
+          </Edges>
+        </Workflow>
+      </Expression>
+      <Expression xsi:type="GroupWorkflow">
         <Name>VisualEnvironment</Name>
         <Workflow>
           <Nodes>
@@ -2863,24 +3159,24 @@
       <Edge From="8" To="9" Label="Source1" />
       <Edge From="10" To="11" Label="Source1" />
       <Edge From="12" To="13" Label="Source1" />
-      <Edge From="17" To="18" Label="Source1" />
       <Edge From="18" To="19" Label="Source1" />
       <Edge From="19" To="20" Label="Source1" />
-      <Edge From="21" To="33" Label="Source1" />
-      <Edge From="22" To="23" Label="Source1" />
+      <Edge From="20" To="21" Label="Source1" />
+      <Edge From="22" To="34" Label="Source1" />
       <Edge From="23" To="24" Label="Source1" />
       <Edge From="24" To="25" Label="Source1" />
-      <Edge From="24" To="27" Label="Source1" />
-      <Edge From="24" To="29" Label="Source1" />
-      <Edge From="24" To="31" Label="Source1" />
       <Edge From="25" To="26" Label="Source1" />
-      <Edge From="26" To="33" Label="Source2" />
-      <Edge From="27" To="28" Label="Source1" />
-      <Edge From="28" To="33" Label="Source3" />
-      <Edge From="29" To="30" Label="Source1" />
-      <Edge From="30" To="33" Label="Source4" />
-      <Edge From="31" To="32" Label="Source1" />
-      <Edge From="32" To="33" Label="Source5" />
+      <Edge From="25" To="28" Label="Source1" />
+      <Edge From="25" To="30" Label="Source1" />
+      <Edge From="25" To="32" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="27" To="34" Label="Source2" />
+      <Edge From="28" To="29" Label="Source1" />
+      <Edge From="29" To="34" Label="Source3" />
+      <Edge From="30" To="31" Label="Source1" />
+      <Edge From="31" To="34" Label="Source4" />
+      <Edge From="32" To="33" Label="Source1" />
+      <Edge From="33" To="34" Label="Source5" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
