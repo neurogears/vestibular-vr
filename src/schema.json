@@ -208,6 +208,13 @@
                     "description": "Coefficient applied to movement delta (e.g. from flow sensor) to calculate running speed in visual environment.",
                     "default": 1,
                     "type": "number"
+                },
+                "sensorCpi": {
+                    "default": 500,
+                    "type": "integer",
+                    "maximum": 12000,
+                    "minimum": 100,
+                    "description": "Counts per inch for flow sensor."
                 }
             }
         },
