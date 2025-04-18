@@ -122,6 +122,10 @@ motorProcession = (runGain * blockGainModifier) * (flowXToMotorGain*flowX + flow
 `motorProcession` is converted by the function `ToPulseInterval` to an immediate pulse interval command which is written to the motor. The conversion between this command and the speed of the motor is dependent on the hardware settings for pulse interval --> motor motion on the motor controller.
 The relationship of `visualProcession` to visual field movement is dependent on the current visual stimulus being presented. For example for a gratings stimulus, the value represents the absolute phase angle of the gratings being shown. For a motion clouds stimulus, it represents the (wrapped) index of the motion cloud frame being shown.
 
+### Optical flow sensor smoothing
+
+An average smoothing function is applied to the optical sensor reading. A `schema` parameter `flowSmoothing` is applied per-block which specifies a count of how many samples to smooth over, i.e. the length of the buffer to take an average, smoothed value from.
+
 ### Data logging
 Data is logged according to the [Aeon.Acquisition](https://github.com/SainsburyWellcomeCentre/aeon_acquisition) format. Generally, data is grouped according to a folder named with a timestamp representing the start time of an experiment. Within this folder, data is organised by **device**, where a device may be a camera, Harp board, ONIX acquisition etc. For longer experiments, data is 'chunked' by hour such that the full raw data is split across multiple files to ensure no single file grows unmanageably large.
 
