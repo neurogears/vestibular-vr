@@ -9,7 +9,7 @@ namespace DataSchema
 {
     #pragma warning disable // Disable all warnings
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.2.0.0 (YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class Block
@@ -543,7 +543,7 @@ namespace DataSchema
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.2.0.0 (YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class StimulusProtocol
@@ -735,7 +735,7 @@ namespace DataSchema
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.2.0.0 (YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class HaltProtocol
@@ -872,7 +872,7 @@ namespace DataSchema
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.2.0.0 (YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class VestibularVrSession
@@ -988,7 +988,7 @@ namespace DataSchema
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.2.0.0 (YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (YamlDotNet v13.0.0.0)")]
     public enum StimulusProtocolType
     {
     
@@ -1003,7 +1003,7 @@ namespace DataSchema
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.2.0.0 (YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class Metadata
@@ -1124,7 +1124,7 @@ namespace DataSchema
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.2.0.0 (YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class MotorSettings
@@ -1138,6 +1138,8 @@ namespace DataSchema
     
         private int _pulsePeriod = 10;
     
+        private double _homingSpeed = 1000D;
+    
         public MotorSettings()
         {
         }
@@ -1148,6 +1150,7 @@ namespace DataSchema
             _initialPulseInterval = other._initialPulseInterval;
             _pulseStepInterval = other._pulseStepInterval;
             _pulsePeriod = other._pulsePeriod;
+            _homingSpeed = other._homingSpeed;
         }
     
         [YamlDotNet.Serialization.YamlMemberAttribute(Alias="nominalPulseInterval")]
@@ -1202,6 +1205,19 @@ namespace DataSchema
             }
         }
     
+        [YamlDotNet.Serialization.YamlMemberAttribute(Alias="homingSpeed")]
+        public double HomingSpeed
+        {
+            get
+            {
+                return _homingSpeed;
+            }
+            set
+            {
+                _homingSpeed = value;
+            }
+        }
+    
         public System.IObservable<MotorSettings> Process()
         {
             return System.Reactive.Linq.Observable.Defer(() => System.Reactive.Linq.Observable.Return(new MotorSettings(this)));
@@ -1217,7 +1233,8 @@ namespace DataSchema
             stringBuilder.Append("nominalPulseInterval = " + _nominalPulseInterval + ", ");
             stringBuilder.Append("initialPulseInterval = " + _initialPulseInterval + ", ");
             stringBuilder.Append("pulseStepInterval = " + _pulseStepInterval + ", ");
-            stringBuilder.Append("pulsePeriod = " + _pulsePeriod);
+            stringBuilder.Append("pulsePeriod = " + _pulsePeriod + ", ");
+            stringBuilder.Append("homingSpeed = " + _homingSpeed);
             return true;
         }
     
@@ -1236,7 +1253,7 @@ namespace DataSchema
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.2.0.0 (YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (YamlDotNet v13.0.0.0)")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Source)]
     public partial class CameraSettings
@@ -1385,7 +1402,7 @@ namespace DataSchema
     /// <summary>
     /// Serializes a sequence of data model objects into YAML strings.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.2.0.0 (YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (YamlDotNet v13.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Serializes a sequence of data model objects into YAML strings.")]
     [Bonsai.CombinatorAttribute()]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
@@ -1442,7 +1459,7 @@ namespace DataSchema
     /// <summary>
     /// Deserializes a sequence of YAML strings into data model objects.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.2.0.0 (YamlDotNet v13.0.0.0)")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Bonsai.Sgen", "0.4.0.0 (YamlDotNet v13.0.0.0)")]
     [System.ComponentModel.DescriptionAttribute("Deserializes a sequence of YAML strings into data model objects.")]
     [System.ComponentModel.DefaultPropertyAttribute("Type")]
     [Bonsai.WorkflowElementCategoryAttribute(Bonsai.ElementCategory.Transform)]
