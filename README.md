@@ -94,9 +94,48 @@ The description of each parameter's effect on the Bonsai workflow, along with it
 ### Running an experiment
 To run an experiment, run the Bonsai application from the local environment and open Main.bonsai. Use the property grid to select the desired experiment parameter `.yml` file.
 
+### Gain settings
+The `schema` has a number of gain settings that can be used to flexibly the define the relationship between real-time data sources (ball movement, encoder reading, file playback) and closed-loop outputs like visual field movement or motor movement. These gains are applied hierarchically with some affecting all calculations, and some defined per-block or per-source:
+
+- `runGain` - global gain applied to all calculations
+  - `blockGainModifier` - additional gain specific to a block
+    - Visual: gains that contribute to visual field motion
+      - `flowXToVisualGain` - gain applied to optical sensor X reading
+      - `flowYToVisualGain` - gain applied to optical sensor Y reading
+      - `rotaryToVisualGain` - gain applied to the rotary encoder reading
+      - `playbackToVisualGain` - gain applied to the file playback data source
+    - Motor: gains that contribute to motor motion
+      - `flowXToMotorGain` - gain applied to optical sensor X reading
+      - `flowYToMotorGain` - gain applied to optical sensor Y reading
+      - `playbackToMotorGain` - gain applied to the file playback data source
+  - `haltGain` - set as part of a `haltProtocol`. Applies a gain to all sources during a halt, block-specific.
+
+We use the term 'procession' to describe the movement delta of the visual field or motor in response to an update from a data source (optical flow, playback etc.) on a given trial. Let `h` be a variable that describes whether a halt is currently happening (1 = halt happening, 0 = halt not happening), visual and motor processions are defined as:
+
+```
+visualProcession = (runGain * blockGainModifier) * (flowXToVisualGain*flowX + flowYToVisualGain*flowY + rotaryToVisualGain*encoder + playbackToVisualGain*playback) * (haltGain*h)
+```
+```
+motorProcession = (runGain * blockGainModifier) * (flowXToMotorGain*flowX + flowYToMotorGain*flowY + playbackToVisualGain*playback) * (haltGain*h)
+```
+
+`motorProcession` is converted by the function `ToPulseInterval` to an immediate pulse interval command which is written to the motor. The conversion between this command and the speed of the motor is dependent on the hardware settings for pulse interval --> motor motion on the motor controller.
+The relationship of `visualProcession` to visual field movement is dependent on the current visual stimulus being presented. For example for a gratings stimulus, the value represents the absolute phase angle of the gratings being shown. For a motion clouds stimulus, it represents the (wrapped) index of the motion cloud frame being shown.
+
+### Optical flow sensor smoothing
+
+An average smoothing function is applied to the optical sensor reading. A `schema` parameter `flowSmoothing` is applied per-block which specifies a count of how many samples to smooth over, i.e. the length of the buffer to take an average, smoothed value from.
+
+### Data logging
+Data is logged according to the [Aeon.Acquisition](https://github.com/SainsburyWellcomeCentre/aeon_acquisition) format. Generally, data is grouped according to a folder named with a timestamp representing the start time of an experiment. Within this folder, data is organised by **device**, where a device may be a camera, Harp board, ONIX acquisition etc. For longer experiments, data is 'chunked' by hour such that the full raw data is split across multiple files to ensure no single file grows unmanageably large.
+
+Within each device, data may be stored in a different format according to the device's data output. In general however, there will be a log of the raw data (e.g. camera frames, sensor readings) and a corresponding source of timestamps to allow for relating the data to the Harp clock. For a camera, this will take the form of a video file with the acquired camera frames, as well as a corresponding .csv file with paired Harp timestamps and camera frame indices. For a Harp device, this will take the form of a flat binary file organised by individual register, with the output of that register paired with a Harp timestamp.
+
+As Harp files are saved as flat binary, it is recommended to use the device schema for that Harp device to parse the individual values and read the correct data type.
+
 ### Python environment
 
-The following need to be installed once on a fresh new system in order to analyze data:
+The following need to be installed once on a new system in order to analyze data:
 
  * [Visual Studio Code](https://code.visualstudio.com/) (recommended for editing code scripts and git commits)
  * A Conda distribution such as [Miniconda](https://docs.anaconda.com/free/miniconda/index.html)
