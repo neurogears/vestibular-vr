@@ -94,9 +94,16 @@ The description of each parameter's effect on the Bonsai workflow, along with it
 ### Running an experiment
 To run an experiment, run the Bonsai application from the local environment and open Main.bonsai. Use the property grid to select the desired experiment parameter `.yml` file.
 
+### Data logging
+Data is logged according to the [Aeon.Acquisition](https://github.com/SainsburyWellcomeCentre/aeon_acquisition) format. Generally, data is grouped according to a folder named with a timestamp representing the start time of an experiment. Within this folder, data is organised by **device**, where a device may be a camera, Harp board, ONIX acquisition etc. For longer experiments, data is 'chunked' by hour such that the full raw data is split across multiple files to ensure no single file grows unmanageably large.
+
+Within each device, data may be stored in a different format according to the device's data output. In general however, there will be a log of the raw data (e.g. camera frames, sensor readings) and a corresponding source of timestamps to allow for relating the data to the Harp clock. For a camera, this will take the form of a video file with the acquired camera frames, as well as a corresponding .csv file with paired Harp timestamps and camera frame indices. For a Harp device, this will take the form of a flat binary file organised by individual register, with the output of that register paired with a Harp timestamp.
+
+As Harp files are saved as flat binary, it is recommended to use the device schema for that Harp device to parse the individual values and read the correct data type.
+
 ### Python environment
 
-The following need to be installed once on a fresh new system in order to analyze data:
+The following need to be installed once on a new system in order to analyze data:
 
  * [Visual Studio Code](https://code.visualstudio.com/) (recommended for editing code scripts and git commits)
  * A Conda distribution such as [Miniconda](https://docs.anaconda.com/free/miniconda/index.html)
