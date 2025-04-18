@@ -674,9 +674,7 @@
         <Name>Trial Logic</Name>
         <Workflow>
           <Nodes>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>SessionSettings</Name>
-            </Expression>
+            <Expression xsi:type="Unit" />
             <Expression xsi:type="ExternalizedMapping">
               <Property Name="Filter" DisplayName="StartTrialLogicKey" Category="TrialControl" />
             </Expression>
@@ -685,6 +683,76 @@
                 <wie:Filter>Space Shift</wie:Filter>
                 <wie:SuppressRepetitions>false</wie:SuppressRepetitions>
               </Combinator>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="rx:SubscribeWhen" />
+            </Expression>
+            <Expression xsi:type="rx:CreateObservable">
+              <Name>HomePlatform</Name>
+              <Workflow>
+                <Nodes>
+                  <Expression xsi:type="WorkflowInput">
+                    <Name>Source1</Name>
+                  </Expression>
+                  <Expression xsi:type="Unit" />
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>HomePlatform</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="StringProperty">
+                      <Value>Homing platform</Value>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="MulticastSubject">
+                    <Name>ExperimentEvents</Name>
+                  </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>PlatformHomed</Name>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Timer">
+                      <rx:DueTime>PT0.5S</rx:DueTime>
+                      <rx:Period>PT0S</rx:Period>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:SubscribeWhen" />
+                  </Expression>
+                  <Expression xsi:type="rx:Condition">
+                    <Workflow>
+                      <Nodes>
+                        <Expression xsi:type="WorkflowInput">
+                          <Name>Source1</Name>
+                        </Expression>
+                        <Expression xsi:type="WorkflowOutput" />
+                      </Nodes>
+                      <Edges>
+                        <Edge From="0" To="1" Label="Source1" />
+                      </Edges>
+                    </Workflow>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:Take">
+                      <rx:Count>1</rx:Count>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="WorkflowOutput" />
+                </Nodes>
+                <Edges>
+                  <Edge From="0" To="1" Label="Source1" />
+                  <Edge From="1" To="2" Label="Source1" />
+                  <Edge From="2" To="3" Label="Source1" />
+                  <Edge From="3" To="4" Label="Source1" />
+                  <Edge From="5" To="7" Label="Source1" />
+                  <Edge From="6" To="7" Label="Source2" />
+                  <Edge From="7" To="8" Label="Source1" />
+                  <Edge From="8" To="9" Label="Source1" />
+                  <Edge From="9" To="10" Label="Source1" />
+                </Edges>
+              </Workflow>
+            </Expression>
+            <Expression xsi:type="SubscribeSubject">
+              <Name>SessionSettings</Name>
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="rx:SubscribeWhen" />
@@ -1965,73 +2033,6 @@
                   <Expression xsi:type="SubscribeSubject">
                     <Name>Block</Name>
                   </Expression>
-                  <Expression xsi:type="rx:SelectMany">
-                    <Name>HomePlatform</Name>
-                    <Workflow>
-                      <Nodes>
-                        <Expression xsi:type="WorkflowInput">
-                          <Name>Source1</Name>
-                        </Expression>
-                        <Expression xsi:type="Unit" />
-                        <Expression xsi:type="MulticastSubject">
-                          <Name>HomePlatform</Name>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="StringProperty">
-                            <Value>Homing platform</Value>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="MulticastSubject">
-                          <Name>ExperimentEvents</Name>
-                        </Expression>
-                        <Expression xsi:type="SubscribeSubject">
-                          <Name>PlatformHomed</Name>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:Timer">
-                            <rx:DueTime>PT0.5S</rx:DueTime>
-                            <rx:Period>PT0S</rx:Period>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:SubscribeWhen" />
-                        </Expression>
-                        <Expression xsi:type="rx:Condition">
-                          <Workflow>
-                            <Nodes>
-                              <Expression xsi:type="WorkflowInput">
-                                <Name>Source1</Name>
-                              </Expression>
-                              <Expression xsi:type="WorkflowOutput" />
-                            </Nodes>
-                            <Edges>
-                              <Edge From="0" To="1" Label="Source1" />
-                            </Edges>
-                          </Workflow>
-                        </Expression>
-                        <Expression xsi:type="Combinator">
-                          <Combinator xsi:type="rx:Take">
-                            <rx:Count>1</rx:Count>
-                          </Combinator>
-                        </Expression>
-                        <Expression xsi:type="WorkflowOutput" />
-                      </Nodes>
-                      <Edges>
-                        <Edge From="0" To="1" Label="Source1" />
-                        <Edge From="1" To="2" Label="Source1" />
-                        <Edge From="2" To="3" Label="Source1" />
-                        <Edge From="3" To="4" Label="Source1" />
-                        <Edge From="5" To="7" Label="Source1" />
-                        <Edge From="6" To="7" Label="Source2" />
-                        <Edge From="7" To="8" Label="Source1" />
-                        <Edge From="8" To="9" Label="Source1" />
-                        <Edge From="9" To="10" Label="Source1" />
-                      </Edges>
-                    </Workflow>
-                  </Expression>
-                  <Expression xsi:type="SubscribeSubject">
-                    <Name>Block</Name>
-                  </Expression>
                   <Expression xsi:type="rx:Sink">
                     <Name>StartClosedLoop</Name>
                     <Workflow>
@@ -2863,9 +2864,6 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Repeat" />
                   </Expression>
-                  <Expression xsi:type="Combinator">
-                    <Combinator xsi:type="rx:Concat" />
-                  </Expression>
                 </Nodes>
                 <Edges>
                   <Edge From="0" To="1" Label="Source1" />
@@ -2921,13 +2919,10 @@
                   <Edge From="60" To="61" Label="Source1" />
                   <Edge From="61" To="62" Label="Source1" />
                   <Edge From="63" To="64" Label="Source1" />
-                  <Edge From="64" To="71" Label="Source1" />
+                  <Edge From="64" To="65" Label="Source1" />
                   <Edge From="65" To="66" Label="Source1" />
                   <Edge From="66" To="67" Label="Source1" />
                   <Edge From="67" To="68" Label="Source1" />
-                  <Edge From="68" To="69" Label="Source1" />
-                  <Edge From="69" To="70" Label="Source1" />
-                  <Edge From="70" To="71" Label="Source2" />
                 </Edges>
               </Workflow>
             </Expression>
@@ -2940,10 +2935,14 @@
             <Edge From="0" To="3" Label="Source1" />
             <Edge From="1" To="2" Label="Source1" />
             <Edge From="2" To="3" Label="Source2" />
+            <Edge From="2" To="6" Label="Source2" />
             <Edge From="3" To="4" Label="Source1" />
-            <Edge From="4" To="5" Label="Source1" />
+            <Edge From="4" To="9" Label="Source1" />
             <Edge From="5" To="6" Label="Source1" />
             <Edge From="6" To="7" Label="Source1" />
+            <Edge From="7" To="8" Label="Source1" />
+            <Edge From="8" To="9" Label="Source2" />
+            <Edge From="9" To="10" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -3495,6 +3494,30 @@
                   <Expression xsi:type="MulticastSubject">
                     <Name>PlatformHomed</Name>
                   </Expression>
+                  <Expression xsi:type="SubscribeSubject">
+                    <Name>SessionSettings</Name>
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>MotorSettings.HomingSpeed</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="rx:WithLatestFrom" />
+                  </Expression>
+                  <Expression xsi:type="MemberSelector">
+                    <Selector>Item2</Selector>
+                  </Expression>
+                  <Expression xsi:type="Combinator">
+                    <Combinator xsi:type="p1:ToPulseInterval">
+                      <p1:ZeroThreshold>1E-06</p1:ZeroThreshold>
+                      <p1:MaxValue>0.02</p1:MaxValue>
+                      <p1:MinValue>2.5E-05</p1:MinValue>
+                    </Combinator>
+                  </Expression>
+                  <Expression xsi:type="InputMapping">
+                    <PropertyMappings>
+                      <Property Name="ImmediatePulses" Selector="it" />
+                    </PropertyMappings>
+                  </Expression>
                   <Expression xsi:type="vh2:CreateMessage">
                     <harp:MessageType>Write</harp:MessageType>
                     <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
@@ -3516,8 +3539,14 @@
                   <Edge From="7" To="8" Label="Source1" />
                   <Edge From="9" To="10" Label="Source1" />
                   <Edge From="10" To="11" Label="Source1" />
-                  <Edge From="11" To="12" Label="Source1" />
+                  <Edge From="11" To="14" Label="Source1" />
                   <Edge From="12" To="13" Label="Source1" />
+                  <Edge From="13" To="14" Label="Source2" />
+                  <Edge From="14" To="15" Label="Source1" />
+                  <Edge From="15" To="16" Label="Source1" />
+                  <Edge From="16" To="17" Label="Source1" />
+                  <Edge From="17" To="18" Label="Source1" />
+                  <Edge From="18" To="19" Label="Source1" />
                 </Edges>
               </Workflow>
             </Expression>
