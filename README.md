@@ -122,6 +122,19 @@ motorProcession = (runGain * blockGainModifier) * (flowXToMotorGain*flowX + flow
 `motorProcession` is converted by the function `ToPulseInterval` to an immediate pulse interval command which is written to the motor. The conversion between this command and the speed of the motor is dependent on the hardware settings for pulse interval --> motor motion on the motor controller.
 The relationship of `visualProcession` to visual field movement is dependent on the current visual stimulus being presented. For example for a gratings stimulus, the value represents the absolute phase angle of the gratings being shown. For a motion clouds stimulus, it represents the (wrapped) index of the motion cloud frame being shown.
 
+Gains can be set to modify the contribution of a data source to procession, for example to specify a block where visual motion is only dependent on the X value of the flow sensor we can set:
+
+```
+# metadata
+runGain: 0.0008 # represents final conversion from procession to visual angle
+# block settings
+blockGainModifier: 1 # block modifier does not scale input data sources
+flowXToVisualGain: 1 # we want the X flow value to contribute
+flowYToVisualGain: 0 # we don't want the Y flow value to contribute
+rotaryToVisualGain: 0 # encoder reading should not contribute
+playbackToVisualGain: 0 # playback source should not contribute
+```
+
 ### Optical flow sensor smoothing
 
 An average smoothing function is applied to the optical sensor reading. A `schema` parameter `flowSmoothing` is applied per-block which specifies a count of how many samples to smooth over, i.e. the length of the buffer to take an average, smoothed value from.
@@ -161,3 +174,14 @@ The following need to be installed once on a new system in order to analyze data
  ```
  python -m pip install -e .
  ```
+
+ ### SLEAP
+ Follow the standard instructions for [installing SLEAP](https://sleap.ai/installation.html), [creating a project](https://sleap.ai/tutorials/new-project.html) and [labeling](https://sleap.ai/tutorials/initial-labeling.html). Ensure that you use training videos of the same pixel width and height that you will use for inference later. During training, ensure you select `single animal` as the training pipeline type, and that the image is converted to grayscale.
+
+ After completing training, activate the sleap conda environment (if not already activated) and run:
+
+ ```
+sleap-export -m /model/folder/path
+ ```
+
+ to export the trained model to a format that can be used by Bonsai.
