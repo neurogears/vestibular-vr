@@ -239,6 +239,10 @@
                 "pulsePeriod": {
                     "default": 10,
                     "type": "integer"
+                },
+                "homingSpeed": {
+                    "default": 1000,
+                    "type": "number"
                 }
             }
         },
