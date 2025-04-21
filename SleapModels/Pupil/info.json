@@ -1,0 +1,20 @@
+{
+    "frozen_model_inputs": [
+        "Tensor(\"x:0\", shape=(None, 448, 608, 1), dtype=uint8)"
+    ],
+    "frozen_model_outputs": [
+        "Tensor(\"Identity:0\", shape=(None, 1, 11), dtype=float32)",
+        "Tensor(\"Identity_1:0\", shape=(None, 1, 11, 2), dtype=float32)"
+    ],
+    "model_structured_input_signature": [
+        [],
+        {
+            "input_1": "TensorSpec(shape=(None, 448, 608, 1), dtype=tf.uint8, name='input_1')"
+        }
+    ],
+    "model_structured_outputs_signature": {
+        "instance_peak_vals": "TensorSpec(shape=(None, 1, 11), dtype=tf.float32, name='instance_peak_vals')",
+        "instance_peaks": "TensorSpec(shape=(None, 1, 11, 2), dtype=tf.float32, name='instance_peaks')"
+    },
+    "unragged_outputs": true
+}
