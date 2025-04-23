@@ -40,7 +40,7 @@ blocks: [
       haltTime: 2,
       haltGain: 0
     },
-    totalRuntime: 1,
+    totalRuntime: 300,
     flowYToVisualGain: 0,
     flowYToMotorGain: -5000,
     flowYToRunGain: 1,
@@ -67,7 +67,7 @@ blocks: [
       haltGain: 1,
     },
     haltProbability: 0.4,
-    totalRuntime: 1200,
+    totalRuntime: 1500,
     runThresholdDecay: -0.2,
     flowYToVisualGain: -20,
     flowYToMotorGain: -5000,
