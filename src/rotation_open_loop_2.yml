@@ -4,7 +4,7 @@
 
 metadata:
   animalId: plimbo
-  rootPath: D:/TrialLogicTestData/
+  rootPath: D:/TrialLogicTestData/20250409_Cohort3_rotation/Open_loop_day2
   runGain: 0.0008
 
 motorSettings:
@@ -22,40 +22,10 @@ cameraSettings:
   cameraGain2: 1
 
 blocks: [
- &DrumWithPlaybackCloud
-  {
-    alias: Open_loop_block,
-    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_artificial.csv",
-    stimulus: {
-      type: "cloud",
-      textureName: training_cloud_1,
-      offset1: 0,
-      offset2: 0,
-      extent1: 360,
-      extent2: 0
-    },
-    haltProtocol: {
-      minumumDelay: 0,
-      randomDelay: 0,
-      haltTime: 2,
-      haltGain: 1,
-    },
-    haltProbability: 0.35,
-    totalRuntime: 600,
-    runThresholdDecay: -0.2,
-    flowYToVisualGain: 0,
-    flowYToMotorGain: -5000,
-    flowYToRunGain: 0,
-    playbackToVisualGain: -20,
-    playbackToRunGain: 1,
-    playbackToMotorGain: 0,
-    flowSmoothing: 20,
-    initialVisualMovementDelta: 0
-  },
    &DrumWithPlaybackCloud
   {
     alias: Open_loop_block,
-    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_artificial.csv",
+    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_b6j2717_vmm3.csv",
     stimulus: {
       type: "cloud",
       textureName: training_cloud_1,
@@ -70,8 +40,8 @@ blocks: [
       haltTime: 2,
       haltGain: 1,
     },
-    haltProbability: 0.35,
-    totalRuntime: 600,
+    haltProbability: 0.55,
+    totalRuntime: 1500,
     runThresholdDecay: -0.2,
     flowYToVisualGain: 0,
     flowYToMotorGain: -5000,

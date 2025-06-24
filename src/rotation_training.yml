@@ -4,7 +4,7 @@
 
 metadata:
   animalId: plimbo
-  rootPath: D:/TrialLogicTestData/
+  rootPath: D:/TrialLogicTestData/20250620_Cohort4_rotation/
   gitPath: C:/Users/neurogears/source/repos/vestibular-vr
   runGain: 0.0008
 
@@ -45,6 +45,7 @@ blocks: [
     flowYToVisualGain: 0,
     flowYToMotorGain: -5000,
     flowYToRunGain: 1,
+    runThresholdDecay: -0.2,
     playbackToMotorGain: 0,
     flowSmoothing: 20,
     haltProbability: 0
