@@ -43,9 +43,9 @@ blocks: [
     },
     totalRuntime: 1200,
     flowYToVisualGain: 0,
-    flowYToMotorGain: -5000,
+    flowYToMotorGain: -8000,
     flowYToRunGain: 1,
-    runThresholdDecay: -0.2,
+    runThresholdDecay: -0.1,
     playbackToMotorGain: 0,
     flowSmoothing: 20,
     haltProbability: 0
