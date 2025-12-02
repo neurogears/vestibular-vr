@@ -3904,7 +3904,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam0TriggerFrequencyPayload">
-                <vh1:Cam0TriggerFrequency>90</vh1:Cam0TriggerFrequency>
+                <vh1:Cam0TriggerFrequency>150</vh1:Cam0TriggerFrequency>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -3948,7 +3948,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam1TriggerFrequencyPayload">
-                <vh1:Cam1TriggerFrequency>90</vh1:Cam1TriggerFrequency>
+                <vh1:Cam1TriggerFrequency>150</vh1:Cam1TriggerFrequency>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -4584,6 +4584,18 @@
         <Name>FlowSensor1</Name>
       </Expression>
       <Expression xsi:type="MemberSelector">
+        <Selector>Brightness</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Histogram1D">
+          <dsp:Min>0</dsp:Min>
+          <dsp:Max>140</dsp:Max>
+          <dsp:Bins>100</dsp:Bins>
+          <dsp:Normalize>false</dsp:Normalize>
+          <dsp:Accumulate>false</dsp:Accumulate>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
         <Selector>X</Selector>
       </Expression>
       <Expression xsi:type="MemberSelector">
@@ -4670,18 +4682,20 @@
       <Edge From="30" To="31" Label="Source1" />
       <Edge From="32" To="33" Label="Source1" />
       <Edge From="34" To="35" Label="Source1" />
-      <Edge From="34" To="36" Label="Source1" />
-      <Edge From="35" To="37" Label="Source1" />
-      <Edge From="36" To="37" Label="Source2" />
-      <Edge From="37" To="38" Label="Source1" />
-      <Edge From="38" To="39" Label="Source1" />
+      <Edge From="34" To="37" Label="Source1" />
+      <Edge From="34" To="38" Label="Source1" />
+      <Edge From="35" To="36" Label="Source1" />
+      <Edge From="37" To="39" Label="Source1" />
+      <Edge From="38" To="39" Label="Source2" />
+      <Edge From="39" To="40" Label="Source1" />
       <Edge From="40" To="41" Label="Source1" />
-      <Edge From="41" To="42" Label="Source1" />
-      <Edge From="41" To="43" Label="Source1" />
-      <Edge From="42" To="44" Label="Source1" />
-      <Edge From="43" To="44" Label="Source2" />
-      <Edge From="44" To="45" Label="Source1" />
-      <Edge From="45" To="46" Label="Source1" />
+      <Edge From="42" To="43" Label="Source1" />
+      <Edge From="43" To="44" Label="Source1" />
+      <Edge From="43" To="45" Label="Source1" />
+      <Edge From="44" To="46" Label="Source1" />
+      <Edge From="45" To="46" Label="Source2" />
+      <Edge From="46" To="47" Label="Source1" />
+      <Edge From="47" To="48" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
