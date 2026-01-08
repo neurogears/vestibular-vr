@@ -86,6 +86,21 @@
         <viz:RowStyles />
         <viz:CellSpans />
       </Expression>
+      <Expression xsi:type="SubscribeSubject">
+        <Name>diff_cam1</Name>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="SubscribeSubject">
+        <Name>diff_cam2</Name>
+      </Expression>
+      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="viz:TableLayoutPanelBuilder">
+        <viz:ColumnCount>1</viz:ColumnCount>
+        <viz:RowCount>2</viz:RowCount>
+        <viz:ColumnStyles />
+        <viz:RowStyles />
+        <viz:CellSpans />
+      </Expression>
       <Expression xsi:type="ExternalizedMapping">
         <Property Name="SessionSettingsPath" />
       </Expression>
@@ -98,7 +113,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:LoadSettings">
-                <p1:Path>C:\Users\ONIX\source\nora-dev\vestibular-vr\src\rotation_visual_mismatch_encoder.yml</p1:Path>
+                <p1:Path>C:\Users\ONIX\source\nora-dev\vestibular-vr\src\rotation_visual_mismatch_encoder_cloud.yml</p1:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -570,9 +585,9 @@
                     <LocationY>-33</LocationY>
                     <Layer>0</Layer>
                     <Angle>0</Angle>
-                    <ColorR>1</ColorR>
-                    <ColorG>1</ColorG>
-                    <ColorB>1</ColorB>
+                    <ColorR>0.5</ColorR>
+                    <ColorG>0.5</ColorG>
+                    <ColorB>0.5</ColorB>
                     <ColorA>1</ColorA>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -3889,7 +3904,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam0TriggerFrequencyPayload">
-                <vh1:Cam0TriggerFrequency>60</vh1:Cam0TriggerFrequency>
+                <vh1:Cam0TriggerFrequency>150</vh1:Cam0TriggerFrequency>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -3911,7 +3926,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam0TriggerDurationPayload">
-                <vh1:Cam0TriggerDuration>5000</vh1:Cam0TriggerDuration>
+                <vh1:Cam0TriggerDuration>1000</vh1:Cam0TriggerDuration>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -3933,7 +3948,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam1TriggerFrequencyPayload">
-                <vh1:Cam1TriggerFrequency>60</vh1:Cam1TriggerFrequency>
+                <vh1:Cam1TriggerFrequency>150</vh1:Cam1TriggerFrequency>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -3955,7 +3970,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam1TriggerDurationPayload">
-                <vh1:Cam1TriggerDuration>5000</vh1:Cam1TriggerDuration>
+                <vh1:Cam1TriggerDuration>1000</vh1:Cam1TriggerDuration>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -4037,6 +4052,35 @@
             <Expression xsi:type="rx:PublishSubject">
               <Name>Camera1</Name>
             </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.ChunkData.Timestamp</Selector>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="dsp:Difference">
+                <dsp:Order>1</dsp:Order>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>diff_cam1</Name>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="rx:BufferCount">
+                  <rx:Count>110</rx:Count>
+                  <rx:Skip>1</rx:Skip>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="num:Max" />
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="rx:PublishSubject">
+                <Name>max_cam1</Name>
+              </Builder>
+            </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>H1Events</Name>
             </Expression>
@@ -4055,6 +4099,35 @@
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
               <Name>Camera2</Name>
+            </Expression>
+            <Expression xsi:type="MemberSelector">
+              <Selector>Value.ChunkData.Timestamp</Selector>
+            </Expression>
+            <Expression xsi:type="Combinator">
+              <Combinator xsi:type="dsp:Difference">
+                <dsp:Order>1</dsp:Order>
+              </Combinator>
+            </Expression>
+            <Expression xsi:type="rx:PublishSubject">
+              <Name>diff_cam2</Name>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="rx:BufferCount">
+                  <rx:Count>110</rx:Count>
+                  <rx:Skip>1</rx:Skip>
+                </Combinator>
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="Combinator">
+                <Combinator xsi:type="num:Max" />
+              </Builder>
+            </Expression>
+            <Expression xsi:type="Disable">
+              <Builder xsi:type="rx:PublishSubject">
+                <Name>max_cam2</Name>
+              </Builder>
             </Expression>
           </Nodes>
           <Edges>
@@ -4105,10 +4178,22 @@
             <Edge From="40" To="42" Label="Source1" />
             <Edge From="41" To="42" Label="Source2" />
             <Edge From="42" To="43" Label="Source1" />
+            <Edge From="43" To="44" Label="Source1" />
             <Edge From="44" To="45" Label="Source1" />
-            <Edge From="45" To="47" Label="Source1" />
-            <Edge From="46" To="47" Label="Source2" />
+            <Edge From="45" To="46" Label="Source1" />
+            <Edge From="46" To="47" Label="Source1" />
             <Edge From="47" To="48" Label="Source1" />
+            <Edge From="48" To="49" Label="Source1" />
+            <Edge From="50" To="51" Label="Source1" />
+            <Edge From="51" To="53" Label="Source1" />
+            <Edge From="52" To="53" Label="Source2" />
+            <Edge From="53" To="54" Label="Source1" />
+            <Edge From="54" To="55" Label="Source1" />
+            <Edge From="55" To="56" Label="Source1" />
+            <Edge From="56" To="57" Label="Source1" />
+            <Edge From="57" To="58" Label="Source1" />
+            <Edge From="58" To="59" Label="Source1" />
+            <Edge From="59" To="60" Label="Source1" />
           </Edges>
         </Workflow>
       </Expression>
@@ -4206,7 +4291,7 @@
               <Heartbeats>H1Events</Heartbeats>
               <ClosingDuration xsi:nil="true" />
               <LogName>VideoData1</LogName>
-              <FrameRate>50</FrameRate>
+              <FrameRate>60</FrameRate>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>Camera2</Name>
@@ -4221,7 +4306,7 @@
               <Heartbeats>H1Events</Heartbeats>
               <ClosingDuration xsi:nil="true" />
               <LogName>VideoData2</LogName>
-              <FrameRate>50</FrameRate>
+              <FrameRate>60</FrameRate>
             </Expression>
             <Expression xsi:type="SubscribeSubject">
               <Name>SessionSettings</Name>
@@ -4499,6 +4584,18 @@
         <Name>FlowSensor1</Name>
       </Expression>
       <Expression xsi:type="MemberSelector">
+        <Selector>Brightness</Selector>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="dsp:Histogram1D">
+          <dsp:Min>0</dsp:Min>
+          <dsp:Max>140</dsp:Max>
+          <dsp:Bins>100</dsp:Bins>
+          <dsp:Normalize>false</dsp:Normalize>
+          <dsp:Accumulate>false</dsp:Accumulate>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="MemberSelector">
         <Selector>X</Selector>
       </Expression>
       <Expression xsi:type="MemberSelector">
@@ -4575,24 +4672,30 @@
       <Edge From="12" To="13" Label="Source1" />
       <Edge From="13" To="14" Label="Source4" />
       <Edge From="15" To="16" Label="Source1" />
-      <Edge From="18" To="19" Label="Source1" />
-      <Edge From="21" To="22" Label="Source1" />
+      <Edge From="16" To="19" Label="Source1" />
+      <Edge From="17" To="18" Label="Source1" />
+      <Edge From="18" To="19" Label="Source2" />
+      <Edge From="20" To="21" Label="Source1" />
       <Edge From="23" To="24" Label="Source1" />
-      <Edge From="25" To="26" Label="Source1" />
-      <Edge From="27" To="28" Label="Source1" />
-      <Edge From="29" To="30" Label="Source1" />
-      <Edge From="29" To="31" Label="Source1" />
-      <Edge From="30" To="32" Label="Source1" />
-      <Edge From="31" To="32" Label="Source2" />
+      <Edge From="26" To="27" Label="Source1" />
+      <Edge From="28" To="29" Label="Source1" />
+      <Edge From="30" To="31" Label="Source1" />
       <Edge From="32" To="33" Label="Source1" />
-      <Edge From="33" To="34" Label="Source1" />
+      <Edge From="34" To="35" Label="Source1" />
+      <Edge From="34" To="37" Label="Source1" />
+      <Edge From="34" To="38" Label="Source1" />
       <Edge From="35" To="36" Label="Source1" />
-      <Edge From="36" To="37" Label="Source1" />
-      <Edge From="36" To="38" Label="Source1" />
       <Edge From="37" To="39" Label="Source1" />
       <Edge From="38" To="39" Label="Source2" />
       <Edge From="39" To="40" Label="Source1" />
       <Edge From="40" To="41" Label="Source1" />
+      <Edge From="42" To="43" Label="Source1" />
+      <Edge From="43" To="44" Label="Source1" />
+      <Edge From="43" To="45" Label="Source1" />
+      <Edge From="44" To="46" Label="Source1" />
+      <Edge From="45" To="46" Label="Source2" />
+      <Edge From="46" To="47" Label="Source1" />
+      <Edge From="47" To="48" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>

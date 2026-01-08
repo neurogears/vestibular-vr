@@ -14,10 +14,10 @@ motorSettings:
   pulsePeriod: 10
 
 cameraSettings:
-  cameraFrequency1: 60
-  cameraFrequency2: 60
-  cameraExposure1: 5000
-  cameraExposure2: 5000
+  cameraFrequency1: 150
+  cameraFrequency2: 150
+  cameraExposure1: 1000
+  cameraExposure2: 1000
   cameraGain1: 1
   cameraGain2: 1
 
