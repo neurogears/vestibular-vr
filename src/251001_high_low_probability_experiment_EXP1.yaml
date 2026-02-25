@@ -1,0 +1,340 @@
+%YAML 1.1
+---
+# yaml-language-server: $schema=schema.json
+metadata:
+  animalId: plimbo
+  rootPath: D:/TrialLogicTestData/20250923_Cohort6_rotation
+  runGain: 1
+
+motorSettings:
+  nominalPulseInterval: 200
+  initialPulseInterval: 200
+  pulseStepInterval: 2
+  pulsePeriod: 10
+
+cameraSettings:
+  cameraFrequency1: 60
+  cameraFrequency2: 60
+  cameraExposure1: 5000
+  cameraExposure2: 5000
+  cameraGain1: 20
+  cameraGain2: 20
+
+blocks: [
+  &Baseline
+  {
+    alias: No_unp_block,
+    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv",
+    stimulus: {
+      type: "cloud",
+      textureName: training_cloud_1,
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0,
+      randomDelay: 0,
+      haltTime: 2,
+      haltGain: 0
+    },
+    totalRuntime: 300,
+    flowYToVisualGain: 0,
+    flowYToMotorGain: -6.4,
+    flowYToRunGain: 0.0008,
+    runThresholdDecay: -0.2,
+    playbackToMotorGain: 0,
+    flowSmoothing: 20,
+    haltProbability: 0
+  },
+  &High_unp_block_A
+  {
+    alias: High_unp_block_A,
+    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv",
+    stimulus: {
+      type: "cloud",
+      spatialFrequency: 57.6,
+      textureName: training_cloud_1,
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0,
+      randomDelay: 0,
+      haltTime: 0.5,
+      haltGain: 2
+    },
+    haltProbability: 0.9,
+    totalRuntime: 15,
+    runThresholdDecay: -0.1,
+    flowYToVisualGain: 0,
+    rotaryToVisualGain: 0.61475,
+    flowYToMotorGain: -6.4,
+    flowYToRunGain: 0.0008,
+    playbackToMotorGain: 0,
+    flowSmoothing: 20,
+    initialVisualMovementDelta: 0
+  },
+  &High_unp_block_F
+  {
+    alias: High_unp_block_F,
+    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv",
+    stimulus: {
+      type: "cloud",
+      spatialFrequency: 57.6,
+      textureName: training_cloud_1,
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0,
+      randomDelay: 0,
+      haltTime: 2,
+      haltGain: -1
+    },
+    haltProbability: 0.9,
+    totalRuntime: 15,
+    runThresholdDecay: -0.1,
+    flowYToVisualGain: 0,
+    rotaryToVisualGain: 0.61475,
+    flowYToMotorGain: -6.4,
+    flowYToRunGain: 0.0008,
+    playbackToMotorGain: 0,
+    flowSmoothing: 20,
+    initialVisualMovementDelta: 0
+  },
+  &High_unp_block_B
+  {
+    alias: High_unp_block_B,
+    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv",
+    stimulus: {
+      type: "cloud",
+      spatialFrequency: 57.6,
+      textureName: training_cloud_1,
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0,
+      randomDelay: 0,
+      haltTime: 0.5,
+      haltGain: 1
+    },
+    haltProbability: 0.9,
+    totalRuntime: 15,
+    runThresholdDecay: -0.1,
+    flowYToVisualGain: 0,
+    rotaryToVisualGain: 0.61475,
+    flowYToMotorGain: -6.4,
+    flowYToRunGain: 0.0008,
+    playbackToMotorGain: 0,
+    flowSmoothing: 20,
+    initialVisualMovementDelta: 0
+  },
+  &High_unp_block_D
+  {
+    alias: High_unp_block_D,
+    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv",
+    stimulus: {
+      type: "cloud",
+      spatialFrequency: 57.6,
+      textureName: training_cloud_1,
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0,
+      randomDelay: 0,
+      haltTime: 2,
+      haltGain: 2
+    },
+    haltProbability: 0.9,
+    totalRuntime: 15,
+    runThresholdDecay: -0.1,
+    flowYToVisualGain: 0,
+    rotaryToVisualGain: 0.61475,
+    flowYToMotorGain: -6.4,
+    flowYToRunGain: 0.0008,
+    playbackToMotorGain: 0,
+    flowSmoothing: 20,
+    initialVisualMovementDelta: 0
+  },
+  &High_unp_block_C
+  {
+    alias: High_unp_block_C,
+    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv",
+    stimulus: {
+      type: "cloud",
+      spatialFrequency: 57.6,
+      textureName: training_cloud_1,
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0,
+      randomDelay: 0,
+      haltTime: 0.5,
+      haltGain: -1
+    },
+    haltProbability: 0.9,
+    totalRuntime: 15,
+    runThresholdDecay: -0.1,
+    flowYToVisualGain: 0,
+    rotaryToVisualGain: 0.61475,
+    flowYToMotorGain: -6.4,
+    flowYToRunGain: 0.0008,
+    playbackToMotorGain: 0,
+    flowSmoothing: 20,
+    initialVisualMovementDelta: 0
+  },
+  &High_unp_block_E
+  {
+    alias: High_unp_block_E,
+    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv",
+    stimulus: {
+      type: "cloud",
+      spatialFrequency: 57.6,
+      textureName: training_cloud_1,
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0,
+      randomDelay: 0,
+      haltTime: 2,
+      haltGain: 1
+    },
+    haltProbability: 0.9,
+    totalRuntime: 15,
+    runThresholdDecay: -0.1,
+    flowYToVisualGain: 0,
+    rotaryToVisualGain: 0.61475,
+    flowYToMotorGain: -6.4,
+    flowYToRunGain: 0.0008,
+    playbackToMotorGain: 0,
+    flowSmoothing: 20,
+    initialVisualMovementDelta: 0
+  },
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  {<<: *High_unp_block_A},
+  {<<: *High_unp_block_F},
+  {<<: *High_unp_block_B},
+  {<<: *High_unp_block_D},
+  {<<: *High_unp_block_C},
+  {<<: *High_unp_block_E},
+  &Low_unp_block
+  {
+    alias: Low_unp_block,
+    playbackFilePath: "C:/Users/ONIX/Desktop/playback_file_b3m3_4.csv",
+    stimulus: {
+      type: "cloud",
+      spatialFrequency: 57.6,
+      textureName: training_cloud_1,
+      offset1: 0,
+      offset2: 0,
+      extent1: 360,
+      extent2: 0
+    },
+    haltProtocol: {
+      minumumDelay: 0,
+      randomDelay: 0,
+      haltTime: 2,
+      haltGain: 1
+    },
+    haltProbability: 0.4,
+    totalRuntime: 600,
+    runThresholdDecay: -0.2,
+    flowYToVisualGain: 0,
+    rotaryToVisualGain: 0.61475,
+    flowYToMotorGain: -6.4,
+    flowYToRunGain: 0.0008,
+    playbackToMotorGain: 0,
+    flowSmoothing: 20,
+    initialVisualMovementDelta: 0
+  }
+]
+
