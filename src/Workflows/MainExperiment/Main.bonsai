@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.8.5"
+<WorkflowBuilder Version="2.9.0"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
-                 xmlns:viz="clr-namespace:Bonsai.Design.Visualizers;assembly=Bonsai.Design.Visualizers"
+                 xmlns:gui="clr-namespace:Bonsai.Gui;assembly=Bonsai.Gui"
                  xmlns:p1="clr-namespace:;assembly=Extensions"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
@@ -79,12 +79,14 @@
         </Workflow>
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
-      <Expression xsi:type="viz:TableLayoutPanelBuilder">
-        <viz:ColumnCount>4</viz:ColumnCount>
-        <viz:RowCount>1</viz:RowCount>
-        <viz:ColumnStyles />
-        <viz:RowStyles />
-        <viz:CellSpans />
+      <Expression xsi:type="gui:TableLayoutPanelBuilder">
+        <gui:Enabled>true</gui:Enabled>
+        <gui:Visible>true</gui:Visible>
+        <gui:ColumnCount>4</gui:ColumnCount>
+        <gui:RowCount>1</gui:RowCount>
+        <gui:ColumnStyles />
+        <gui:RowStyles />
+        <gui:CellSpans />
       </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>diff_cam1</Name>
@@ -94,12 +96,14 @@
         <Name>diff_cam2</Name>
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
-      <Expression xsi:type="viz:TableLayoutPanelBuilder">
-        <viz:ColumnCount>1</viz:ColumnCount>
-        <viz:RowCount>2</viz:RowCount>
-        <viz:ColumnStyles />
-        <viz:RowStyles />
-        <viz:CellSpans />
+      <Expression xsi:type="gui:TableLayoutPanelBuilder">
+        <gui:Enabled>true</gui:Enabled>
+        <gui:Visible>true</gui:Visible>
+        <gui:ColumnCount>1</gui:ColumnCount>
+        <gui:RowCount>2</gui:RowCount>
+        <gui:ColumnStyles />
+        <gui:RowStyles />
+        <gui:CellSpans />
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
         <Property Name="SessionSettingsPath" />
@@ -696,7 +700,6 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Timer">
                       <rx:DueTime>PT0.5S</rx:DueTime>
-                      <rx:Period>PT0S</rx:Period>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -3088,7 +3091,6 @@
                 <onix1:Heartbeat>
                   <onix1:DeviceName>BreakoutBoard/Heartbeat</onix1:DeviceName>
                   <onix1:DeviceAddress>0</onix1:DeviceAddress>
-                  <onix1:Enable>true</onix1:Enable>
                   <onix1:BeatsPerSecond>10</onix1:BeatsPerSecond>
                 </onix1:Heartbeat>
                 <onix1:AnalogIO>
@@ -3124,6 +3126,8 @@
                   <onix1:DeviceName>BreakoutBoard/DigitalIO</onix1:DeviceName>
                   <onix1:DeviceAddress>7</onix1:DeviceAddress>
                   <onix1:Enable>true</onix1:Enable>
+                  <onix1:DeadTime>0</onix1:DeadTime>
+                  <onix1:SampleRate xsi:nil="true" />
                 </onix1:DigitalIO>
                 <onix1:ClockOutput>
                   <onix1:DeviceName>BreakoutBoard/OutputClock</onix1:DeviceName>
