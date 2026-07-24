@@ -1,14 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <WorkflowBuilder Version="2.9.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:p1="clr-namespace:OpenEphys.Sockets.Bonsai;assembly=OpenEphys.Sockets.Bonsai"
                  xmlns:onix1="clr-namespace:OpenEphys.Onix1;assembly=OpenEphys.Onix1"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:io="clr-namespace:Bonsai.IO;assembly=Bonsai.System"
                  xmlns:dsp="clr-namespace:Bonsai.Dsp;assembly=Bonsai.Dsp"
-                 xmlns:p1="clr-namespace:OpenEphys.Sockets.Bonsai;assembly=OpenEphys.Sockets.Bonsai"
+                 xmlns:p2="clr-namespace:Bonsai.Ephys.Design;assembly=Bonsai.Ephys.Design"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:TcpServer">
+          <p1:Name>SpikeServer</p1:Name>
+          <p1:Port>9001</p1:Port>
+          <p1:Address>localhost</p1:Address>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:TcpServer">
+          <p1:Name>lfp server</p1:Name>
+          <p1:Port>9002</p1:Port>
+          <p1:Address>localhost</p1:Address>
+        </Combinator>
+      </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="onix1:CreateContext">
           <onix1:Driver>riffa</onix1:Driver>
@@ -91,10 +106,11 @@
             <onix1:ProbeConfiguration>
               <onix1:SpikeAmplifierGain>Gain1000</onix1:SpikeAmplifierGain>
               <onix1:LfpAmplifierGain>Gain50</onix1:LfpAmplifierGain>
-              <onix1:Reference>Tip</onix1:Reference>
+              <onix1:Reference>External</onix1:Reference>
               <onix1:SpikeFilter>true</onix1:SpikeFilter>
               <onix1:GainCalibrationFileName>C:\Users\ONIX\Desktop\19454412662\19454412662_gainCalValues.csv</onix1:GainCalibrationFileName>
               <onix1:AdcCalibrationFileName>C:\Users\ONIX\Desktop\19454412662\19454412662_ADCCalibration.csv</onix1:AdcCalibrationFileName>
+              <onix1:ProbeInterfaceFileName>C:\Users\ONIX\Desktop\19454412662\pi_configuration.json</onix1:ProbeInterfaceFileName>
               <onix1:InvertPolarity>false</onix1:InvertPolarity>
             </onix1:ProbeConfiguration>
           </onix1:NeuropixelsV1>
@@ -172,12 +188,10 @@
       <Expression xsi:type="MemberSelector">
         <Selector>SpikeData</Selector>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="p1:SendMatOverSocket">
-            <p1:Connection>SpikeServer</p1:Connection>
-          </Combinator>
-        </Builder>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:SendMatOverSocket">
+          <p1:Connection>SpikeServer</p1:Connection>
+        </Combinator>
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="Combinator">
@@ -189,15 +203,24 @@
           </Combinator>
         </Builder>
       </Expression>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="p2:WaveformVisualizerBuilder">
+          <p2:SampleRate>30000</p2:SampleRate>
+          <p2:MaxSamplesPerChannel>1920</p2:MaxSamplesPerChannel>
+          <p2:ChannelHeight xsi:nil="true" />
+          <p2:Timebase xsi:nil="true" />
+          <p2:ColorGrouping xsi:nil="true" />
+          <p2:RangeAmplitude xsi:nil="true" />
+          <p2:RangeOffset xsi:nil="true" />
+        </Builder>
+      </Expression>
       <Expression xsi:type="MemberSelector">
         <Selector>LfpData</Selector>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="p1:SendMatOverSocket">
-            <p1:Connection>SpikeServer</p1:Connection>
-          </Combinator>
-        </Builder>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="p1:SendMatOverSocket">
+          <p1:Connection>lfp server</p1:Connection>
+        </Combinator>
       </Expression>
       <Expression xsi:type="Disable">
         <Builder xsi:type="Combinator">
@@ -209,19 +232,14 @@
           </Combinator>
         </Builder>
       </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="p1:SendMatOverSocket">
-            <p1:Connection>LfpServer</p1:Connection>
-          </Combinator>
-        </Builder>
-      </Expression>
-      <Expression xsi:type="Disable">
-        <Builder xsi:type="Combinator">
-          <Combinator xsi:type="p1:SendMatOverSocket">
-            <p1:Connection>LfpServer</p1:Connection>
-          </Combinator>
-        </Builder>
+      <Expression xsi:type="p2:WaveformVisualizerBuilder">
+        <p2:SampleRate>30000</p2:SampleRate>
+        <p2:MaxSamplesPerChannel>1920</p2:MaxSamplesPerChannel>
+        <p2:ChannelHeight xsi:nil="true" />
+        <p2:Timebase xsi:nil="true" />
+        <p2:ColorGrouping xsi:nil="true" />
+        <p2:RangeAmplitude xsi:nil="true" />
+        <p2:RangeOffset xsi:nil="true" />
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="onix1:PolledBno055Data">
@@ -261,25 +279,27 @@
       </Expression>
     </Nodes>
     <Edges>
-      <Edge From="0" To="1" Label="Source1" />
-      <Edge From="1" To="2" Label="Source1" />
       <Edge From="2" To="3" Label="Source1" />
-      <Edge From="2" To="4" Label="Source1" />
+      <Edge From="3" To="4" Label="Source1" />
       <Edge From="4" To="5" Label="Source1" />
+      <Edge From="4" To="6" Label="Source1" />
       <Edge From="6" To="7" Label="Source1" />
-      <Edge From="7" To="8" Label="Source1" />
+      <Edge From="8" To="9" Label="Source1" />
       <Edge From="9" To="10" Label="Source1" />
-      <Edge From="9" To="12" Label="Source1" />
-      <Edge From="9" To="15" Label="Source1" />
-      <Edge From="10" To="11" Label="Source1" />
+      <Edge From="11" To="12" Label="Source1" />
+      <Edge From="11" To="14" Label="Source1" />
+      <Edge From="11" To="18" Label="Source1" />
       <Edge From="12" To="13" Label="Source1" />
-      <Edge From="13" To="14" Label="Source1" />
+      <Edge From="14" To="15" Label="Source1" />
       <Edge From="15" To="16" Label="Source1" />
       <Edge From="16" To="17" Label="Source1" />
+      <Edge From="18" To="19" Label="Source1" />
+      <Edge From="19" To="20" Label="Source1" />
       <Edge From="20" To="21" Label="Source1" />
-      <Edge From="21" To="22" Label="Source1" />
       <Edge From="22" To="23" Label="Source1" />
+      <Edge From="23" To="24" Label="Source1" />
       <Edge From="24" To="25" Label="Source1" />
+      <Edge From="26" To="27" Label="Source1" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
