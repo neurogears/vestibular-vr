@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.9.0"
+<WorkflowBuilder Version="2.9.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:ui="clr-namespace:Bonsai.Design;assembly=Bonsai.Design"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
@@ -21,7 +21,6 @@
                  xmlns:onix1="clr-namespace:OpenEphys.Onix1;assembly=OpenEphys.Onix1"
                  xmlns:p4="clr-namespace:System.Reactive;assembly=System.Reactive.Core"
                  xmlns:aeon="clr-namespace:Aeon.Acquisition;assembly=Aeon.Acquisition"
-                 xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -806,7 +805,7 @@
                         </Expression>
                         <Expression xsi:type="Equal">
                           <Operand xsi:type="WorkflowProperty" TypeArguments="p3:StimulusProtocolType">
-                            <Value>Cloud</Value>
+                            <Value />
                           </Operand>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
@@ -948,7 +947,7 @@
                         </Expression>
                         <Expression xsi:type="Equal">
                           <Operand xsi:type="WorkflowProperty" TypeArguments="p3:StimulusProtocolType">
-                            <Value>Grating</Value>
+                            <Value />
                           </Operand>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
@@ -1135,7 +1134,7 @@
                         </Expression>
                         <Expression xsi:type="Equal">
                           <Operand xsi:type="WorkflowProperty" TypeArguments="p3:StimulusProtocolType">
-                            <Value>Cloud</Value>
+                            <Value />
                           </Operand>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
@@ -4051,9 +4050,9 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="aeon:SpinnakerCapture">
-                <spk:Index xsi:nil="true" />
-                <spk:SerialNumber>21205223</spk:SerialNumber>
-                <spk:ColorProcessing>Default</spk:ColorProcessing>
+                <Index xsi:nil="true" xmlns="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker" />
+                <SerialNumber xmlns="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker">21205223</SerialNumber>
+                <ColorProcessing xmlns="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker">Default</ColorProcessing>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
@@ -4099,9 +4098,9 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="aeon:SpinnakerCapture">
-                <spk:Index xsi:nil="true" />
-                <spk:SerialNumber>22085343</spk:SerialNumber>
-                <spk:ColorProcessing>Default</spk:ColorProcessing>
+                <Index xsi:nil="true" xmlns="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker" />
+                <SerialNumber xmlns="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker">22085343</SerialNumber>
+                <ColorProcessing xmlns="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker">Default</ColorProcessing>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
