@@ -40,7 +40,7 @@ blocks: [
       haltTime: 2,
       haltGain: 0
     },
-    totalRuntime: 300,
+    totalRuntime: 1,
     runThresholdDecay: -0.2,
     flowYToVisualGain: 0,
     flowYToMotorGain: -4,

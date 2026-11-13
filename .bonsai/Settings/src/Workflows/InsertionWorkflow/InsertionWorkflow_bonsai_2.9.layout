@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VisualizerLayout Version="2.9.1">
+  <WindowSettings Index="0">
+    <NestedLayout>
+      <WindowSettings Index="5">
+        <Location>
+          <X>548</X>
+          <Y>1852</Y>
+        </Location>
+        <Size>
+          <Width>307</Width>
+          <Height>762</Height>
+        </Size>
+        <VisualizerTypeName>NewScale.NstDeviceVisualizer</VisualizerTypeName>
+        <VisualizerSettings>
+          <NstDeviceVisualizer />
+        </VisualizerSettings>
+      </WindowSettings>
+    </NestedLayout>
+  </WindowSettings>
+</VisualizerLayout>

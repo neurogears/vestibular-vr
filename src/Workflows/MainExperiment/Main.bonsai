@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.8.5"
+<WorkflowBuilder Version="2.9.1"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:ui="clr-namespace:Bonsai.Design;assembly=Bonsai.Design"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
-                 xmlns:viz="clr-namespace:Bonsai.Design.Visualizers;assembly=Bonsai.Design.Visualizers"
+                 xmlns:gui="clr-namespace:Bonsai.Gui;assembly=Bonsai.Gui"
                  xmlns:p1="clr-namespace:;assembly=Extensions"
                  xmlns:gl="clr-namespace:Bonsai.Shaders;assembly=Bonsai.Shaders"
                  xmlns:res="clr-namespace:Bonsai.Resources;assembly=Bonsai.System"
@@ -20,14 +21,15 @@
                  xmlns:onix1="clr-namespace:OpenEphys.Onix1;assembly=OpenEphys.Onix1"
                  xmlns:p4="clr-namespace:System.Reactive;assembly=System.Reactive.Core"
                  xmlns:aeon="clr-namespace:Aeon.Acquisition;assembly=Aeon.Acquisition"
-                 xmlns:spk="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
       <Expression xsi:type="SubscribeSubject">
         <Name>ExperimentEvents</Name>
       </Expression>
-      <Expression xsi:type="VisualizerMapping" />
+      <Expression xsi:type="VisualizerMapping">
+        <VisualizerType xsi:type="TypeMapping" TypeArguments="ui:ObjectTextVisualizer" />
+      </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>Camera1</Name>
       </Expression>
@@ -79,12 +81,14 @@
         </Workflow>
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
-      <Expression xsi:type="viz:TableLayoutPanelBuilder">
-        <viz:ColumnCount>4</viz:ColumnCount>
-        <viz:RowCount>1</viz:RowCount>
-        <viz:ColumnStyles />
-        <viz:RowStyles />
-        <viz:CellSpans />
+      <Expression xsi:type="gui:TableLayoutPanelBuilder">
+        <gui:Enabled>true</gui:Enabled>
+        <gui:Visible>true</gui:Visible>
+        <gui:ColumnCount>4</gui:ColumnCount>
+        <gui:RowCount>1</gui:RowCount>
+        <gui:ColumnStyles />
+        <gui:RowStyles />
+        <gui:CellSpans />
       </Expression>
       <Expression xsi:type="SubscribeSubject">
         <Name>diff_cam1</Name>
@@ -94,12 +98,14 @@
         <Name>diff_cam2</Name>
       </Expression>
       <Expression xsi:type="VisualizerMapping" />
-      <Expression xsi:type="viz:TableLayoutPanelBuilder">
-        <viz:ColumnCount>1</viz:ColumnCount>
-        <viz:RowCount>2</viz:RowCount>
-        <viz:ColumnStyles />
-        <viz:RowStyles />
-        <viz:CellSpans />
+      <Expression xsi:type="gui:TableLayoutPanelBuilder">
+        <gui:Enabled>true</gui:Enabled>
+        <gui:Visible>true</gui:Visible>
+        <gui:ColumnCount>1</gui:ColumnCount>
+        <gui:RowCount>2</gui:RowCount>
+        <gui:ColumnStyles />
+        <gui:RowStyles />
+        <gui:CellSpans />
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
         <Property Name="SessionSettingsPath" />
@@ -113,7 +119,7 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:LoadSettings">
-                <p1:Path>C:\Users\ONIX\source\nora-dev\vestibular-vr\src\rotation_visual_mismatch_encoder_cloud.yml</p1:Path>
+                <p1:Path>C:\Users\ONIX\source\nora-dev\vestibular-vr\src\rotation_visual_mismatch.yml</p1:Path>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -585,9 +591,9 @@
                     <LocationY>-33</LocationY>
                     <Layer>0</Layer>
                     <Angle>0</Angle>
-                    <ColorR>0.5</ColorR>
-                    <ColorG>0.5</ColorG>
-                    <ColorB>0.5</ColorB>
+                    <ColorR>0</ColorR>
+                    <ColorG>0</ColorG>
+                    <ColorB>0</ColorB>
                     <ColorA>1</ColorA>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -696,7 +702,6 @@
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Timer">
                       <rx:DueTime>PT0.5S</rx:DueTime>
-                      <rx:Period>PT0S</rx:Period>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -800,7 +805,7 @@
                         </Expression>
                         <Expression xsi:type="Equal">
                           <Operand xsi:type="WorkflowProperty" TypeArguments="p3:StimulusProtocolType">
-                            <Value>Cloud</Value>
+                            <Value />
                           </Operand>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
@@ -942,7 +947,7 @@
                         </Expression>
                         <Expression xsi:type="Equal">
                           <Operand xsi:type="WorkflowProperty" TypeArguments="p3:StimulusProtocolType">
-                            <Value>Grating</Value>
+                            <Value />
                           </Operand>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
@@ -1008,9 +1013,9 @@
                           <Layer>0</Layer>
                           <ExtentX>360</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <SpatialFrequency>57.6</SpatialFrequency>
+                          <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>-9762.341</Phase>
+                          <Phase>1246015.25</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -1066,9 +1071,9 @@
                           <Layer>0</Layer>
                           <ExtentX>0</ExtentX>
                           <ExtentY>60</ExtentY>
-                          <SpatialFrequency>57.6</SpatialFrequency>
+                          <SpatialFrequency>0.1</SpatialFrequency>
                           <TemporalFrequency>0</TemporalFrequency>
-                          <Phase>20075.582</Phase>
+                          <Phase>-1235702</Phase>
                           <Angle>0</Angle>
                           <SquareWave>false</SquareWave>
                           <Contrast>2</Contrast>
@@ -1129,7 +1134,7 @@
                         </Expression>
                         <Expression xsi:type="Equal">
                           <Operand xsi:type="WorkflowProperty" TypeArguments="p3:StimulusProtocolType">
-                            <Value>Cloud</Value>
+                            <Value />
                           </Operand>
                         </Expression>
                         <Expression xsi:type="WorkflowOutput" />
@@ -1232,7 +1237,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>training_cloud_1</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>854</gl:Index>
+                            <gl:Index>243</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1306,7 +1311,7 @@
                             <gl:ShaderName>Image</gl:ShaderName>
                             <gl:TextureName>training_cloud_1</gl:TextureName>
                             <gl:TextureTarget>Texture2D</gl:TextureTarget>
-                            <gl:Index>170</gl:Index>
+                            <gl:Index>781</gl:Index>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="SubscribeSubject">
@@ -1450,7 +1455,7 @@
                         <Expression xsi:type="vh2:CreateMessage">
                           <harp:MessageType>Write</harp:MessageType>
                           <harp:Payload xsi:type="vh2:CreateImmediatePulsesPayload">
-                            <vh2:ImmediatePulses>-4985</vh2:ImmediatePulses>
+                            <vh2:ImmediatePulses>351</vh2:ImmediatePulses>
                           </harp:Payload>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
@@ -1584,7 +1589,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="FloatProperty">
-                            <Value>1</Value>
+                            <Value>0.0008</Value>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -1765,7 +1770,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="FloatProperty">
-                            <Value>1</Value>
+                            <Value>0.0008</Value>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -2065,7 +2070,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="FloatProperty">
-                            <Value>1</Value>
+                            <Value>0</Value>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="MulticastSubject">
@@ -2345,7 +2350,7 @@
                               </Expression>
                               <Expression xsi:type="LessThan">
                                 <Operand xsi:type="DoubleProperty">
-                                  <Value>0</Value>
+                                  <Value>0.5</Value>
                                 </Operand>
                               </Expression>
                               <Expression xsi:type="WorkflowOutput" />
@@ -2422,7 +2427,7 @@
                               </Expression>
                               <Expression xsi:type="Combinator">
                                 <Combinator xsi:type="gl:Timer">
-                                  <gl:DueTime>PT0.326S</gl:DueTime>
+                                  <gl:DueTime>PT0S</gl:DueTime>
                                 </Combinator>
                               </Expression>
                               <Expression xsi:type="Combinator">
@@ -3088,8 +3093,7 @@
                 <onix1:Heartbeat>
                   <onix1:DeviceName>BreakoutBoard/Heartbeat</onix1:DeviceName>
                   <onix1:DeviceAddress>0</onix1:DeviceAddress>
-                  <onix1:Enable>true</onix1:Enable>
-                  <onix1:BeatsPerSecond>10</onix1:BeatsPerSecond>
+                  <onix1:BeatsPerSecond>1000</onix1:BeatsPerSecond>
                 </onix1:Heartbeat>
                 <onix1:AnalogIO>
                   <onix1:DeviceName>BreakoutBoard/AnalogIO</onix1:DeviceName>
@@ -3124,6 +3128,8 @@
                   <onix1:DeviceName>BreakoutBoard/DigitalIO</onix1:DeviceName>
                   <onix1:DeviceAddress>7</onix1:DeviceAddress>
                   <onix1:Enable>true</onix1:Enable>
+                  <onix1:DeadTime>0</onix1:DeadTime>
+                  <onix1:SampleRate xsi:nil="true" />
                 </onix1:DigitalIO>
                 <onix1:ClockOutput>
                   <onix1:DeviceName>BreakoutBoard/OutputClock</onix1:DeviceName>
@@ -3904,7 +3910,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam0TriggerFrequencyPayload">
-                <vh1:Cam0TriggerFrequency>150</vh1:Cam0TriggerFrequency>
+                <vh1:Cam0TriggerFrequency>60</vh1:Cam0TriggerFrequency>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -3926,7 +3932,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam0TriggerDurationPayload">
-                <vh1:Cam0TriggerDuration>1000</vh1:Cam0TriggerDuration>
+                <vh1:Cam0TriggerDuration>5000</vh1:Cam0TriggerDuration>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -3948,7 +3954,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam1TriggerFrequencyPayload">
-                <vh1:Cam1TriggerFrequency>150</vh1:Cam1TriggerFrequency>
+                <vh1:Cam1TriggerFrequency>60</vh1:Cam1TriggerFrequency>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -3970,7 +3976,7 @@
             <Expression xsi:type="vh1:CreateMessage">
               <harp:MessageType>Write</harp:MessageType>
               <harp:Payload xsi:type="vh1:CreateCam1TriggerDurationPayload">
-                <vh1:Cam1TriggerDuration>1000</vh1:Cam1TriggerDuration>
+                <vh1:Cam1TriggerDuration>5000</vh1:Cam1TriggerDuration>
               </harp:Payload>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -4044,9 +4050,9 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="aeon:SpinnakerCapture">
-                <spk:Index xsi:nil="true" />
-                <spk:SerialNumber>21205223</spk:SerialNumber>
-                <spk:ColorProcessing>Default</spk:ColorProcessing>
+                <Index xsi:nil="true" xmlns="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker" />
+                <SerialNumber xmlns="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker">21205223</SerialNumber>
+                <ColorProcessing xmlns="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker">Default</ColorProcessing>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
@@ -4092,9 +4098,9 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="aeon:SpinnakerCapture">
-                <spk:Index xsi:nil="true" />
-                <spk:SerialNumber>22085343</spk:SerialNumber>
-                <spk:ColorProcessing>Default</spk:ColorProcessing>
+                <Index xsi:nil="true" xmlns="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker" />
+                <SerialNumber xmlns="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker">22085343</SerialNumber>
+                <ColorProcessing xmlns="clr-namespace:Bonsai.Spinnaker;assembly=Bonsai.Spinnaker">Default</ColorProcessing>
               </Combinator>
             </Expression>
             <Expression xsi:type="rx:PublishSubject">
