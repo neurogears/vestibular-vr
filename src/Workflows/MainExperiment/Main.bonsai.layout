@@ -185,12 +185,12 @@
   <DialogSettings>
     <Visible>true</Visible>
     <Location>
-      <X>368</X>
-      <Y>600</Y>
+      <X>163</X>
+      <Y>782</Y>
     </Location>
     <Size>
-      <Width>811</Width>
-      <Height>279</Height>
+      <Width>983</Width>
+      <Height>286</Height>
     </Size>
     <WindowState>Normal</WindowState>
     <VisualizerTypeName>Bonsai.Design.Visualizers.TableLayoutPanelVisualizer</VisualizerTypeName>
@@ -224,7 +224,7 @@
             <TimeSeriesVisualizer>
               <Capacity>640</Capacity>
               <Min>0</Min>
-              <Max>3.5</Max>
+              <Max>5</Max>
               <AutoScale>true</AutoScale>
             </TimeSeriesVisualizer>
           </VisualizerSettings>
@@ -313,7 +313,7 @@
             <TimeSeriesVisualizer>
               <Capacity>640</Capacity>
               <Min>9986000</Min>
-              <Max>10004000</Max>
+              <Max>10002000</Max>
               <AutoScale>true</AutoScale>
             </TimeSeriesVisualizer>
           </VisualizerSettings>
@@ -1319,8 +1319,8 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>778</Width>
-        <Height>637</Height>
+        <Width>1003</Width>
+        <Height>1023</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -1338,7 +1338,7 @@
         <WindowState>Normal</WindowState>
       </DialogSettings>
       <DialogSettings>
-        <Visible>false</Visible>
+        <Visible>true</Visible>
         <Location>
           <X>895</X>
           <Y>202</Y>
@@ -1348,6 +1348,10 @@
           <Height>407</Height>
         </Size>
         <WindowState>Normal</WindowState>
+        <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+        <VisualizerSettings>
+          <ObjectTextVisualizer />
+        </VisualizerSettings>
       </DialogSettings>
       <DialogSettings>
         <Visible>false</Visible>
@@ -1995,8 +1999,8 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>778</Width>
-        <Height>637</Height>
+        <Width>1003</Width>
+        <Height>1023</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -2014,16 +2018,20 @@
         <WindowState>Normal</WindowState>
       </DialogSettings>
       <DialogSettings>
-        <Visible>false</Visible>
+        <Visible>true</Visible>
         <Location>
-          <X>1218</X>
-          <Y>193</Y>
+          <X>1216</X>
+          <Y>201</Y>
         </Location>
         <Size>
           <Width>336</Width>
-          <Height>414</Height>
+          <Height>408</Height>
         </Size>
         <WindowState>Normal</WindowState>
+        <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+        <VisualizerSettings>
+          <ObjectTextVisualizer />
+        </VisualizerSettings>
       </DialogSettings>
       <DialogSettings>
         <Visible>false</Visible>
@@ -3523,8 +3531,8 @@
         <Y>3</Y>
       </Location>
       <Size>
-        <Width>778</Width>
-        <Height>637</Height>
+        <Width>1003</Width>
+        <Height>1023</Height>
       </Size>
       <WindowState>Normal</WindowState>
     </EditorDialogSettings>
@@ -4482,7 +4490,7 @@
     <VisualizerSettings>
       <TimeSeriesVisualizer>
         <Capacity>640</Capacity>
-        <Min>30</Min>
+        <Min>20</Min>
         <Max>100</Max>
         <AutoScale>true</AutoScale>
       </TimeSeriesVisualizer>
@@ -4515,8 +4523,8 @@
     <VisualizerSettings>
       <TimeSeriesVisualizer>
         <Capacity>640</Capacity>
-        <Min>-40</Min>
-        <Max>40</Max>
+        <Min>-200</Min>
+        <Max>300</Max>
         <AutoScale>true</AutoScale>
       </TimeSeriesVisualizer>
     </VisualizerSettings>
@@ -4536,8 +4544,8 @@
     <VisualizerSettings>
       <TimeSeriesVisualizer>
         <Capacity>640</Capacity>
-        <Min>0</Min>
-        <Max>6</Max>
+        <Min>-800</Min>
+        <Max>800</Max>
         <AutoScale>true</AutoScale>
       </TimeSeriesVisualizer>
     </VisualizerSettings>
