@@ -15,8 +15,8 @@ motorSettings:
   pulsePeriod: 10
 
 cameraSettings:
-  cameraFrequency1: 60
-  cameraFrequency2: 60
+  cameraFrequency1: 100
+  cameraFrequency2: 100
   cameraExposure1: 5000
   cameraExposure2: 5000
   cameraGain1: 1
@@ -41,7 +41,7 @@ blocks: [
       haltTime: 2,
       haltGain: 0
     },
-    totalRuntime: 1200,
+    totalRuntime: 900,
     flowYToVisualGain: 0,
     flowYToMotorGain: -8000,
     flowYToRunGain: 1,
